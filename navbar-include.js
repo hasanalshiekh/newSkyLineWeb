@@ -1145,15 +1145,15 @@ function getNavbarHTML() {
                 <ul class="nav-menu">
                     <li><a href="index.html" class="home-link">Home</a></li>
                     <li class="dropdown">
-                        <a href="about.html" class="dropdown-toggle">About <i class="fas fa-chevron-down"></i></a>
+                        <a href="abouts.html" class="dropdown-toggle">About <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="about.html#company-profile">Company Profile</a></li>
-                            <li><a href="about.html#vision-mission">Vision & Mission</a></li>
-                            <li><a href="about.html#leadership">Leadership Team</a></li>
-                            <li><a href="about.html#values">Our Values</a></li>
-                            <li><a href="about.html#partners">Strategic Partners</a></li>
-                            <li><a href="about.html#alliances">Strategic Alliances</a></li>
-                            <li><a href="about.html#clients">Our Clients</a></li>
+                            <li><a href="abouts.html#company-profile">Company Profile</a></li>
+                            <li><a href="abouts.html#vision-mission">Vision & Mission</a></li>
+                            <li><a href="abouts.html#leadership">Leadership Team</a></li>
+                            <li><a href="abouts.html#values">Our Values</a></li>
+                            <li><a href="abouts.html#partners">Strategic Partners</a></li>
+                            <li><a href="abouts.html#alliances">Strategic Alliances</a></li>
+                            <li><a href="abouts.html#clients">Our Clients</a></li>
                             <li><a href="testimonials-case-studies.html">Testimonials & Case Studies</a></li>
                         </ul>
                     </li>
@@ -1216,17 +1216,17 @@ function getNavbarHTML() {
                 </li>
                 <li class="mobile-dropdown">
                     <div class="mobile-dropdown-toggle">
-                        <a href="about.html" class="dropdown-link"><span class="icon">👥</span><span class="label">About</span></a>
+                        <a href="abouts.html" class="dropdown-link"><span class="icon">👥</span><span class="label">About</span></a>
                         <span class="dropdown-arrow">▼</span>
                     </div>
                     <ul class="mobile-dropdown-menu">
-                        <li><a href="about.html#company-profile"><span class="icon">🏢</span><span class="label">Company Profile</span></a></li>
-                        <li><a href="about.html#vision-mission"><span class="icon">🎯</span><span class="label">Vision & Mission</span></a></li>
-                        <li><a href="about.html#leadership"><span class="icon">👑</span><span class="label">Leadership Team</span></a></li>
-                        <li><a href="about.html#values"><span class="icon">💎</span><span class="label">Our Values</span></a></li>
-                        <li><a href="about.html#partners"><span class="icon">🤝</span><span class="label">Strategic Partners</span></a></li>
-                        <li><a href="about.html#alliances"><span class="icon">⚡</span><span class="label">Strategic Alliances</span></a></li>
-                        <li><a href="about.html#clients"><span class="icon">👥</span><span class="label">Our Clients</span></a></li>
+                        <li><a href="abouts.html#company-profile"><span class="icon">🏢</span><span class="label">Company Profile</span></a></li>
+                        <li><a href="abouts.html#vision-mission"><span class="icon">🎯</span><span class="label">Vision & Mission</span></a></li>
+                        <li><a href="abouts.html#leadership"><span class="icon">👑</span><span class="label">Leadership Team</span></a></li>
+                        <li><a href="abouts.html#values"><span class="icon">💎</span><span class="label">Our Values</span></a></li>
+                        <li><a href="abouts.html#partners"><span class="icon">🤝</span><span class="label">Strategic Partners</span></a></li>
+                        <li><a href="abouts.html#alliances"><span class="icon">⚡</span><span class="label">Strategic Alliances</span></a></li>
+                        <li><a href="abouts.html#clients"><span class="icon">👥</span><span class="label">Our Clients</span></a></li>
                         <li><a href="testimonials-case-studies.html"><span class="icon">⭐</span><span class="label">Testimonials & Case Studies</span></a></li>
                     </ul>
                 </li>
