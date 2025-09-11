@@ -2579,32 +2579,21 @@ d
     <div id="footer-placeholder"></div>
 
 
-    <script src="navbar-include.js"></script>
     
-
-    <!-- Footer Include Script -->
-    <script src="footer-include.js"></script>
-    
-    <!-- Accessibility Pack -->
-    <script src="accessibility-pack.js"></script>
-    
-    <!-- Floating Action Button -->
-    <script src="floating-action-button.js"></script>
-
     
     <script>
         // Load Footer
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     // Load Footer
-        //     fetch('fotter.html')
-        //         .then(response => response.text())
-        //         .then(data => {
-        //             document.getElementById('footer-placeholder').innerHTML = data;
-        //             // Initialize footer functionality after loading
-        //             initializeFooter();
-        //         })
-        //         .catch(error => console.error('Error loading footer:', error));
-        // });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load Footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    // Initialize footer functionality after loading
+                    initializeFooter();
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        });
 
         // Mobile navbar functionality is handled by navbar-include.js
         console.log('About page loaded successfully');
@@ -2709,6 +2698,20 @@ d
             }
         });
     </script>
+
+
+<script src="navbar-include.js"></script>
+    
+
+    <!-- Footer Include Script -->
+    <script src="footer-include.js"></script>
+    
+    <!-- Accessibility Pack -->
+    <script src="accessibility-pack.js"></script>
+    
+    <!-- Floating Action Button -->
+    <script src="floating-action-button.js"></script>
+
 </body>
 
 </html>
