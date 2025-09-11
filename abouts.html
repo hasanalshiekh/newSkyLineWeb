@@ -2655,36 +2655,36 @@ d
 
 
         // Mouse Dust Effect - Like Index Page
-        document.addEventListener("mousemove", function (e) {
-            if (Math.random() > 0.9) { // Only create particles occasionally (10% chance)
-                createParticle(e.clientX, e.clientY);
-            }
-        });
+        // document.addEventListener("mousemove", function (e) {
+        //     if (Math.random() > 0.9) { // Only create particles occasionally (10% chance)
+        //         createParticle(e.clientX, e.clientY);
+        //     }
+        // });
 
-        // function createParticle(x, y) {
-        //     const particle = document.createElement('div');
-        //     particle.className = 'dust-particle';
-        //     particle.style.cssText = `
-        //          position: fixed;
-        //          top: ${y}px;
-        //          left: ${x}px;
-        //          width: 4px;
-        //          height: 4px;
-        //          background: radial-gradient(circle, #660000, transparent);
-        //          border-radius: 50%;
-        //          pointer-events: none;
-        //          z-index: 1;
-        //          animation: particleFloat 2s ease-out forwards;
-        //      `;
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'dust-particle';
+            particle.style.cssText = `
+                 position: fixed;
+                 top: ${y}px;
+                 left: ${x}px;
+                 width: 4px;
+                 height: 4px;
+                 background: radial-gradient(circle, #660000, transparent);
+                 border-radius: 50%;
+                 pointer-events: none;
+                 z-index: 1;
+                 animation: particleFloat 2s ease-out forwards;
+             `;
 
-        //     document.body.appendChild(particle);
+            document.body.appendChild(particle);
 
-        //     setTimeout(() => {
-        //         if (particle.parentNode) {
-        //             particle.remove();
-        //         }
-        //     }, 2000);
-        // }
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.remove();
+                }
+            }, 2000);
+        }
 
     </script>
 
