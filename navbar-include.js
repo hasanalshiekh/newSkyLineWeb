@@ -38,7 +38,7 @@ function getNavbarStyles() {
     return `
         /* Header - Same as index.html */
         .header {
-            background: linear-gradient(135deg, #DC143C 0%, #B22222 30%, #B22222 70%, #DC143C 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 30%, rgba(20, 20, 20, 0.95) 70%, rgba(0, 0, 0, 0.95) 100%);
             backdrop-filter: blur(20px);
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
             color: white;
@@ -49,8 +49,8 @@ function getNavbarStyles() {
             left: 0;
             z-index: 99999;
             box-shadow:
-                0 8px 32px rgba(220, 20, 60, 0.3),
-                0 0 20px rgba(220, 20, 60, 0.2);
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(0, 0, 0, 0.2);
             transition: all 0.4s ease;
             overflow: visible;
             display: block;
@@ -59,15 +59,41 @@ function getNavbarStyles() {
         }
 
         .header.scrolled {
-            background: linear-gradient(135deg, rgba(220, 20, 60, 0.75) 0%, rgba(178, 34, 34, 0.75) 50%, rgba(220, 20, 60, 0.75) 100%) !important;
-            backdrop-filter: blur(25px) !important;
-            box-shadow: 0 8px 32px rgba(220, 20, 60, 0.25), 0 0 20px rgba(220, 20, 60, 0.15) !important;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.15) 0%, 
+                rgba(255, 255, 255, 0.08) 25%, 
+                rgba(255, 255, 255, 0.12) 50%, 
+                rgba(255, 255, 255, 0.08) 75%, 
+                rgba(255, 255, 255, 0.15) 100%) !important;
+            backdrop-filter: blur(20px) saturate(180%) brightness(110%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(110%) !important;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 1px 0 rgba(255, 255, 255, 0.4) inset,
+                0 0 20px rgba(0, 0, 0, 0.08) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            color: #000 !important;
         }
 
         .header.scrolled .nav-menu a {
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
+            color: rgba(0, 0, 0, 0.9) !important;
+            text-shadow: 
+                0 1px 2px rgba(255, 255, 255, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.6) !important;
+            font-weight: 600 !important;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .nav-menu a:hover {
+            color: #000 !important;
+            text-shadow: 
+                0 0 15px rgba(255, 255, 255, 0.9), 
+                0 1px 3px rgba(255, 255, 255, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.7) !important;
+            background: rgba(0, 0, 0, 0.1) !important;
+            transform: translateY(-1px);
         }
 
         .header.scrolled .logo {
@@ -443,20 +469,16 @@ function getNavbarStyles() {
             transition: all 0.4s ease;
         }
 
-        /* Header state when scrolled */
-        .header.scrolled {
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(139, 0, 0, 0.95) 100%) !important;
-            box-shadow: 0 8px 32px rgba(139, 0, 0, 0.4), 0 0 20px rgba(139, 0, 0, 0.3) !important;
-        }
-
-        /* Logo state when scrolled */
         .header.scrolled .logo-yline {
             color: #000 !important;
             text-shadow:
-                0 0 10px rgba(0, 0, 0, 0.3),
-                0 0 15px rgba(0, 0, 0, 0.2),
-                0 2px 4px rgba(0, 0, 0, 0.5) !important;
+                0 1px 3px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 6px rgba(255, 255, 255, 0.7) !important;
+            font-weight: 700 !important;
         }
+
 
         .logo-tagline {
             font-size: 0.6rem;
@@ -609,6 +631,24 @@ function getNavbarStyles() {
             position: relative;
             overflow: hidden;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .header.scrolled .dropdown-toggle {
+            color: rgba(0, 0, 0, 0.9) !important;
+            text-shadow: 
+                0 1px 2px rgba(255, 255, 255, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.6) !important;
+            font-weight: 600 !important;
+        }
+
+        .header.scrolled .dropdown:hover .dropdown-toggle {
+            color: #000 !important;
+            text-shadow: 
+                0 0 15px rgba(255, 255, 255, 0.9), 
+                0 1px 3px rgba(255, 255, 255, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.7) !important;
+            background: rgba(0, 0, 0, 0.1) !important;
+            transform: translateY(-1px);
         }
 
         .dropdown-toggle i {
@@ -1486,14 +1526,20 @@ function initializeNavbarFunctionality() {
         function updateHeader() {
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
-                header.style.background = 'linear-gradient(135deg, rgba(220, 20, 60, 0.75) 0%, rgba(178, 34, 34, 0.75) 50%, rgba(220, 20, 60, 0.75) 100%)';
-                header.style.boxShadow = '0 8px 32px rgba(220, 20, 60, 0.25), 0 0 20px rgba(220, 20, 60, 0.15)';
-                header.style.backdropFilter = 'blur(25px)';
+                header.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.15) 100%)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 20px rgba(0, 0, 0, 0.08)';
+                header.style.backdropFilter = 'blur(20px) saturate(180%) brightness(110%)';
+                header.style.webkitBackdropFilter = 'blur(20px) saturate(180%) brightness(110%)';
+                header.style.border = '1px solid rgba(255, 255, 255, 0.3)';
+                header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.4)';
             } else {
                 header.classList.remove('scrolled');
-                header.style.background = 'linear-gradient(135deg, #DC143C 0%, #B22222 30%, #B22222 70%, #DC143C 100%)';
-                header.style.boxShadow = '0 8px 32px rgba(220, 20, 60, 0.3), 0 0 20px rgba(220, 20, 60, 0.2)';
+                header.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 30%, rgba(20, 20, 20, 0.95) 70%, rgba(0, 0, 0, 0.95) 100%)';
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2)';
                 header.style.backdropFilter = 'blur(20px)';
+                header.style.webkitBackdropFilter = 'blur(20px)';
+                header.style.border = 'none';
+                header.style.borderBottom = '2px solid rgba(255, 255, 255, 0.1)';
             }
             ticking = false;
         }
