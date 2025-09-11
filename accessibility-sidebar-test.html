@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار Accessibility Tools - شاشة جانبية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .test-description {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #DC143C;
+        }
+
+        .test-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #DC143C, #B22222);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(220, 20, 60, 0.3);
+        }
+
+        .content-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .content-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li i {
+            color: #DC143C;
+            margin-left: 10px;
+            width: 20px;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1><i class="fas fa-universal-access"></i> اختبار Accessibility Tools</h1>
+        
+        <div class="test-description">
+            <h3><i class="fas fa-info-circle"></i> وصف الاختبار</h3>
+            <p>هذه الصفحة لاختبار أدوات الوصول (Accessibility Tools) الجديدة التي تظهر كمربع صغير في أسفل يمين الشاشة بدون تغطية أو تغبيش للصفحة الخلفية.</p>
+        </div>
+
+        <div class="note success">
+            <strong><i class="fas fa-check-circle"></i> التحسينات المطبقة - مربع صغير في الأسفل:</strong>
+            <ul class="features-list">
+                <li><i class="fas fa-square"></i> شكل مربع مدمج (300x300px)</li>
+                <li><i class="fas fa-arrow-down"></i> موقع في الأسفل الأيمن من الشاشة</li>
+                <li><i class="fas fa-eye"></i> لا يحجب المحتوى الأساسي للصفحة</li>
+                <li><i class="fas fa-mobile-alt"></i> تصميم متجاوب للموبايل (عرض كامل، ارتفاع 280px)</li>
+                <li><i class="fas fa-scroll"></i> header ثابت مع تمرير سلس للمحتوى</li>
+                <li><i class="fas fa-th"></i> شبكة 3x3 للأدوات في المربع</li>
+                <li><i class="fas fa-border-all"></i> حدود مستديرة وظلال جميلة</li>
+                <li><i class="fas fa-times"></i> إمكانية الإغلاق بسهولة</li>
+                <li><i class="fas fa-paint-brush"></i> ألوان متناسقة مع هوية الموقع</li>
+            </ul>
+        </div>
+
+        <button class="test-button" onclick="testAccessibilityPanel()">
+            <i class="fas fa-universal-access"></i> فتح أدوات الوصول
+        </button>
+
+        <div class="content-section">
+            <h2><i class="fas fa-tools"></i> الأدوات المتاحة</h2>
+            <p>تحتوي شاشة أدوات الوصول على مجموعة شاملة من الأدوات والميزات:</p>
+            <ul class="features-list">
+                <li><i class="fas fa-adjust"></i> تحسين التباين</li>
+                <li><i class="fas fa-text-height"></i> تكبير النص</li>
+                <li><i class="fas fa-font"></i> خط بسيط</li>
+                <li><i class="fas fa-link"></i> إبراز الروابط</li>
+                <li><i class="fas fa-pause"></i> إيقاف الحركة</li>
+                <li><i class="fas fa-image"></i> إخفاء الصور</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-user-friends"></i> الملفات الشخصية</h2>
+            <p>ملفات شخصية مخصصة لاحتياجات مختلفة:</p>
+            <ul class="features-list">
+                <li><i class="fas fa-eye-slash"></i> ضعف البصر</li>
+                <li><i class="fas fa-brain"></i> عسر القراءة</li>
+                <li><i class="fas fa-palette"></i> عمى الألوان</li>
+                <li><i class="fas fa-wheelchair"></i> إعاقة الحركة</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-globe"></i> دعم اللغات</h2>
+            <p>دعم متعدد اللغات مع إمكانية التبديل السريع:</p>
+            <ul class="features-list">
+                <li><i class="fas fa-flag-usa"></i> الإنجليزية</li>
+                <li><i class="fas fa-flag"></i> العربية مع دعم RTL</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Include the floating action button and accessibility pack -->
+    <script src="floating-action-button.js"></script>
+    <script src="accessibility-pack.js"></script>
+
+    <script>
+        function testAccessibilityPanel() {
+            // This will use the same function as the FAB
+            if (typeof createAccessibilityPanel === 'function') {
+                createAccessibilityPanel();
+            } else {
+                alert('يرجى التأكد من تحميل ملف floating-action-button.js');
+            }
+        }
+
+        // Add some test content to see the sidebar effect
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('صفحة اختبار Accessibility Tools جاهزة');
+            console.log('اضغط على الزر لفتح أدوات الوصول كشاشة جانبية');
+        });
+    </script>
+</body>
+</html>
