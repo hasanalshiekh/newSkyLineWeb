@@ -2625,27 +2625,27 @@ d
 
 
         // Initialize footer functionality
-        function initializeFooter() {
-            // Newsletter form handling
-            const newsletterForm = document.querySelector('.newsletter-form');
-            if (newsletterForm) {
-                const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
-                const newsletterInput = newsletterForm.querySelector('.newsletter-input');
+        // function initializeFooter() {
+        //     // Newsletter form handling
+        //     const newsletterForm = document.querySelector('.newsletter-form');
+        //     if (newsletterForm) {
+        //         const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
+        //         const newsletterInput = newsletterForm.querySelector('.newsletter-input');
 
-                if (newsletterBtn && newsletterInput) {
-                    newsletterBtn.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const email = newsletterInput.value.trim();
-                        if (email && isValidEmail(email)) {
-                            alert('Thank you for subscribing to our newsletter!');
-                            newsletterInput.value = '';
-                        } else {
-                            alert('Please enter a valid email address.');
-                        }
-                    });
-                }
-            }
-        }
+        //         if (newsletterBtn && newsletterInput) {
+        //             newsletterBtn.addEventListener('click', function (e) {
+        //                 e.preventDefault();
+        //                 const email = newsletterInput.value.trim();
+        //                 if (email && isValidEmail(email)) {
+        //                     alert('Thank you for subscribing to our newsletter!');
+        //                     newsletterInput.value = '';
+        //                 } else {
+        //                     alert('Please enter a valid email address.');
+        //                 }
+        //             });
+        //         }
+        //     }
+        // }
 
         // Utility function for email validation
         // function isValidEmail(email) {
