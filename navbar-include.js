@@ -32,6 +32,27 @@ function includeNavbar() {
     
     // Initialize navbar functionality
     initializeNavbarFunctionality();
+    
+    // Ensure mobile sidenav is hidden on page load
+    setTimeout(() => {
+        const mobileSidenav = document.querySelector('.mobile-sidenav');
+        const mobileOverlay = document.querySelector('.mobile-overlay');
+        
+        if (mobileSidenav) {
+            mobileSidenav.classList.remove('active');
+            mobileSidenav.style.visibility = 'hidden';
+            mobileSidenav.style.opacity = '0';
+            mobileSidenav.style.left = '-320px';
+            console.log('✅ Mobile sidenav hidden on page load');
+        }
+        
+        if (mobileOverlay) {
+            mobileOverlay.classList.remove('active');
+            mobileOverlay.style.visibility = 'hidden';
+            mobileOverlay.style.opacity = '0';
+            console.log('✅ Mobile overlay hidden on page load');
+        }
+    }, 100);
 }
 
 function getNavbarStyles() {
@@ -48,14 +69,16 @@ function getNavbarStyles() {
             top: 0;
             left: 0;
             z-index: 99999;
+            transition: all 0.3s ease;
             box-shadow:
                 0 8px 32px rgba(0, 0, 0, 0.3),
                 0 0 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s ease;
             overflow: visible;
-            display: block;
-            visibility: visible;
-            opacity: 1;
+        }
+
+        /* Navbar hidden state */
+        .header.hidden {
+            transform: translateY(-100%);
         }
 
         .header.scrolled {
@@ -267,10 +290,15 @@ function getNavbarStyles() {
             border-radius: 8px;
             transition: all 0.3s ease;
             gap: 4px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .mobile-menu-btn:hover {
             transform: scale(1.1);
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.3), rgba(0, 0, 0, 0.3));
+            border-color: rgba(220, 20, 60, 0.5);
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
         }
 
         .mobile-menu-btn span {
@@ -281,6 +309,27 @@ function getNavbarStyles() {
             transition: all 0.3s ease;
             display: block;
             position: relative;
+        }
+
+        /* تأثيرات السكرول للهامبرغر */
+        .mobile-menu-btn.scrolled {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.4), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.4));
+            border: 1px solid rgba(220, 20, 60, 0.6);
+            box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .mobile-menu-btn.scrolled:hover {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.6), rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.5));
+            border-color: rgba(220, 20, 60, 0.8);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.5), 0 4px 12px rgba(0, 0, 0, 0.4);
+            transform: scale(1.15);
+        }
+
+        .mobile-menu-btn.scrolled span {
+            background: linear-gradient(90deg, #DC143C, #FFFFFF, #000000);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .mobile-menu-btn.active span:nth-child(1) {
@@ -295,23 +344,34 @@ function getNavbarStyles() {
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
+        /* تأثيرات السكرول للهامبرغر النشط */
+        .mobile-menu-btn.active.scrolled span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+            background: linear-gradient(90deg, #DC143C, #FFFFFF, #000000);
+        }
+
+        .mobile-menu-btn.active.scrolled span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+            background: linear-gradient(90deg, #DC143C, #FFFFFF, #000000);
+        }
+
         /* Mobile Side Navigation - Same as index.html */
         .mobile-sidenav {
             display: none !important;
             position: fixed;
             top: 0;
-            left: -280px;
-            width: 280px;
+            left: -320px;
+            width: 320px;
             height: 100vh;
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.95) 0%, rgba(139, 0, 0, 0.95) 30%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.98) 100%);
             backdrop-filter: blur(20px);
             z-index: 99998;
             transition: all 0.4s ease;
             padding-top: 80px;
-            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 2px 0 20px rgba(220, 20, 60, 0.3);
             overflow-y: auto;
-            visibility: visible !important;
-            opacity: 1 !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
         }
 
         .mobile-sidenav.active {
@@ -348,6 +408,7 @@ function getNavbarStyles() {
             margin: 0.5rem 1rem;
             border-radius: 15px;
             border-left: 3px solid transparent;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(0, 0, 0, 0.2));
             visibility: visible !important;
             opacity: 1 !important;
         }
@@ -364,9 +425,10 @@ function getNavbarStyles() {
         }
 
         .mobile-sidenav a:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.3), rgba(0, 0, 0, 0.4));
             transform: translateX(8px);
             border-left-color: #DC143C;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.2);
         }
 
         .mobile-sidenav a:hover::before {
@@ -388,7 +450,7 @@ function getNavbarStyles() {
         /* تأثيرات hover للأيقونات في الموبايل مثل index.html */
         .mobile-sidenav a:hover .icon {
             transform: scale(1.2) rotate(5deg);
-            filter: drop-shadow(0 4px 8px rgba(139, 0, 0, 0.4));
+            filter: drop-shadow(0 4px 8px rgba(220, 20, 60, 0.6));
         }
 
         .mobile-sidenav .label {
@@ -399,21 +461,16 @@ function getNavbarStyles() {
             transform: translateX(0);
             transition: all 0.3s ease;
             white-space: nowrap;
-            background: linear-gradient(45deg, #fff, #f0f0f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #fff;
             display: inline-block !important;
             visibility: visible !important;
         }
 
         /* تأثيرات hover للنصوص في الموبايل مثل index.html */
         .mobile-sidenav a:hover .label {
-            background: linear-gradient(45deg, #fff, #DC143C, #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #fff;
             transform: translateX(3px);
+            text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
         }
 
         /* Mobile Overlay - Same as index.html */
@@ -429,11 +486,13 @@ function getNavbarStyles() {
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            pointer-events: none;
         }
 
         .mobile-overlay.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto;
         }
 
         .logo {
@@ -690,7 +749,8 @@ function getNavbarStyles() {
             list-style: none;
         }
 
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-menu,
+        .dropdown.show .dropdown-menu {
             opacity: 1 !important;
             visibility: visible !important;
             transform: translateY(0) !important;
@@ -970,11 +1030,23 @@ function getNavbarStyles() {
 
             .mobile-sidenav {
                 display: block !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                left: -320px !important;
+            }
+
+            .mobile-sidenav.active {
                 visibility: visible !important;
                 opacity: 1 !important;
+                left: 0 !important;
             }
 
             .mobile-overlay {
+                display: none !important;
+                pointer-events: none;
+            }
+
+            .mobile-overlay.active {
                 display: block !important;
                 pointer-events: auto;
             }
@@ -1100,14 +1172,65 @@ function getNavbarStyles() {
                 padding-top: 60px !important;
             }
             
-            .mobile-sidenav {
-                padding-top: 5px !important;
-            }
-            
-            /* تقليل ارتفاع الهيدر في الموبايل */
+            /* النافبار المحمول ثابت وتفاعلي */
             .header {
+                position: fixed !important;
+                top: 0 !important;
                 padding: 0.4rem 0 !important;
                 min-height: 50px !important;
+            }
+            
+            .mobile-sidenav {
+                width: 320px !important;
+                padding-top: 20px !important;
+                max-height: calc(100vh - 40px) !important;
+            }
+            
+            /* تحسين زر Home */
+            .mobile-sidenav .nav-link[href*="index"] {
+                background: linear-gradient(135deg, #DC143C, #B22222) !important;
+                color: white !important;
+                border-radius: 8px !important;
+                margin: 5px 0 !important;
+                padding: 12px 15px !important;
+                font-weight: 600 !important;
+                box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .mobile-sidenav .nav-link[href*="index"]:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4) !important;
+            }
+            
+            /* تحسين dropdown toggles */
+            .mobile-sidenav .dropdown-toggle {
+                background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(0, 0, 0, 0.3)) !important;
+                border: 1px solid rgba(220, 20, 60, 0.4) !important;
+                pointer-events: auto !important;
+                box-shadow: 0 2px 8px rgba(220, 20, 60, 0.1) !important;
+            }
+            
+            /* تحسين dropdown menus */
+            .mobile-sidenav .dropdown-menu {
+                background: linear-gradient(135deg, rgba(220, 20, 60, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%) !important;
+                max-height: 400px !important;
+                overflow-y: auto !important;
+                border-radius: 8px !important;
+                margin-top: 5px !important;
+                border: 1px solid rgba(220, 20, 60, 0.3) !important;
+                box-shadow: 0 4px 15px rgba(220, 20, 60, 0.2) !important;
+            }
+            
+            /* تحسين أحجام الأيقونات والخطوط */
+            .mobile-sidenav .dropdown-menu .nav-link {
+                padding: 10px 15px !important;
+                font-size: 0.9rem !important;
+            }
+            
+            .mobile-sidenav .dropdown-menu .fas {
+                font-size: 1rem !important;
+                width: 20px !important;
             }
             
             /* تقليل المسافة العلوية للكونتينر */
@@ -1118,6 +1241,42 @@ function getNavbarStyles() {
             /* تحسين عرض المحتوى */
             .logo {
                 font-size: 1.2rem !important;
+            }
+            
+            /* إزالة الكارد من عناصر النافبار المحمول */
+            .mobile-sidenav .nav-link {
+                box-shadow: none !important;
+                background: linear-gradient(135deg, rgba(220, 20, 60, 0.05), rgba(0, 0, 0, 0.1)) !important;
+                border: 1px solid rgba(220, 20, 60, 0.1) !important;
+                margin: 2px 0 !important;
+                border-radius: 6px !important;
+            }
+            
+            .mobile-sidenav .nav-link:hover {
+                background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(0, 0, 0, 0.3)) !important;
+                border-radius: 6px !important;
+                border-color: rgba(220, 20, 60, 0.4) !important;
+                box-shadow: 0 2px 8px rgba(220, 20, 60, 0.1) !important;
+            }
+            
+            /* تحسين التخطيط العام */
+            .mobile-sidenav {
+                overflow-y: auto !important;
+                scrollbar-width: thin !important;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent !important;
+            }
+            
+            .mobile-sidenav::-webkit-scrollbar {
+                width: 6px !important;
+            }
+            
+            .mobile-sidenav::-webkit-scrollbar-track {
+                background: transparent !important;
+            }
+            
+            .mobile-sidenav::-webkit-scrollbar-thumb {
+                background: linear-gradient(135deg, rgba(220, 20, 60, 0.6), rgba(0, 0, 0, 0.8)) !important;
+                border-radius: 3px !important;
             }
             
             .logo-sky, .logo-yline {
@@ -1343,7 +1502,7 @@ function initializeNavbarFunctionality() {
             // Force hide
             mobileSidenav.style.visibility = 'hidden';
             mobileSidenav.style.opacity = '0';
-            mobileSidenav.style.left = '-280px';
+            mobileSidenav.style.left = '-320px';
             
             // Close all mobile dropdowns when closing menu
             mobileDropdowns.forEach(dropdown => {
@@ -1582,10 +1741,217 @@ function initializeNavbarFunctionality() {
         document.body.classList.add('high-dpi');
     }
     
+    // تحسين النافبار المحمول
+    applyMobileScrollBehavior();
+    
+    // تفعيل النافبار التفاعلي
+    initializeSmartNavbar();
+    
     console.log('Navbar loaded successfully');
+}
+
+// تحسين سلوك النافبار المحمول
+function applyMobileScrollBehavior() {
+    console.log('🔧 Applying mobile scroll behavior...');
+    
+    try {
+        const header = document.querySelector('.header');
+        if (!header) {
+            console.log('⚠️ Header not found, retrying...');
+            setTimeout(applyMobileScrollBehavior, 500);
+            return;
+        }
+        
+        const isMobile = window.innerWidth <= 768;
+        console.log('📱 Is mobile:', isMobile);
+        
+        if (isMobile) {
+            // في الموبايل: النافبار ثابت وتفاعلي أيضاً
+            header.style.position = 'fixed';
+            header.style.top = '0';
+            console.log('✅ Mobile: Navbar set to fixed position');
+            
+            // إضافة padding-top للbody في الموبايل
+            document.body.style.paddingTop = '60px';
+            console.log('✅ Mobile: Body padding-top added');
+            
+            // تفعيل النافبار التفاعلي في الموبايل أيضاً
+            console.log('✅ Mobile: Smart navbar enabled');
+        } else {
+            // في الديسكتوب: النافبار ثابت وتفاعلي
+            header.style.position = 'fixed';
+            header.style.top = '0';
+            console.log('✅ Desktop: Navbar set to fixed position');
+            
+            // إضافة padding-top للbody في الديسكتوب
+            document.body.style.paddingTop = '80px';
+            console.log('✅ Desktop: Body padding-top added');
+            
+            // تفعيل النافبار التفاعلي في الديسكتوب
+            console.log('✅ Desktop: Smart navbar enabled');
+        }
+        
+        console.log('✅ Mobile scroll behavior applied successfully');
+        
+    } catch (error) {
+        console.error('❌ Error applying mobile scroll behavior:', error);
+        
+        // Retry after a delay
+        setTimeout(() => {
+            console.log('🔄 Retrying mobile scroll behavior...');
+            applyMobileScrollBehavior();
+        }, 1000);
+    }
+}
+
+// تحسين الدروب داون للبقاء مفتوحة عند التمرير
+function enhanceDropdownBehavior() {
+    console.log('🔧 Enhancing dropdown behavior...');
+    
+    const dropdowns = document.querySelectorAll('.dropdown');
+    let currentDropdown = null;
+    let hideTimeout = null;
+    
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        
+        if (!toggle || !menu) return;
+        
+        // عند التمرير على الدروب داون
+        dropdown.addEventListener('mouseenter', () => {
+            console.log('🖱️ Mouse enter dropdown');
+            
+            // إلغاء إخفاء الدروب داون
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+            
+            // إخفاء الدروب داون الحالي إذا كان مختلفاً
+            if (currentDropdown && currentDropdown !== dropdown) {
+                currentDropdown.classList.remove('show');
+                const currentMenu = currentDropdown.querySelector('.dropdown-menu');
+                if (currentMenu) {
+                    currentMenu.classList.remove('show');
+                }
+            }
+            
+            // إظهار الدروب داون الحالي
+            dropdown.classList.add('show');
+            menu.classList.add('show');
+            currentDropdown = dropdown;
+        });
+        
+        // عند مغادرة الدروب داون
+        dropdown.addEventListener('mouseleave', () => {
+            console.log('🖱️ Mouse leave dropdown');
+            
+            // تأخير إخفاء الدروب داون
+            hideTimeout = setTimeout(() => {
+                dropdown.classList.remove('show');
+                menu.classList.remove('show');
+                
+                if (currentDropdown === dropdown) {
+                    currentDropdown = null;
+                }
+            }, 300); // تأخير 300ms
+        });
+        
+        // عند النقر على عنصر في الدروب داون
+        const menuItems = menu.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                console.log('🖱️ Menu item clicked');
+                
+                // إخفاء الدروب داون فوراً
+                dropdown.classList.remove('show');
+                menu.classList.remove('show');
+                currentDropdown = null;
+                
+                // إلغاء أي timeout معلق
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                    hideTimeout = null;
+                }
+            });
+        });
+    });
+    
+    console.log('✅ Dropdown behavior enhanced');
+}
+
+// النافبار الذكي التفاعلي مع السكرول
+function initializeSmartNavbar() {
+    console.log('🧠 Initializing Smart Navbar...');
+    
+    const header = document.querySelector('.header');
+    if (!header) {
+        console.log('⚠️ Header not found for smart navbar');
+        return;
+    }
+    
+    // تعمل في جميع الصفحات - ديسكتوب وموبايل
+    console.log('🌐 Smart navbar enabled for all pages');
+    
+    let lastScrollTop = 0;
+    let scrollTimeout;
+    
+    // دالة التحكم في النافبار - النافبار يبقى ظاهر دائماً
+    function handleScroll() {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // إبقاء النافبار ظاهر دائماً في جميع الصفحات
+        header.classList.remove('hidden');
+        console.log('📍 Navbar always visible (no hiding on scroll)');
+        
+        // إضافة/إزالة تأثير السكرول للهامبرغر
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        if (mobileMenuBtn) {
+            if (currentScrollTop > 50) {
+                mobileMenuBtn.classList.add('scrolled');
+                console.log('🍔 Hamburger scrolled effect applied');
+            } else {
+                mobileMenuBtn.classList.remove('scrolled');
+                console.log('🍔 Hamburger normal state');
+            }
+        }
+        
+        lastScrollTop = currentScrollTop;
+    }
+    
+    // إضافة event listener للسكرول
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // إضافة event listener لـ resize
+    window.addEventListener('resize', () => {
+        // إعادة تعيين النافبار عند تغيير حجم الشاشة
+        header.classList.remove('hidden');
+        console.log('📱 Navbar reset on resize');
+    });
+    
+    // إضافة event listener للـ mouse movement - النافبار يبقى ظاهر دائماً
+    document.addEventListener('mousemove', () => {
+        // إبقاء النافبار ظاهر دائماً
+        header.classList.remove('hidden');
+        console.log('🖱️ Navbar always visible (mouse movement)');
+    });
+    
+    // إبقاء النافبار ظاهر عند النقر في أي مكان
+    document.addEventListener('click', () => {
+        header.classList.remove('hidden');
+        console.log('🖱️ Navbar always visible (click detected)');
+    });
+    
+    console.log('✅ Smart Navbar initialized for all pages');
 }
 
 // Auto-include navbar when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     includeNavbar();
+    
+    // تطبيق تحسينات الدروب داون بعد تحميل النافبار
+    setTimeout(() => {
+        enhanceDropdownBehavior();
+    }, 1000);
 });

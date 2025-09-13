@@ -2,11 +2,19 @@
 // Advanced FAB with WhatsApp, AI, and Widgets buttons
 
 function createFloatingActionButton() {
+    console.log('🚀 Creating Floating Action Button...');
+ 
+    // Check if FAB already exists
+    if (document.getElementById('fab-container')) {
+        console.log('⚠️ FAB already exists, removing old one...');
+        document.getElementById('fab-container').remove();
+    }
+ 
     // Create FAB container
     const fabContainer = document.createElement('div');
     fabContainer.id = 'fab-container';
     fabContainer.innerHTML = `
-        <div class="fab-main" id="fab-main" data-tooltip="أدوات الوصول والمساعدة">
+        <div class="fab-main" id="fab-main" data-tooltip="Accessibility">
             <i class="fas fa-universal-access"></i>
         </div>
         <div class="fab-menu" id="fab-menu">
@@ -902,18 +910,364 @@ function createAccessibilityPanel() {
             if (e.target === overlay) closeAccessibilityPanel();
         });
         
-        // Simple alert for tools
-        const tools = panel.querySelectorAll('.accessibility-tool, .profile-item, .language-item');
-        tools.forEach(tool => {
-            tool.addEventListener('click', () => {
-                alert('Accessibility tool activated! 🚀');
-            });
-        });
+        // Enhanced accessibility functionality
+        initializeAccessibilityFeatures(panel);
     }
+}
+
+// Enhanced Accessibility Features
+function initializeAccessibilityFeatures(panel) {
+    console.log('♿ Initializing Accessibility Features...');
+
+    // Tab functionality
+    const tabBtns = panel.querySelectorAll('.tab-btn');
+    const tabContents = panel.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabName = btn.getAttribute('data-tab');
+            console.log('📑 Tab clicked:', tabName);
+
+            // Remove active class from all tabs
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            // Add active class to clicked tab
+            btn.classList.add('active');
+            const targetTab = document.getElementById(tabName + '-tab');
+            if (targetTab) {
+                targetTab.classList.add('active');
+                console.log('✅ Tab activated:', tabName);
+            } else {
+                console.log('❌ Tab not found:', tabName + '-tab');
+            }
+        });
+    });
+
+    // Accessibility Tools
+    const tools = panel.querySelectorAll('.accessibility-tool');
+    tools.forEach(tool => {
+        tool.addEventListener('click', () => {
+            const toolType = tool.getAttribute('data-tool');
+            activateAccessibilityTool(toolType, tool);
+        });
+    });
+
+    // Profile Items
+    const profiles = panel.querySelectorAll('.profile-item');
+    console.log('🔍 Found profiles:', profiles.length);
+    profiles.forEach(profile => {
+        profile.addEventListener('click', () => {
+            const profileType = profile.getAttribute('data-profile');
+            console.log('👤 Profile clicked:', profileType);
+            activateAccessibilityProfile(profileType, profile);
+        });
+    });
+
+    // Language Items
+    const languages = panel.querySelectorAll('.language-item');
+    console.log('🔍 Found languages:', languages.length);
+    languages.forEach(lang => {
+        lang.addEventListener('click', () => {
+            const langType = lang.getAttribute('data-lang');
+            console.log('🌐 Language clicked:', langType);
+            activateLanguage(langType, lang);
+        });
+    });
+}
+
+// Activate Accessibility Tool
+function activateAccessibilityTool(toolType, element) {
+    console.log('🔧 Activating tool:', toolType);
+    
+    // Remove active state from all tools
+    document.querySelectorAll('.accessibility-tool').forEach(t => t.classList.remove('active'));
+    
+    // Add active state to current tool
+    element.classList.add('active');
+    
+    switch(toolType) {
+        case 'contrast':
+            toggleHighContrast();
+            break;
+        case 'bigger-text':
+            increaseTextSize();
+            break;
+        case 'simple-font':
+            toggleSimpleFont();
+            break;
+        case 'highlight-links':
+            toggleLinkHighlighting();
+            break;
+        case 'pause-animation':
+            togglePauseAnimations();
+            break;
+        case 'hide-images':
+            toggleHideImages();
+            break;
+    }
+    
+    // Show feedback
+    showToolFeedback(toolType, element);
+}
+
+// Activate Accessibility Profile
+function activateAccessibilityProfile(profileType, element) {
+    console.log('👤 Activating profile:', profileType);
+    
+    // Remove active state from all profiles
+    document.querySelectorAll('.profile-item').forEach(p => p.classList.remove('active'));
+    
+    // Add active state to current profile
+    element.classList.add('active');
+    
+    // Reset all accessibility features first
+    resetAllAccessibilityFeatures();
+    
+    switch(profileType) {
+        case 'visually-impaired':
+            activateVisuallyImpairedProfile();
+            break;
+        case 'dyslexia':
+            activateDyslexiaProfile();
+            break;
+        case 'color-blind':
+            activateColorBlindProfile();
+            break;
+        case 'impaired-mobility':
+            activateMotorImpairedProfile();
+            break;
+    }
+    
+    showProfileFeedback(profileType, element);
+}
+
+// Activate Language
+function activateLanguage(langType, element) {
+    console.log('🌐 Activating language:', langType);
+    
+    // Remove active state from all languages
+    document.querySelectorAll('.language-item').forEach(l => l.classList.remove('active'));
+    
+    // Add active state to current language
+    element.classList.add('active');
+    
+    // Change page language direction and text
+    if (langType === 'ar') {
+        document.body.style.direction = 'rtl';
+        document.body.classList.add('rtl-mode');
+    } else {
+        document.body.style.direction = 'ltr';
+        document.body.classList.remove('rtl-mode');
+    }
+    
+    showLanguageFeedback(langType, element);
+}
+
+// Accessibility Tool Functions
+function toggleHighContrast() {
+    document.body.classList.toggle('high-contrast');
+}
+
+function increaseTextSize() {
+    const currentSize = parseInt(getComputedStyle(document.documentElement).fontSize);
+    const newSize = currentSize + 2;
+    document.documentElement.style.fontSize = newSize + 'px';
+    
+    // Store the size for reset functionality
+    if (!window.accessibilitySettings) window.accessibilitySettings = {};
+    window.accessibilitySettings.textSize = newSize;
+}
+
+function toggleSimpleFont() {
+    document.body.classList.toggle('simple-font');
+}
+
+function toggleLinkHighlighting() {
+    document.body.classList.toggle('highlight-links');
+}
+
+function togglePauseAnimations() {
+    document.body.classList.toggle('pause-animations');
+}
+
+function toggleHideImages() {
+    document.body.classList.toggle('hide-images');
+}
+
+// Profile Functions
+function activateVisuallyImpairedProfile() {
+    increaseTextSize();
+    toggleLinkHighlighting();
+    
+    addAccessibilityStyle(`
+        .visually-impaired {
+            font-size: 1.2em !important;
+            line-height: 1.6 !important;
+        }
+        .visually-impaired a {
+            text-decoration: underline !important;
+            font-weight: bold !important;
+        }
+    `);
+}
+
+function activateDyslexiaProfile() {
+    document.body.classList.add('dyslexia-friendly');
+    toggleSimpleFont();
+    
+    addAccessibilityStyle(`
+        .dyslexia-friendly {
+            font-family: 'OpenDyslexic', 'Comic Sans MS', cursive !important;
+            letter-spacing: 0.1em !important;
+            word-spacing: 0.2em !important;
+            line-height: 1.8 !important;
+        }
+    `);
+}
+
+function activateColorBlindProfile() {
+    document.body.classList.add('color-blind-friendly');
+    
+    addAccessibilityStyle(`
+        .color-blind-friendly {
+            filter: contrast(1.2) saturate(1.5);
+        }
+        .color-blind-friendly a {
+            text-decoration: underline !important;
+        }
+    `);
+}
+
+function activateMotorImpairedProfile() {
+    document.body.classList.add('mobility-friendly');
+    toggleLinkHighlighting();
+    
+    addAccessibilityStyle(`
+        .mobility-friendly a, .mobility-friendly button {
+            padding: 15px 20px !important;
+            margin: 10px !important;
+            min-height: 44px !important;
+            display: inline-block !important;
+        }
+    `);
+}
+
+// Utility Functions
+function addAccessibilityStyle(css) {
+    const styleId = 'accessibility-styles';
+    let styleElement = document.getElementById(styleId);
+    
+    if (!styleElement) {
+        styleElement = document.createElement('style');
+        styleElement.id = styleId;
+        document.head.appendChild(styleElement);
+    }
+    
+    styleElement.textContent += css;
+}
+
+function resetAllAccessibilityFeatures() {
+    // Remove all accessibility classes
+    const classesToRemove = [
+        'high-contrast', 'simple-font', 'highlight-links', 
+        'pause-animations', 'hide-images', 'visually-impaired',
+        'dyslexia-friendly', 'color-blind-friendly', 'mobility-friendly'
+    ];
+    
+    classesToRemove.forEach(className => {
+        document.body.classList.remove(className);
+    });
+    
+    // Reset text size
+    if (window.accessibilitySettings && window.accessibilitySettings.textSize) {
+        document.documentElement.style.fontSize = '16px';
+        delete window.accessibilitySettings.textSize;
+    }
+    
+    // Remove accessibility styles
+    const styleElement = document.getElementById('accessibility-styles');
+    if (styleElement) {
+        styleElement.remove();
+    }
+}
+
+// Feedback Functions
+function showToolFeedback(toolType, element) {
+    const feedback = document.createElement('div');
+    feedback.textContent = `✅ ${toolType} activated!`;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 10001;
+        font-weight: bold;
+    `;
+    
+    document.body.appendChild(feedback);
+    
+    setTimeout(() => {
+        feedback.remove();
+    }, 2000);
+}
+
+function showProfileFeedback(profileType, element) {
+    const feedback = document.createElement('div');
+    feedback.textContent = `👤 ${profileType} profile activated!`;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #2196F3;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 10001;
+        font-weight: bold;
+    `;
+    
+    document.body.appendChild(feedback);
+    
+    setTimeout(() => {
+        feedback.remove();
+    }, 2000);
+}
+
+function showLanguageFeedback(langType, element) {
+    const feedback = document.createElement('div');
+    feedback.textContent = `🌐 Language changed to ${langType}!`;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #FF9800;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 10001;
+        font-weight: bold;
+    `;
+    
+    document.body.appendChild(feedback);
+    
+    setTimeout(() => {
+        feedback.remove();
+    }, 2000);
 }
 
 // Export for use in other files
 window.FloatingActionButton = {
     create: createFloatingActionButton,
-    init: initializeFAB
+    createWhatsAppModal: createWhatsAppModal,
+    createAIModal: createAIModal,
+    createAccessibilityPanel: createAccessibilityPanel
 };
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    createFloatingActionButton();
+});
