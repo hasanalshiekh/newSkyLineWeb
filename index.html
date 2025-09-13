@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="icon" type="image/svg+xml" href="img/sk.svg">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <title data-translate="nav.home">SKYLINE Innovation Software - Building Digital Futures</title>
     
     <!-- RTL/LTR Support -->
@@ -12,6 +12,7 @@
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="translation-system.js" defer></script>
     <style>
         /* Logo Direction Fix - Keep logo always LTR */
         .logo,
@@ -5936,10 +5937,10 @@
             <div class="hero-welcome" id="welcome">
                 <div class="welcome-content">
                     <h1 class="welcome-title">
-                        Welcome to <span class="highlight-text">SKYLINE</span>
-                        <br>Where Innovation Meets Excellence
+                        <span data-translate="hero-title">Welcome to <span class="highlight-text">SKYLINE</span>
+                        <br>Where Innovation Meets Excellence</span>
                     </h1>
-                    <p class="welcome-description">
+                    <p class="welcome-description" data-translate="hero-description">
                         We are a leading technology company in Jordan, specializing in cutting-edge software solutions,
                         AI & Machine Learning, custom development, cybersecurity, and cloud infrastructure.
                         Our mission is to transform businesses through innovative technology and digital excellence.
@@ -5947,11 +5948,11 @@
                     <div class="welcome-actions">
                         <a href="#contact" class="welcome-btn primary">
                             <i class="fas fa-rocket"></i>
-                            Start Your Journey
+                            <span data-translate="get-started">Start Your Journey</span>
                         </a>
                         <a href="about.html" class="welcome-btn secondary">
                             <i class="fas fa-play"></i>
-                            Watch Our Story
+                            <span data-translate="learn-more">Watch Our Story</span>
                         </a>
                     </div>
                 </div>
@@ -6180,8 +6181,8 @@
             <!-- Company Overview -->
             <div class="overview-section">
                 <div class="section-header">
-                    <h2 class="overview-title">Our Impact in Numbers</h2>
-                    <p class="section-subtitle">Transforming businesses through technology innovation</p>
+                    <h2 class="overview-title" data-translate="services-title">Our Impact in Numbers</h2>
+                    <p class="section-subtitle" data-translate="services-subtitle">Transforming businesses through technology innovation</p>
                 </div>
                 <div class="overview-stats">
                     <div class="stat-item">
@@ -6189,7 +6190,7 @@
                             <i class="fas fa-project-diagram"></i>
                         </div>
                         <div class="stat-number" data-target="500">0</div>
-                        <div class="stat-label">Projects Completed</div>
+                        <div class="stat-label" data-translate="projects-completed">Projects Completed</div>
                         <div class="stat-progress"></div>
                     </div>
                     <div class="stat-item">
@@ -6197,7 +6198,7 @@
                             <i class="fas fa-smile"></i>
                         </div>
                         <div class="stat-number" data-target="50">0</div>
-                        <div class="stat-label">Happy Clients</div>
+                        <div class="stat-label" data-translate="happy-clients">Happy Clients</div>
                         <div class="stat-progress"></div>
                     </div>
                     <div class="stat-item">
@@ -6205,7 +6206,7 @@
                             <i class="fas fa-calendar-alt"></i>
                         </div>
                         <div class="stat-number" data-target="10">0</div>
-                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-label" data-translate="years-experience">Years Experience</div>
                         <div class="stat-progress"></div>
                     </div>
                     <div class="stat-item">
@@ -6213,7 +6214,7 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="stat-number">24/7</div>
-                        <div class="stat-label">Support Available</div>
+                        <div class="stat-label" data-translate="24-7-support">Support Available</div>
                         <div class="stat-progress"></div>
                     </div>
                 </div>
@@ -6223,8 +6224,8 @@
             <!-- Featured Solutions -->
             <div class="featured-solutions">
                 <div class="section-header">
-                    <h3 class="featured-title">Our Featured Solutions</h3>
-                    <p class="section-subtitle">Comprehensive technology solutions for modern businesses</p>
+                    <h3 class="featured-title" data-translate="services-title">Our Featured Solutions</h3>
+                    <p class="section-subtitle" data-translate="services-subtitle">Comprehensive technology solutions for modern businesses</p>
                 </div>
                 <div class="solutions-grid">
                     <div class="solution-card featured">
@@ -6232,20 +6233,20 @@
                             <div class="solution-image">
                                 <i class="fas fa-brain"></i>
                             </div>
-                            <div class="solution-badge">Popular</div>
+                            <div class="solution-badge" data-translate="popular-badge">Popular</div>
                         </div>
                         <div class="solution-content">
-                            <h4>AI & Machine Learning</h4>
-                            <p>Transform your business with intelligent automation, predictive analytics, and
+                            <h4 data-translate="ai-ml">AI & Machine Learning</h4>
+                            <p data-translate="ai-ml-desc">Transform your business with intelligent automation, predictive analytics, and
                                 data-driven insights.</p>
                             <ul class="solution-features">
-                                <li><i class="fas fa-check"></i> Predictive Analytics</li>
-                                <li><i class="fas fa-check"></i> Natural Language Processing</li>
-                                <li><i class="fas fa-check"></i> Computer Vision</li>
-                                <li><i class="fas fa-check"></i> Recommendation Systems</li>
+                                <li><i class="fas fa-check"></i> <span data-translate="predictive-analytics">Predictive Analytics</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="natural-language-processing">Natural Language Processing</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="computer-vision">Computer Vision</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="recommendation-systems">Recommendation Systems</span></li>
                             </ul>
                             <a href="#contact" class="solution-cta">
-                                <span>Explore AI Solutions</span>
+                                <span data-translate="explore-ai-solutions">Explore AI Solutions</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -6256,20 +6257,20 @@
                             <div class="solution-image">
                                 <i class="fas fa-code"></i>
                             </div>
-                            <div class="solution-badge">Featured</div>
+                            <div class="solution-badge" data-translate="featured-badge">Featured</div>
                         </div>
                         <div class="solution-content">
-                            <h4>Custom Software Development</h4>
-                            <p>Build scalable, innovative applications tailored to your specific business needs and
+                            <h4 data-translate="custom-software">Custom Software Development</h4>
+                            <p data-translate="custom-software-desc">Build scalable, innovative applications tailored to your specific business needs and
                                 requirements.</p>
                             <ul class="solution-features">
-                                <li><i class="fas fa-check"></i> Web Applications</li>
-                                <li><i class="fas fa-check"></i> Mobile Apps</li>
-                                <li><i class="fas fa-check"></i> Desktop Software</li>
-                                <li><i class="fas fa-check"></i> API Development</li>
+                                <li><i class="fas fa-check"></i> <span data-translate="web-applications">Web Applications</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="mobile-solutions">Mobile Apps</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="desktop-software">Desktop Software</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="api-development">API Development</span></li>
                             </ul>
                             <a href="#contact" class="solution-cta">
-                                <span>Start Your Project</span>
+                                <span data-translate="start-your-project">Start Your Project</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -6280,20 +6281,20 @@
                             <div class="solution-image">
                                 <i class="fas fa-cloud"></i>
                             </div>
-                            <div class="solution-badge">Trending</div>
+                            <div class="solution-badge" data-translate="trending-badge">Trending</div>
                         </div>
                         <div class="solution-content">
-                            <h4>Cloud Infrastructure</h4>
-                            <p>Scale your operations with secure, reliable cloud solutions designed for modern
+                            <h4 data-translate="cloud-infrastructure">Cloud Infrastructure</h4>
+                            <p data-translate="cloud-infrastructure-desc">Scale your operations with secure, reliable cloud solutions designed for modern
                                 businesses.</p>
                             <ul class="solution-features">
-                                <li><i class="fas fa-check"></i> Cloud Migration</li>
-                                <li><i class="fas fa-check"></i> DevOps Automation</li>
-                                <li><i class="fas fa-check"></i> Microservices Architecture</li>
-                                <li><i class="fas fa-check"></i> Serverless Solutions</li>
+                                <li><i class="fas fa-check"></i> <span data-translate="cloud-migration">Cloud Migration</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="devops-automation">DevOps Automation</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="microservices-architecture">Microservices Architecture</span></li>
+                                <li><i class="fas fa-check"></i> <span data-translate="serverless-solutions">Serverless Solutions</span></li>
                             </ul>
                             <a href="#contact" class="solution-cta">
-                                <span>Go Cloud Native</span>
+                                <span data-translate="go-cloud-native">Go Cloud Native</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -6308,25 +6309,25 @@
                 </div>
                 <div class="cta-content">
                     <div class="cta-header">
-                        <h3 class="cta-title">Ready to Transform Your Business?</h3>
+                        <h3 class="cta-title" data-translate="contact-title">Ready to Transform Your Business?</h3>
                         <p class="cta-description">
-                            Let's discuss how our innovative solutions can drive your business forward.
-                            Get in touch with our expert team today.
+                            <span data-translate="cta-description-start">Let's discuss how our innovative solutions can drive your business forward.</span>
+                            <span data-translate="cta-description-end">Get in touch with our expert team today.</span>
                         </p>
                     </div>
                     <div class="cta-buttons">
                         <a href="#contact" class="cta-button primary">
                             <i class="fas fa-rocket"></i>
-                            <span>Start Your Project</span>
+                            <span data-translate="get-started">Start Your Project</span>
                             <div class="button-glow"></div>
                         </a>
                         <a href="about.html" class="cta-button secondary">
                             <i class="fas fa-info-circle"></i>
-                            <span>Learn More About Us</span>
+                            <span data-translate="learn-more">Learn More About Us</span>
                         </a>
                         <a href="tel:+962786669911" class="cta-button outline">
                             <i class="fas fa-phone"></i>
-                            <span>Call Us Now</span>
+                            <span data-translate="call-us">Call Us Now</span>
                         </a>
                     </div>
                 </div>
@@ -6351,17 +6352,17 @@
                     <div class="decoration-line"></div>
                 </div>
                 <h2 class="section-title">
-                    <span class="title-main">Why Choose</span>
+                    <span class="title-main" data-translate="about-title">Why Choose</span>
                     <span class="title-brand">Skyline Innovation</span>
                     <span class="title-question">?</span>
                 </h2>
-                <p class="section-description">At Skyline Innovation, we understand that every business is unique.
+                <p class="section-description" data-translate="about-description">At Skyline Innovation, we understand that every business is unique.
                     That's
                     why we focus on tailored solutions, expert support, and future-ready technology. Here's what sets us
                     apart:</p>
                 <div class="services-badge">
                     <i class="fas fa-award"></i>
-                    <span>Trusted by 500+ Businesses</span>
+                    <span data-translate="trusted-businesses">Trusted by 500+ Businesses</span>
                 </div>
             </div>
 
@@ -6384,17 +6385,17 @@
                             <div class="card-number">01</div>
                         </div>
                         <div class="card-body">
-                            <h3>Industry Expertise</h3>
-                            <p>A team of experienced developers, consultants, and ERP specialists with deep market
+                            <h3 data-translate="industry-expertise">Industry Expertise</h3>
+                            <p data-translate="industry-expertise-desc">A team of experienced developers, consultants, and ERP specialists with deep market
                                 knowledge.</p>
                             <div class="card-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Deep Market Knowledge
+                                    <span data-translate="deep-market-knowledge">Deep Market Knowledge</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Proven Track Record
+                                    <span data-translate="proven-track">Proven Track Record</span>
                                 </span>
                             </div>
                         </div>
@@ -6423,16 +6424,16 @@
                             <div class="card-number">02</div>
                         </div>
                         <div class="card-body">
-                            <h3>Customized Solutions</h3>
-                            <p>Flexible and scalable ERP systems tailored to specific business needs.</p>
+                            <h3 data-translate="scalable-solutions">Customized Solutions</h3>
+                            <p data-translate="scalable-solutions-desc">Flexible and scalable ERP systems tailored to specific business needs.</p>
                             <div class="card-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Tailored Solutions
+                                    <span data-translate="tailored-solutions">Tailored Solutions</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Scalable Systems
+                                    <span data-translate="scalable-systems">Scalable Systems</span>
                                 </span>
                             </div>
                         </div>
@@ -6461,16 +6462,16 @@
                             <div class="card-number">03</div>
                         </div>
                         <div class="card-body">
-                            <h3>Cutting-Edge Technology</h3>
-                            <p>Utilization of AI, cloud computing, and advanced analytics for superior performance.</p>
+                            <h3 data-translate="cutting-edge">Cutting-Edge Technology</h3>
+                            <p data-translate="cutting-edge-desc">Utilization of AI, cloud computing, and advanced analytics for superior performance.</p>
                             <div class="card-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    AI & Machine Learning
+                                    <span data-translate="ai-machine-learning">AI & Machine Learning</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Cloud Computing
+                                    <span data-translate="cloud-computing">Cloud Computing</span>
                                 </span>
                             </div>
                         </div>
@@ -6499,16 +6500,16 @@
                             <div class="card-number">04</div>
                         </div>
                         <div class="card-body">
-                            <h3>User-Friendly Interface</h3>
-                            <p>Simplified, intuitive software designed for maximum efficiency.</p>
+                            <h3 data-translate="user-experience">User-Friendly Interface</h3>
+                            <p data-translate="user-experience-desc">Simplified, intuitive software designed for maximum efficiency.</p>
                             <div class="card-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Intuitive Design
+                                    <span data-translate="intuitive-design">Intuitive Design</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Maximum Efficiency
+                                    <span data-translate="maximum-efficiency">Maximum Efficiency</span>
                                 </span>
                             </div>
                         </div>
@@ -6537,16 +6538,16 @@
                             <div class="card-number">05</div>
                         </div>
                         <div class="card-body">
-                            <h3>Strong Security Measures</h3>
-                            <p>Implementation of high-end encryption and compliance with industry standards.</p>
+                            <h3 data-translate="cybersecurity">Strong Security Measures</h3>
+                            <p data-translate="cybersecurity-desc">Implementation of high-end encryption and compliance with industry standards.</p>
                             <div class="card-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    High-End Encryption
+                                    <span data-translate="high-end-encryption">High-End Encryption</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Industry Compliance
+                                    <span data-translate="industry-compliance">Industry Compliance</span>
                                 </span>
                             </div>
                         </div>
@@ -6575,17 +6576,17 @@
                             <div class="card-number">06</div>
                         </div>
                         <div class="card-body">
-                            <h3>Ongoing Support & Training</h3>
-                            <p>Dedicated technical support and training to ensure smooth implementation and system
+                            <h3 data-translate="maintenance-support">Ongoing Support & Training</h3>
+                            <p data-translate="maintenance-support-desc">Dedicated technical support and training to ensure smooth implementation and system
                                 optimization.</p>
                             <div class="card-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    24/7 Support
+                                    <span data-translate="24-7-support">24/7 Support</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Training Programs
+                                    <span data-translate="training-programs">Training Programs</span>
                                 </span>
                             </div>
                         </div>
@@ -6606,15 +6607,15 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Who We Are?</h2>
-                    <p>Skyline Innovation is a leading provider of Enterprise Resource Planning (ERP) and software
+                    <h2 data-translate="about-title">Who We Are?</h2>
+                    <p data-translate="about-description">Skyline Innovation is a leading provider of Enterprise Resource Planning (ERP) and software
                         solutions in Jordan, dedicated to empowering businesses through cutting-edge technology and
                         digital transformation. With a commitment to excellence, innovation, and customer satisfaction,
                         we deliver tailored software solutions that streamline operations, enhance decision-making, and
                         drive sustainable growth.</p>
-                    <p>Our expertise spans across multiple industries, enabling organizations to automate workflows,
+                    <p data-translate="about-description">Our expertise spans across multiple industries, enabling organizations to automate workflows,
                         integrate systems, and optimize business processes with efficiency and accuracy.</p>
-                    <a href="about.html" class="about-cta-button">Learn More About Us</a>
+                    <a href="about.html" class="about-cta-button" data-translate="learn-more">Learn More About Us</a>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
@@ -6647,18 +6648,19 @@
                 </div>
 
                 <h2 class="section-title">
-                    <span class="title-prefix">Industries</span>
-                    <span class="title-main">We Serve</span>
+                    <span class="title-prefix" data-translate="industries-title-prefix">Industries</span>
+                    <span class="title-main" data-translate="industries-title-main">We Serve</span>
                 </h2>
 
                 <p class="section-description">
-                    Our ERP and software solutions cater to a diverse range of industries,
-                    <span class="highlight-text">transforming businesses</span> through innovative technology.
+                    <span data-translate="industries-description-start">Our ERP and software solutions cater to a diverse range of industries,</span>
+                    <span class="highlight-text" data-translate="transforming-businesses">transforming businesses</span>
+                    <span data-translate="industries-description-end">through innovative technology.</span>
                 </p>
 
                 <div class="industries-badge">
                     <i class="fas fa-rocket"></i>
-                    <span>Trusted by 200+ Companies</span>
+                    <span data-translate="trusted-companies">Trusted by 200+ Companies</span>
                 </div>
             </div>
 
@@ -6683,17 +6685,17 @@
                         </div>
 
                         <div class="card-body">
-                            <h3>Manufacturing</h3>
-                            <p>Production planning, inventory management, and quality control solutions.</p>
+                            <h3 data-translate="manufacturing-title">Manufacturing</h3>
+                            <p data-translate="manufacturing-description">Production planning, inventory management, and quality control solutions.</p>
 
                             <div class="industry-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Production Planning
+                                    <span data-translate="production-planning">Production Planning</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Quality Control
+                                    <span data-translate="quality-control">Quality Control</span>
                                 </span>
                             </div>
                         </div>
@@ -6701,7 +6703,7 @@
                         <div class="card-footer">
                             <div class="industry-stats">
                                 <span class="stat-value">95%</span>
-                                <span class="stat-label">Efficiency</span>
+                                <span class="stat-label" data-translate="efficiency">Efficiency</span>
                             </div>
                             <div class="industry-arrow">
                                 <i class="fas fa-arrow-right"></i>
@@ -6727,17 +6729,17 @@
                         </div>
 
                         <div class="card-body">
-                            <h3>Retail & E-commerce</h3>
-                            <p>Sales tracking, POS integration, and customer engagement solutions.</p>
+                            <h3 data-translate="retail-title">Retail & E-commerce</h3>
+                            <p data-translate="retail-description">Sales tracking, POS integration, and customer engagement solutions.</p>
 
                             <div class="industry-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    POS Integration
+                                    <span data-translate="pos-integration">POS Integration</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Customer Analytics
+                                    <span data-translate="customer-analytics">Customer Analytics</span>
                                 </span>
                             </div>
                         </div>
@@ -6745,7 +6747,7 @@
                         <div class="card-footer">
                             <div class="industry-stats">
                                 <span class="stat-value">40%</span>
-                                <span class="stat-label">Growth</span>
+                                <span class="stat-label" data-translate="growth">Growth</span>
                             </div>
                             <div class="industry-arrow">
                                 <i class="fas fa-arrow-right"></i>
@@ -6771,17 +6773,17 @@
                         </div>
 
                         <div class="card-body">
-                            <h3>Healthcare</h3>
-                            <p>Patient records management, billing, and compliance tracking solutions.</p>
+                            <h3 data-translate="healthcare-title">Healthcare</h3>
+                            <p data-translate="healthcare-description">Patient records management, billing, and compliance tracking solutions.</p>
 
                             <div class="industry-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Patient Records
+                                    <span data-translate="patient-records">Patient Records</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Compliance Tracking
+                                    <span data-translate="compliance-tracking">Compliance Tracking</span>
                                 </span>
                             </div>
                         </div>
@@ -6789,7 +6791,7 @@
                         <div class="card-footer">
                             <div class="industry-stats">
                                 <span class="stat-value">99.9%</span>
-                                <span class="stat-label">Accuracy</span>
+                                <span class="stat-label" data-translate="accuracy">Accuracy</span>
                             </div>
                             <div class="industry-arrow">
                                 <i class="fas fa-arrow-right"></i>
@@ -6815,24 +6817,25 @@
                         </div>
 
                         <div class="card-body">
-                            <h3>Finance & Banking</h3>
-                            <p>Accounting, risk management, and financial reporting solutions.</p>
+                            <h3 data-translate="finance-title">Finance & Banking</h3>
+                            <p data-translate="finance-description">Accounting, risk management, and financial reporting solutions.</p>
 
                             <div class="industry-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Risk Management
+                                    <span data-translate="risk-management">Risk Management</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Financial Reporting
+                                    <span data-translate="financial-reporting">Financial Reporting</span>
                                 </span>
                             </div>
                         </div>
 
                         <div class="card-footer">
-                            <div class="stat-value">100%</span>
-                                <span class="stat-label">Security</span>
+                            <div class="industry-stats">
+                                <span class="stat-value">100%</span>
+                                <span class="stat-label" data-translate="security">Security</span>
                             </div>
                             <div class="industry-arrow">
                                 <i class="fas fa-arrow-right"></i>
@@ -6858,17 +6861,17 @@
                         </div>
 
                         <div class="card-body">
-                            <h3>Logistics & Supply Chain</h3>
-                            <p>Fleet tracking, warehouse management, and procurement solutions.</p>
+                            <h3 data-translate="logistics-title">Logistics & Supply Chain</h3>
+                            <p data-translate="logistics-description">Fleet tracking, warehouse management, and procurement solutions.</p>
 
                             <div class="industry-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Fleet Tracking
+                                    <span data-translate="fleet-tracking">Fleet Tracking</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Warehouse Management
+                                    <span data-translate="warehouse-management">Warehouse Management</span>
                                 </span>
                             </div>
                         </div>
@@ -6876,7 +6879,7 @@
                         <div class="card-footer">
                             <div class="industry-stats">
                                 <span class="stat-value">60%</span>
-                                <span class="stat-label">Cost Reduction</span>
+                                <span class="stat-label" data-translate="cost-reduction">Cost Reduction</span>
                             </div>
                             <div class="industry-arrow">
                                 <i class="fas fa-arrow-right"></i>
@@ -6902,17 +6905,17 @@
                         </div>
 
                         <div class="card-body">
-                            <h3>Education & Government</h3>
-                            <p>Student information systems, HR, and administrative automation solutions.</p>
+                            <h3 data-translate="education-title">Education & Government</h3>
+                            <p data-translate="education-description">Student information systems, HR, and administrative automation solutions.</p>
 
                             <div class="industry-features">
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    Student Systems
+                                    <span data-translate="student-systems">Student Systems</span>
                                 </span>
                                 <span class="feature-item">
                                     <i class="fas fa-check"></i>
-                                    HR Automation
+                                    <span data-translate="hr-automation">HR Automation</span>
                                 </span>
                             </div>
                         </div>
@@ -6920,7 +6923,7 @@
                         <div class="card-footer">
                             <div class="industry-stats">
                                 <span class="stat-value">80%</span>
-                                <span class="stat-label">Automation</span>
+                                <span class="stat-label" data-translate="automation">Automation</span>
                             </div>
                             <div class="industry-arrow">
                                 <i class="fas fa-arrow-right"></i>
@@ -6932,7 +6935,7 @@
         </div>
     </section>
 
-   تنل
+   
    
    <script src="navbar-include.js"></script>
     

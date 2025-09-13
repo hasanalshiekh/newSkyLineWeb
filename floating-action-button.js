@@ -594,7 +594,7 @@ function createAIModal() {
                         <button class="ai-quick-btn" data-query="Tell me about your services">Services</button>
                         <button class="ai-quick-btn" data-query="What are your prices?">Pricing</button>
                         <button class="ai-quick-btn" data-query="How can I contact you?">Contact</button>
-                        <button class="ai-quick-btn" data-query="Show me your portfolio">Portfolio</button>
+                        <button class="ai-quick-btn" data-query="Where is your office located?">Location</button>
                     </div>
                 </div>
             </div>
@@ -607,8 +607,9 @@ function createAIModal() {
     aiStyles.textContent = `
         .ai-modal-overlay {
             position: fixed !important;
-            top: 20px;
+            bottom: 20px;
             right: -380px;
+            top: auto !important;
             width: 360px;
             height: 380px;
             background: #ffffff;
@@ -729,6 +730,23 @@ function createAIModal() {
             color: #333;
         }
 
+        .ai-text a {
+            color: #DC143C !important;
+            text-decoration: none !important;
+            font-weight: bold !important;
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(220, 20, 60, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .ai-text a:hover {
+            background: rgba(220, 20, 60, 0.2);
+            transform: translateY(-1px);
+        }
+
         .ai-input-container {
             display: flex;
             gap: 10px;
@@ -774,18 +792,22 @@ function createAIModal() {
 
         .ai-quick-actions {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 8px;
+            flex-wrap: nowrap;
+            justify-content: space-between;
         }
 
         .ai-quick-btn {
-            padding: 8px 16px;
+            padding: 6px 8px;
             background: #f8f9fa;
             border: 1px solid #dee2e6;
-            border-radius: 20px;
+            border-radius: 15px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 10px;
             transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
         }
 
         .ai-quick-btn:hover {
@@ -820,8 +842,9 @@ function createAIModal() {
             .ai-modal-overlay {
                 width: 350px;
                 height: 370px;
-                top: 15px;
+                bottom: 15px;
                 right: -370px;
+                top: auto !important;
             }
             
             .ai-modal-overlay.active {
@@ -834,8 +857,9 @@ function createAIModal() {
             .ai-modal-overlay {
                 width: 320px;
                 height: 350px;
-                top: 10px;
+                bottom: 10px;
                 right: -340px;
+                top: auto !important;
             }
             
             .ai-modal-overlay.active {
@@ -843,13 +867,15 @@ function createAIModal() {
             }
             
             .ai-quick-actions {
-                justify-content: center;
-                flex-wrap: wrap;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                gap: 4px;
             }
             
             .ai-quick-btn {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.6rem;
+                font-size: 0.7rem;
+                padding: 0.3rem 0.4rem;
+                flex: 1;
             }
         }
 
@@ -858,8 +884,9 @@ function createAIModal() {
             .ai-modal-overlay {
                 width: 300px;
                 height: 320px;
-                top: 5px;
+                bottom: 5px;
                 right: -320px;
+                top: auto !important;
             }
             
             .ai-modal-overlay.active {
@@ -881,14 +908,15 @@ function createAIModal() {
             
             .ai-quick-actions {
                 padding: 0.6rem;
-                gap: 0.4rem;
+                gap: 0.3rem;
+                flex-wrap: nowrap;
             }
             
             .ai-quick-btn {
-                font-size: 0.7rem;
-                padding: 0.3rem 0.5rem;
+                font-size: 0.65rem;
+                padding: 0.25rem 0.3rem;
                 flex: 1;
-                min-width: 60px;
+                min-width: 50px;
             }
         }
 
@@ -897,8 +925,9 @@ function createAIModal() {
             .ai-modal-overlay {
                 width: 280px;
                 height: 300px;
-                top: 5px;
+                bottom: 5px;
                 right: -300px;
+                top: auto !important;
             }
             
             .ai-modal-overlay.active {
@@ -929,12 +958,15 @@ function createAIModal() {
             
             .ai-quick-actions {
                 padding: 0.5rem;
-                gap: 0.3rem;
+                gap: 0.2rem;
+                flex-wrap: nowrap;
             }
             
             .ai-quick-btn {
-                font-size: 0.65rem;
-                padding: 0.25rem 0.4rem;
+                font-size: 0.6rem;
+                padding: 0.2rem 0.25rem;
+                flex: 1;
+                min-width: 45px;
             }
         }
 
@@ -962,7 +994,7 @@ function createAIModal() {
         @media (orientation: landscape) and (max-height: 500px) {
             .ai-modal-overlay {
                 height: 90vh;
-                top: 5vh;
+                bottom: 5vh;
             }
         }
 
@@ -1003,7 +1035,8 @@ function createAIModal() {
             position: fixed !important;
             z-index: 10001 !important;
             right: 20px !important;
-            top: 20px !important;
+            bottom: 20px !important;
+            top: auto !important;
         }
 
         /* Fallback for older browsers */
@@ -1256,8 +1289,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
         }
     }, 10);
 
@@ -1313,8 +1347,9 @@ function createAIModal() {
             overlay.style.display = 'block';
             overlay.style.visibility = 'visible';
             overlay.style.opacity = '1';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
         }
     }
     
@@ -1332,8 +1367,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
             console.log('🤖 AI Modal forced to be visible');
             
@@ -1450,13 +1486,27 @@ function createAIModal() {
         const responses = {
             'services': 'We offer comprehensive software solutions including web development, mobile apps, AI & Machine Learning, cybersecurity, and cloud infrastructure. Our team specializes in cutting-edge technologies to transform your business.',
             'pricing': 'Our pricing is customized based on your specific needs and project requirements. We offer competitive rates and flexible payment plans. Contact us for a detailed quote tailored to your project.',
-            'contact': 'You can reach us through WhatsApp (click the green button), email us at info@skyline.com, or call us at +962 78 666 9911. We\'re available 24/7 to assist you.',
-            'portfolio': 'Check out our latest projects and case studies on our website. We\'ve successfully delivered solutions for various industries including healthcare, finance, e-commerce, and more.'
+            'contact': 'You can reach us through WhatsApp (click the green button), email us at info@skyline-innovation.com, or call us at:<br><strong>Main Office:</strong> +962 77 755 8888<br><strong>Sales:</strong> +962 77 160 0663<br>We\'re available 24/7 to assist you.',
+            'portfolio': 'Check out our latest projects and case studies on our website. We\'ve successfully delivered solutions for various industries including healthcare, finance, e-commerce, and more.',
+            'location': 'Our office is located at: 3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan. You can get directions by clicking the map link or call us at:<br><strong>Main Office:</strong> +962 77 755 8888<br><strong>Sales:</strong> +962 77 160 0663',
+            'address': 'Our office is located at: 3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan. You can get directions by clicking the map link or call us at:<br><strong>Main Office:</strong> +962 77 755 8888<br><strong>Sales:</strong> +962 77 160 0663',
+            'office': 'Our office is located at: 3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan. You can get directions by clicking the map link or call us at:<br><strong>Main Office:</strong> +962 77 755 8888<br><strong>Sales:</strong> +962 77 160 0663',
+            'where': 'Our office is located at: 3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan. You can get directions by clicking the map link or call us at:<br><strong>Main Office:</strong> +962 77 755 8888<br><strong>Sales:</strong> +962 77 160 0663',
+            'map': 'Our office is located at: 3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan. You can get directions by clicking the map link or call us at:<br><strong>Main Office:</strong> +962 77 755 8888<br><strong>Sales:</strong> +962 77 160 0663',
+            'directions': 'Our office is located at: 3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan. You can get directions by clicking the map link or call us at:<br><strong>Main Office:</strong> +962 77 755 8888<br><strong>Sales:</strong> +962 77 160 0663'
         };
 
         const lowerMessage = message.toLowerCase();
         for (const [key, response] of Object.entries(responses)) {
             if (lowerMessage.includes(key)) {
+                // If asking about location, add map link
+                if (['location', 'address', 'office', 'where', 'map', 'directions'].includes(key)) {
+                    return response + ' <br><br><a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" target="_blank" style="color: #DC143C; text-decoration: none; font-weight: bold;">📍 Get Directions on Google Maps</a>';
+                }
+                // If asking about contact, add clickable phone numbers
+                if (key === 'contact') {
+                    return response + ' <br><br><a href="tel:+962777558888" style="color: #DC143C; text-decoration: none; font-weight: bold;">📞 Call Main Office</a> | <a href="tel:+962771600663" style="color: #DC143C; text-decoration: none; font-weight: bold;">📞 Call Sales</a>';
+                }
                 return response;
             }
         }
@@ -1505,8 +1555,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
             console.log('🤖 AI Modal made visible on page load');
         }
@@ -1520,8 +1571,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
             console.log('🤖 AI Modal made visible on DOM ready');
         }
@@ -1535,8 +1587,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
             console.log('🤖 AI Modal made visible on window focus');
         }
@@ -1550,8 +1603,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
         }
     });
@@ -1564,8 +1618,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
         }
     });
@@ -1578,8 +1633,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
         }
     });
@@ -1592,8 +1648,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
         }
     });
@@ -1606,8 +1663,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
         }
     });
@@ -1620,8 +1678,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
         }
     });
@@ -1634,8 +1693,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
         }
     });
@@ -1648,8 +1708,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
         }
     });
@@ -1694,8 +1755,9 @@ function createAIModal() {
             overlay.style.opacity = '1';
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
-            overlay.style.right = '20px';
-            overlay.style.top = '20px';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.style.top = 'auto';
             overlay.classList.add('active');
             console.log('🤖 AI Modal final visibility check completed');
             

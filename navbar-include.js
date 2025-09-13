@@ -11,6 +11,14 @@ function includeNavbar() {
         document.head.appendChild(fontAwesomeLink);
     }
     
+    // Add Translation System
+    if (!document.querySelector('script[src*="translation-system.js"]')) {
+        const translationScript = document.createElement('script');
+        translationScript.src = 'translation-system.js';
+        translationScript.defer = true;
+        document.head.appendChild(translationScript);
+    }
+    
     // Create a container for the navbar
     const navbarContainer = document.createElement('div');
     navbarContainer.id = 'navbar-container';
@@ -32,6 +40,9 @@ function includeNavbar() {
     
     // Initialize navbar functionality
     initializeNavbarFunctionality();
+    
+    // Initialize language switcher
+    initializeLanguageSwitcher();
     
     // Ensure mobile sidenav is hidden on page load
     setTimeout(() => {
@@ -269,18 +280,94 @@ function getNavbarStyles() {
             background: linear-gradient(135deg, #FF8E8E, #DC143C);
         }
 
+
         .portal-btn:hover::before {
             opacity: 1;
             transform: scale(1);
         }
 
+
         .portal-btn:active {
             transform: translateY(-1px) scale(1.05);
         }
 
+
         .portal-btn i {
             z-index: 2;
             position: relative;
+        }
+
+        /* Language Button Design */
+        .language-switcher {
+            margin-left: 15px;
+        }
+
+        .language-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #D90A2C;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            color: #D90A2C;
+            box-shadow: 0 4px 15px #D90A2C;
+        }
+
+        .language-btn i {
+            color: #D90A2C;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .language-btn:hover i {
+            color: #D90A2C;
+            transform: rotate(15deg);
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .language-switcher {
+            margin-left: 0;
+            margin-right: 15px;
+        }
+
+        [dir="rtl"] .language-btn {
+            flex-direction: row-reverse;
+        }
+
+        /* Language button color change on scroll - White when navbar is black */
+        .navbar.scrolled .language-btn {
+            color: white;
+            background: rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar.scrolled .language-btn:hover {
+            color: white;
+            background: rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar.scrolled .language-btn i {
+            color: white;
+        }
+
+        .navbar.scrolled .language-btn:hover i {
+            color: white;
         }
 
         
@@ -798,7 +885,7 @@ function getNavbarStyles() {
         .dropdown-menu a {
             display: block;
             padding: 0.8rem 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.9) !important;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
@@ -811,10 +898,29 @@ function getNavbarStyles() {
 
         .dropdown-menu a:hover {
             background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            color: #fff !important;
             transform: translateX(5px);
             padding-left: 2rem;
             text-decoration: none;
+        }
+
+        /* Force dropdown menu content to always be white */
+        .dropdown-menu,
+        .dropdown-menu *,
+        .dropdown-menu a,
+        .dropdown-menu li,
+        .dropdown-menu span,
+        .header .dropdown-menu,
+        .header .dropdown-menu *,
+        .header .dropdown-menu a,
+        .header .dropdown-menu li,
+        .header .dropdown-menu span,
+        .header.scrolled .dropdown-menu,
+        .header.scrolled .dropdown-menu *,
+        .header.scrolled .dropdown-menu a,
+        .header.scrolled .dropdown-menu li,
+        .header.scrolled .dropdown-menu span {
+            color: rgba(255, 255, 255, 0.9) !important;
         }
 
         .dropdown-menu a:hover::after {
@@ -825,6 +931,25 @@ function getNavbarStyles() {
             transform: translateY(-50%);
             color: #C41E3A;
             font-weight: bold;
+        }
+
+        /* Additional force for all dropdown menu states */
+        .dropdown-menu a,
+        .dropdown-menu a:visited,
+        .dropdown-menu a:active,
+        .dropdown-menu a:focus,
+        .dropdown-menu a:hover,
+        .header .dropdown-menu a,
+        .header .dropdown-menu a:visited,
+        .header .dropdown-menu a:active,
+        .header .dropdown-menu a:focus,
+        .header .dropdown-menu a:hover,
+        .header.scrolled .dropdown-menu a,
+        .header.scrolled .dropdown-menu a:visited,
+        .header.scrolled .dropdown-menu a:active,
+        .header.scrolled .dropdown-menu a:focus,
+        .header.scrolled .dropdown-menu a:hover {
+            color: rgba(255, 255, 255, 0.9) !important;
         }
 
 
@@ -1371,34 +1496,34 @@ function getNavbarHTML() {
             <nav class="nav-container">
                 <a href="index.html" class="logo">
                     <span class="logo-sky">SK</span><span class="logo-yline">YLINE</span>
-                    <span class="logo-tagline">Innovation Software</span>
+                    <span class="logo-tagline" data-translate="logo-tagline">Innovation Software</span>
                 </a>
 
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="home-link">Home</a></li>
+                    <li><a href="index.html" class="home-link" data-translate="nav-home">Home</a></li>
                     <li class="dropdown">
-                        <a href="abouts.html" class="dropdown-toggle">About <i class="fas fa-chevron-down"></i></a>
+                        <a href="abouts.html" class="dropdown-toggle" data-translate="nav-about">About <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="abouts.html#company-profile">Company Profile</a></li>
-                            <li><a href="abouts.html#vision-mission">Vision & Mission</a></li>
-                            <li><a href="abouts.html#leadership">Leadership Team</a></li>
-                            <li><a href="abouts.html#values">Our Values</a></li>
-                            <li><a href="abouts.html#partners">Strategic Partners</a></li>
-                            <li><a href="abouts.html#alliances">Strategic Alliances</a></li>
-                            <li><a href="abouts.html#clients">Our Clients</a></li>
-                            <li><a href="testimonials-case-studies.html">Testimonials & Case Studies</a></li>
+                            <li><a href="abouts.html#company-profile" data-translate="nav-company-profile">Company Profile</a></li>
+                            <li><a href="abouts.html#vision-mission" data-translate="nav-vision-mission">Vision & Mission</a></li>
+                            <li><a href="abouts.html#leadership" data-translate="nav-leadership">Leadership Team</a></li>
+                            <li><a href="abouts.html#values" data-translate="nav-values">Our Values</a></li>
+                            <li><a href="abouts.html#partners" data-translate="nav-partners">Strategic Partners</a></li>
+                            <li><a href="abouts.html#alliances" data-translate="nav-alliances">Strategic Alliances</a></li>
+                            <li><a href="abouts.html#clients" data-translate="nav-clients">Our Clients</a></li>
+                            <li><a href="testimonials-case-studies.html" data-translate="nav-testimonials">Testimonials & Case Studies</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="products&solutions.html" class="dropdown-toggle">Products & Solutions <i
+                        <a href="products&solutions.html" class="dropdown-toggle" data-translate="nav-products">Products & Solutions <i
                                 class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="products&solutions.html">Our Products & Solutions</a></li>
-                            <li><a href="products&solutions.html#software-solutions">Software Solutions</a></li>
-                            <li><a href="saas-programs.html">SaaS Programs</a></li>
-                            <li><a href="products&solutions.html#demo">Book Your Demo</a></li>
-                            <li><a href="products&solutions.html#videos">Product Videos</a></li>
-                            <li><a href="download-center.html">Download Center</a></li>
+                            <li><a href="products&solutions.html" data-translate="nav-products">Our Products & Solutions</a></li>
+                            <li><a href="products&solutions.html#software-solutions" data-translate="nav-products">Software Solutions</a></li>
+                            <li><a href="saas-programs.html" data-translate="nav-saas">SaaS Programs</a></li>
+                            <li><a href="products&solutions.html#demo" data-translate="nav-products">Book Your Demo</a></li>
+                            <li><a href="products&solutions.html#videos" data-translate="nav-products">Product Videos</a></li>
+                            <li><a href="download-center.html" data-translate="nav-download">Download Center</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -1412,12 +1537,18 @@ function getNavbarHTML() {
                             <li><a href="iso-consulting.html#contact">Get Consultation</a></li>
                         </ul>
                     </li>
-                    <li><a href="events-news.html">Events & News</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="events-news.html" data-translate="nav-events">Events & News</a></li>
+                    <li><a href="contact-us.html" data-translate="nav-contact">Contact Us</a></li>
                     <li class="portal-access">
                         <a href="client-portal-access.html" class="portal-btn" title="Client Portal Access">
                             <i class="fas fa-user-shield"></i>
                         </a>
+                    </li>
+                    <li class="language-switcher">
+                        <button class="language-btn" id="language-switch-btn">
+                            <i class="fas fa-globe"></i>
+                            <span data-translate="language-switch">العربية</span>
+                        </button>
                     </li>
                 </ul>
 
@@ -1505,6 +1636,17 @@ function getNavbarHTML() {
         <!-- Mobile Overlay -->
         <div class="mobile-overlay" id="mobileOverlay"></div>
     `;
+}
+
+function initializeLanguageSwitcher() {
+    const languageBtn = document.querySelector('#language-switch-btn');
+    if (languageBtn) {
+        languageBtn.addEventListener('click', () => {
+            if (window.translationSystem) {
+                window.translationSystem.toggleLanguage();
+            }
+        });
+    }
 }
 
 function initializeNavbarFunctionality() {

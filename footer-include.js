@@ -34,6 +34,8 @@ function getFooterStyles() {
             padding: 80px 0 40px;
             position: relative;
             overflow: hidden;
+            direction: ltr !important;
+            text-align: left !important;
         }
 
         .footer::before {
@@ -65,7 +67,8 @@ function getFooterStyles() {
         }
 
         .footer-column {
-            text-align: left;
+            text-align: left !important;
+            direction: ltr !important;
         }
 
         .footer-icon {
@@ -99,6 +102,9 @@ function getFooterStyles() {
             line-height: 1.6;
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
+            direction: ltr !important;
+            text-align: left !important;
+            unicode-bidi: embed !important;
         }
 
         .footer-link {
@@ -110,6 +116,30 @@ function getFooterStyles() {
 
         .footer-link:hover {
             color: #8B0000;
+        }
+
+        /* Force numbers to stay in original order */
+        .footer-column p strong {
+            direction: ltr !important;
+            unicode-bidi: embed !important;
+            display: inline !important;
+        }
+
+        .footer-column p:has(strong) {
+            direction: ltr !important;
+            unicode-bidi: embed !important;
+        }
+
+        /* Specific protection for phone numbers */
+        .footer-column p:contains("+962") {
+            direction: ltr !important;
+            unicode-bidi: embed !important;
+        }
+
+        /* Force all text content to LTR in footer */
+        .footer * {
+            direction: ltr !important;
+            unicode-bidi: embed !important;
         }
 
         .newsletter-form {
@@ -155,6 +185,7 @@ function getFooterStyles() {
             align-items: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            direction: ltr !important;
         }
 
         .footer-logo {
@@ -181,6 +212,7 @@ function getFooterStyles() {
         .footer-nav {
             display: flex;
             gap: 2rem;
+            direction: ltr !important;
         }
 
         .footer-nav a {
@@ -257,38 +289,39 @@ function getFooterHTML() {
                         <div class="footer-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <h3>Location</h3>
+                        <h3 data-translate="contact-address-title">Location</h3>
                         <p>3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank">GET DIRECTIONS</a>
+                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="directions">GET DIRECTIONS</a>
                     </div>
 
                     <div class="footer-column">
                         <div class="footer-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h3>Contact us</h3>
-                        <p>+962786669911</p>
-                        <p>info@skyline-inov.com</p>
-                        <a href="tel:+962786669911" class="footer-link">CALL US</a>
+                        <h3 data-translate="contact-us">Contact us</h3>
+                        <p><strong data-translate="contact-main-office">Main Office:</strong> +962 77 755 8888</p>
+                        <p><strong data-translate="contact-sales">Sales:</strong> +962 77 160 0663</p>
+                        <p>info@skyline-innovation.com</p>
+                        <a href="tel:+962777558888" class="footer-link" data-translate="call-us">CALL MAIN OFFICE</a>
                     </div>
 
                     <div class="footer-column">
                         <div class="footer-icon">
                             <i class="fas fa-building"></i>
                         </div>
-                        <h3>Office details</h3>
+                        <h3 data-translate="office-details">Office details</h3>
                         <p>3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank">VISIT OFFICE</a>
+                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="visit-office">VISIT OFFICE</a>
                     </div>
 
                     <div class="footer-column">
                         <div class="footer-icon">
                             <i class="fas fa-paper-plane"></i>
                         </div>
-                        <h3>Newsletter signup</h3>
-                        <p>Don't miss our latest updates and news</p>
+                        <h3 data-translate="footer-newsletter">Newsletter signup</h3>
+                        <p data-translate="footer-newsletter-desc">Don't miss our latest updates and news</p>
                         <div class="newsletter-form">
-                            <input type="email" placeholder="Enter your email" class="newsletter-input">
+                            <input type="email" placeholder="Enter your email" class="newsletter-input" data-translate-placeholder="footer-newsletter-placeholder">
                             <button class="newsletter-btn">
                                 <i class="fas fa-envelope"></i>
                             </button>
@@ -302,15 +335,15 @@ function getFooterHTML() {
                     </a>
 
                     <div class="footer-nav">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="products&solutions.html">Products & Solutions</a>
-                        <a href="events-news.html">Events & News</a>
-                        <a href="index.html#contact">Contact</a>
+                        <a href="index.html" data-translate="nav-home">Home</a>
+                        <a href="about.html" data-translate="nav-about">About</a>
+                        <a href="products&solutions.html" data-translate="nav-products">Products & Solutions</a>
+                        <a href="events-news.html" data-translate="nav-events">Events & News</a>
+                        <a href="index.html#contact" data-translate="nav-contact">Contact</a>
                     </div>
 
-                    <div class="footer-copyright">
-                        © Copyright 2024 <span style="color: #C41E3A;">SKYLINE Innovation</span>
+                    <div class="footer-copyright" data-translate="footer-copyright">
+                        © Copyright 2025 <span style="color: #C41E3A;">SKYLINE Innovation</span>
                     </div>
                 </div>
             </div>
@@ -319,6 +352,21 @@ function getFooterHTML() {
 }
 
 function initializeFooterFunctionality() {
+    // Force footer numbers to stay in LTR order
+    const footerParagraphs = document.querySelectorAll('.footer-column p');
+    footerParagraphs.forEach(p => {
+        p.style.direction = 'ltr';
+        p.style.unicodeBidi = 'embed';
+        p.style.textAlign = 'left';
+        
+        // Force strong elements (labels) to stay LTR
+        const strongElements = p.querySelectorAll('strong');
+        strongElements.forEach(strong => {
+            strong.style.direction = 'ltr';
+            strong.style.unicodeBidi = 'embed';
+        });
+    });
+
     // Newsletter form functionality
     const newsletterForm = document.querySelector('.newsletter-form');
     const newsletterInput = document.querySelector('.newsletter-input');
@@ -350,6 +398,37 @@ function initializeFooterFunctionality() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
+
+    // Monitor and fix footer number order after translation
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                // Re-apply LTR direction to footer paragraphs
+                const footerParagraphs = document.querySelectorAll('.footer-column p');
+                footerParagraphs.forEach(p => {
+                    p.style.direction = 'ltr';
+                    p.style.unicodeBidi = 'embed';
+                    p.style.textAlign = 'left';
+                    
+                    const strongElements = p.querySelectorAll('strong');
+                    strongElements.forEach(strong => {
+                        strong.style.direction = 'ltr';
+                        strong.style.unicodeBidi = 'embed';
+                    });
+                });
+            }
+        });
+    });
+
+    // Start observing the footer for changes
+    const footer = document.querySelector('.footer');
+    if (footer) {
+        observer.observe(footer, {
+            childList: true,
+            subtree: true,
+            characterData: true
+        });
+    }
 }
 
 function createFallbackFooter() {
@@ -371,7 +450,7 @@ function createFallbackFooter() {
                         <a href="index.html#contact" style="color: white; text-decoration: none; margin: 0 1rem;">Contact</a>
                     </div>
                     <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
-                        © Copyright 2024 <span style="color: #C41E3A;">SKYLINE Innovation</span>
+                        © Copyright 2025 <span style="color: #C41E3A;">SKYLINE Innovation</span>
                     </div>
                 </div>
             </footer>
