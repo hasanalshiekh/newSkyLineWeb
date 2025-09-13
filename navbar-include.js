@@ -10,7 +10,7 @@ function includeNavbar() {
         fontAwesomeLink.crossOrigin = 'anonymous';
         document.head.appendChild(fontAwesomeLink);
     }
-    
+
     // Add Translation System
     if (!document.querySelector('script[src*="translation-system.js"]')) {
         const translationScript = document.createElement('script');
@@ -18,11 +18,11 @@ function includeNavbar() {
         translationScript.defer = true;
         document.head.appendChild(translationScript);
     }
-    
+
     // Create a container for the navbar
     const navbarContainer = document.createElement('div');
     navbarContainer.id = 'navbar-container';
-    
+
     // Add the navbar styles to the head if they don't exist
     if (!document.querySelector('#navbar-styles')) {
         const styleElement = document.createElement('style');
@@ -30,25 +30,25 @@ function includeNavbar() {
         styleElement.textContent = getNavbarStyles();
         document.head.appendChild(styleElement);
     }
-    
+
     // Create the navbar HTML
     const navbarHTML = getNavbarHTML();
     navbarContainer.innerHTML = navbarHTML;
-    
+
     // Add the container to the body at the beginning
     document.body.insertBefore(navbarContainer, document.body.firstChild);
-    
+
     // Initialize navbar functionality
     initializeNavbarFunctionality();
-    
+
     // Initialize language switcher
     initializeLanguageSwitcher();
-    
+
     // Ensure mobile sidenav is hidden on page load
     setTimeout(() => {
         const mobileSidenav = document.querySelector('.mobile-sidenav');
         const mobileOverlay = document.querySelector('.mobile-overlay');
-        
+
         if (mobileSidenav) {
             mobileSidenav.classList.remove('active');
             mobileSidenav.style.visibility = 'hidden';
@@ -56,7 +56,7 @@ function includeNavbar() {
             mobileSidenav.style.left = '-320px';
             console.log('✅ Mobile sidenav hidden on page load');
         }
-        
+
         if (mobileOverlay) {
             mobileOverlay.classList.remove('active');
             mobileOverlay.style.visibility = 'hidden';
@@ -97,6 +97,11 @@ function getNavbarStyles() {
             text-align: left !important;
             unicode-bidi: normal !important;
         }
+
+
+
+
+
         
         /* Logo Scroll Effect - Same as yline */
         .logo-tagline {
@@ -226,17 +231,18 @@ function getNavbarStyles() {
             }
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-            overflow: visible;
-        }
+      .nav-container {
+    max-width: 1220px;
+    margin: 0 auto;
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
 
         /* Portal Access Button */
         .portal-access {
@@ -1673,12 +1679,12 @@ function initializeNavbarFunctionality() {
             mobileOverlay.classList.remove('active');
             mobileMenuBtn.classList.remove('active');
             document.body.classList.remove('mobile-menu-open');
-            
+
             // Force hide
             mobileSidenav.style.visibility = 'hidden';
             mobileSidenav.style.opacity = '0';
             mobileSidenav.style.left = '-320px';
-            
+
             // Close all mobile dropdowns when closing menu
             mobileDropdowns.forEach(dropdown => {
                 dropdown.classList.remove('active');
@@ -1690,12 +1696,12 @@ function initializeNavbarFunctionality() {
             mobileOverlay.classList.add('active');
             mobileMenuBtn.classList.add('active');
             document.body.classList.add('mobile-menu-open');
-            
+
             // Force visibility
             mobileSidenav.style.visibility = 'visible';
             mobileSidenav.style.opacity = '1';
             mobileSidenav.style.left = '0';
-            
+
             console.log('Mobile menu opened');
         }
     }
@@ -1703,40 +1709,40 @@ function initializeNavbarFunctionality() {
     // Mobile menu button click
     if (mobileMenuBtn) {
         console.log('Mobile menu button found, adding event listeners');
-        
+
         // إضافة مستمعي الأحداث للتفاعل مع اللمس والنقر
-        mobileMenuBtn.addEventListener('click', function(e) {
+        mobileMenuBtn.addEventListener('click', function (e) {
             console.log('Mobile menu button clicked');
             e.preventDefault();
             e.stopPropagation();
             toggleMobileSidenav();
         });
-        
+
         // إضافة دعم للتفاعل مع اللمس
-        mobileMenuBtn.addEventListener('touchstart', function(e) {
+        mobileMenuBtn.addEventListener('touchstart', function (e) {
             e.preventDefault();
             e.stopPropagation();
         });
-        
-        mobileMenuBtn.addEventListener('touchend', function(e) {
+
+        mobileMenuBtn.addEventListener('touchend', function (e) {
             console.log('Mobile menu button touched');
             e.preventDefault();
             e.stopPropagation();
             toggleMobileSidenav();
         });
-        
+
         // منع التمرير عند الضغط على الزر
-        mobileMenuBtn.addEventListener('touchmove', function(e) {
+        mobileMenuBtn.addEventListener('touchmove', function (e) {
             e.preventDefault();
         });
-        
+
         // إضافة دعم للماوس
-        mobileMenuBtn.addEventListener('mousedown', function(e) {
+        mobileMenuBtn.addEventListener('mousedown', function (e) {
             e.preventDefault();
             e.stopPropagation();
         });
-        
-        mobileMenuBtn.addEventListener('mouseup', function(e) {
+
+        mobileMenuBtn.addEventListener('mouseup', function (e) {
             console.log('Mobile menu button mouse up');
             e.preventDefault();
             e.stopPropagation();
@@ -1748,7 +1754,7 @@ function initializeNavbarFunctionality() {
 
     // Mobile overlay click - close menu when clicking on overlay
     if (mobileOverlay) {
-        mobileOverlay.addEventListener('click', function(e) {
+        mobileOverlay.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             toggleMobileSidenav();
@@ -1757,14 +1763,14 @@ function initializeNavbarFunctionality() {
 
     // Mobile dropdown functionality
     const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
-    
+
     mobileDropdowns.forEach((dropdown, index) => {
         const toggle = dropdown.querySelector('.mobile-dropdown-toggle');
         if (toggle) {
             // Allow the link to navigate normally when clicking on the link text
             const link = toggle.querySelector('a');
             if (link) {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     // Allow normal navigation - don't prevent default
                     // Just close any open dropdowns
                     mobileDropdowns.forEach(otherDropdown => {
@@ -1774,7 +1780,7 @@ function initializeNavbarFunctionality() {
                     });
                 });
             }
-            
+
             // Only add click listener to the arrow specifically
             const arrow = toggle.querySelector('.dropdown-arrow');
             if (arrow) {
@@ -1783,7 +1789,7 @@ function initializeNavbarFunctionality() {
                     e.preventDefault();
                     e.stopPropagation();
                     dropdown.classList.toggle('active');
-                    
+
                     // Close other dropdowns when opening a new one
                     mobileDropdowns.forEach(otherDropdown => {
                         if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
@@ -1791,12 +1797,12 @@ function initializeNavbarFunctionality() {
                         }
                     });
                 };
-                
+
                 const handleArrowTouch = (e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     dropdown.classList.toggle('active');
-                    
+
                     // Close other dropdowns when opening a new one
                     mobileDropdowns.forEach(otherDropdown => {
                         if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
@@ -1804,17 +1810,17 @@ function initializeNavbarFunctionality() {
                         }
                     });
                 };
-                
+
                 // Remove any existing event listeners first
                 arrow.removeEventListener('click', handleArrowClick);
                 arrow.removeEventListener('touchstart', handleArrowTouch);
-                
+
                 // Add event listeners
                 arrow.addEventListener('click', handleArrowClick);
                 arrow.addEventListener('touchstart', handleArrowTouch);
-                
+
                 // Also add mousedown for better mobile support
-                arrow.addEventListener('mousedown', function(e) {
+                arrow.addEventListener('mousedown', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
                 });
@@ -1843,7 +1849,7 @@ function initializeNavbarFunctionality() {
     });
 
     // Close mobile menu when clicking outside (but not on the hamburger)
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (mobileSidenav && mobileSidenav.classList.contains('active')) {
             // Check if click is outside the mobile menu and not on the hamburger button
             if (!mobileSidenav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
@@ -1856,7 +1862,7 @@ function initializeNavbarFunctionality() {
     const header = document.querySelector('.header');
     if (header) {
         let ticking = false;
-        
+
         function updateHeader() {
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
@@ -1877,14 +1883,14 @@ function initializeNavbarFunctionality() {
             }
             ticking = false;
         }
-        
+
         function requestTick() {
             if (!ticking) {
                 requestAnimationFrame(updateHeader);
                 ticking = true;
             }
         }
-        
+
         window.addEventListener('scroll', requestTick, { passive: true });
     }
 
@@ -1900,35 +1906,35 @@ function initializeNavbarFunctionality() {
         console.log('User Agent:', navigator.userAgent);
         console.log('Touch Support:', 'ontouchstart' in window);
     }
-    
+
     // Run debug on mobile devices
     if (window.innerWidth <= 768) {
         debugMobileMenu();
     }
-    
+
     // إضافة دعم للشاشات التي تدعم اللمس
     if ('ontouchstart' in window) {
         document.body.classList.add('touch-device');
     }
-    
+
     // إضافة دعم للشاشات عالية الدقة
     if (window.devicePixelRatio > 1) {
         document.body.classList.add('high-dpi');
     }
-    
+
     // تحسين النافبار المحمول
     applyMobileScrollBehavior();
-    
+
     // تفعيل النافبار التفاعلي
     initializeSmartNavbar();
-    
+
     console.log('Navbar loaded successfully');
 }
 
 // تحسين سلوك النافبار المحمول
 function applyMobileScrollBehavior() {
     console.log('🔧 Applying mobile scroll behavior...');
-    
+
     try {
         const header = document.querySelector('.header');
         if (!header) {
@@ -1936,20 +1942,20 @@ function applyMobileScrollBehavior() {
             setTimeout(applyMobileScrollBehavior, 500);
             return;
         }
-        
+
         const isMobile = window.innerWidth <= 768;
         console.log('📱 Is mobile:', isMobile);
-        
+
         if (isMobile) {
             // في الموبايل: النافبار ثابت وتفاعلي أيضاً
             header.style.position = 'fixed';
             header.style.top = '0';
             console.log('✅ Mobile: Navbar set to fixed position');
-            
+
             // إضافة padding-top للbody في الموبايل
             document.body.style.paddingTop = '60px';
             console.log('✅ Mobile: Body padding-top added');
-            
+
             // تفعيل النافبار التفاعلي في الموبايل أيضاً
             console.log('✅ Mobile: Smart navbar enabled');
         } else {
@@ -1957,20 +1963,20 @@ function applyMobileScrollBehavior() {
             header.style.position = 'fixed';
             header.style.top = '0';
             console.log('✅ Desktop: Navbar set to fixed position');
-            
+
             // إضافة padding-top للbody في الديسكتوب
             document.body.style.paddingTop = '80px';
             console.log('✅ Desktop: Body padding-top added');
-            
+
             // تفعيل النافبار التفاعلي في الديسكتوب
             console.log('✅ Desktop: Smart navbar enabled');
         }
-        
+
         console.log('✅ Mobile scroll behavior applied successfully');
-        
+
     } catch (error) {
         console.error('❌ Error applying mobile scroll behavior:', error);
-        
+
         // Retry after a delay
         setTimeout(() => {
             console.log('🔄 Retrying mobile scroll behavior...');
@@ -1982,27 +1988,27 @@ function applyMobileScrollBehavior() {
 // تحسين الدروب داون للبقاء مفتوحة عند التمرير
 function enhanceDropdownBehavior() {
     console.log('🔧 Enhancing dropdown behavior...');
-    
+
     const dropdowns = document.querySelectorAll('.dropdown');
     let currentDropdown = null;
     let hideTimeout = null;
-    
+
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         const menu = dropdown.querySelector('.dropdown-menu');
-        
+
         if (!toggle || !menu) return;
-        
+
         // عند التمرير على الدروب داون
         dropdown.addEventListener('mouseenter', () => {
             console.log('🖱️ Mouse enter dropdown');
-            
+
             // إلغاء إخفاء الدروب داون
             if (hideTimeout) {
                 clearTimeout(hideTimeout);
                 hideTimeout = null;
             }
-            
+
             // إخفاء الدروب داون الحالي إذا كان مختلفاً
             if (currentDropdown && currentDropdown !== dropdown) {
                 currentDropdown.classList.remove('show');
@@ -2011,39 +2017,39 @@ function enhanceDropdownBehavior() {
                     currentMenu.classList.remove('show');
                 }
             }
-            
+
             // إظهار الدروب داون الحالي
             dropdown.classList.add('show');
             menu.classList.add('show');
             currentDropdown = dropdown;
         });
-        
+
         // عند مغادرة الدروب داون
         dropdown.addEventListener('mouseleave', () => {
             console.log('🖱️ Mouse leave dropdown');
-            
+
             // تأخير إخفاء الدروب داون
             hideTimeout = setTimeout(() => {
                 dropdown.classList.remove('show');
                 menu.classList.remove('show');
-                
+
                 if (currentDropdown === dropdown) {
                     currentDropdown = null;
                 }
             }, 300); // تأخير 300ms
         });
-        
+
         // عند النقر على عنصر في الدروب داون
         const menuItems = menu.querySelectorAll('a');
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
                 console.log('🖱️ Menu item clicked');
-                
+
                 // إخفاء الدروب داون فوراً
                 dropdown.classList.remove('show');
                 menu.classList.remove('show');
                 currentDropdown = null;
-                
+
                 // إلغاء أي timeout معلق
                 if (hideTimeout) {
                     clearTimeout(hideTimeout);
@@ -2052,34 +2058,34 @@ function enhanceDropdownBehavior() {
             });
         });
     });
-    
+
     console.log('✅ Dropdown behavior enhanced');
 }
 
 // النافبار الذكي التفاعلي مع السكرول
 function initializeSmartNavbar() {
     console.log('🧠 Initializing Smart Navbar...');
-    
+
     const header = document.querySelector('.header');
     if (!header) {
         console.log('⚠️ Header not found for smart navbar');
         return;
     }
-    
+
     // تعمل في جميع الصفحات - ديسكتوب وموبايل
     console.log('🌐 Smart navbar enabled for all pages');
-    
+
     let lastScrollTop = 0;
     let scrollTimeout;
-    
+
     // دالة التحكم في النافبار - النافبار يبقى ظاهر دائماً
     function handleScroll() {
         const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         // إبقاء النافبار ظاهر دائماً في جميع الصفحات
         header.classList.remove('hidden');
         console.log('📍 Navbar always visible (no hiding on scroll)');
-        
+
         // إضافة/إزالة تأثير السكرول للهامبرغر
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         if (mobileMenuBtn) {
@@ -2091,33 +2097,33 @@ function initializeSmartNavbar() {
                 console.log('🍔 Hamburger normal state');
             }
         }
-        
+
         lastScrollTop = currentScrollTop;
     }
-    
+
     // إضافة event listener للسكرول
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     // إضافة event listener لـ resize
     window.addEventListener('resize', () => {
         // إعادة تعيين النافبار عند تغيير حجم الشاشة
         header.classList.remove('hidden');
         console.log('📱 Navbar reset on resize');
     });
-    
+
     // إضافة event listener للـ mouse movement - النافبار يبقى ظاهر دائماً
     document.addEventListener('mousemove', () => {
         // إبقاء النافبار ظاهر دائماً
         header.classList.remove('hidden');
         console.log('🖱️ Navbar always visible (mouse movement)');
     });
-    
+
     // إبقاء النافبار ظاهر عند النقر في أي مكان
     document.addEventListener('click', () => {
         header.classList.remove('hidden');
         console.log('🖱️ Navbar always visible (click detected)');
     });
-    
+
     console.log('✅ Smart Navbar initialized for all pages');
 }
 
@@ -2125,20 +2131,24 @@ function initializeSmartNavbar() {
 // Initialize scroll effect for logo
 function initializeScrollEffect() {
     console.log('🎨 Initializing scroll effect for logo...');
-    
+
     const header = document.querySelector('.header');
     const logoTagline = document.querySelector('.logo-tagline');
-    
+    const logo = document.querySelector('.logo');
+
     if (!header || !logoTagline) {
         console.warn('⚠️ Header or logo tagline not found');
         return;
     }
-    
+
+
+
+
     let isScrolled = false;
-    
+
     function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         if (scrollTop > 50 && !isScrolled) {
             // Add scrolled class
             header.classList.add('scrolled');
@@ -2151,37 +2161,39 @@ function initializeScrollEffect() {
             console.log('🎨 Logo tagline effect removed (not scrolled) - same as yline');
         }
     }
-    
+
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     // Initial check
     handleScroll();
-    
+
     // Additional check after a short delay
     setTimeout(() => {
         handleScroll();
     }, 100);
-    
+
+
     console.log('✅ Scroll effect initialized successfully');
 }
 
 // Auto-include navbar when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     includeNavbar();
-    
+
     // تطبيق تحسينات الدروب داون بعد تحميل النافبار
     setTimeout(() => {
         enhanceDropdownBehavior();
     }, 1000);
-    
+
     // إضافة تأثير السكرول على الشعار
     setTimeout(() => {
         initializeScrollEffect();
     }, 1500);
-    
+
     // إضافة تأثير السكرول مرة أخرى للتأكد
     setTimeout(() => {
         initializeScrollEffect();
     }, 3000);
+
 });
