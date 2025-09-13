@@ -259,7 +259,7 @@ function getFooterHTML() {
                         </div>
                         <h3>Location</h3>
                         <p>3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                        <a href="#" class="footer-link">GET DIRECTIONS</a>
+                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank">GET DIRECTIONS</a>
                     </div>
 
                     <div class="footer-column">
@@ -278,7 +278,7 @@ function getFooterHTML() {
                         </div>
                         <h3>Office details</h3>
                         <p>3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                        <a href="#" class="footer-link">VISIT OFFICE</a>
+                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank">VISIT OFFICE</a>
                     </div>
 
                     <div class="footer-column">

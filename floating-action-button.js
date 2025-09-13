@@ -398,7 +398,7 @@ function initializeFAB() {
         e.preventDefault();
         e.stopPropagation();
         console.log('Call Action button clicked!');
-        const phoneNumber = "+962791234567"; // Jordan phone number
+        const phoneNumber = "+962786669911"; // Jordan phone number
         const telUrl = `tel:${phoneNumber}`;
         window.location.href = telUrl;
         closeFAB();
@@ -429,7 +429,7 @@ function initializeFAB() {
         e.preventDefault();
         e.stopPropagation();
         console.log('WhatsApp button clicked!');
-        const phoneNumber = "+962791234567"; // Jordan WhatsApp number
+        const phoneNumber = "+962786669911"; // Jordan WhatsApp number
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const pageName = currentPage.replace('.html', '').replace('&', ' and ');
         const message = `Hello! I'm interested in SKYLINE's services. I'm currently viewing the ${pageName} page. Can you help me with more information?`;
@@ -1450,7 +1450,7 @@ function createAIModal() {
         const responses = {
             'services': 'We offer comprehensive software solutions including web development, mobile apps, AI & Machine Learning, cybersecurity, and cloud infrastructure. Our team specializes in cutting-edge technologies to transform your business.',
             'pricing': 'Our pricing is customized based on your specific needs and project requirements. We offer competitive rates and flexible payment plans. Contact us for a detailed quote tailored to your project.',
-            'contact': 'You can reach us through WhatsApp (click the green button), email us at info@skyline.com, or call us at +962 79 123 4567. We\'re available 24/7 to assist you.',
+            'contact': 'You can reach us through WhatsApp (click the green button), email us at info@skyline.com, or call us at +962 78 666 9911. We\'re available 24/7 to assist you.',
             'portfolio': 'Check out our latest projects and case studies on our website. We\'ve successfully delivered solutions for various industries including healthcare, finance, e-commerce, and more.'
         };
 
@@ -2183,6 +2183,7 @@ function openFontControlPage() {
     
     console.log('✅ Font control page opened successfully');
 }
+
 
 
 
