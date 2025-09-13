@@ -75,6 +75,38 @@ function getNavbarStyles() {
                 0 0 20px rgba(0, 0, 0, 0.2);
             overflow: visible;
         }
+        
+        /* Logo Direction Fix - Keep logo always LTR */
+        .logo,
+        .logo *,
+        .logo-sky,
+        .logo-yline,
+        .logo-tagline {
+            direction: ltr !important;
+            text-align: left !important;
+            unicode-bidi: normal !important;
+        }
+        
+        /* Logo Scroll Effect - Same as yline */
+        .logo-tagline {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1rem;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 15px rgba(255, 255, 255, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .header.scrolled .logo-tagline {
+            color: #000 !important;
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.9),
+                0 0 12px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
         /* Navbar hidden state */
         .header.hidden {
@@ -251,6 +283,7 @@ function getNavbarStyles() {
             position: relative;
         }
 
+        
         /* Portal Mobile Link */
         .portal-mobile-link {
             background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(139, 0, 0, 0.2)) !important;
@@ -1946,6 +1979,51 @@ function initializeSmartNavbar() {
     console.log('✅ Smart Navbar initialized for all pages');
 }
 
+
+// Initialize scroll effect for logo
+function initializeScrollEffect() {
+    console.log('🎨 Initializing scroll effect for logo...');
+    
+    const header = document.querySelector('.header');
+    const logoTagline = document.querySelector('.logo-tagline');
+    
+    if (!header || !logoTagline) {
+        console.warn('⚠️ Header or logo tagline not found');
+        return;
+    }
+    
+    let isScrolled = false;
+    
+    function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 50 && !isScrolled) {
+            // Add scrolled class
+            header.classList.add('scrolled');
+            isScrolled = true;
+            console.log('🎨 Logo tagline effect applied (scrolled) - same as yline');
+        } else if (scrollTop <= 50 && isScrolled) {
+            // Remove scrolled class
+            header.classList.remove('scrolled');
+            isScrolled = false;
+            console.log('🎨 Logo tagline effect removed (not scrolled) - same as yline');
+        }
+    }
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check
+    handleScroll();
+    
+    // Additional check after a short delay
+    setTimeout(() => {
+        handleScroll();
+    }, 100);
+    
+    console.log('✅ Scroll effect initialized successfully');
+}
+
 // Auto-include navbar when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     includeNavbar();
@@ -1954,4 +2032,14 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         enhanceDropdownBehavior();
     }, 1000);
+    
+    // إضافة تأثير السكرول على الشعار
+    setTimeout(() => {
+        initializeScrollEffect();
+    }, 1500);
+    
+    // إضافة تأثير السكرول مرة أخرى للتأكد
+    setTimeout(() => {
+        initializeScrollEffect();
+    }, 3000);
 });

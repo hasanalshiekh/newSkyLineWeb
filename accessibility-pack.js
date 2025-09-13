@@ -135,28 +135,60 @@ accessibilityStyles.textContent = `
 
     .accessibility-tool {
         background: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-        padding: 0.4rem;
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 0.6rem;
         text-align: center;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        min-height: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-
+    
     .accessibility-tool:hover {
         background: linear-gradient(135deg, #DC143C, #B22222);
         color: white;
         border-color: #DC143C;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
     }
-
+    
     .accessibility-tool.active {
         background: linear-gradient(135deg, #DC143C, #B22222);
         color: white;
         border-color: #DC143C;
-        box-shadow: 0 2px 8px rgba(220, 20, 60, 0.3);
+        box-shadow: 0 4px 12px rgba(220, 20, 60, 0.5);
+        transform: translateY(-1px);
+    }
+    
+    .accessibility-tool:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(220, 20, 60, 0.3);
+    }
+    
+    .accessibility-tool[data-tool="bigger-text"] {
+        position: relative;
+        overflow: visible;
+    }
+    
+    .accessibility-tool[data-tool="bigger-text"]:hover .MrButtonIndexGroup {
+        display: flex !important;
+    }
+    
+    .accessibility-tool[data-tool="bigger-text"]:hover .MrButtonIndexLine {
+        opacity: 0.5;
+    }
+    
+    .accessibility-tool[data-tool="bigger-text"]:hover .MrButtonIndexLine.active {
+        opacity: 1;
+    }
+    
+    .accessibility-tool[data-tool="bigger-text"]:hover .mr-controls {
+        display: flex !important;
     }
 
     .tool-icon {
@@ -169,6 +201,107 @@ accessibilityStyles.textContent = `
         font-weight: 600;
         line-height: 1.2;
         color: #333333;
+    }
+    
+    .tool-counter {
+        font-size: 0.5rem;
+        font-weight: 700;
+        color: #DC143C;
+        background: rgba(220, 20, 60, 0.1);
+        padding: 0.1rem 0.3rem;
+        border-radius: 3px;
+        margin-top: 0.2rem;
+        border: 1px solid rgba(220, 20, 60, 0.3);
+    }
+    
+    .MrButtonIndexGroup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        margin-top: 0.3rem;
+        padding: 0.2rem;
+    }
+    
+    .MrButtonIndexLine {
+        width: 20px;
+        height: 3px;
+        background: #DC143C;
+        border-radius: 2px;
+        opacity: 0.3;
+        transition: all 0.3s ease;
+    }
+    
+    .MrButtonIndexLine.active {
+        opacity: 1;
+        background: #DC143C;
+        box-shadow: 0 0 4px rgba(220, 20, 60, 0.5);
+    }
+    
+    .mr-controls {
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        margin-top: 0.3rem;
+        padding: 0.2rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 6px;
+        border: 1px solid rgba(220, 20, 60, 0.2);
+    }
+    
+    .mr-btn {
+        -webkit-appearance: none;
+        appearance: none;
+        border: 1px solid #ddd;
+        background: white;
+        padding: 0.35rem 0.6rem;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+        transition: all 0.2s ease;
+        min-width: 32px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mr-btn:hover {
+        background: #f8f9fa;
+        border-color: #DC143C;
+    }
+    
+    .mr-btn:active {
+        transform: translateY(1px);
+        background: #e9ecef;
+    }
+    
+    .mr-scale-display {
+        min-width: 5.2rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: #DC143C;
+        background: rgba(220, 20, 60, 0.1);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        border: 1px solid rgba(220, 20, 60, 0.3);
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 4px rgba(220, 20, 60, 0.5);
+        }
+        50% {
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(220, 20, 60, 0.8);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 4px rgba(220, 20, 60, 0.5);
+        }
     }
 
     .profiles-list, .language-list {

@@ -18,6 +18,15 @@ function createFloatingActionButton() {
             <i class="fas fa-universal-access"></i>
         </div>
         <div class="fab-menu" id="fab-menu">
+            <div class="fab-item" id="fab-call" data-tooltip="Call Action">
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="fab-item" id="fab-instagram" data-tooltip="Instagram">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <div class="fab-item" id="fab-linkedin" data-tooltip="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </div>
             <div class="fab-item" id="fab-whatsapp" data-tooltip="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </div>
@@ -138,6 +147,36 @@ function createFloatingActionButton() {
             }
         }
 
+        #fab-call {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        #fab-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6);
+        }
+
+        #fab-instagram {
+            background: linear-gradient(135deg, #E4405F, #C13584, #833AB4, #F56040, #F77737);
+            box-shadow: 0 6px 20px rgba(225, 48, 108, 0.4);
+        }
+
+        #fab-instagram:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(225, 48, 108, 0.6);
+        }
+
+        #fab-linkedin {
+            background: linear-gradient(135deg, #0077B5, #005885);
+            box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+        }
+
+        #fab-linkedin:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.6);
+        }
+
         #fab-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
@@ -172,6 +211,7 @@ function createFloatingActionButton() {
             color: white;
             font-size: 20px;
             transition: transform 0.3s ease;
+            pointer-events: none;
         }
 
         .fab-item:hover i {
@@ -300,12 +340,15 @@ function initializeFAB() {
         const fabMain = document.getElementById('fab-main');
         const fabMenu = document.getElementById('fab-menu');
         const fabOverlay = document.getElementById('fab-overlay');
+        const fabCall = document.getElementById('fab-call');
+        const fabInstagram = document.getElementById('fab-instagram');
+        const fabLinkedin = document.getElementById('fab-linkedin');
         const fabWhatsapp = document.getElementById('fab-whatsapp');
         const fabAI = document.getElementById('fab-ai');
         const fabWidgets = document.getElementById('fab-widgets');
 
         // Check if all elements exist
-        if (!fabMain || !fabMenu || !fabOverlay || !fabWhatsapp || !fabAI || !fabWidgets) {
+        if (!fabMain || !fabMenu || !fabOverlay || !fabCall || !fabInstagram || !fabLinkedin || !fabWhatsapp || !fabAI || !fabWidgets) {
             console.error('FAB elements not found, retrying...');
             setTimeout(initializeFAB, 500);
             return;
@@ -350,6 +393,37 @@ function initializeFAB() {
     fabMain.addEventListener('click', toggleFAB);
     fabOverlay.addEventListener('click', closeFAB);
 
+    // Call Action button
+    fabCall.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Call Action button clicked!');
+        const phoneNumber = "+962791234567"; // Jordan phone number
+        const telUrl = `tel:${phoneNumber}`;
+        window.location.href = telUrl;
+        closeFAB();
+    });
+
+    // Instagram button
+    fabInstagram.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Instagram button clicked!');
+        const instagramUrl = 'https://www.instagram.com/skyline.i.s?igsh=Mjh1ZGFlenI4bXFo';
+        window.open(instagramUrl, '_blank');
+        closeFAB();
+    });
+
+    // LinkedIn button
+    fabLinkedin.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('LinkedIn button clicked!');
+        const linkedinUrl = 'https://www.linkedin.com/in/skyline-innovation-software-139248378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app';
+        window.open(linkedinUrl, '_blank');
+        closeFAB();
+    });
+
     // WhatsApp button - Enhanced functionality
     fabWhatsapp.addEventListener('click', function(e) {
         e.preventDefault();
@@ -368,10 +442,17 @@ function initializeFAB() {
     fabAI.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        console.log('AI button clicked!');
-        // Create AI Assistant modal
-        createAIModal();
+        console.log('🤖 AI button clicked! Opening AI Assistant...');
+        
+        // Ensure FAB is closed first
         closeFAB();
+        
+        // Small delay to ensure FAB is closed before opening modal
+        setTimeout(() => {
+            // Create AI Assistant modal
+            createAIModal();
+            console.log('🤖 AI Modal created successfully');
+        }, 100);
     });
 
     // Widgets button - Enhanced functionality
@@ -392,7 +473,29 @@ function initializeFAB() {
 
     fabAI.addEventListener('mousedown', function(e) {
         e.preventDefault();
-        console.log('AI button mousedown!');
+        console.log('🤖 AI button mousedown!');
+    });
+    
+    // Additional touch support for AI button
+    fabAI.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        console.log('🤖 AI button touchstart!');
+    });
+    
+    fabAI.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('🤖 AI button touched! Opening AI Assistant...');
+        
+        // Ensure FAB is closed first
+        closeFAB();
+        
+        // Small delay to ensure FAB is closed before opening modal
+        setTimeout(() => {
+            // Create AI Assistant modal
+            createAIModal();
+            console.log('🤖 AI Modal created successfully from touch');
+        }, 100);
     });
 
     fabWidgets.addEventListener('mousedown', function(e) {
@@ -446,10 +549,19 @@ setTimeout(() => {
 
 // Enhanced AI Assistant Modal
 function createAIModal() {
+    console.log('🤖 Creating AI Modal...');
+    
     // Remove existing modal if any
     const existingModal = document.getElementById('ai-modal');
     if (existingModal) {
+        console.log('🤖 Removing existing AI modal...');
         existingModal.remove();
+    }
+    
+    // Remove existing styles if any
+    const existingStyles = document.querySelector('#ai-modal-styles');
+    if (existingStyles) {
+        existingStyles.remove();
     }
 
     const modal = document.createElement('div');
@@ -491,46 +603,68 @@ function createAIModal() {
 
     // Add AI modal styles
     const aiStyles = document.createElement('style');
+    aiStyles.id = 'ai-modal-styles';
     aiStyles.textContent = `
         .ai-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10001;
-            animation: fadeIn 0.3s ease;
+            position: fixed !important;
+            bottom: 20px;
+            right: -380px;
+            width: 360px;
+            height: 380px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            z-index: 10001 !important;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow-y: auto;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            animation: slideInFromRight 0.3s ease;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+
+        .ai-modal-overlay.active {
+            right: 20px;
         }
 
         .ai-modal-content {
-            background: white;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
+            background: transparent;
+            border-radius: 0;
+            width: 100%;
+            max-width: none;
+            max-height: 100%;
             display: flex;
             flex-direction: column;
-            animation: slideUp 0.3s ease;
+            animation: none;
+            box-shadow: none;
+            border: none;
+            overflow-y: auto;
+            position: relative;
         }
 
         .ai-modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 0.8rem;
             border-bottom: 1px solid #eee;
             background: linear-gradient(135deg, #FF6B6B, #DC143C);
             color: white;
-            border-radius: 15px 15px 0 0;
+            border-radius: 12px 12px 0 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .ai-modal-header h3 {
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         .ai-modal-close {
@@ -670,33 +804,612 @@ function createAIModal() {
             to { transform: translateY(0); opacity: 1; }
         }
 
+        @keyframes slideInFromRight {
+            from { 
+                transform: translateX(100%); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateX(0); 
+                opacity: 1; 
+            }
+        }
+
+        /* Tablet and Medium Screens */
+        @media (max-width: 1024px) {
+            .ai-modal-overlay {
+                width: 350px;
+                height: 370px;
+                bottom: 15px;
+                right: -370px;
+            }
+            
+            .ai-modal-overlay.active {
+                right: 15px;
+            }
+        }
+
+        /* Mobile Screens */
         @media (max-width: 768px) {
-            .ai-modal-content {
-                width: 95%;
-                margin: 20px;
+            .ai-modal-overlay {
+                width: 320px;
+                height: 350px;
+                bottom: 10px;
+                right: -340px;
+            }
+            
+            .ai-modal-overlay.active {
+                right: 10px;
             }
             
             .ai-quick-actions {
                 justify-content: center;
+                flex-wrap: wrap;
             }
+            
+            .ai-quick-btn {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.6rem;
+            }
+        }
+
+        /* Small Mobile Screens */
+        @media (max-width: 480px) {
+            .ai-modal-overlay {
+                width: 300px;
+                height: 320px;
+                bottom: 5px;
+                right: -320px;
+            }
+            
+            .ai-modal-overlay.active {
+                right: 5px;
+            }
+            
+            .ai-modal-header h3 {
+                font-size: 0.8rem;
+            }
+            
+            .ai-input-container {
+                padding: 0.8rem;
+            }
+            
+            .ai-input-container input {
+                font-size: 0.9rem;
+                padding: 0.6rem;
+            }
+            
+            .ai-quick-actions {
+                padding: 0.6rem;
+                gap: 0.4rem;
+            }
+            
+            .ai-quick-btn {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.5rem;
+                flex: 1;
+                min-width: 60px;
+            }
+        }
+
+        /* Extra Small Mobile Screens */
+        @media (max-width: 360px) {
+            .ai-modal-overlay {
+                width: 280px;
+                height: 300px;
+                bottom: 5px;
+                right: -300px;
+            }
+            
+            .ai-modal-overlay.active {
+                right: 5px;
+            }
+            
+            .ai-modal-header {
+                padding: 0.6rem;
+            }
+            
+            .ai-modal-header h3 {
+                font-size: 0.75rem;
+            }
+            
+            .ai-chat-container {
+                padding: 0.6rem;
+                max-height: 180px;
+            }
+            
+            .ai-input-container {
+                padding: 0.6rem;
+            }
+            
+            .ai-input-container input {
+                font-size: 0.85rem;
+                padding: 0.5rem;
+            }
+            
+            .ai-quick-actions {
+                padding: 0.5rem;
+                gap: 0.3rem;
+            }
+            
+            .ai-quick-btn {
+                font-size: 0.65rem;
+                padding: 0.25rem 0.4rem;
+            }
+        }
+
+        /* Ensure AI modal is always visible and accessible */
+        .ai-modal-overlay {
+            max-width: 95vw;
+            max-height: 95vh;
+        }
+
+        /* Prevent AI modal from being hidden behind other elements */
+        .ai-modal-overlay {
+            z-index: 10001 !important;
+        }
+        
+        /* Ensure no other elements interfere with AI modal */
+        #fab-container {
+            z-index: 10000 !important;
+        }
+        
+        .accessibility-panel-overlay {
+            z-index: 10000 !important;
+        }
+
+        /* Ensure proper positioning on all screen orientations */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .ai-modal-overlay {
+                height: 90vh;
+                bottom: 5vh;
+            }
+        }
+
+        /* High DPI displays support */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .ai-modal-overlay {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .ai-modal-overlay {
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+            }
+            
+            .ai-quick-btn, .ai-modal-close, #ai-send {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Ensure visibility on all browsers */
+        .ai-modal-overlay {
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: block !important;
+            position: fixed !important;
+            z-index: 10001 !important;
+        }
+
+        .ai-modal-overlay.active {
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: block !important;
+            position: fixed !important;
+            z-index: 10001 !important;
+            right: 20px !important;
+            bottom: 20px !important;
+        }
+
+        /* Fallback for older browsers */
+        .ai-modal-overlay {
+            display: block;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        
+        /* CSS Variables for Font Control */
+        
+        /* Accessibility Tools CSS */
+        .simple-font {
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
+        
+        .simple-font * {
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
+        
+        /* Bigger Text CSS - Force all text to be bigger */
+        .bigger-text * {
+            font-size: 1.2em !important;
+        }
+        
+        .bigger-text h1 {
+            font-size: 3em !important;
+        }
+        
+        .bigger-text h2 {
+            font-size: 2.5em !important;
+        }
+        
+        .bigger-text h3 {
+            font-size: 2.2em !important;
+        }
+        
+        .bigger-text h4 {
+            font-size: 2em !important;
+        }
+        
+        .bigger-text h5 {
+            font-size: 1.8em !important;
+        }
+        
+        .bigger-text h6 {
+            font-size: 1.6em !important;
+        }
+        
+        .bigger-text p, .bigger-text span, .bigger-text div {
+            font-size: 1.4em !important;
+        }
+        
+        .bigger-text a, .bigger-text button {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text input, .bigger-text textarea, .bigger-text select {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text strong, .bigger-text em, .bigger-text b, .bigger-text i {
+            font-size: 1.4em !important;
+        }
+        
+        .bigger-text small {
+            font-size: 1.2em !important;
+        }
+        
+        .bigger-text big {
+            font-size: 1.6em !important;
+        }
+        
+        .bigger-text blockquote {
+            font-size: 1.4em !important;
+        }
+        
+        .bigger-text cite {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text code {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text pre {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text nav, .bigger-text header, .bigger-text footer {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text main, .bigger-text section, .bigger-text article {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text aside, .bigger-text details, .bigger-text summary {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text figcaption, .bigger-text caption {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text legend, .bigger-text fieldset {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text optgroup, .bigger-text option {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text li {
+            font-size: 1.4em !important;
+        }
+        
+        .bigger-text td, .bigger-text th {
+            font-size: 1.3em !important;
+        }
+        
+        .bigger-text label {
+            font-size: 1.3em !important;
+        }
+        
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 4px rgba(220, 20, 60, 0.5);
+            }
+            50% {
+                transform: scale(1.2);
+                box-shadow: 0 0 8px rgba(220, 20, 60, 0.8);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 4px rgba(220, 20, 60, 0.5);
+            }
+        }
+        
+        @keyframes ripple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes screenShake {
+            0%, 100% { transform: translateX(0); }
+            10% { transform: translateX(-2px); }
+            20% { transform: translateX(2px); }
+            30% { transform: translateX(-2px); }
+            40% { transform: translateX(2px); }
+            50% { transform: translateX(-2px); }
+            60% { transform: translateX(2px); }
+            70% { transform: translateX(-2px); }
+            80% { transform: translateX(2px); }
+            90% { transform: translateX(-2px); }
+        }
+        
+        
+        .high-contrast {
+            filter: contrast(150%) !important;
+        }
+        
+        .highlight-links a {
+            background-color: yellow !important;
+            color: black !important;
+            padding: 2px 4px !important;
+            text-decoration: underline !important;
+        }
+        
+        
+        .pause-animations * {
+            animation-duration: 0s !important;
+            animation-delay: 0s !important;
+            transition-duration: 0s !important;
+        }
+        
+        .hide-images img {
+            display: none !important;
+        }
+        
+        /* Reset Button Styles */
+        .accessibility-reset {
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .reset-btn {
+            background: linear-gradient(135deg, #DC143C, #B22222);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
+        }
+        
+        .reset-btn:active {
+            transform: translateY(0);
         }
     `;
 
     document.head.appendChild(aiStyles);
     document.body.appendChild(modal);
 
+    // Force immediate visibility
+    const overlay = modal.querySelector('.ai-modal-overlay');
+    if (overlay) {
+        overlay.style.display = 'block';
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+        overlay.style.position = 'fixed';
+        overlay.style.zIndex = '10001';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        console.log('🤖 AI Modal overlay created and visible');
+    }
+
+    // Add active class after a small delay for animation
+    setTimeout(() => {
+        if (overlay) {
+            overlay.classList.add('active');
+            console.log('🤖 AI Modal opened successfully with animation');
+            
+            // Ensure visibility after animation
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+        }
+    }, 10);
+
+    // Ensure AI modal is properly positioned on all screen sizes
+    function adjustAIModalPosition() {
+        const overlay = modal.querySelector('.ai-modal-overlay');
+        if (overlay) {
+            // Force reflow to ensure proper positioning
+            overlay.style.display = 'none';
+            overlay.offsetHeight; // Trigger reflow
+            overlay.style.display = 'block';
+            
+            // Ensure it's visible and on top
+            overlay.style.zIndex = '10001';
+            overlay.style.position = 'fixed';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            
+        // Ensure no other elements interfere
+        const fabContainer = document.getElementById('fab-container');
+        if (fabContainer) {
+            fabContainer.style.zIndex = '10000';
+        }
+        
+        // Ensure AI modal is always on top
+        overlay.style.zIndex = '10001';
+        overlay.style.position = 'fixed';
+        overlay.style.display = 'block';
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+            
+            console.log('🤖 AI Modal position adjusted for screen size:', window.innerWidth + 'x' + window.innerHeight);
+        }
+    }
+
+    // Function to prevent interference from other elements
+    function preventInterference() {
+        const overlay = modal.querySelector('.ai-modal-overlay');
+        if (overlay) {
+            // Check for any elements that might interfere
+            const interferingElements = document.querySelectorAll('[style*="z-index"]');
+            interferingElements.forEach(el => {
+                const zIndex = parseInt(el.style.zIndex) || 0;
+                if (zIndex >= 10001 && el !== overlay) {
+                    el.style.zIndex = '10000';
+                    console.log('🤖 Lowered z-index of interfering element:', el.tagName);
+                }
+            });
+            
+            // Force AI modal to top
+            overlay.style.zIndex = '10001';
+            overlay.style.position = 'fixed';
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+        }
+    }
+    
+    // Call preventInterference immediately
+    preventInterference();
+
+    // Adjust position on load and resize
+    adjustAIModalPosition();
+    
+    // Force visibility after a short delay
+    setTimeout(() => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+            console.log('🤖 AI Modal forced to be visible');
+            
+            // Ensure no other elements interfere
+            const fabContainer = document.getElementById('fab-container');
+            if (fabContainer) {
+                fabContainer.style.zIndex = '10000';
+            }
+        }
+    }, 100);
+    
+    // Listen for window resize to adjust position
+    window.addEventListener('resize', adjustAIModalPosition);
+    
+    // Listen for orientation change on mobile
+    window.addEventListener('orientationchange', () => {
+        setTimeout(adjustAIModalPosition, 500);
+    });
+
     // AI Modal functionality
     const closeBtn = modal.querySelector('.ai-modal-close');
-    const overlay = modal.querySelector('.ai-modal-overlay');
+    const aiOverlay = modal.querySelector('.ai-modal-overlay');
     const input = modal.querySelector('#ai-input');
     const sendBtn = modal.querySelector('#ai-send');
     const quickBtns = modal.querySelectorAll('.ai-quick-btn');
+    
+    // Ensure all elements are found
+    if (!closeBtn || !aiOverlay || !input || !sendBtn || !quickBtns.length) {
+        console.error('🤖 AI Modal elements not found, retrying...');
+        setTimeout(() => {
+            if (modal.parentNode) {
+                modal.remove();
+            }
+            createAIModal();
+        }, 500);
+        return;
+    }
+    
+    // Ensure AI modal is visible immediately
+    if (overlay) {
+        overlay.style.display = 'block';
+        overlay.style.visibility = 'visible';
+        overlay.style.opacity = '1';
+        overlay.style.position = 'fixed';
+        overlay.style.zIndex = '10001';
+        overlay.style.right = '20px';
+        overlay.style.bottom = '20px';
+        overlay.classList.add('active');
+        console.log('🤖 AI Modal elements found and made visible');
+    }
 
     function closeAIModal() {
-        modal.style.animation = 'fadeOut 0.3s ease';
+        console.log('🤖 Closing AI Modal...');
+        overlay.classList.remove('active');
+        
+        // Remove event listeners to prevent memory leaks
+        window.removeEventListener('resize', adjustAIModalPosition);
+        window.removeEventListener('orientationchange', adjustAIModalPosition);
+        
+        // Clear the interval
+        if (typeof keepModalOnTop !== 'undefined' && keepModalOnTop) {
+            clearInterval(keepModalOnTop);
+        }
+        if (window.aiModalInterval) {
+            clearInterval(window.aiModalInterval);
+            window.aiModalInterval = null;
+        }
+        
         setTimeout(() => {
-            modal.remove();
-            aiStyles.remove();
+            if (modal.parentNode) {
+                modal.remove();
+            }
+            if (aiStyles.parentNode) {
+                aiStyles.remove();
+            }
+            console.log('🤖 AI Modal closed and cleaned up');
         }, 300);
     }
 
@@ -753,8 +1466,192 @@ function createAIModal() {
 
     // Event listeners
     closeBtn.addEventListener('click', closeAIModal);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeAIModal();
+    aiOverlay.addEventListener('click', (e) => {
+        if (e.target === aiOverlay) closeAIModal();
+    });
+    
+    // Prevent event bubbling
+    aiOverlay.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    
+    // Ensure AI modal stays on top
+    let keepModalOnTop = setInterval(() => {
+        if (overlay && overlay.parentNode) {
+            overlay.style.zIndex = '10001';
+            overlay.style.position = 'fixed';
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            
+            // Ensure no other elements interfere
+            const fabContainer = document.getElementById('fab-container');
+            if (fabContainer) {
+                fabContainer.style.zIndex = '10000';
+            }
+        } else {
+            clearInterval(keepModalOnTop);
+        }
+    }, 1000);
+    
+    // Store interval reference for cleanup
+    window.aiModalInterval = keepModalOnTop;
+    
+    // Ensure AI modal is visible on page load
+    window.addEventListener('load', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+            console.log('🤖 AI Modal made visible on page load');
+        }
+    });
+    
+    // Ensure AI modal is visible on DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+            console.log('🤖 AI Modal made visible on DOM ready');
+        }
+    });
+    
+    // Ensure AI modal is visible on window focus
+    window.addEventListener('focus', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+            console.log('🤖 AI Modal made visible on window focus');
+        }
+    });
+    
+    // Ensure AI modal is visible on scroll
+    window.addEventListener('scroll', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+        }
+    });
+    
+    // Ensure AI modal is visible on mouse move
+    document.addEventListener('mousemove', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+        }
+    });
+    
+    // Ensure AI modal is visible on click
+    document.addEventListener('click', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+        }
+    });
+    
+    // Ensure AI modal is visible on touch
+    document.addEventListener('touchstart', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+        }
+    });
+    
+    // Ensure AI modal is visible on keydown
+    document.addEventListener('keydown', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+        }
+    });
+    
+    // Ensure AI modal is visible on resize
+    window.addEventListener('resize', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+        }
+    });
+    
+    // Ensure AI modal is visible on orientation change
+    window.addEventListener('orientationchange', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+        }
+    });
+    
+    // Ensure AI modal is visible on visibility change
+    document.addEventListener('visibilitychange', () => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+        }
     });
 
     sendBtn.addEventListener('click', () => {
@@ -783,7 +1680,42 @@ function createAIModal() {
     });
 
     // Focus input
-    setTimeout(() => input.focus(), 100);
+    setTimeout(() => {
+        if (input) {
+            input.focus();
+        }
+    }, 100);
+    
+    // Final check to ensure AI modal is visible
+    setTimeout(() => {
+        if (overlay) {
+            overlay.style.display = 'block';
+            overlay.style.visibility = 'visible';
+            overlay.style.opacity = '1';
+            overlay.style.position = 'fixed';
+            overlay.style.zIndex = '10001';
+            overlay.style.right = '20px';
+            overlay.style.bottom = '20px';
+            overlay.classList.add('active');
+            console.log('🤖 AI Modal final visibility check completed');
+            
+            // Ensure no other elements interfere
+            const fabContainer = document.getElementById('fab-container');
+            if (fabContainer) {
+                fabContainer.style.zIndex = '10000';
+            }
+            
+            // Check for any interfering elements
+            const interferingElements = document.querySelectorAll('[style*="z-index"]');
+            interferingElements.forEach(el => {
+                const zIndex = parseInt(el.style.zIndex) || 0;
+                if (zIndex >= 10001 && el !== overlay) {
+                    el.style.zIndex = '10000';
+                    console.log('🤖 Lowered z-index of interfering element:', el.tagName);
+                }
+            });
+        }
+    }, 200);
 }
 
 // Enhanced Accessibility Tools Panel
@@ -820,28 +1752,33 @@ function createAccessibilityPanel() {
                         <div class="accessibility-grid">
                             <div class="accessibility-tool" data-tool="contrast">
                                 <div class="tool-icon">☀️</div>
-                                <div class="tool-title">Contrast</div>
-                            </div>
-                            <div class="accessibility-tool" data-tool="bigger-text">
-                                <div class="tool-icon">T+</div>
-                                <div class="tool-title">Bigger Text</div>
+                                <div class="tool-title" data-translate="accessibility.contrast">Contrast</div>
                             </div>
                             <div class="accessibility-tool" data-tool="simple-font">
                                 <div class="tool-icon">Aa</div>
-                                <div class="tool-title">Simple Font</div>
+                                <div class="tool-title" data-translate="accessibility.simple-font">Simple Font</div>
+                            </div>
+                            <div class="accessibility-tool" data-tool="font-control" id="font-control-tool">
+                                <div class="tool-icon">A</div>
+                                <div class="tool-title">Font Size</div>
                             </div>
                             <div class="accessibility-tool" data-tool="highlight-links">
                                 <div class="tool-icon">🔗</div>
-                                <div class="tool-title">Links</div>
+                                <div class="tool-title" data-translate="accessibility.highlight-links">Highlight Links</div>
                             </div>
                             <div class="accessibility-tool" data-tool="pause-animation">
                                 <div class="tool-icon">⏸️</div>
-                                <div class="tool-title">Pause</div>
+                                <div class="tool-title" data-translate="accessibility.pause-animation">Pause Animation</div>
                             </div>
                             <div class="accessibility-tool" data-tool="hide-images">
                                 <div class="tool-icon">🖼️</div>
-                                <div class="tool-title">Images</div>
+                                <div class="tool-title" data-translate="accessibility.hide-images">Hide Images</div>
                             </div>
+                        </div>
+                        <div class="accessibility-reset">
+                            <button class="reset-btn" onclick="resetAllAccessibilityFeatures()">
+                                <i class="fas fa-undo"></i> Reset All
+                            </button>
                         </div>
                     </div>
 
@@ -911,13 +1848,84 @@ function createAccessibilityPanel() {
         });
         
         // Enhanced accessibility functionality
+        console.log('🔧 Initializing accessibility features...');
         initializeAccessibilityFeatures(panel);
+        
+        // Initialize font size counter
+        if (!window.fontSizeCounter) {
+            window.fontSizeCounter = 0;
+        }
+        
+        // Initialize font control system
+        window.fontControl = {
+            currentScale: 1.0,
+            minScale: 0.8,
+            maxScale: 2.0,
+            step: 0.1,
+            storageKey: 'skyline_font_scale'
+        };
+        
+        // Load saved font scale
+        const savedScale = parseFloat(localStorage.getItem(window.fontControl.storageKey));
+        if (savedScale && !isNaN(savedScale)) {
+            window.fontControl.currentScale = Math.max(window.fontControl.minScale, Math.min(window.fontControl.maxScale, savedScale));
+            applyFontScale(window.fontControl.currentScale);
+        }
+        
+        
+        
+        
+        
+    
+    
+    // Add direct test button for simple font
+    const testFontBtn = document.createElement('button');
+    testFontBtn.textContent = 'TEST SIMPLE FONT';
+    testFontBtn.style.cssText = `
+        position: fixed;
+        top: 150px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 10002;
+    `;
+    testFontBtn.addEventListener('click', () => {
+        console.log('🧪 TEST FONT BUTTON CLICKED - Calling toggleSimpleFont()');
+        toggleSimpleFont();
+    });
+    document.body.appendChild(testFontBtn);
+    
+    // Add direct test button for reset
+    const testResetBtn = document.createElement('button');
+    testResetBtn.textContent = 'TEST RESET';
+    testResetBtn.style.cssText = `
+        position: fixed;
+        top: 200px;
+        right: 20px;
+        background: #FF9800;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 10002;
+    `;
+    testResetBtn.addEventListener('click', () => {
+        console.log('🧪 TEST RESET BUTTON CLICKED - Calling resetAllAccessibilityFeatures()');
+        resetAllAccessibilityFeatures();
+    });
+    document.body.appendChild(testResetBtn);
     }
 }
 
 // Enhanced Accessibility Features
 function initializeAccessibilityFeatures(panel) {
     console.log('♿ Initializing Accessibility Features...');
+    console.log('🔧 Panel HTML:', panel.innerHTML.substring(0, 200) + '...');
 
     // Tab functionality
     const tabBtns = panel.querySelectorAll('.tab-btn');
@@ -946,10 +1954,24 @@ function initializeAccessibilityFeatures(panel) {
 
     // Accessibility Tools
     const tools = panel.querySelectorAll('.accessibility-tool');
+    console.log('🔧 Found accessibility tools:', tools.length);
+    console.log('🔧 Tools found:', Array.from(tools).map(t => t.getAttribute('data-tool')));
+    
     tools.forEach(tool => {
-        tool.addEventListener('click', () => {
-            const toolType = tool.getAttribute('data-tool');
+        const toolType = tool.getAttribute('data-tool');
+        console.log('🔧 Adding event listener to tool:', toolType);
+        
+        tool.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('🔧 Tool clicked:', toolType, tool);
+            console.log('🔧 Event details:', e);
             activateAccessibilityTool(toolType, tool);
+        });
+        
+        // Add visual feedback on hover
+        tool.addEventListener('mouseenter', () => {
+            console.log('🔧 Tool hovered:', toolType);
         });
     });
 
@@ -974,11 +1996,14 @@ function initializeAccessibilityFeatures(panel) {
             activateLanguage(langType, lang);
         });
     });
+    
+    
 }
 
 // Activate Accessibility Tool
 function activateAccessibilityTool(toolType, element) {
     console.log('🔧 Activating tool:', toolType);
+    console.log('🔧 Element:', element);
     
     // Remove active state from all tools
     document.querySelectorAll('.accessibility-tool').forEach(t => t.classList.remove('active'));
@@ -988,13 +2013,31 @@ function activateAccessibilityTool(toolType, element) {
     
     switch(toolType) {
         case 'contrast':
+            console.log('🔧 Calling toggleHighContrast()');
             toggleHighContrast();
             break;
         case 'bigger-text':
-            increaseTextSize();
+            console.log('🔧 Processing bigger-text tool');
+            console.log('🔧 Element classList:', element.classList);
+            console.log('🔧 Element data-tool:', element.getAttribute('data-tool'));
+            
+            // Check if text is already enlarged
+            const currentSize = parseInt(getComputedStyle(document.documentElement).fontSize) || 16;
+            console.log('🔧 Current font size:', currentSize);
+            
+            if (currentSize > 16) {
+                console.log('🔧 Calling resetTextSize()');
+                resetTextSize();
+            } else {
+                console.log('🔧 Calling increaseTextSize()');
+                increaseTextSize();
+            }
             break;
         case 'simple-font':
             toggleSimpleFont();
+            break;
+        case 'font-control':
+            openFontControlPage();
             break;
         case 'highlight-links':
             toggleLinkHighlighting();
@@ -1065,22 +2108,272 @@ function activateLanguage(langType, element) {
 }
 
 // Accessibility Tool Functions
+
+// Font Control Functions
+function applyFontScale(scale) {
+    const clampedScale = Math.max(window.fontControl.minScale, Math.min(window.fontControl.maxScale, scale));
+    
+    // Apply to document root
+    document.documentElement.style.fontSize = `${clampedScale * 16}px`;
+    
+    // Apply to body
+    document.body.style.fontSize = `${clampedScale * 16}px`;
+    
+    // Apply to all elements
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(element => {
+        if (element !== document.documentElement && element !== document.body) {
+            const computedStyle = getComputedStyle(element);
+            const currentFontSize = parseFloat(computedStyle.fontSize);
+            if (currentFontSize && !isNaN(currentFontSize)) {
+                element.style.fontSize = `${currentFontSize * clampedScale}px`;
+            }
+        }
+    });
+    
+    // Update display
+    const scaleDisplay = document.getElementById('font-scale-display');
+    if (scaleDisplay) {
+        scaleDisplay.textContent = `${Math.round(clampedScale * 100)}%`;
+    }
+    
+    // Save to localStorage
+    localStorage.setItem(window.fontControl.storageKey, clampedScale.toString());
+    
+    // Update current scale
+    window.fontControl.currentScale = clampedScale;
+    
+    console.log('📏 Applied font scale:', clampedScale);
+}
+
+function increaseFontSize() {
+    const newScale = window.fontControl.currentScale + window.fontControl.step;
+    if (newScale <= window.fontControl.maxScale) {
+        applyFontScale(newScale);
+        showToolFeedback(`Font size increased to ${Math.round(newScale * 100)}%`);
+    } else {
+        showToolFeedback('Maximum font size reached');
+    }
+}
+
+function decreaseFontSize() {
+    const newScale = window.fontControl.currentScale - window.fontControl.step;
+    if (newScale >= window.fontControl.minScale) {
+        applyFontScale(newScale);
+        showToolFeedback(`Font size decreased to ${Math.round(newScale * 100)}%`);
+    } else {
+        showToolFeedback('Minimum font size reached');
+    }
+}
+
+function resetFontSize() {
+    applyFontScale(1.0);
+    showToolFeedback('Font size reset to 100%');
+}
+
+function openFontControlPage() {
+    console.log('🔤 Opening font control page...');
+    
+    // Open font control page in new tab
+    const fontControlUrl = 'font-control.html';
+    window.open(fontControlUrl, '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes');
+    
+    // Show feedback
+    showToolFeedback('Font control page opened in new tab');
+    
+    console.log('✅ Font control page opened successfully');
+}
+
+
+
 function toggleHighContrast() {
     document.body.classList.toggle('high-contrast');
 }
 
 function increaseTextSize() {
-    const currentSize = parseInt(getComputedStyle(document.documentElement).fontSize);
-    const newSize = currentSize + 2;
+    console.log('📏 increaseTextSize() function called!');
+    console.log('📏 Document element:', document.documentElement);
+    console.log('📏 Body element:', document.body);
+    
+    // Initialize font size counter if not exists
+    if (!window.fontSizeCounter) {
+        window.fontSizeCounter = 0; // 0 = default, 1 = +4px, 2 = +8px, etc.
+    }
+    
+    // Increment counter
+    window.fontSizeCounter++;
+    
+    // Calculate new font size based on counter
+    const baseSize = 16;
+    const increment = 4;
+    const maxCounter = 4; // Maximum 4 increments (16px + 16px = 32px)
+    
+    if (window.fontSizeCounter > maxCounter) {
+        window.fontSizeCounter = 0; // Reset to default
+    }
+    
+    const newSize = baseSize + (window.fontSizeCounter * increment);
+    const currentSize = parseInt(getComputedStyle(document.documentElement).fontSize) || 16;
+    
+    console.log('📏 Font size counter:', window.fontSizeCounter);
+    console.log('📏 Current size:', currentSize, 'New size:', newSize);
+    
+    // Apply to document element (root) - this affects all rem units
     document.documentElement.style.fontSize = newSize + 'px';
+    
+    // Apply to body
+    document.body.style.fontSize = newSize + 'px';
+    
+    // Add bigger-text class to body for CSS-based scaling
+    document.body.classList.add('bigger-text');
+    
+    // Get ALL elements in the page
+    const allElements = document.querySelectorAll('*');
+    let processedElements = 0;
+    
+    allElements.forEach(element => {
+        const computedStyle = getComputedStyle(element);
+        const currentFontSize = parseInt(computedStyle.fontSize);
+        
+        // Increase font size for ALL elements that have text content
+        if (currentFontSize > 0 && currentFontSize < 100) {
+            const elementNewSize = Math.min(currentFontSize + 4, 40);
+            element.style.fontSize = elementNewSize + 'px';
+            processedElements++;
+        }
+    });
+    
+    // Force increase for specific text elements regardless of current size
+    const textSelectors = [
+        'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 
+        'p', 'span', 'div', 'a', 'li', 'td', 'th', 
+        'label', 'button', 'input', 'textarea', 'select',
+        'strong', 'em', 'b', 'i', 'u', 'small', 'big',
+        'blockquote', 'cite', 'code', 'pre', 'kbd',
+        'nav', 'header', 'footer', 'main', 'section', 'article',
+        'aside', 'details', 'summary', 'figcaption', 'caption',
+        'legend', 'fieldset', 'optgroup', 'option'
+    ];
+    
+    textSelectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            const computedStyle = getComputedStyle(element);
+            const currentFontSize = parseInt(computedStyle.fontSize);
+            
+            if (currentFontSize > 0) {
+                const elementNewSize = Math.min(currentFontSize + 4, 42);
+                element.style.fontSize = elementNewSize + 'px';
+            }
+        });
+    });
+    
+    // Force increase for any element with text content
+    const textNodes = document.querySelectorAll('*');
+    textNodes.forEach(element => {
+        if (element.textContent && element.textContent.trim().length > 0) {
+            const computedStyle = getComputedStyle(element);
+            const currentFontSize = parseInt(computedStyle.fontSize);
+            
+            if (currentFontSize > 0 && currentFontSize < 50) {
+                const elementNewSize = Math.min(currentFontSize + 4, 38);
+                element.style.fontSize = elementNewSize + 'px';
+            }
+        }
+    });
     
     // Store the size for reset functionality
     if (!window.accessibilitySettings) window.accessibilitySettings = {};
     window.accessibilitySettings.textSize = newSize;
+    window.accessibilitySettings.originalSizes = window.accessibilitySettings.originalSizes || {};
+    
+    // Force increase for any remaining text elements
+    setTimeout(() => {
+        const remainingElements = document.querySelectorAll('*');
+        remainingElements.forEach(element => {
+            if (element.textContent && element.textContent.trim().length > 0) {
+                const computedStyle = getComputedStyle(element);
+                const currentFontSize = parseInt(computedStyle.fontSize);
+                
+                if (currentFontSize > 0 && currentFontSize < 30) {
+                    const elementNewSize = Math.min(currentFontSize + 4, 36);
+                    element.style.fontSize = elementNewSize + 'px';
+                }
+            }
+        });
+        console.log('📏 Applied delayed text increase to remaining elements');
+    }, 100);
+    
+    // Update counter in accessibility panel
+    updateFontSizeCounter();
+    
+    // Add visual feedback
+    const counterText = window.fontSizeCounter === 0 ? 'Default' : `Level ${window.fontSizeCounter}`;
+    console.log('📢 Calling showToolFeedback with:', `Text size: ${counterText} (${newSize}px)`);
+    showToolFeedback(`Text size: ${counterText} (${newSize}px)`);
+    
+    console.log('📏 Text size increased from', currentSize + 'px to', newSize + 'px');
+    console.log('📏 Processed', processedElements, 'elements');
+    console.log('📏 Applied to', allElements.length, 'total elements');
+    console.log('📏 Added bigger-text class to body');
+    console.log('📏 Body classes after:', document.body.classList.toString());
+    console.log('📏 Document element font size after:', getComputedStyle(document.documentElement).fontSize);
+    console.log('📏 Body font size after:', getComputedStyle(document.body).fontSize);
+}
+
+function resetTextSize() {
+    // Reset font size counter
+    window.fontSizeCounter = 0;
+    
+    // Reset to default size
+    document.documentElement.style.fontSize = '16px';
+    document.body.style.fontSize = '16px';
+    
+    // Remove bigger-text class from body
+    document.body.classList.remove('bigger-text');
+    
+    // Reset all elements to their original font sizes
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(element => {
+        // Remove inline font-size styles to restore original CSS
+        if (element.style.fontSize) {
+            element.style.fontSize = '';
+        }
+    });
+    
+    // Clear stored size
+    if (window.accessibilitySettings) {
+        delete window.accessibilitySettings.textSize;
+        delete window.accessibilitySettings.originalSizes;
+    }
+    
+    // Update counter in accessibility panel
+    updateFontSizeCounter();
+    
+    console.log('📢 Calling showToolFeedback with:', 'Text size reset to default');
+    showToolFeedback('Text size reset to default');
+    console.log('📏 Text size reset to default');
+    console.log('📏 Font size counter reset to:', window.fontSizeCounter);
+    console.log('📏 Reset', allElements.length, 'elements');
+    console.log('📏 Removed bigger-text class from body');
 }
 
 function toggleSimpleFont() {
-    document.body.classList.toggle('simple-font');
+    const isActive = document.body.classList.contains('simple-font');
+    
+    if (isActive) {
+        // Remove simple font
+        document.body.classList.remove('simple-font');
+        console.log('📢 Calling showToolFeedback with:', 'Simple font disabled');
+        showToolFeedback('Simple font disabled');
+        console.log('🔤 Simple font disabled');
+    } else {
+        // Add simple font
+        document.body.classList.add('simple-font');
+        console.log('📢 Calling showToolFeedback with:', 'Simple font enabled');
+        showToolFeedback('Simple font enabled');
+        console.log('🔤 Simple font enabled');
+    }
 }
 
 function toggleLinkHighlighting() {
@@ -1168,21 +2461,34 @@ function addAccessibilityStyle(css) {
 }
 
 function resetAllAccessibilityFeatures() {
+    // Reset font size counter
+    window.fontSizeCounter = 0;
+    
     // Remove all accessibility classes
     const classesToRemove = [
         'high-contrast', 'simple-font', 'highlight-links', 
         'pause-animations', 'hide-images', 'visually-impaired',
-        'dyslexia-friendly', 'color-blind-friendly', 'mobility-friendly'
+        'dyslexia-friendly', 'color-blind-friendly', 'mobility-friendly',
+        'bigger-text'
     ];
     
     classesToRemove.forEach(className => {
         document.body.classList.remove(className);
     });
     
-    // Reset text size
-    if (window.accessibilitySettings && window.accessibilitySettings.textSize) {
-        document.documentElement.style.fontSize = '16px';
+    // Reset all elements to their original font sizes
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(element => {
+        // Remove inline font-size styles to restore original CSS
+        if (element.style.fontSize) {
+            element.style.fontSize = '';
+        }
+    });
+    
+    // Clear accessibility settings
+    if (window.accessibilitySettings) {
         delete window.accessibilitySettings.textSize;
+        delete window.accessibilitySettings.originalSizes;
     }
     
     // Remove accessibility styles
@@ -1190,10 +2496,27 @@ function resetAllAccessibilityFeatures() {
     if (styleElement) {
         styleElement.remove();
     }
+    
+    // Reset any inline styles
+    document.body.style.filter = '';
+    document.body.style.cursor = '';
+    document.body.style.letterSpacing = '';
+    document.body.style.wordSpacing = '';
+    
+    // Update counter in accessibility panel
+    updateFontSizeCounter();
+    
+    console.log('📢 Calling showToolFeedback with:', 'All accessibility features reset');
+    showToolFeedback('All accessibility features reset');
+    console.log('♿ All accessibility features reset');
+    console.log('♿ Font size counter reset to:', window.fontSizeCounter);
+    console.log('♿ Reset', allElements.length, 'elements');
+    console.log('♿ Removed all accessibility classes');
 }
 
 // Feedback Functions
 function showToolFeedback(toolType, element) {
+    console.log('📢 Showing tool feedback:', toolType);
     const feedback = document.createElement('div');
     feedback.textContent = `✅ ${toolType} activated!`;
     feedback.style.cssText = `

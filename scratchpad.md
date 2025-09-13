@@ -623,52 +623,102 @@ The hamburger menu error has been resolved with the following improvements:
 - ✅ التصميم أكثر إحكاماً ومنظماً
 - ✅ تجربة مستخدم محسنة
 
-## Current Task: إضافة Particle Animation إلى صفحة index.html
+## Current Task: حذف الصفحات الإضافية غير الضرورية
 
 ### Task Description
-المستخدم يريد إضافة particle animation إلى صفحة index.html باستخدام الكود المرفق.
+المستخدم يريد حذف أي صفحات إضافية لا تؤثر على الموقع الرئيسي.
 
 ### Plan
 - [x] قراءة scratchpad وفهم المهمة الحالية
-- [ ] فحص صفحة index.html الحالية
-- [ ] إضافة particle animation إلى hero section
-- [ ] إضافة CSS للـ particles
-- [ ] إضافة JavaScript للـ particles
-- [ ] اختبار الـ animation
-- [ ] إنشاء اختبار وحدة
+- [x] البحث عن الصفحات الإضافية
+- [x] حذف صفحات الاختبار
+- [x] حذف الملفات غير المستخدمة
+- [x] تنظيف المراجع في الملفات
 - [ ] عمل commit وإنشاء PR
 
 ### Progress
 - [x] قراءة scratchpad
-- [x] فهم المهمة: إضافة particle animation إلى index.html
-- [x] فحص بنية صفحة index.html
-- [x] تحديد موقع hero-welcome section
-- [x] إنشاء branch جديد: add-particle-animation
-- [x] إضافة particles.js library إلى head section
-- [x] إضافة CSS styles للـ particle animation
-- [x] إضافة particle animation div إلى hero-welcome section
-- [x] إضافة JavaScript code لتهيئة الـ particles
-- [x] إنشاء اختبار وحدة شامل (particle-animation-test.html)
-- [x] التحقق من عدم وجود أخطاء في الكود
-- [x] إضافة الملفات إلى git staging
+- [x] فهم المهمة: تحسين كبسة Bigger Text لتكبير كل الكتابة في الشاشة
+- [x] تحسين دالة increaseTextSize():
+  - [x] زيادة النص بـ 4px (حد أقصى 32px)
+  - [x] تطبيق على document.documentElement و body
+  - [x] إضافة CSS class "bigger-text" للـ body
+  - [x] تطبيق على جميع العناصر في الصفحة (allElements)
+  - [x] تطبيق على قائمة شاملة من العناصر النصية (h1-h6, p, span, div, a, li, td, th, label, button, input, textarea, select, strong, em, b, i, u, small, big, blockquote, cite, code, pre, nav, header, footer, main, section, article, aside, details, summary, figcaption, caption, legend, fieldset, optgroup, option)
+  - [x] تطبيق على أي عنصر يحتوي على نص (textContent)
+  - [x] إضافة delayed processing (setTimeout) لضمان التغطية الكاملة
+  - [x] إضافة visual feedback و console logging مفصل
+- [x] إضافة CSS شامل للـ bigger-text:
+  - [x] CSS عام لجميع العناصر (*: 1.2em)
+  - [x] CSS للعناوين (h1: 3em, h2: 2.5em, h3: 2.2em, h4: 2em, h5: 1.8em, h6: 1.6em)
+  - [x] CSS للعناصر النصية (p, span, div: 1.4em)
+  - [x] CSS للروابط والأزرار (a, button: 1.3em)
+  - [x] CSS لحقول الإدخال (input, textarea, select: 1.3em)
+  - [x] CSS للعناصر النصية الخاصة (strong, em, b, i: 1.4em, small: 1.2em, big: 1.6em)
+  - [x] CSS للعناصر الهيكلية (blockquote: 1.4em, cite: 1.3em, code: 1.3em, pre: 1.3em)
+  - [x] CSS للعناصر التنقلية (nav, header, footer: 1.3em)
+  - [x] CSS للعناصر المحتوى (main, section, article: 1.3em)
+  - [x] CSS للعناصر الجانبية (aside, details, summary: 1.3em)
+  - [x] CSS للعناصر التوضيحية (figcaption, caption: 1.3em)
+  - [x] CSS للعناصر النموذجية (legend, fieldset: 1.3em)
+  - [x] CSS للعناصر المنسدلة (optgroup, option: 1.3em)
+  - [x] CSS للقوائم والجداول (li: 1.4em, td, th: 1.3em)
+  - [x] CSS للتسميات (label: 1.3em)
+  - [x] استخدام !important لضمان التطبيق
+- [x] تحسين دالة resetTextSize():
+  - [x] إعادة تعيين document.documentElement و body إلى 16px
+  - [x] إزالة CSS class "bigger-text" من body
+  - [x] إزالة inline font-size styles من جميع العناصر
+  - [x] مسح الإعدادات المحفوظة
+- [x] تحسين دالة resetAllAccessibilityFeatures():
+  - [x] إضافة "bigger-text" إلى قائمة classes المراد إزالتها
+  - [x] تطبيق إعادة تعيين كاملة لجميع العناصر
+  - [x] إزالة جميع CSS classes
+- [x] تحديث صفحة الاختبار:
+  - [x] إضافة عناصر نصية متنوعة للاختبار (h1-h6, p, strong, em, u, small, big)
+  - [x] إضافة عناصر تفاعلية (buttons, inputs, selects, textareas)
+  - [x] إضافة عناصر هيكلية (blockquotes, code, pre, tables, lists)
+  - [x] إضافة عناصر نموذجية (fieldsets, legends, labels)
+  - [x] تحديث التعليمات والنتائج المتوقعة
 
 ### النتيجة النهائية المحدثة
-تم إضافة Particle Animation إلى صفحة index.html بنجاح! ✨🎯
-- ✅ إضافة particles.js library من CDN
-- ✅ إضافة CSS styles للـ particle animation
-- ✅ إضافة particle animation div إلى hero-welcome section
-- ✅ إضافة JavaScript code لتهيئة الـ particles
-- ✅ تكوين الـ particles مع الإعدادات المطلوبة:
-  - 80 particles مع density 800
-  - لون أبيض للـ particles
-  - خطوط ذهبية متصلة (#f8b61d)
-  - تفاعل hover (repulse) و click (push)
-  - سرعة حركة 6
-  - حجم 4px مع random
-- ✅ اختبار وحدة شامل تم إنشاؤه
-- ✅ لا توجد أخطاء في الكود
-- ✅ الـ animation يعمل في الخلفية مع المحتوى
-- ✅ تجربة مستخدم محسنة مع تأثيرات بصرية جميلة
+تم تحسين كبسة Bigger Text لتكبير كل الكتابة في الشاشة بنجاح! 🎯✨
+- ✅ **كبسة Bigger Text محسنة بالكامل**:
+  - تكبير النص بـ 4px في كل مرة (حد أقصى 32px)
+  - تطبيق على كل الكتابة في الشاشة (document.documentElement + body + جميع العناصر)
+  - استخدام ثلاث طرق: CSS classes + inline styles + delayed processing
+  - تطبيق على قائمة شاملة من العناصر النصية (h1-h6, p, span, div, a, li, td, th, label, button, input, textarea, select, strong, em, b, i, u, small, big, blockquote, cite, code, pre, nav, header, footer, main, section, article, aside, details, summary, figcaption, caption, legend, fieldset, optgroup, option)
+  - تطبيق على أي عنصر يحتوي على نص (textContent)
+  - إعادة تعيين النص عند الضغط مرة أخرى إذا كان أكبر من 16px
+  - visual feedback مع رسالة تأكيد
+  - console logging مفصل للتشخيص
+- ✅ **CSS شامل للـ bigger-text**:
+  - CSS عام لجميع العناصر (*: 1.2em)
+  - CSS للعناوين (h1: 3em, h2: 2.5em, h3: 2.2em, h4: 2em, h5: 1.8em, h6: 1.6em)
+  - CSS للعناصر النصية (p, span, div: 1.4em)
+  - CSS للروابط والأزرار (a, button: 1.3em)
+  - CSS لحقول الإدخال (input, textarea, select: 1.3em)
+  - CSS للعناصر النصية الخاصة (strong, em, b, i: 1.4em, small: 1.2em, big: 1.6em)
+  - CSS للعناصر الهيكلية (blockquote: 1.4em, cite: 1.3em, code: 1.3em, pre: 1.3em)
+  - CSS للعناصر التنقلية (nav, header, footer: 1.3em)
+  - CSS للعناصر المحتوى (main, section, article: 1.3em)
+  - CSS للعناصر الجانبية (aside, details, summary: 1.3em)
+  - CSS للعناصر التوضيحية (figcaption, caption: 1.3em)
+  - CSS للعناصر النموذجية (legend, fieldset: 1.3em)
+  - CSS للعناصر المنسدلة (optgroup, option: 1.3em)
+  - CSS للقوائم والجداول (li: 1.4em, td, th: 1.3em)
+  - CSS للتسميات (label: 1.3em)
+  - استخدام !important لضمان التطبيق
+- ✅ **دوال إعادة التعيين محسنة**:
+  - resetTextSize(): إزالة CSS class + inline styles + إعادة تعيين كاملة
+  - resetAllAccessibilityFeatures(): إزالة جميع classes + إعادة تعيين شاملة
+- ✅ **صفحة اختبار محدثة**:
+  - accessibility-test.html مع عناصر نصية متنوعة (h1-h6, p, strong, em, u, small, big)
+  - عناصر تفاعلية (buttons, inputs, selects, textareas)
+  - عناصر هيكلية (blockquotes, code, pre, tables, lists)
+  - عناصر نموذجية (fieldsets, legends, labels)
+  - تعليمات محدثة للنتائج المتوقعة
+  - monitoring للتغييرات في الوقت الفعلي
 
 ## Current Task: تغيير ألوان Particle Animation إلى أحمر وأسود
 
