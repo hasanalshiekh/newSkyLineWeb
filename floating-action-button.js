@@ -429,7 +429,7 @@ function initializeFAB() {
         e.preventDefault();
         e.stopPropagation();
         console.log('WhatsApp button clicked!');
-        const phoneNumber = "+962786669911"; // Jordan WhatsApp number
+        const phoneNumber = "+962771600663"; // Jordan WhatsApp number
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const pageName = currentPage.replace('.html', '').replace('&', ' and ');
         const message = `Hello! I'm interested in SKYLINE's services. I'm currently viewing the ${pageName} page. Can you help me with more information?`;
@@ -607,7 +607,7 @@ function createAIModal() {
     aiStyles.textContent = `
         .ai-modal-overlay {
             position: fixed !important;
-            bottom: 20px;
+            top: 20px;
             right: -380px;
             width: 360px;
             height: 380px;
@@ -820,7 +820,7 @@ function createAIModal() {
             .ai-modal-overlay {
                 width: 350px;
                 height: 370px;
-                bottom: 15px;
+                top: 15px;
                 right: -370px;
             }
             
@@ -834,7 +834,7 @@ function createAIModal() {
             .ai-modal-overlay {
                 width: 320px;
                 height: 350px;
-                bottom: 10px;
+                top: 10px;
                 right: -340px;
             }
             
@@ -858,7 +858,7 @@ function createAIModal() {
             .ai-modal-overlay {
                 width: 300px;
                 height: 320px;
-                bottom: 5px;
+                top: 5px;
                 right: -320px;
             }
             
@@ -897,7 +897,7 @@ function createAIModal() {
             .ai-modal-overlay {
                 width: 280px;
                 height: 300px;
-                bottom: 5px;
+                top: 5px;
                 right: -300px;
             }
             
@@ -962,7 +962,7 @@ function createAIModal() {
         @media (orientation: landscape) and (max-height: 500px) {
             .ai-modal-overlay {
                 height: 90vh;
-                bottom: 5vh;
+                top: 5vh;
             }
         }
 
@@ -1003,7 +1003,7 @@ function createAIModal() {
             position: fixed !important;
             z-index: 10001 !important;
             right: 20px !important;
-            bottom: 20px !important;
+            top: 20px !important;
         }
 
         /* Fallback for older browsers */
@@ -1240,7 +1240,7 @@ function createAIModal() {
         overlay.style.position = 'fixed';
         overlay.style.zIndex = '10001';
         overlay.style.right = '20px';
-        overlay.style.bottom = '20px';
+        overlay.style.top = '20px';
         console.log('🤖 AI Modal overlay created and visible');
     }
 
@@ -1257,7 +1257,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
         }
     }, 10);
 
@@ -1314,7 +1314,7 @@ function createAIModal() {
             overlay.style.visibility = 'visible';
             overlay.style.opacity = '1';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
         }
     }
     
@@ -1333,7 +1333,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
             console.log('🤖 AI Modal forced to be visible');
             
@@ -1380,7 +1380,7 @@ function createAIModal() {
         overlay.style.position = 'fixed';
         overlay.style.zIndex = '10001';
         overlay.style.right = '20px';
-        overlay.style.bottom = '20px';
+        overlay.style.top = '20px';
         overlay.classList.add('active');
         console.log('🤖 AI Modal elements found and made visible');
     }
@@ -1506,7 +1506,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
             console.log('🤖 AI Modal made visible on page load');
         }
@@ -1521,7 +1521,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
             console.log('🤖 AI Modal made visible on DOM ready');
         }
@@ -1536,7 +1536,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
             console.log('🤖 AI Modal made visible on window focus');
         }
@@ -1551,7 +1551,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
         }
     });
@@ -1565,7 +1565,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
         }
     });
@@ -1579,7 +1579,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
         }
     });
@@ -1593,7 +1593,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
         }
     });
@@ -1607,7 +1607,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
         }
     });
@@ -1621,7 +1621,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
         }
     });
@@ -1635,7 +1635,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
         }
     });
@@ -1649,7 +1649,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
         }
     });
@@ -1695,7 +1695,7 @@ function createAIModal() {
             overlay.style.position = 'fixed';
             overlay.style.zIndex = '10001';
             overlay.style.right = '20px';
-            overlay.style.bottom = '20px';
+            overlay.style.top = '20px';
             overlay.classList.add('active');
             console.log('🤖 AI Modal final visibility check completed');
             
