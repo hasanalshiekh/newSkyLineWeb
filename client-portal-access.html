@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Portal Access - SKYLINE Innovation Software</title>
+    <title>الوصول إلى بوابة العملاء - SKYLINE Innovation Software</title>
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rtl-ltr-support.css">
     <script src="translation-system.js" defer></script>
     <style>
         * {
@@ -23,6 +24,8 @@
             position: relative;
             background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
             min-height: 100vh;
+            direction: rtl;
+            text-align: right;
         }
 
         /* Animated Background */
@@ -671,8 +674,8 @@
     <!-- Hero Section -->
     <section class="portal-hero">
         <div class="container">
-            <h1>Client Portal Access</h1>
-            <p>Secure login for subscribed customers. Access your projects, documents, support tickets, and exclusive resources in one centralized dashboard.</p>
+            <h1>الوصول إلى بوابة العملاء</h1>
+            <p>تسجيل دخول آمن للعملاء المشتركين. الوصول إلى مشاريعك ومستنداتك وتذاكر الدعم والموارد الحصرية في لوحة تحكم مركزية واحدة.</p>
         </div>
     </section>
 
@@ -985,6 +988,9 @@
     
     <!-- Floating Action Button -->
     <script src="floating-action-button.js"></script>
+    
+    <!-- Page Loader -->
+    <script src="page-loader.js"></script>
 </body>
 </html>
 

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Center - SKYLINE</title>
+    <title>مركز التحميل - SKYLINE</title>
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="rtl-ltr-support.css">
     <style>
         * {
             margin: 0;
@@ -19,6 +20,8 @@
             color: #1a1a1a;
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
             overflow-x: hidden;
+            direction: rtl;
+            text-align: right;
         }
 
         /* Floating Background Shapes */
@@ -569,11 +572,11 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1>Download Center</h1>
-                <p>Access our comprehensive collection of resources, software, and documentation</p>
+                <h1>مركز التحميل</h1>
+                <p>الوصول إلى مجموعتنا الشاملة من الموارد والبرمجيات والوثائق</p>
                 <div class="hero-badge">
                     <i class="fas fa-download"></i>
-                    <span>Free Downloads Available</span>
+                    <span>تحميلات مجانية متاحة</span>
                 </div>
             </div>
         </section>
@@ -1052,5 +1055,8 @@
             }, 2000);
         }
     </script>
+    
+    <!-- Page Loader -->
+    <script src="page-loader.js"></script>
 </body>
 </html>

@@ -289,20 +289,20 @@ function getFooterHTML() {
                         <div class="footer-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <h3 data-translate="contact-address-title">Location</h3>
-                        <p>3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="directions">GET DIRECTIONS</a>
+                        <h3 data-translate="contact-address-title">الموقع</h3>
+                        <p>الطابق الثالث، مجمع قيصر، شارع الملكة رانيا، عمان، الأردن</p>
+                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="directions">الحصول على الاتجاهات</a>
                     </div>
 
                     <div class="footer-column">
                         <div class="footer-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h3 data-translate="contact-us">Contact us</h3>
-                        <p><strong data-translate="contact-main-office">Main Office:</strong> +962 77 755 8888</p>
-                        <p><strong data-translate="contact-sales">Sales:</strong> +962 77 160 0663</p>
+                        <h3 data-translate="contact-us">اتصل بنا</h3>
+                        <p><strong data-translate="contact-main-office">المكتب الرئيسي:</strong> +962 77 755 8888</p>
+                        <p><strong data-translate="contact-sales">المبيعات:</strong> +962 77 160 0663</p>
                         <p>info@skyline-innovation.com</p>
-                        <a href="tel:+962777558888" class="footer-link" data-translate="call-us">CALL MAIN OFFICE</a>
+                        <a href="tel:+962777558888" class="footer-link" data-translate="call-us">اتصل بالمكتب الرئيسي</a>
                     </div>
 
                     <div class="footer-column">
