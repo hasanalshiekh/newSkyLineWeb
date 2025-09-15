@@ -289,37 +289,37 @@ function getFooterHTML() {
                         <div class="footer-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <h3 data-translate="contact-address-title">الموقع</h3>
-                        <p>الطابق الثالث، مجمع قيصر، شارع الملكة رانيا، عمان، الأردن</p>
-                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="directions">الحصول على الاتجاهات</a>
+                        <h3 data-translate="footer-location-title">Location</h3>
+                        <p data-translate="footer-address">3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
+                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="footer-get-directions">Get Directions</a>
                     </div>
 
                     <div class="footer-column">
                         <div class="footer-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h3 data-translate="contact-us">اتصل بنا</h3>
-                        <p><strong data-translate="contact-main-office">المكتب الرئيسي:</strong> +962 77 755 8888</p>
-                        <p><strong data-translate="contact-sales">المبيعات:</strong> +962 77 160 0663</p>
+                        <h3 data-translate="footer-contact-title">Contact Us</h3>
+                        <p><strong data-translate="footer-main-office">Main Office:</strong> +962 77 755 8888</p>
+                        <p><strong data-translate="footer-sales">Sales:</strong> +962 77 160 0663</p>
                         <p>info@skyline-innovation.com</p>
-                        <a href="tel:+962777558888" class="footer-link" data-translate="call-us">اتصل بالمكتب الرئيسي</a>
+                        <a href="tel:+962777558888" class="footer-link" data-translate="footer-call-main">Call Main Office</a>
                     </div>
 
                     <div class="footer-column">
                         <div class="footer-icon">
                             <i class="fas fa-building"></i>
                         </div>
-                        <h3 data-translate="office-details">Office details</h3>
-                        <p>3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="visit-office">VISIT OFFICE</a>
+                        <h3 data-translate="footer-office-title">Office Details</h3>
+                        <p data-translate="footer-office-address">3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
+                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="footer-visit-office">Visit Office</a>
                     </div>
 
                     <div class="footer-column">
                         <div class="footer-icon">
                             <i class="fas fa-paper-plane"></i>
                         </div>
-                        <h3 data-translate="footer-newsletter">Newsletter signup</h3>
-                        <p data-translate="footer-newsletter-desc">Don't miss our latest updates and news</p>
+                        <h3 data-translate="footer-newsletter-title">Newsletter Signup</h3>
+                        <p data-translate="footer-newsletter-description">Don't miss our latest updates and news</p>
                         <div class="newsletter-form">
                             <input type="email" placeholder="Enter your email" class="newsletter-input" data-translate-placeholder="footer-newsletter-placeholder">
                             <button class="newsletter-btn">
@@ -335,11 +335,11 @@ function getFooterHTML() {
                     </a>
 
                     <div class="footer-nav">
-                        <a href="index.html" data-translate="nav-home">Home</a>
-                        <a href="about.html" data-translate="nav-about">About</a>
-                        <a href="products&solutions.html" data-translate="nav-products">Products & Solutions</a>
-                        <a href="events-news.html" data-translate="nav-events">Events & News</a>
-                        <a href="index.html#contact" data-translate="nav-contact">Contact</a>
+                        <a href="index.html" data-translate="footer-nav-home">Home</a>
+                        <a href="about.html" data-translate="footer-nav-about">About</a>
+                        <a href="products&solutions.html" data-translate="footer-nav-products">Products & Solutions</a>
+                        <a href="events-news.html" data-translate="footer-nav-events">Events & News</a>
+                        <a href="index.html#contact" data-translate="footer-nav-contact">Contact</a>
                     </div>
 
                     <div class="footer-copyright" data-translate="footer-copyright">
@@ -349,6 +349,14 @@ function getFooterHTML() {
             </div>
         </footer>
     `;
+}
+
+function getTranslation(key) {
+    // Helper function to get translation from the translation system
+    if (typeof window.translationSystem !== 'undefined' && window.translationSystem) {
+        return window.translationSystem.getTranslation(key);
+    }
+    return null;
 }
 
 function initializeFooterFunctionality() {
@@ -379,10 +387,10 @@ function initializeFooterFunctionality() {
             
             if (email && isValidEmail(email)) {
                 // Here you would typically send the email to your server
-                alert('Thank you for subscribing to our newsletter!');
+                alert(getTranslation('footer-newsletter-success') || 'Thank you for subscribing to our newsletter!');
                 newsletterInput.value = '';
             } else {
-                alert('Please enter a valid email address.');
+                alert(getTranslation('footer-newsletter-error') || 'Please enter a valid email address.');
             }
         });
 

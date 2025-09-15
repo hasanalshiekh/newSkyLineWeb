@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Translation Test - SKYLINE Innovation Software</title>
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-title {
+            color: #8B0000;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .language-switcher {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        .language-switcher button {
+            margin: 5px;
+            padding: 8px 16px;
+            background: #8B0000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .language-switcher button:hover {
+            background: #A52A2A;
+        }
+        .translation-test {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #8B0000;
+        }
+    </style>
+    <script src="translation-system.js" defer></script>
+</head>
+<body>
+    <h1>Products & Solutions Translation Test</h1>
+    
+    <div class="language-switcher">
+        <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('ar')">العربية</button>
+        <span>Current Language: <span id="current-lang">English</span></span>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">Hero Section Test</h2>
+        <div class="translation-test">
+            <h3 data-translate="products-hero-title">Our Products & Solutions</h3>
+            <p data-translate="products-hero-description">Discover a comprehensive suite of software solutions, SaaS platforms, and innovative tools designed to transform your business operations</p>
+            <button data-translate="products-hero-cta">Book Your Demo</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">Products Section Test</h2>
+        <div class="translation-test">
+            <h3 data-translate="products-section-title">Software Solutions</h3>
+            <p data-translate="products-section-subtitle">Comprehensive tools and platforms to drive your business forward</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">Product Cards Test</h2>
+        <div class="translation-test">
+            <h4 data-translate="erp-title">Enterprise Resource Planning System</h4>
+            <p data-translate="erp-description">Complete ERP solution for modern businesses</p>
+            <ul>
+                <li data-translate="erp-feature-1">Financial Management</li>
+                <li data-translate="erp-feature-2">Inventory Control</li>
+                <li data-translate="erp-feature-3">HR & Payroll</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">Form Fields Test</h2>
+        <div class="translation-test">
+            <label data-translate="form-name-label">Full Name *</label><br>
+            <input type="text" placeholder="Enter your full name" data-translate-placeholder="form-name-placeholder"><br><br>
+            <label data-translate="form-company-label">Company Name *</label><br>
+            <input type="text" placeholder="Enter your company name" data-translate-placeholder="form-company-placeholder"><br><br>
+            <button data-translate="demo-booking-button">Book Demo Now</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">Videos Section Test</h2>
+        <div class="translation-test">
+            <h3 data-translate="videos-section-title">Product Videos</h3>
+            <p data-translate="videos-section-subtitle">Watch detailed demos and tutorials for our solutions</p>
+            <h4 data-translate="video-erp-title">SKYLINE ERP - Complete Overview</h4>
+            <p data-translate="video-erp-description">Learn how our ERP solution can streamline all your business operations from finance to inventory management.</p>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            const translationSystem = new TranslationSystem();
+            translationSystem.setLanguage(lang);
+            document.getElementById('current-lang').textContent = lang === 'en' ? 'English' : 'العربية';
+        }
+
+        // Initialize translation system
+        document.addEventListener('DOMContentLoaded', function() {
+            const translationSystem = new TranslationSystem();
+            translationSystem.init();
+        });
+    </script>
+</body>
+</html>

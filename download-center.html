@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مركز التحميل - SKYLINE</title>
+    <title>Download Center - SKYLINE Innovation Software</title>
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="rtl-ltr-support.css">
+    <script src="translation-system.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -20,8 +21,19 @@
             color: #1a1a1a;
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
             overflow-x: hidden;
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* RTL/LTR Support for Download Center */
+        [dir="rtl"] body {
             direction: rtl;
             text-align: right;
+        }
+
+        [dir="ltr"] body {
+            direction: ltr;
+            text-align: left;
         }
 
         /* Floating Background Shapes */
@@ -572,11 +584,11 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1>مركز التحميل</h1>
-                <p>الوصول إلى مجموعتنا الشاملة من الموارد والبرمجيات والوثائق</p>
+                <h1 data-translate="download-hero-title">Download Center</h1>
+                <p data-translate="download-hero-description">Access our comprehensive collection of resources, software, and documentation</p>
                 <div class="hero-badge">
                     <i class="fas fa-download"></i>
-                    <span>تحميلات مجانية متاحة</span>
+                    <span data-translate="download-hero-badge">Free Downloads Available</span>
                 </div>
             </div>
         </section>
@@ -585,16 +597,16 @@
         <section class="download-sections">
             <!-- Category Filter -->
             <div class="category-filter">
-                <button class="filter-btn active" data-category="all">All Resources</button>
-                <button class="filter-btn" data-category="brochures">Brochures</button>
-                <button class="filter-btn" data-category="whitepapers">Whitepapers</button>
-                <button class="filter-btn" data-category="trials">Trial Versions</button>
-                <button class="filter-btn" data-category="demos">Demo Software</button>
+                <button class="filter-btn active" data-category="all" data-translate="filter-all">All Resources</button>
+                <button class="filter-btn" data-category="brochures" data-translate="filter-brochures">Brochures</button>
+                <button class="filter-btn" data-category="whitepapers" data-translate="filter-whitepapers">Whitepapers</button>
+                <button class="filter-btn" data-category="trials" data-translate="filter-trials">Trial Versions</button>
+                <button class="filter-btn" data-category="demos" data-translate="filter-demos">Demo Software</button>
             </div>
 
             <!-- Brochures Section -->
             <div class="download-section" id="brochures">
-                <h2 class="section-title">Brochures</h2>
+                <h2 class="section-title" data-translate="download-brochures-title">Brochures</h2>
                 <div class="download-grid">
                     <div class="download-card" data-category="brochures">
                         <div class="download-icon">
@@ -660,7 +672,7 @@
 
             <!-- Whitepapers Section -->
             <div class="download-section" id="whitepapers">
-                <h2 class="section-title">Whitepapers</h2>
+                <h2 class="section-title" data-translate="download-whitepapers-title">Whitepapers</h2>
                 <div class="download-grid">
                     <div class="download-card" data-category="whitepapers">
                         <div class="download-icon">
@@ -746,7 +758,7 @@
 
             <!-- Trial Versions Section -->
             <div class="download-section" id="trials">
-                <h2 class="section-title">Trial Versions</h2>
+                <h2 class="section-title" data-translate="download-trials-title">Trial Versions</h2>
                 <div class="download-grid">
                     <div class="download-card" data-category="trials">
                         <div class="download-icon">
@@ -812,7 +824,7 @@
 
             <!-- Demo Software Section -->
             <div class="download-section" id="demos">
-                <h2 class="section-title">Demo Software</h2>
+                <h2 class="section-title" data-translate="download-demos-title">Demo Software</h2>
                 <div class="download-grid">
                     <div class="download-card" data-category="demos">
                         <div class="download-icon">
@@ -902,19 +914,19 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <h3>500+</h3>
-                    <p>Downloads This Month</p>
+                    <p data-translate="download-stat-1">Downloads This Month</p>
                 </div>
                 <div class="stat-item">
                     <h3>50+</h3>
-                    <p>Available Resources</p>
+                    <p data-translate="download-stat-2">Available Resources</p>
                 </div>
                 <div class="stat-item">
                     <h3>24/7</h3>
-                    <p>Download Support</p>
+                    <p data-translate="download-stat-3">Download Support</p>
                 </div>
                 <div class="stat-item">
                     <h3>100%</h3>
-                    <p>Free Access</p>
+                    <p data-translate="download-stat-4">Free Access</p>
                 </div>
             </div>
         </section>
@@ -941,6 +953,14 @@
     <script src="floating-action-button.js"></script>
 
     <script>
+        // Translation helper function
+        function getTranslation(key) {
+            if (typeof window.translationSystem !== 'undefined' && window.translationSystem) {
+                return window.translationSystem.getTranslation(key);
+            }
+            return null;
+        }
+
         // Category filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
         const downloadCards = document.querySelectorAll('.download-card');
@@ -1005,7 +1025,9 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const fileName = btn.textContent.trim();
-                alert(`Download started: ${fileName}\n\nIn a real implementation, this would initiate the actual download.`);
+                const message = getTranslation('download-started') || 'Download started';
+                const note = getTranslation('download-note') || 'In a real implementation, this would initiate the actual download.';
+                alert(`${message}: ${fileName}\n\n${note}`);
             });
         });
 

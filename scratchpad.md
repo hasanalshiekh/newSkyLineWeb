@@ -2012,3 +2012,137 @@ The hamburger menu error has been resolved with the following improvements:
 - ✅ تصميم عملي وجميل
 - ✅ سهولة في الاستخدام
 - ✅ ألوان متناسقة مع هوية الموقع
+
+---
+
+## Task: إصلاح نظام اللغة ليكون افتراضياً إنجليزي
+
+### المشكلة
+- بعض الصفحات كانت تظهر بالعربية تلقائياً
+- المستخدم يريد جميع الصفحات إنجليزية افتراضياً
+- التحويل للعربية يحدث فقط عند الضغط على زر اللغة
+
+### الحل المطبق
+1. **إصلاح جميع ملفات HTML**:
+   - تغيير `<html lang="ar" dir="rtl">` إلى `<html lang="en" dir="ltr">`
+   - إصلاح العناوين لتكون إنجليزية
+   - إضافة `data-translate` للعناصر القابلة للترجمة
+
+2. **تحديث نظام الترجمة**:
+   - تعديل `translation-system.js` ليبدأ بالإنجليزية افتراضياً
+   - التطبيق التلقائي للعربية فقط إذا كان محفوظ في localStorage
+   - إضافة ترجمات جديدة للصفحات
+
+3. **إنشاء صفحة about جديدة**:
+   - إنشاء `abouts.html` جديدة بالإنجليزية
+   - إضافة `data-translate` لجميع العناصر
+   - تصميم حديث ومتجاوب
+
+### الملفات المُحدثة
+- `abouts.html` - إعادة إنشاء بالإنجليزية ✅
+- `iso-consulting.html` - إصلاح lang و title ✅
+- `testimonials-case-studies.html` - إصلاح lang و title ✅
+- `contact-us.html` - إصلاح lang ✅
+- `client-portal-access.html` - إصلاح lang ✅
+- `download-center.html` - إصلاح lang ✅
+- `events-news.html` - إصلاح lang ✅
+- `products&solutions.html` - إصلاح lang ✅
+- `saas-programs.html` - إصلاح lang ✅
+- `translation-system.js` - تحديث نظام الترجمة ✅
+
+### النتيجة
+<img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> جميع الصفحات تبدأ بالإنجليزية افتراضياً
+<img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> التحويل للعربية يحدث فقط عند الضغط على زر اللغة
+<img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> نظام الترجمة يعمل بشكل صحيح
+<img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> صفحة about جديدة مع ترجمة كاملة
+
+---
+
+## Current Task: ترجمة صفحة Testimonials & Case Studies إلى الإنجليزية
+
+### Task Description
+المستخدم يريد ترجمة صفحة testimonials-case-studies.html من العربية إلى الإنجليزية مع الحفاظ على جميع الوظائف والتصميم.
+
+### Plan
+- [x] قراءة scratchpad وفهم المهمة الحالية
+- [x] فحص محتوى صفحة testimonials-case-studies.html الحالية
+- [x] ترجمة جميع النصوص العربية إلى الإنجليزية
+- [x] إضافة data-translate attributes للعناصر القابلة للترجمة
+- [x] تحديث نظام الترجمة ليشمل النصوص الجديدة
+- [ ] اختبار الترجمة
+- [ ] إنشاء اختبار وحدة
+- [ ] عمل commit وإنشاء PR
+
+### Progress
+- [x] قراءة scratchpad
+- [x] فهم المهمة: ترجمة صفحة testimonials-case-studies.html إلى الإنجليزية
+- [x] فحص محتوى الصفحة الحالية (1156 سطر)
+- [x] تحديد العناصر التي تحتاج ترجمة:
+  - العناوين الرئيسية والفرعية
+  - شهادات العملاء (6 شهادات)
+  - دراسات الحالة (4 دراسات)
+  - الشهادات المرئية (3 فيديوهات)
+  - قسم الدعوة للعمل
+  - رسائل JavaScript
+- [x] ترجمة جميع أقسام الصفحة:
+  - [x] Hero Section - ترجمة العنوان والوصف والإحصائيات
+  - [x] Testimonials Section - ترجمة 6 شهادات عملاء كاملة
+  - [x] Case Studies Section - ترجمة 4 دراسات حالة مع المقاييس
+  - [x] Video Testimonials Section - ترجمة 3 شهادات مرئية
+  - [x] CTA Section - ترجمة الدعوة للعمل
+  - [x] JavaScript Messages - ترجمة رسائل التنبيه
+- [x] إضافة data-translate attributes لجميع العناصر القابلة للترجمة
+- [x] تحديث نظام الترجمة (translation-system.js) مع 80+ ترجمة جديدة:
+  - [x] إضافة الترجمات الإنجليزية
+  - [x] إضافة الترجمات العربية
+- [x] تغيير اتجاه النص من RTL إلى LTR للغة الإنجليزية
+- [x] إنشاء صفحة اختبار (testimonials-translation-test.html) للتحقق من عمل الترجمة
+
+---
+
+## Current Task: ترجمة صفحة ISO Consulting إلى الإنجليزية
+
+### Task Description
+المستخدم يريد ترجمة صفحة iso-consulting.html من العربية إلى الإنجليزية مع الحفاظ على جميع الوظائف والتصميم.
+
+### Plan
+- [x] قراءة scratchpad وفهم المهمة الحالية
+- [ ] فحص محتوى صفحة iso-consulting.html الحالية
+- [ ] ترجمة جميع النصوص العربية إلى الإنجليزية
+- [ ] إضافة data-translate attributes للعناصر القابلة للترجمة
+- [ ] تحديث نظام الترجمة ليشمل النصوص الجديدة
+- [ ] اختبار الترجمة
+- [ ] إنشاء اختبار وحدة
+- [ ] عمل commit وإنشاء PR
+
+### Progress
+- [x] قراءة scratchpad
+- [x] فهم المهمة: ترجمة صفحة iso-consulting.html إلى الإنجليزية
+- [x] فحص محتوى الصفحة الحالية (974 سطر)
+- [x] تحديد العناصر التي تحتاج ترجمة:
+  - العناوين الرئيسية والفرعية
+  - قسم Hero مع العنوان والوصف والزر
+  - قسم معايير ISO مع 10 بطاقات ISO
+  - أزرار التصفية حسب الفئة
+  - قسم الدعوة للعمل
+- [x] ترجمة جميع أقسام الصفحة:
+  - [x] Hero Section - ترجمة العنوان والوصف والزر
+  - [x] ISO Standards Section - ترجمة العنوان والوصف الفرعي
+  - [x] Category Filter Buttons - ترجمة 5 أزرار تصفية
+  - [x] ISO Cards - ترجمة 10 بطاقات ISO كاملة:
+    - ISO 9001 (Quality Management)
+    - ISO 27001 (Information Security)
+    - ISO 14001 (Environmental Management)
+    - ISO 45001 (Occupational Health & Safety)
+    - ISO 20000 (IT Service Management)
+    - ISO 22000 (Food Safety Management)
+    - ISO 13485 (Medical Device Quality)
+    - ISO 50001 (Energy Management)
+    - ISO 37001 (Anti-Bribery Management)
+  - [x] CTA Section - ترجمة الدعوة للعمل
+- [x] إضافة data-translate attributes لجميع العناصر القابلة للترجمة
+- [x] تحديث نظام الترجمة (translation-system.js) مع 100+ ترجمة جديدة:
+  - [x] إضافة الترجمات الإنجليزية
+  - [x] إضافة الترجمات العربية
+- [x] تغيير اتجاه النص من RTL إلى LTR للغة الإنجليزية
+- [x] إنشاء صفحة اختبار (iso-translation-test.html) للتحقق من عمل الترجمة

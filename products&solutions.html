@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المنتجات والحلول - SKYLINE Innovation Software</title>
+    <title>Products & Solutions - SKYLINE Innovation Software</title>
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,8 +24,19 @@
             overflow-x: hidden;
             position: relative;
             background: #fff;
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* RTL/LTR Support for Products Page */
+        [dir="rtl"] body {
             direction: rtl;
             text-align: right;
+        }
+
+        [dir="ltr"] body {
+            direction: ltr;
+            text-align: left;
         }
 
         /* Creative Background Elements */
@@ -677,11 +688,11 @@
             <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
         </div>
         <div class="container">
-            <h1>منتجاتنا وحلولنا</h1>
-            <p>اكتشف مجموعة شاملة من حلول البرمجيات ومنصات SaaS والأدوات المبتكرة المصممة لتحويل عمليات عملك</p>
+            <h1 data-translate="products-hero-title">Our Products & Solutions</h1>
+            <p data-translate="products-hero-description">Discover a comprehensive suite of software solutions, SaaS platforms, and innovative tools designed to transform your business operations</p>
             <a href="#demo" class="hero-cta">
                 <i class="fas fa-calendar-check"></i>
-                احجز عرضك التوضيحي
+                <span data-translate="products-hero-cta">Book Your Demo</span>
             </a>
         </div>
     </section>
@@ -690,8 +701,8 @@
     <section id="software-solutions" class="products-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">حلول البرمجيات</h2>
-                <p class="section-subtitle">أدوات ومنصات شاملة لدفع عملك نحو الأمام</p>
+                <h2 class="section-title" data-translate="products-section-title">Software Solutions</h2>
+                <p class="section-subtitle" data-translate="products-section-subtitle">Comprehensive tools and platforms to drive your business forward</p>
             </div>
             
             <div class="products-grid">
@@ -700,18 +711,18 @@
                     <div class="product-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3 class="product-title">نظام تخطيط موارد المؤسسة</h3>
-                    <p class="product-description">حل تخطيط موارد المؤسسة الكامل للشركات الحديثة</p>
+                    <h3 class="product-title" data-translate="erp-title">Enterprise Resource Planning System</h3>
+                    <p class="product-description" data-translate="erp-description">Complete ERP solution for modern businesses</p>
                     <ul class="product-features">
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> إدارة مالية</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> تحكم في المخزون</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> الموارد البشرية والرواتب</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> سلسلة التوريد</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> ذكاء الأعمال</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="erp-feature-1">Financial Management</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="erp-feature-2">Inventory Control</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="erp-feature-3">HR & Payroll</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="erp-feature-4">Supply Chain</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="erp-feature-5">Business Intelligence</li>
                     </ul>
                     <a href="#demo" class="product-cta">
                         <i class="fas fa-play"></i>
-                        شاهد العرض التوضيحي
+                        <span data-translate="product-cta">Watch Demo</span>
                     </a>
                 </div>
 
@@ -720,18 +731,18 @@
                     <div class="product-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="product-title">نظام إدارة علاقات العملاء</h3>
-                    <p class="product-description">منصة إدارة علاقات العملاء لتعزيز المبيعات ورضا العملاء</p>
+                    <h3 class="product-title" data-translate="crm-title">Customer Relationship Management System</h3>
+                    <p class="product-description" data-translate="crm-description">CRM platform to boost sales and customer satisfaction</p>
                     <ul class="product-features">
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> إدارة العملاء المحتملين</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> خط أنابيب المبيعات</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> دعم العملاء</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> لوحة تحليلات</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> تطبيق محمول</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="crm-feature-1">Lead Management</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="crm-feature-2">Sales Pipeline</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="crm-feature-3">Customer Support</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="crm-feature-4">Analytics Dashboard</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="crm-feature-5">Mobile App</li>
                     </ul>
                     <a href="#demo" class="product-cta">
                         <i class="fas fa-play"></i>
-                        شاهد العرض التوضيحي
+                        <span data-translate="product-cta">Watch Demo</span>
                     </a>
                 </div>
 
@@ -740,18 +751,18 @@
                     <div class="product-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3 class="product-title">منصة التجارة الإلكترونية</h3>
-                    <p class="product-description">منصة تجارة إلكترونية كاملة الميزات للشركات عبر الإنترنت</p>
+                    <h3 class="product-title" data-translate="ecommerce-title">E-commerce Platform</h3>
+                    <p class="product-description" data-translate="ecommerce-description">Full-featured e-commerce platform for online businesses</p>
                     <ul class="product-features">
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> إدارة المنتجات</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> بوابة الدفع</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> معالجة الطلبات</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> أدوات التسويق</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> دعم متعدد المتاجر</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ecommerce-feature-1">Product Management</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ecommerce-feature-2">Payment Gateway</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ecommerce-feature-3">Order Processing</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ecommerce-feature-4">Marketing Tools</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ecommerce-feature-5">Multi-store Support</li>
                     </ul>
                     <a href="#demo" class="product-cta">
                         <i class="fas fa-play"></i>
-                        شاهد العرض التوضيحي
+                        <span data-translate="product-cta">Watch Demo</span>
                     </a>
                 </div>
 
@@ -760,18 +771,18 @@
                     <div class="product-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3 class="product-title">تحليلات الذكاء الاصطناعي</h3>
-                    <p class="product-description">تحليلات ذكية ورؤى مدعومة بالذكاء الاصطناعي</p>
+                    <h3 class="product-title" data-translate="ai-title">AI Analytics</h3>
+                    <p class="product-description" data-translate="ai-description">Smart analytics and AI-powered insights</p>
                     <ul class="product-features">
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> تحليلات تنبؤية</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> تصور البيانات</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> تعلم الآلة</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> تقارير فورية</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> لوحات تحكم مخصصة</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ai-feature-1">Predictive Analytics</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ai-feature-2">Data Visualization</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ai-feature-3">Machine Learning</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ai-feature-4">Real-time Reports</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="ai-feature-5">Custom Dashboards</li>
                     </ul>
                     <a href="#demo" class="product-cta">
                         <i class="fas fa-play"></i>
-                        شاهد العرض التوضيحي
+                        <span data-translate="product-cta">Watch Demo</span>
                     </a>
                 </div>
 
@@ -780,38 +791,38 @@
                     <div class="product-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3 class="product-title">الحلول السحابية</h3>
-                    <p class="product-description">بنية تحتية سحابية قابلة للتوسع وحلول الاستضافة</p>
+                    <h3 class="product-title" data-translate="cloud-title">Cloud Solutions</h3>
+                    <p class="product-description" data-translate="cloud-description">Scalable cloud infrastructure and hosting solutions</p>
                     <ul class="product-features">
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> استضافة سحابية</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> نسخ احتياطي للبيانات</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> موازنة الأحمال</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> الأمان و SSL</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> مراقبة 24/7</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="cloud-feature-1">Cloud Hosting</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="cloud-feature-2">Data Backup</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="cloud-feature-3">Load Balancing</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="cloud-feature-4">Security & SSL</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="cloud-feature-5">24/7 Monitoring</li>
                     </ul>
                     <a href="#demo" class="product-cta">
                         <i class="fas fa-play"></i>
-                        شاهد العرض التوضيحي
+                        <span data-translate="product-cta">Watch Demo</span>
                     </a>
                 </div>
 
                 <!-- Mobile Apps -->
-                <div id="mobile-solutions" class="product-card">
+                <div id="mobile-apps" class="product-card">
                     <div class="product-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="product-title">التطبيقات المحمولة</h3>
-                    <p class="product-description">تطبيقات محمولة أصلية لنظامي iOS و Android</p>
+                    <h3 class="product-title" data-translate="mobile-title">Mobile Applications</h3>
+                    <p class="product-description" data-translate="mobile-description">Native and cross-platform mobile apps for iOS and Android</p>
                     <ul class="product-features">
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> تطوير iOS</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> تطوير Android</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> متعدد المنصات</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> إشعارات فورية</li>
-                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;"> دعم بدون إنترنت</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="mobile-feature-1">Native iOS Apps</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="mobile-feature-2">Android Applications</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="mobile-feature-3">Cross-platform Development</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="mobile-feature-4">Push Notifications</li>
+                        <li><img src="img/favicon-sk.svg" alt="✓" style="width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px;" data-translate="mobile-feature-5">Offline Support</li>
                     </ul>
                     <a href="#demo" class="product-cta">
                         <i class="fas fa-play"></i>
-                        شاهد العرض التوضيحي
+                        <span data-translate="product-cta">Watch Demo</span>
                     </a>
                 </div>
             </div>
@@ -819,42 +830,43 @@
     </section>
 
     <!-- Demo Software Section -->
-    <section class="download-section" id="demos">
+    <section id="demo-software" class="download-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">برامج تجريبية</h2>
-                <p class="section-subtitle">حمل العروض التوضيحية التفاعلية والموارد لاستكشاف حلولنا</p>
+                <h2 class="section-title" data-translate="demo-software-title">Demo Software</h2>
+                <p class="section-subtitle" data-translate="demo-software-subtitle">Download trial versions and demo software to test our solutions</p>
             </div>
+            
             <div class="download-grid">
                 <div class="download-card" data-category="demos">
                     <div class="download-icon">
-                        <i class="fas fa-play-circle"></i>
+                        <i class="fas fa-desktop"></i>
                     </div>
-                    <h3>عرض توضيحي تفاعلي للمنتج</h3>
-                    <p>عرض توضيحي تفاعلي لمنتجاتنا البرمجية الرائدة وميزاتها.</p>
+                    <h3 data-translate="demo-card-1-title">SKYLINE ERP Demo</h3>
+                    <p data-translate="demo-card-1-description">Full-featured demo version of our ERP system with sample data and configurations.</p>
                     <div class="download-meta">
-                        <span class="download-size">45 MB</span>
-                        <span>عرض قابل للتنفيذ</span>
+                        <span class="download-size">150 MB</span>
+                        <span data-translate="demo-card-1-type">Windows Installer</span>
                     </div>
                     <a href="#" class="download-btn">
                         <i class="fas fa-download"></i>
-                        حمل العرض التوضيحي
+                        <span data-translate="download-erp-demo">Download ERP Demo</span>
                     </a>
                 </div>
 
                 <div class="download-card" data-category="demos">
                     <div class="download-icon">
-                        <i class="fas fa-video"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>سلسلة دروس فيديو</h3>
-                    <p>دروس فيديو شاملة تغطي جميع جوانب حلولنا البرمجية.</p>
+                    <h3 data-translate="demo-card-2-title">SKYLINE CRM Trial</h3>
+                    <p data-translate="demo-card-2-description">30-day trial version of our CRM platform with full functionality and support.</p>
                     <div class="download-meta">
-                        <span class="download-size">2.1 GB</span>
-                        <span>مجموعة فيديو</span>
+                        <span class="download-size">85 MB</span>
+                        <span data-translate="demo-card-2-type">Web Application</span>
                     </div>
                     <a href="#" class="download-btn">
                         <i class="fas fa-download"></i>
-                        حمل الفيديوهات
+                        <span data-translate="download-crm-trial">Download CRM Trial</span>
                     </a>
                 </div>
 
@@ -862,15 +874,15 @@
                     <div class="download-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>وثائق API والأمثلة</h3>
-                    <p>وثائق API كاملة مع أمثلة كود عملية وأدلة التكامل.</p>
+                    <h3 data-translate="demo-card-3-title">API Documentation & Examples</h3>
+                    <p data-translate="demo-card-3-description">Complete API documentation with practical code examples and integration guides.</p>
                     <div class="download-meta">
                         <span class="download-size">12 MB</span>
-                        <span>وثائق</span>
+                        <span data-translate="demo-card-3-type">Documentation</span>
                     </div>
                     <a href="#" class="download-btn">
                         <i class="fas fa-download"></i>
-                        حمل وثائق API
+                        <span data-translate="download-api-docs">Download API Docs</span>
                     </a>
                 </div>
 
@@ -878,15 +890,15 @@
                     <div class="download-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>قوالب التكوين</h3>
-                    <p>قوالب مُعدة مسبقاً وتكوينات عينة للإعداد السريع.</p>
+                    <h3 data-translate="demo-card-4-title">Configuration Templates</h3>
+                    <p data-translate="demo-card-4-description">Pre-built templates and sample configurations for quick setup.</p>
                     <div class="download-meta">
                         <span class="download-size">8.5 MB</span>
-                        <span>ملفات القوالب</span>
+                        <span data-translate="demo-card-4-type">Template Files</span>
                     </div>
                     <a href="#" class="download-btn">
                         <i class="fas fa-download"></i>
-                        حمل القوالب
+                        <span data-translate="download-templates">Download Templates</span>
                     </a>
                 </div>
             </div>
@@ -897,39 +909,39 @@
     <section id="demo" class="demo-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">احجز عرضك التوضيحي</h2>
-                <p class="section-subtitle">اختبر حلولنا مباشرة مع عرض توضيحي مخصص</p>
+                <h2 class="section-title" data-translate="demo-booking-title">Book Your Demo</h2>
+                <p class="section-subtitle" data-translate="demo-booking-subtitle">Test our solutions directly with a customized demo</p>
             </div>
             
             <div class="demo-container">
-                <h3 class="demo-title">جدولة عرض توضيحي مجاني</h3>
-                <p class="demo-description">سيقوم خبراؤنا بإرشادك عبر حلولنا والإجابة على جميع أسئلتك. اختر الوقت الذي يناسبك.</p>
+                <h3 class="demo-title" data-translate="demo-booking-form-title">Schedule a Free Demo</h3>
+                <p class="demo-description" data-translate="demo-booking-form-description">Our experts will guide you through our solutions and answer all your questions. Choose the time that works for you.</p>
                 
                 <form class="demo-form">
                     <div class="form-group">
-                        <label for="name">الاسم الكامل *</label>
-                        <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+                        <label for="name" data-translate="form-name-label">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name" data-translate-placeholder="form-name-placeholder">
                     </div>
                     
                     <div class="form-group">
-                        <label for="company">اسم الشركة *</label>
-                        <input type="text" id="company" name="company" required placeholder="أدخل اسم شركتك">
+                        <label for="company" data-translate="form-company-label">Company Name *</label>
+                        <input type="text" id="company" name="company" required placeholder="Enter your company name" data-translate-placeholder="form-company-placeholder">
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">عنوان البريد الإلكتروني *</label>
-                        <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني">
+                        <label for="email" data-translate="form-email-label">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address" data-translate-placeholder="form-email-placeholder">
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">رقم الهاتف</label>
-                        <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك">
+                        <label for="phone" data-translate="form-phone-label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" data-translate-placeholder="form-phone-placeholder">
                     </div>
                     
                     <div class="form-group">
-                        <label for="product">المنتج المهتم به *</label>
+                        <label for="product" data-translate="form-product-label">Product of Interest *</label>
                         <select id="product" name="product" required>
-                            <option value="">اختر منتج</option>
+                            <option value="" data-translate="form-product-placeholder">Select Product</option>
                             <option value="erp">SKYLINE ERP</option>
                             <option value="crm">SKYLINE CRM</option>
                             <option value="commerce">SKYLINE Commerce</option>
@@ -940,33 +952,33 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="date">التاريخ المفضل *</label>
+                        <label for="date" data-translate="form-date-label">Preferred Date *</label>
                         <input type="date" id="date" name="date" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="time">الوقت المفضل *</label>
+                        <label for="time" data-translate="form-time-label">Preferred Time *</label>
                         <select id="time" name="time" required>
-                            <option value="">اختر وقت</option>
-                            <option value="09:00">9:00 صباحاً</option>
-                            <option value="10:00">10:00 صباحاً</option>
-                            <option value="11:00">11:00 صباحاً</option>
-                            <option value="12:00">12:00 ظهراً</option>
-                            <option value="14:00">2:00 مساءً</option>
-                            <option value="15:00">3:00 مساءً</option>
-                            <option value="16:00">4:00 مساءً</option>
+                            <option value="" data-translate="form-time-placeholder">Select Time</option>
+                            <option value="09:00" data-translate="time-09-00">9:00 AM</option>
+                            <option value="10:00" data-translate="time-10-00">10:00 AM</option>
+                            <option value="11:00" data-translate="time-11-00">11:00 AM</option>
+                            <option value="12:00" data-translate="time-12-00">12:00 PM</option>
+                            <option value="14:00" data-translate="time-14-00">2:00 PM</option>
+                            <option value="15:00" data-translate="time-15-00">3:00 PM</option>
+                            <option value="16:00" data-translate="time-16-00">4:00 PM</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">ملاحظات إضافية</label>
-                        <textarea id="message" name="message" rows="3" placeholder="أخبرنا عن احتياجاتك أو أسئلتك المحددة"></textarea>
+                        <label for="message" data-translate="form-message-label">Additional Notes</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Tell us about your specific needs or questions" data-translate-placeholder="form-message-placeholder"></textarea>
                     </div>
                 </form>
                 
                 <button type="submit" class="demo-btn">
                     <i class="fas fa-calendar-check"></i>
-                    احجز العرض التوضيحي الآن
+                    <span data-translate="demo-booking-button">Book Demo Now</span>
                 </button>
             </div>
         </div>
@@ -976,8 +988,8 @@
     <section id="videos" class="videos-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">فيديوهات المنتجات</h2>
-                <p class="section-subtitle">شاهد العروض التوضيحية المفصلة والدروس التعليمية لحلولنا</p>
+                <h2 class="section-title" data-translate="videos-section-title">Product Videos</h2>
+                <p class="section-subtitle" data-translate="videos-section-subtitle">Watch detailed demos and tutorials for our solutions</p>
             </div>
             
             <div class="videos-grid">
@@ -989,9 +1001,9 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <h3 class="video-title">SKYLINE ERP - جولة شاملة</h3>
-                        <p class="video-description">تعلم كيف يمكن لحل ERP الخاص بنا تبسيط جميع عمليات عملك من المالية إلى إدارة المخزون.</p>
-                        <span class="video-duration">15:30 دقيقة</span>
+                        <h3 class="video-title" data-translate="video-erp-title">SKYLINE ERP - Complete Overview</h3>
+                        <p class="video-description" data-translate="video-erp-description">Learn how our ERP solution can streamline all your business operations from finance to inventory management.</p>
+                        <span class="video-duration" data-translate="video-erp-duration">15:30 minutes</span>
                     </div>
                 </div>
 
@@ -1003,9 +1015,9 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <h3 class="video-title">SKYLINE CRM - المبيعات وإدارة العملاء</h3>
-                        <p class="video-description">اكتشف كيف يمكن لمنصة CRM الخاصة بنا تعزيز أداء مبيعاتك وتحسين علاقات العملاء.</p>
-                        <span class="video-duration">12:45 دقيقة</span>
+                        <h3 class="video-title" data-translate="video-crm-title">SKYLINE CRM - Sales & Customer Management</h3>
+                        <p class="video-description" data-translate="video-crm-description">Discover how our CRM platform can boost your sales performance and improve customer relationships.</p>
+                        <span class="video-duration" data-translate="video-crm-duration">12:45 minutes</span>
                     </div>
                 </div>
 
@@ -1017,9 +1029,9 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <h3 class="video-title">SKYLINE Commerce - إعداد المتجر الإلكتروني</h3>
-                        <p class="video-description">دليل خطوة بخطوة لإعداد متجرك الإلكتروني باستخدام منصة التجارة الإلكترونية الخاصة بنا.</p>
-                        <span class="video-duration">18:20 دقيقة</span>
+                        <h3 class="video-title" data-translate="video-ecommerce-title">SKYLINE Commerce - E-store Setup</h3>
+                        <p class="video-description" data-translate="video-ecommerce-description">Step-by-step guide to setting up your online store using our e-commerce platform.</p>
+                        <span class="video-duration" data-translate="video-ecommerce-duration">18:20 minutes</span>
                     </div>
                 </div>
 
@@ -1031,9 +1043,9 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <h3 class="video-title">SKYLINE AI Analytics - رؤى البيانات</h3>
-                        <p class="video-description">استكشف قوة التحليلات المدعومة بالذكاء الاصطناعي وكيف يمكنها تحويل قرارات عملك.</p>
-                        <span class="video-duration">20:15 دقيقة</span>
+                        <h3 class="video-title" data-translate="video-ai-title">SKYLINE AI Analytics - Data Insights</h3>
+                        <p class="video-description" data-translate="video-ai-description">Explore the power of AI-powered analytics and how it can transform your business decisions.</p>
+                        <span class="video-duration" data-translate="video-ai-duration">20:15 minutes</span>
                     </div>
                 </div>
 
@@ -1045,9 +1057,9 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <h3 class="video-title">SKYLINE Cloud - نظرة عامة على البنية التحتية</h3>
-                        <p class="video-description">تعلم عن حلول الاستضافة السحابية الخاصة بنا وكيف يمكنها التوسع مع احتياجات عملك.</p>
-                        <span class="video-duration">14:30 دقيقة</span>
+                        <h3 class="video-title" data-translate="video-cloud-title">SKYLINE Cloud - Infrastructure Overview</h3>
+                        <p class="video-description" data-translate="video-cloud-description">Learn about our cloud hosting solutions and how they can scale with your business needs.</p>
+                        <span class="video-duration" data-translate="video-cloud-duration">14:30 minutes</span>
                     </div>
                 </div>
 
@@ -1059,9 +1071,9 @@
                         </div>
                     </div>
                     <div class="video-info">
-                        <h3 class="video-title">SKYLINE Mobile - تطوير التطبيقات</h3>
-                        <p class="video-description">شاهد كيف ننشئ تطبيقات محمولة قوية تعمل بسلاسة عبر جميع الأجهزة.</p>
-                        <span class="video-duration">16:45 دقيقة</span>
+                        <h3 class="video-title" data-translate="video-mobile-title">SKYLINE Mobile - App Development</h3>
+                        <p class="video-description" data-translate="video-mobile-description">See how we create powerful mobile applications that work seamlessly across all devices.</p>
+                        <span class="video-duration" data-translate="video-mobile-duration">16:45 minutes</span>
                     </div>
                 </div>
             </div>
@@ -1095,12 +1107,12 @@
                 
                 // Basic validation
                 if (!data.name || !data.company || !data.email || !data.product || !data.date || !data.time) {
-                    alert('يرجى ملء جميع الحقول المطلوبة');
+                    alert('Please fill in all required fields');
                     return;
                 }
                 
                 // Simulate form submission
-                alert('شكراً لك! سنتواصل معك قريباً لتأكيد موعد العرض التوضيحي.');
+                alert('Thank you! We will contact you soon to confirm your demo appointment.');
                 
                 // Reset form
                 demoForm.reset();
@@ -1111,7 +1123,7 @@
         document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
             thumbnail.addEventListener('click', () => {
                 // Here you would typically open a video modal or redirect to video page
-                alert('سيتم فتح مشغل الفيديو هنا. في التطبيق الحقيقي، سيظهر هذا نافذة فيديو أو يعيد التوجيه إلى صفحة الفيديو.');
+                alert('Video player will open here. In the real application, this would show a video modal or redirect to the video page.');
             });
         });
 

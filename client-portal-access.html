@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الوصول إلى بوابة العملاء - SKYLINE Innovation Software</title>
+    <title>Client Portal Access - SKYLINE Innovation Software</title>
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,8 +24,19 @@
             position: relative;
             background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
             min-height: 100vh;
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* RTL/LTR Support for Client Portal */
+        [dir="rtl"] body {
             direction: rtl;
             text-align: right;
+        }
+
+        [dir="ltr"] body {
+            direction: ltr;
+            text-align: left;
         }
 
         /* Animated Background */
@@ -674,8 +685,8 @@
     <!-- Hero Section -->
     <section class="portal-hero">
         <div class="container">
-            <h1>الوصول إلى بوابة العملاء</h1>
-            <p>تسجيل دخول آمن للعملاء المشتركين. الوصول إلى مشاريعك ومستنداتك وتذاكر الدعم والموارد الحصرية في لوحة تحكم مركزية واحدة.</p>
+            <h1 data-translate="portal-hero-title">Client Portal Access</h1>
+            <p data-translate="portal-hero-description">Secure login for subscribed clients. Access your projects, documents, support tickets, and exclusive resources in one centralized dashboard.</p>
         </div>
     </section>
 
@@ -688,22 +699,22 @@
                         <div class="login-icon">
                             <i class="fas fa-user-shield"></i>
                         </div>
-                        <h2 class="login-title">Welcome Back</h2>
-                        <p class="login-subtitle">Sign in to access your client dashboard</p>
+                        <h2 class="login-title" data-translate="portal-login-title">Welcome Back</h2>
+                        <p class="login-subtitle" data-translate="portal-login-subtitle">Sign in to access your client dashboard</p>
                     </div>
 
                     <div class="message" id="message"></div>
 
                     <form class="login-form" id="loginForm">
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                            <label for="email" data-translate="portal-email-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" data-translate-placeholder="portal-email-placeholder" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="password" data-translate="portal-password-label">Password</label>
                             <div style="position: relative;">
-                                <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+                                <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" data-translate-placeholder="portal-password-placeholder" required>
                                 <i class="fas fa-eye password-toggle" id="passwordToggle"></i>
                             </div>
                         </div>
@@ -711,13 +722,13 @@
                         <div class="form-options">
                             <label class="remember-me">
                                 <input type="checkbox" id="remember" name="remember">
-                                <span>Remember me</span>
+                                <span data-translate="portal-remember-me">Remember me</span>
                             </label>
-                            <a href="#forgot" class="forgot-password">Forgot Password?</a>
+                            <a href="#forgot" class="forgot-password" data-translate="portal-forgot-password">Forgot Password?</a>
                         </div>
 
                         <button type="submit" class="login-btn">
-                            <span class="btn-text">Sign In</span>
+                            <span class="btn-text" data-translate="portal-sign-in">Sign In</span>
                             <div class="loading" id="loading"></div>
                         </button>
                     </form>
@@ -730,8 +741,8 @@
     <section class="features-section">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Portal Features</h2>
-                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Everything you need to manage your projects and stay connected with our team</p>
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;" data-translate="portal-features-title">Portal Features</h2>
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.1rem; max-width: 600px; margin: 0 auto;" data-translate="portal-features-subtitle">Everything you need to manage your projects and stay connected with our team</p>
             </div>
 
             <div class="features-grid">
@@ -739,48 +750,48 @@
                     <div class="feature-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3 class="feature-title">Project Dashboard</h3>
-                    <p class="feature-description">Track project progress, milestones, and deliverables in real-time with interactive dashboards and detailed reports.</p>
+                    <h3 class="feature-title" data-translate="portal-feature-1-title">Project Dashboard</h3>
+                    <p class="feature-description" data-translate="portal-feature-1-description">Track project progress, milestones, and deliverables in real-time with interactive dashboards and detailed reports.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3 class="feature-title">Document Management</h3>
-                    <p class="feature-description">Access all project documents, contracts, and resources in a secure, organized digital library.</p>
+                    <h3 class="feature-title" data-translate="portal-feature-2-title">Document Management</h3>
+                    <p class="feature-description" data-translate="portal-feature-2-description">Access all project documents, contracts, and resources in a secure, organized digital library.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3 class="feature-title">Support Center</h3>
-                    <p class="feature-description">Submit support tickets, track resolution status, and access our knowledge base for instant help.</p>
+                    <h3 class="feature-title" data-translate="portal-feature-3-title">Support Center</h3>
+                    <p class="feature-description" data-translate="portal-feature-3-description">Submit support tickets, track resolution status, and access our knowledge base for instant help.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-analytics"></i>
                     </div>
-                    <h3 class="feature-title">Analytics & Reports</h3>
-                    <p class="feature-description">View detailed analytics, performance metrics, and custom reports tailored to your business needs.</p>
+                    <h3 class="feature-title" data-translate="portal-feature-4-title">Analytics & Reports</h3>
+                    <p class="feature-description" data-translate="portal-feature-4-description">View detailed analytics, performance metrics, and custom reports tailored to your business needs.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-comments"></i>
                     </div>
-                    <h3 class="feature-title">Team Communication</h3>
-                    <p class="feature-description">Direct messaging with your project team, file sharing, and collaborative workspace tools.</p>
+                    <h3 class="feature-title" data-translate="portal-feature-5-title">Team Communication</h3>
+                    <p class="feature-description" data-translate="portal-feature-5-description">Direct messaging with your project team, file sharing, and collaborative workspace tools.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="feature-title">Mobile Access</h3>
-                    <p class="feature-description">Full mobile compatibility - access your portal from anywhere, anytime, on any device.</p>
+                    <h3 class="feature-title" data-translate="portal-feature-6-title">Mobile Access</h3>
+                    <p class="feature-description" data-translate="portal-feature-6-description">Full mobile compatibility - access your portal from anywhere, anytime, on any device.</p>
                 </div>
             </div>
         </div>
@@ -790,25 +801,25 @@
     <section class="security-section">
         <div class="container">
             <div class="security-container">
-                <h2 class="security-title">Enterprise-Grade Security</h2>
-                <p class="security-description">Your data is protected with industry-leading security measures and compliance standards</p>
+                <h2 class="security-title" data-translate="portal-security-title">Enterprise-Grade Security</h2>
+                <p class="security-description" data-translate="portal-security-description">Your data is protected with industry-leading security measures and compliance standards</p>
                 
                 <div class="security-badges">
                     <div class="security-badge">
                         <i class="fas fa-shield-alt"></i>
-                        <span>SSL Encryption</span>
+                        <span data-translate="portal-security-ssl">SSL Encryption</span>
                     </div>
                     <div class="security-badge">
                         <i class="fas fa-lock"></i>
-                        <span>2FA Authentication</span>
+                        <span data-translate="portal-security-2fa">2FA Authentication</span>
                     </div>
                     <div class="security-badge">
                         <i class="fas fa-server"></i>
-                        <span>SOC 2 Compliant</span>
+                        <span data-translate="portal-security-soc2">SOC 2 Compliant</span>
                     </div>
                     <div class="security-badge">
                         <i class="fas fa-user-check"></i>
-                        <span>GDPR Ready</span>
+                        <span data-translate="portal-security-gdpr">GDPR Ready</span>
                     </div>
                 </div>
             </div>
@@ -821,19 +832,19 @@
             <div class="help-links">
                 <a href="contact-us.html" class="help-link">
                     <i class="fas fa-question-circle"></i>
-                    <span>Need Help?</span>
+                    <span data-translate="portal-help-need-help">Need Help?</span>
                 </a>
                 <a href="#demo" class="help-link">
                     <i class="fas fa-play-circle"></i>
-                    <span>Watch Demo</span>
+                    <span data-translate="portal-help-watch-demo">Watch Demo</span>
                 </a>
                 <a href="contact-us.html" class="help-link">
                     <i class="fas fa-phone"></i>
-                    <span>Contact Support</span>
+                    <span data-translate="portal-help-contact-support">Contact Support</span>
                 </a>
                 <a href="#guide" class="help-link">
                     <i class="fas fa-book"></i>
-                    <span>User Guide</span>
+                    <span data-translate="portal-help-user-guide">User Guide</span>
                 </a>
             </div>
         </div>
@@ -847,6 +858,14 @@
     
 
     <script>
+        // Translation helper function
+        function getTranslation(key) {
+            if (typeof window.translationSystem !== 'undefined' && window.translationSystem) {
+                return window.translationSystem.getTranslation(key);
+            }
+            return null;
+        }
+
         // Create floating particles
         function createFloatingParticles() {
             const particlesContainer = document.getElementById('portalParticles');
@@ -900,12 +919,15 @@
 
                 // Demo login validation
                 if (email === 'demo@skyline.com' && password === 'demo123') {
-                    showMessage('Login successful! Redirecting to dashboard...', 'success');
+                    const successMsg = getTranslation('portal-login-success') || 'Login successful! Redirecting to dashboard...';
+                    showMessage(successMsg, 'success');
                     setTimeout(() => {
-                        alert('Demo: You would be redirected to the client dashboard now.');
+                        const redirectMsg = getTranslation('portal-login-redirect') || 'Demo: You would be redirected to the client dashboard now.';
+                        alert(redirectMsg);
                     }, 2000);
                 } else {
-                    showMessage('Invalid credentials. Try demo@skyline.com / demo123', 'error');
+                    const errorMsg = getTranslation('portal-login-error') || 'Invalid credentials. Try demo@skyline.com / demo123';
+                    showMessage(errorMsg, 'error');
                 }
             }, 2000);
         });

@@ -53,7 +53,16 @@ function includeNavbar() {
             mobileSidenav.classList.remove('active');
             mobileSidenav.style.visibility = 'hidden';
             mobileSidenav.style.opacity = '0';
-            mobileSidenav.style.left = '-320px';
+            
+            // Set initial position based on current direction
+            const currentDir = document.documentElement.dir || 'ltr';
+            if (currentDir === 'rtl') {
+                mobileSidenav.style.right = '-320px';
+                mobileSidenav.style.left = 'auto';
+            } else {
+                mobileSidenav.style.left = '-320px';
+                mobileSidenav.style.right = 'auto';
+            }
             console.log('✅ Mobile sidenav hidden on page load');
         }
 
@@ -96,6 +105,44 @@ function getNavbarStyles() {
             direction: ltr !important;
             text-align: left !important;
             unicode-bidi: normal !important;
+        }
+
+        /* RTL/LTR Support for Navbar */
+        [dir="rtl"] .nav-menu {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .nav-menu a {
+            text-align: right;
+        }
+
+        [dir="ltr"] .nav-menu {
+            direction: ltr;
+        }
+
+        [dir="ltr"] .nav-menu a {
+            text-align: left;
+        }
+
+        /* Mobile Navigation RTL/LTR Support */
+        [dir="rtl"] .mobile-sidenav {
+            right: -320px;
+            left: auto;
+        }
+
+        [dir="rtl"] .mobile-sidenav.active {
+            right: 0;
+            left: auto;
+        }
+
+        [dir="ltr"] .mobile-sidenav {
+            left: -320px;
+            right: auto;
+        }
+
+        [dir="ltr"] .mobile-sidenav.active {
+            left: 0;
+            right: auto;
         }
 
 
@@ -232,7 +279,7 @@ function getNavbarStyles() {
         }
 
       .nav-container {
-    max-width: 1220px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex
 ;
@@ -726,6 +773,8 @@ function getNavbarStyles() {
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
         .nav-menu a::before {
@@ -1390,6 +1439,9 @@ function getNavbarStyles() {
             .mobile-sidenav .dropdown-menu .nav-link {
                 padding: 10px 15px !important;
                 font-size: 0.9rem !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
             }
             
             .mobile-sidenav .dropdown-menu .fas {
@@ -1414,6 +1466,9 @@ function getNavbarStyles() {
                 border: 1px solid rgba(220, 20, 60, 0.1) !important;
                 margin: 2px 0 !important;
                 border-radius: 6px !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
             }
             
             .mobile-sidenav .nav-link:hover {
@@ -1533,14 +1588,14 @@ function getNavbarHTML() {
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="iso-consulting.html" class="dropdown-toggle">ISO Consulting <i class="fas fa-chevron-down"></i></a>
+                        <a href="iso-consulting.html" class="dropdown-toggle" data-translate="nav-iso">ISO Consulting <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="iso-consulting.html">All ISO Standards</a></li>
-                            <li><a href="iso-consulting.html#iso-9001">ISO 9001 - Quality Management</a></li>
-                            <li><a href="iso-consulting.html#iso-27001">ISO 27001 - Information Security</a></li>
-                            <li><a href="iso-consulting.html#iso-14001">ISO 14001 - Environmental</a></li>
-                            <li><a href="iso-consulting.html#iso-45001">ISO 45001 - Health & Safety</a></li>
-                            <li><a href="iso-consulting.html#contact">Get Consultation</a></li>
+                            <li><a href="iso-consulting.html" data-translate="nav-iso-all">All ISO Standards</a></li>
+                            <li><a href="iso-consulting.html#iso-9001" data-translate="nav-iso-9001">ISO 9001 - Quality Management</a></li>
+                            <li><a href="iso-consulting.html#iso-27001" data-translate="nav-iso-27001">ISO 27001 - Information Security</a></li>
+                            <li><a href="iso-consulting.html#iso-14001" data-translate="nav-iso-14001">ISO 14001 - Environmental</a></li>
+                            <li><a href="iso-consulting.html#iso-45001" data-translate="nav-iso-45001">ISO 45001 - Health & Safety</a></li>
+                            <li><a href="iso-consulting.html#contact" data-translate="nav-iso-consultation">Get Consultation</a></li>
                         </ul>
                     </li>
                     <li><a href="events-news.html" data-translate="nav-events">Events & News</a></li>
@@ -1573,69 +1628,69 @@ function getNavbarHTML() {
                 <li class="mobile-dropdown home-mobile-item">
                     <div class="mobile-dropdown-toggle">
                         <a href="index.html" class="dropdown-link home-mobile-link"><span class="icon">🏠</span><span
-                                class="label">Home</span></a>
+                                class="label" data-translate="nav-home">Home</span></a>
                         <span class="dropdown-arrow">▼</span>
                     </div>
                     <ul class="mobile-dropdown-menu">
                         <li><a href="index.html#industries"><span class="icon">🏢</span><span
-                                    class="label">Industries</span></a></li>
-                        <li><a href="index.html#services"><span class="icon">💡</span><span class="label">Why Choose
+                                    class="label" data-translate="nav-industries">Industries</span></a></li>
+                        <li><a href="index.html#services"><span class="icon">💡</span><span class="label" data-translate="nav-why-choose">Why Choose
                                     Us</span></a></li>
                     </ul>
                 </li>
                 <li class="mobile-dropdown">
                     <div class="mobile-dropdown-toggle">
-                        <a href="abouts.html" class="dropdown-link"><span class="icon">👥</span><span class="label">About</span></a>
+                        <a href="abouts.html" class="dropdown-link"><span class="icon">👥</span><span class="label" data-translate="nav-about">About</span></a>
                         <span class="dropdown-arrow">▼</span>
                     </div>
                     <ul class="mobile-dropdown-menu">
-                        <li><a href="abouts.html#company-profile"><span class="icon">🏢</span><span class="label">Company Profile</span></a></li>
-                        <li><a href="abouts.html#vision-mission"><span class="icon">🎯</span><span class="label">Vision & Mission</span></a></li>
-                        <li><a href="abouts.html#leadership"><span class="icon">👑</span><span class="label">Leadership Team</span></a></li>
-                        <li><a href="abouts.html#values"><span class="icon">💎</span><span class="label">Our Values</span></a></li>
-                        <li><a href="abouts.html#partners"><span class="icon">🤝</span><span class="label">Strategic Partners</span></a></li>
-                        <li><a href="abouts.html#alliances"><span class="icon">⚡</span><span class="label">Strategic Alliances</span></a></li>
-                        <li><a href="abouts.html#clients"><span class="icon">👥</span><span class="label">Our Clients</span></a></li>
-                        <li><a href="testimonials-case-studies.html"><span class="icon">⭐</span><span class="label">Testimonials & Case Studies</span></a></li>
+                        <li><a href="abouts.html#company-profile"><span class="icon">🏢</span><span class="label" data-translate="nav-company-profile">Company Profile</span></a></li>
+                        <li><a href="abouts.html#vision-mission"><span class="icon">🎯</span><span class="label" data-translate="nav-vision-mission">Vision & Mission</span></a></li>
+                        <li><a href="abouts.html#leadership"><span class="icon">👑</span><span class="label" data-translate="nav-leadership">Leadership Team</span></a></li>
+                        <li><a href="abouts.html#values"><span class="icon">💎</span><span class="label" data-translate="nav-values">Our Values</span></a></li>
+                        <li><a href="abouts.html#partners"><span class="icon">🤝</span><span class="label" data-translate="nav-partners">Strategic Partners</span></a></li>
+                        <li><a href="abouts.html#alliances"><span class="icon">⚡</span><span class="label" data-translate="nav-alliances">Strategic Alliances</span></a></li>
+                        <li><a href="abouts.html#clients"><span class="icon">👥</span><span class="label" data-translate="nav-clients">Our Clients</span></a></li>
+                        <li><a href="testimonials-case-studies.html"><span class="icon">⭐</span><span class="label" data-translate="nav-testimonials">Testimonials & Case Studies</span></a></li>
                     </ul>
                 </li>
                 <li class="mobile-dropdown products-dropdown">
                     <div class="mobile-dropdown-toggle">
                         <a href="products&solutions.html" class="dropdown-link"><span class="icon">🛠️</span><span
-                                class="label">Products & Solutions</span></a>
+                                class="label" data-translate="nav-products">Products & Solutions</span></a>
                         <span class="dropdown-arrow">▼</span>
                     </div>
                     <ul class="mobile-dropdown-menu">
-                        <li><a href="products&solutions.html"><span class="icon">📦</span><span class="label">Our Products &
+                        <li><a href="products&solutions.html"><span class="icon">📦</span><span class="label" data-translate="nav-products">Our Products &
                                     Solutions</span></a></li>
                         <li><a href="products&solutions.html#software-solutions"><span class="icon">💻</span><span
-                                    class="label">Software Solutions</span></a></li>
-                        <li><a href="saas-programs.html"><span class="icon">☁️</span><span class="label">SaaS Programs</span></a></li>
-                        <li><a href="products&solutions.html#demo"><span class="icon">🎬</span><span class="label">Book Your
+                                    class="label" data-translate="nav-products">Software Solutions</span></a></li>
+                        <li><a href="saas-programs.html"><span class="icon">☁️</span><span class="label" data-translate="nav-saas">SaaS Programs</span></a></li>
+                        <li><a href="products&solutions.html#demo"><span class="icon">🎬</span><span class="label" data-translate="nav-products">Book Your
                                     Demo</span></a></li>
-                        <li><a href="products&solutions.html#videos"><span class="icon">🎥</span><span class="label">Product
+                        <li><a href="products&solutions.html#videos"><span class="icon">🎥</span><span class="label" data-translate="nav-products">Product
                                     Videos</span></a></li>
-                        <li><a href="download-center.html"><span class="icon">⬇️</span><span class="label">Download
+                        <li><a href="download-center.html"><span class="icon">⬇️</span><span class="label" data-translate="nav-download">Download
                                     Center</span></a></li>
                     </ul>
                 </li>
                 <li class="mobile-dropdown">
                     <div class="mobile-dropdown-toggle">
-                        <a href="iso-consulting.html" class="dropdown-link"><span class="icon">🏆</span><span class="label">ISO Consulting</span></a>
+                        <a href="iso-consulting.html" class="dropdown-link"><span class="icon">🏆</span><span class="label" data-translate="nav-iso">ISO Consulting</span></a>
                         <span class="dropdown-arrow">▼</span>
                     </div>
                     <ul class="mobile-dropdown-menu">
-                        <li><a href="iso-consulting.html"><span class="icon">📋</span><span class="label">All ISO Standards</span></a></li>
-                        <li><a href="iso-consulting.html#iso-9001"><span class="icon">🥇</span><span class="label">ISO 9001 - Quality</span></a></li>
-                        <li><a href="iso-consulting.html#iso-27001"><span class="icon">🔒</span><span class="label">ISO 27001 - Security</span></a></li>
-                        <li><a href="iso-consulting.html#iso-14001"><span class="icon">🌱</span><span class="label">ISO 14001 - Environmental</span></a></li>
-                        <li><a href="iso-consulting.html#iso-45001"><span class="icon">⛑️</span><span class="label">ISO 45001 - Safety</span></a></li>
-                        <li><a href="iso-consulting.html#contact"><span class="icon">💬</span><span class="label">Get Consultation</span></a></li>
+                        <li><a href="iso-consulting.html"><span class="icon">📋</span><span class="label" data-translate="nav-iso-all">All ISO Standards</span></a></li>
+                        <li><a href="iso-consulting.html#iso-9001"><span class="icon">🥇</span><span class="label" data-translate="nav-iso-9001">ISO 9001 - Quality</span></a></li>
+                        <li><a href="iso-consulting.html#iso-27001"><span class="icon">🔒</span><span class="label" data-translate="nav-iso-27001">ISO 27001 - Security</span></a></li>
+                        <li><a href="iso-consulting.html#iso-14001"><span class="icon">🌱</span><span class="label" data-translate="nav-iso-14001">ISO 14001 - Environmental</span></a></li>
+                        <li><a href="iso-consulting.html#iso-45001"><span class="icon">⛑️</span><span class="label" data-translate="nav-iso-45001">ISO 45001 - Safety</span></a></li>
+                        <li><a href="iso-consulting.html#contact"><span class="icon">💬</span><span class="label" data-translate="nav-iso-consultation">Get Consultation</span></a></li>
                     </ul>
                 </li>
-                <li><a href="events-news.html"><span class="icon">📰</span><span class="label">Events & News</span></a></li>
-                <li><a href="contact-us.html"><span class="icon">📞</span><span class="label">Contact Us</span></a></li>
-                <li><a href="client-portal-access.html" class="portal-mobile-link"><span class="icon">🔐</span><span class="label">Client Portal</span></a></li>
+                <li><a href="events-news.html"><span class="icon">📰</span><span class="label" data-translate="nav-events">Events & News</span></a></li>
+                <li><a href="contact-us.html"><span class="icon">📞</span><span class="label" data-translate="nav-contact">Contact Us</span></a></li>
+                <li><a href="client-portal-access.html" class="portal-mobile-link"><span class="icon">🔐</span><span class="label" data-translate="nav-portal">Client Portal</span></a></li>
             </ul>
         </aside>
 
@@ -1650,6 +1705,18 @@ function initializeLanguageSwitcher() {
         languageBtn.addEventListener('click', () => {
             if (window.translationSystem) {
                 window.translationSystem.toggleLanguage();
+                
+                // Update document direction based on current language
+                const currentLang = document.documentElement.lang;
+                if (currentLang === 'ar') {
+                    document.documentElement.dir = 'rtl';
+                    document.body.style.direction = 'rtl';
+                    document.body.style.textAlign = 'right';
+                } else {
+                    document.documentElement.dir = 'ltr';
+                    document.body.style.direction = 'ltr';
+                    document.body.style.textAlign = 'left';
+                }
             }
         });
     }
@@ -1680,10 +1747,17 @@ function initializeNavbarFunctionality() {
             mobileMenuBtn.classList.remove('active');
             document.body.classList.remove('mobile-menu-open');
 
-            // Force hide
+            // Force hide based on direction
             mobileSidenav.style.visibility = 'hidden';
             mobileSidenav.style.opacity = '0';
-            mobileSidenav.style.left = '-320px';
+            const currentDir = document.documentElement.dir || 'ltr';
+            if (currentDir === 'rtl') {
+                mobileSidenav.style.right = '-320px';
+                mobileSidenav.style.left = 'auto';
+            } else {
+                mobileSidenav.style.left = '-320px';
+                mobileSidenav.style.right = 'auto';
+            }
 
             // Close all mobile dropdowns when closing menu
             mobileDropdowns.forEach(dropdown => {
@@ -1697,10 +1771,17 @@ function initializeNavbarFunctionality() {
             mobileMenuBtn.classList.add('active');
             document.body.classList.add('mobile-menu-open');
 
-            // Force visibility
+            // Force visibility based on direction
             mobileSidenav.style.visibility = 'visible';
             mobileSidenav.style.opacity = '1';
-            mobileSidenav.style.left = '0';
+            const currentDir = document.documentElement.dir || 'ltr';
+            if (currentDir === 'rtl') {
+                mobileSidenav.style.right = '0';
+                mobileSidenav.style.left = 'auto';
+            } else {
+                mobileSidenav.style.left = '0';
+                mobileSidenav.style.right = 'auto';
+            }
 
             console.log('Mobile menu opened');
         }

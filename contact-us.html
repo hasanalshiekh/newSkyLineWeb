@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اتصل بنا - SKYLINE Innovation Software</title>
+    <title>Contact Us - SKYLINE Innovation Software</title>
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,8 +24,8 @@
             overflow-x: hidden;
             position: relative;
             background: #fff;
-            direction: rtl;
-            text-align: right;
+            direction: ltr;
+            text-align: left;
         }
 
         /* Creative Background Elements */
@@ -489,8 +489,8 @@
             <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
         </div>
         <div class="container">
-            <h1 data-translate="contact-title">اتصل بنا</h1>
-            <p data-translate="contact-description">تواصل مع فريقنا. نحن هنا لمساعدتك في تحويل عملك بحلول برمجية مبتكرة.</p>
+            <h1 data-translate="contact-hero-title">Contact Us</h1>
+            <p data-translate="contact-hero-description">Get in touch with our team. We're here to help you transform your business with innovative software solutions.</p>
         </div>
     </section>
 
@@ -500,43 +500,43 @@
             <div class="contact-grid">
                 <!-- Contact Form -->
                 <div class="contact-form">
-                    <h2>Send us a Message</h2>
+                    <h2 data-translate="contact-form-title">Send us a Message</h2>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name" data-translate="contact-form-name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Enter your full name" data-translate-placeholder="contact-form-name">
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name" data-translate-placeholder="contact-form-name-placeholder">
                         </div>
                         <div class="form-group">
                             <label for="email" data-translate="contact-form-email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="Enter your email address" data-translate-placeholder="contact-form-email">
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address" data-translate-placeholder="contact-form-email-placeholder">
                         </div>
                         <div class="form-group">
                             <label for="phone" data-translate="contact-form-phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" data-translate-placeholder="contact-form-phone">
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" data-translate-placeholder="contact-form-phone-placeholder">
                         </div>
                         <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company" placeholder="Enter your company name">
+                            <label for="company" data-translate="contact-form-company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Enter your company name" data-translate-placeholder="contact-form-company-placeholder">
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject *</label>
+                            <label for="subject" data-translate="contact-form-subject">Subject *</label>
                             <select id="subject" name="subject" required>
-                                <option value="">Select a subject</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="sales">Sales Question</option>
-                                <option value="support">Technical Support</option>
-                                <option value="partnership">Partnership</option>
-                                <option value="demo">Request Demo</option>
-                                <option value="other">Other</option>
+                                <option value="" data-translate="contact-form-subject-select">Select a subject</option>
+                                <option value="general" data-translate="contact-form-subject-general">General Inquiry</option>
+                                <option value="sales" data-translate="contact-form-subject-sales">Sales Question</option>
+                                <option value="support" data-translate="contact-form-subject-support">Technical Support</option>
+                                <option value="partnership" data-translate="contact-form-subject-partnership">Partnership</option>
+                                <option value="demo" data-translate="contact-form-subject-demo">Request Demo</option>
+                                <option value="other" data-translate="contact-form-subject-other">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
+                            <label for="message" data-translate="contact-form-message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us how we can help you..." data-translate-placeholder="contact-form-message-placeholder"></textarea>
                         </div>
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-paper-plane"></i>
-                            Send Message
+                            <span data-translate="contact-form-submit">Send Message</span>
                         </button>
                     </form>
                 </div>
@@ -544,39 +544,37 @@
                 <!-- Contact Details -->
                 <div class="contact-details">
                     <div class="contact-card">
-                        <h3><i class="fas fa-map-marker-alt"></i> Our Office</h3>
+                        <h3><i class="fas fa-map-marker-alt"></i> <span data-translate="contact-office-title">Our Office</span></h3>
                         <p><strong>SKYLINE Innovation Software</strong></p>
-                        <p>3rd floor, Qaisar Complex</p>
-                        <p>Queen Rania St.</p>
-                        <p>Amman, Jordan</p>
+                        <p data-translate="contact-office-address-1">3rd floor, Qaisar Complex</p>
+                        <p data-translate="contact-office-address-2">Queen Rania St.</p>
+                        <p data-translate="contact-office-address-3">Amman, Jordan</p>
                     </div>
 
                     <div class="contact-card">
-                        <h3><i class="fas fa-phone"></i> Phone</h3>
-                        <p><strong>Main Office:</strong></p>
-                        <p><a href="tel:+962786669911">+962 77 755 8888</a></p>
-                        <p><strong>Sales:</strong></p>
-                        <p><a href="tel:+962786669911">+962 77 160 0663</a></p>
-                        
+                        <h3><i class="fas fa-phone"></i> <span data-translate="contact-phone-title">Phone</span></h3>
+                        <p><strong data-translate="contact-phone-main">Main Office:</strong></p>
+                        <p><a href="tel:+962777558888">+962 77 755 8888</a></p>
+                        <p><strong data-translate="contact-phone-sales">Sales:</strong></p>
+                        <p><a href="tel:+962771600663">+962 77 160 0663</a></p>
                     </div>
 
                     <div class="contact-card">
-                        <h3><i class="fas fa-envelope"></i> Email</h3>
-                        <p><strong>General:</strong></p>
+                        <h3><i class="fas fa-envelope"></i> <span data-translate="contact-email-title">Email</span></h3>
+                        <p><strong data-translate="contact-email-general">General:</strong></p>
                         <p><a href="mailto:info@skyline-innovation.com">info@skyline-innovation.com</a></p>
-                        <p><strong>Sales:</strong></p>
+                        <p><strong data-translate="contact-email-sales">Sales:</strong></p>
                         <p><a href="mailto:sales@skyline-innovation.com">sales@skyline-innovation.com</a></p>
-                        <p><strong>Support:</strong></p>
+                        <p><strong data-translate="contact-email-support">Support:</strong></p>
                         <p><a href="mailto:support@skyline-innovation.com">support@skyline-innovation.com</a></p>
                     </div>
 
                     <div class="contact-card">
-                        <h3><i class="fas fa-clock"></i> Business Hours</h3>
-                        <p><strong>Sunday - Thursday:</strong></p>
-                        <p>9:00 AM - 5:00 PM (EST)</p>
-                       
-                        <p><strong>Friday - Saturday:</strong></p>
-                        <p>Closed</p>
+                        <h3><i class="fas fa-clock"></i> <span data-translate="contact-hours-title">Business Hours</span></h3>
+                        <p><strong data-translate="contact-hours-weekdays">Sunday - Thursday:</strong></p>
+                        <p data-translate="contact-hours-weekdays-time">9:00 AM - 5:00 PM (EST)</p>
+                        <p><strong data-translate="contact-hours-weekend">Friday - Saturday:</strong></p>
+                        <p data-translate="contact-hours-weekend-time">Closed</p>
                     </div>
                 </div>
             </div>
@@ -587,17 +585,17 @@
     <section class="map-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Find Us</h2>
-                <p class="section-subtitle">Visit our office or get directions to our location</p>
+                <h2 class="section-title" data-translate="contact-map-title">Find Us</h2>
+                <p class="section-subtitle" data-translate="contact-map-subtitle">Visit our office or get directions to our location</p>
             </div>
             <div class="map-container">
                 <div class="map-placeholder">
                     <div>
                         <i class="fas fa-map-marked-alt"></i>
-                        <p>Click to Open in Google Maps</p>
-                        <p style="font-size: 0.9rem; opacity: 0.8;">123 Business District, Tech City</p>
+                        <p data-translate="contact-map-click">Click to Open in Google Maps</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;" data-translate="contact-map-address">3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
                         <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">
-                            <i class="fas fa-external-link-alt"></i> Get Directions
+                            <i class="fas fa-external-link-alt"></i> <span data-translate="contact-map-directions">Get Directions</span>
                         </p>
                     </div>
                 </div>
@@ -621,6 +619,14 @@
     <script src="floating-action-button.js"></script>
 
     <script>
+        // Helper function to get translation from the translation system
+        function getTranslation(key) {
+            if (typeof window.translationSystem !== 'undefined' && window.translationSystem) {
+                return window.translationSystem.getTranslation(key);
+            }
+            return null;
+        }
+
         // Mouse Dust Effect
         document.addEventListener('mousemove', function(e) {
             if (Math.random() > 0.7) {
@@ -651,12 +657,12 @@
                 
                 // Basic validation
                 if (!data.name || !data.email || !data.subject || !data.message) {
-                    alert('Please fill in all required fields');
+                    alert(getTranslation('contact-form-error') || 'Please fill in all required fields');
                     return;
                 }
                 
                 // Simulate form submission
-                alert('Thank you for your message! We will get back to you within 24 hours.');
+                alert(getTranslation('contact-form-success') || 'Thank you for your message! We will get back to you within 24 hours.');
                 contactForm.reset();
             });
         }

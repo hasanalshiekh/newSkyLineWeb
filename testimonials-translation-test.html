@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Translation Test - SKYLINE Innovation Software</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .test-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        .language-toggle:hover {
+            background: #2980b9;
+        }
+        .testimonial {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .case-study {
+            background: #e8f4f8;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        .video-testimonial {
+            background: #f0f8e8;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+        .cta-section {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: white;
+            border-bottom: 2px solid #3498db;
+        }
+        .cta-buttons {
+            margin-top: 20px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .cta-btn:hover {
+            background: #2980b9;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .stat-number {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <button class="language-toggle" onclick="toggleLanguage()">
+        <span data-translate="toggle-language">Switch to Arabic</span>
+    </button>
+
+    <div class="container">
+        <h1 data-translate="testimonials-hero-title">Success Stories</h1>
+        <p data-translate="testimonials-hero-description">Discover how SKYLINE has transformed businesses across industries through innovative software solutions and exceptional service delivery.</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label" data-translate="testimonials-stat-1">Happy Clients</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label" data-translate="testimonials-stat-2">Success Rate</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label" data-translate="testimonials-stat-3">Years Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">25+</span>
+                <span class="stat-label" data-translate="testimonials-stat-4">Industries Served</span>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 data-translate="testimonials-section-title">Customer Testimonials</h2>
+            <p data-translate="testimonials-section-subtitle">Hear what our clients say about their experience working with SKYLINE</p>
+            
+            <div class="testimonial">
+                <p data-translate="testimonial-1-text">"SKYLINE completely transformed our business operations with their ERP solutions. The implementation was seamless, and their support team is exceptional. We've seen a 40% increase in efficiency since going live."</p>
+                <strong data-translate="testimonial-1-name">John Davidson</strong> - <span data-translate="testimonial-1-position">CEO, Tech Corp Industries</span>
+            </div>
+            
+            <div class="testimonial">
+                <p data-translate="testimonial-2-text">"The custom CRM system developed by SKYLINE revolutionized how we manage customer relationships. Our sales team productivity increased by 60%, and customer satisfaction scores are at an all-time high."</p>
+                <strong data-translate="testimonial-2-name">Sarah Mitchell</strong> - <span data-translate="testimonial-2-position">VP of Sales, Global Tech Solutions</span>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 data-translate="case-studies-section-title">Case Studies</h2>
+            <p data-translate="case-studies-section-subtitle">Detailed success stories showcasing our expertise and impact</p>
+            
+            <div class="case-study">
+                <h3 data-translate="case-study-1-title">Manufacturing Giant Streamlines Operations</h3>
+                <p data-translate="case-study-1-description">A leading manufacturing company with over 5,000 employees needed to integrate their fragmented systems. Our comprehensive ERP solutions unified their operations across 15 locations.</p>
+                <p><strong data-translate="case-study-1-metric-1">Cost Reduction:</strong> 40%</p>
+                <p><strong data-translate="case-study-1-metric-2">Efficiency Increase:</strong> 60%</p>
+            </div>
+            
+            <div class="case-study">
+                <h3 data-translate="case-study-2-title">Retail Chain Goes Digital</h3>
+                <p data-translate="case-study-2-description">A traditional retail chain with over 200 stores wanted to establish a strong digital presence. Our custom e-commerce platform enabled seamless omnichannel experiences.</p>
+                <p><strong data-translate="case-study-2-metric-1">E-commerce Sales:</strong> 300%</p>
+                <p><strong data-translate="case-study-2-metric-2">New Customers:</strong> 50%</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 data-translate="video-testimonials-section-title">Video Testimonials</h2>
+            <p data-translate="video-testimonials-section-subtitle">Watch our clients share their success stories</p>
+            
+            <div class="video-testimonial">
+                <h4 data-translate="video-1-title">CEO Testimonial - Digital Transformation Success</h4>
+                <p data-translate="video-1-description">John Davidson, CEO of Tech Corp Industries, shares how SKYLINE's ERP solutions transformed their operations.</p>
+                <p><strong data-translate="video-1-author-name">John Davidson</strong> - <span data-translate="video-1-author-position">CEO, Tech Corp Industries</span></p>
+            </div>
+            
+            <div class="video-testimonial">
+                <h4 data-translate="video-2-title">CRM Success Story - Sales Team Transformation</h4>
+                <p data-translate="video-2-description">Sarah Mitchell explains how our custom CRM system boosted their sales productivity by 60%.</p>
+                <p><strong data-translate="video-2-author-name">Sarah Mitchell</strong> - <span data-translate="video-2-author-position">VP of Sales, Global Tech</span></p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 data-translate="testimonials-cta-title">Ready to Write Your Success Story?</h2>
+            <p data-translate="testimonials-cta-description">Join hundreds of satisfied clients who have transformed their businesses with SKYLINE's innovative solutions.</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-btn" data-translate="testimonials-cta-button-1">Start Your Project</a>
+                <a href="#" class="cta-btn" data-translate="testimonials-cta-button-2">Schedule Consultation</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="translation-system.js"></script>
+    <script>
+        // Test the video play function
+        function playVideo(videoId) {
+            alert(`Playing ${videoId} - In the real application, this would open a video player or popup with the testimonial video.`);
+        }
+        
+        // Test language toggle
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            if (currentLang === 'en') {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                document.body.style.direction = 'rtl';
+                document.body.style.textAlign = 'right';
+            } else {
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                document.body.style.direction = 'ltr';
+                document.body.style.textAlign = 'left';
+            }
+        }
+    </script>
+</body>
+</html>

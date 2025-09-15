@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأحداث والأخبار - SKYLINE Innovation Software</title>
+    <title>Events & News - SKYLINE Innovation Software</title>
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,8 +23,8 @@
             color: #333;
             overflow-x: hidden;
             background: #fff;
-            direction: rtl;
-            text-align: right;
+            direction: ltr;
+            text-align: left;
         }
 
         /* Floating Background Shapes */
@@ -860,15 +860,15 @@
             <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
         </div>
         <div class="container">
-            <h1>الأحداث والأخبار</h1>
-            <p>ابق على اطلاع بأحدث الأخبار والأحداث والرؤى من SKYLINE Innovation Software</p>
+            <h1 data-translate="events-hero-title">Events & News</h1>
+            <p data-translate="events-hero-description">Stay updated with the latest news, events, and insights from SKYLINE Innovation Software</p>
         </div>
     </section>
 
     <!-- Events Timeline -->
     <section class="events-timeline">
         <div class="container">
-            <h2 class="section-title">الأحداث القادمة</h2>
+            <h2 class="section-title" data-translate="events-timeline-title">Upcoming Events</h2>
             <div class="timeline-container">
                 <div class="timeline-line"></div>
                 
@@ -878,8 +878,8 @@
                         <div class="marker-date">Apr 15, 2024</div>
                     </div>
                     <div class="timeline-content">
-                        <h3>مؤتمر SKYLINE التقني 2024</h3>
-                        <p>انضم إلينا في مؤتمرنا التقني السنوي الذي يضم قادة الصناعة والحلول المبتكرة وفرص التواصل مع المهنيين التقنيين من جميع أنحاء المنطقة.</p>
+                        <h3 data-translate="event-1-title">SKYLINE Tech Conference 2024</h3>
+                        <p data-translate="event-1-description">Join us for our annual tech conference featuring industry leaders, innovative solutions, and networking opportunities with tech professionals from across the region.</p>
                     </div>
                 </div>
 
@@ -889,8 +889,8 @@
                         <div class="marker-date">May 20, 2024</div>
                     </div>
                     <div class="timeline-content">
-                        <h3>ورشة الذكاء الاصطناعي وتعلم الآلة</h3>
-                        <p>ورشة عملية تستكشف أحدث التطورات في الذكاء الاصطناعي وتعلم الآلة، مع التطبيقات العملية لحلول الأعمال.</p>
+                        <h3 data-translate="event-2-title">AI & Machine Learning Workshop</h3>
+                        <p data-translate="event-2-description">A hands-on workshop exploring the latest developments in AI and machine learning, with practical applications for business solutions.</p>
                     </div>
                 </div>
 
@@ -900,8 +900,8 @@
                         <div class="marker-date">Jun 10, 2024</div>
                     </div>
                     <div class="timeline-content">
-                        <h3>ندوة الحلول السحابية</h3>
-                        <p>اكتشف كيف يمكن للحوسبة السحابية تحويل عمليات عملك من خلال ندوتنا الشاملة حول الحلول السحابية الحديثة وأفضل الممارسات.</p>
+                        <h3 data-translate="event-3-title">Cloud Solutions Seminar</h3>
+                        <p data-translate="event-3-description">Discover how cloud computing can transform your business operations through our comprehensive seminar on modern cloud solutions and best practices.</p>
                     </div>
                 </div>
 
@@ -911,8 +911,8 @@
                         <div class="marker-date">Jul 25, 2024</div>
                     </div>
                     <div class="timeline-content">
-                        <h3>معرض الابتكار</h3>
-                        <p>اختبر مستقبل تطوير البرمجيات في معرض الابتكار الخاص بنا، الذي يضم أحدث التقنيات والحلول التجارية الثورية.</p>
+                        <h3 data-translate="event-4-title">Innovation Expo</h3>
+                        <p data-translate="event-4-description">Experience the future of software development at our Innovation Expo, featuring cutting-edge technologies and revolutionary business solutions.</p>
                     </div>
                 </div>
             </div>
@@ -922,15 +922,15 @@
     <!-- News Grid -->
     <section class="news-grid">
         <div class="container">
-            <h2 class="section-title">أحدث الأخبار والتحديثات</h2>
+            <h2 class="section-title" data-translate="news-grid-title">Latest News & Updates</h2>
             
             <!-- Filter Tabs -->
             <div class="filter-tabs">
-                <div class="filter-tab active" data-filter="all">الكل</div>
-                <div class="filter-tab" data-filter="news">أخبار</div>
-                <div class="filter-tab" data-filter="updates">تحديثات</div>
-                <div class="filter-tab" data-filter="blog">مدونة</div>
-                <div class="filter-tab" data-filter="events">أحداث</div>
+                <div class="filter-tab active" data-filter="all" data-translate="filter-all">All</div>
+                <div class="filter-tab" data-filter="news" data-translate="filter-news">News</div>
+                <div class="filter-tab" data-filter="updates" data-translate="filter-updates">Updates</div>
+                <div class="filter-tab" data-filter="blog" data-translate="filter-blog">Blog</div>
+                <div class="filter-tab" data-filter="events" data-translate="filter-events">Events</div>
             </div>
 
             <div class="news-grid-container">
@@ -941,15 +941,15 @@
                                 <i class="fas fa-newspaper"></i>
                             </div>
                             <div class="news-content">
-                                <span class="news-category">أخبار</span>
-                                <h3 class="news-title">SKYLINE تطلق منصة تحليلات جديدة مدعومة بالذكاء الاصطناعي</h3>
-                                <p class="news-excerpt">تجمع أحدث ابتكاراتنا بين تعلم الآلة ومعالجة البيانات في الوقت الفعلي لتزويد الشركات برؤى غير مسبوقة في عملياتها. تعمل هذه المنصة المتطورة على إحداث ثورة في كيفية تحليل الشركات لبياناتها، حيث تقدم تحليلات تنبؤية وتقارير آلية وتوصيات ذكية تدفع اتخاذ القرارات الاستراتيجية وتحسن الأداء التجاري الشامل.</p>
+                                <span class="news-category" data-translate="news-category-1">News</span>
+                                <h3 class="news-title" data-translate="news-1-title">SKYLINE Launches New AI-Powered Analytics Platform</h3>
+                                <p class="news-excerpt" data-translate="news-1-excerpt">Our latest innovation combines machine learning with real-time data processing to provide businesses with unprecedented insights into their operations. This advanced platform revolutionizes how companies analyze their data, offering predictive analytics, automated reporting, and intelligent recommendations that drive strategic decision-making and improve overall business performance.</p>
                             </div>
                         </div>
                         <div class="news-card-back">
-                            <h4>منصة تحليلات الذكاء الاصطناعي</h4>
-                            <p>اكتشف كيف تعمل تقنية الذكاء الاصطناعي المتطورة لدينا على إحداث ثورة في تحليلات الأعمال وتقديم رؤى فورية تدفع النمو والكفاءة.</p>
-                            <a href="#" class="read-more">اقرأ المزيد</a>
+                            <h4 data-translate="news-1-back-title">AI Analytics Platform</h4>
+                            <p data-translate="news-1-back-description">Discover how our advanced AI technology revolutionizes business analytics and delivers instant insights that drive growth and efficiency.</p>
+                            <a href="#" class="read-more" data-translate="read-more">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -961,15 +961,15 @@
                                 <i class="fas fa-sync-alt"></i>
                             </div>
                             <div class="news-content">
-                                <span class="news-category">تحديثات</span>
-                                <h3 class="news-title">ميزات أمان محسنة في الإصدار الأحدث</h3>
-                                <p class="news-excerpt">لقد قمنا بتنفيذ بروتوكولات أمان متقدمة ومصادقة متعددة العوامل لضمان بقاء بياناتك محمية في جميع الأوقات. يشمل إطار الأمان الشامل لدينا التشفير من طرف إلى طرف وخيارات المصادقة البيومترية وكشف التهديدات في الوقت الفعلي ومراجعة الأمان الآلية وحماية الجدار الناري المتقدمة لتوفير أمان على مستوى المؤسسات لجميع معلومات عملك الحساسة وبيانات العملاء.</p>
+                                <span class="news-category" data-translate="news-category-2">Updates</span>
+                                <h3 class="news-title" data-translate="news-2-title">Enhanced Security Features in Latest Release</h3>
+                                <p class="news-excerpt" data-translate="news-2-excerpt">We have implemented advanced security protocols and multi-factor authentication to ensure your data remains protected at all times. Our comprehensive security framework includes end-to-end encryption, biometric authentication options, real-time threat detection, automated security auditing, and advanced firewall protection to provide enterprise-level security for all your sensitive business information and customer data.</p>
                             </div>
                         </div>
                         <div class="news-card-back">
-                            <h4>تحسين الأمان</h4>
-                            <p>تعرف على أحدث تحديثات الأمان لدينا بما في ذلك المصادقة متعددة العوامل والتشفير المتقدم وإجراءات حماية البيانات الشاملة.</p>
-                            <a href="#" class="read-more">اقرأ المزيد</a>
+                            <h4 data-translate="news-2-back-title">Security Enhancement</h4>
+                            <p data-translate="news-2-back-description">Learn about our latest security updates including multi-factor authentication, advanced encryption, and comprehensive data protection measures.</p>
+                            <a href="#" class="read-more" data-translate="read-more">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -981,15 +981,15 @@
                                 <i class="fas fa-blog"></i>
                             </div>
                             <div class="news-content">
-                                <span class="news-category">مدونة</span>
-                                <h3 class="news-title">مستقبل تطوير البرمجيات: الاتجاهات التي يجب مراقبتها</h3>
-                                <p class="news-excerpt">استكشف الاتجاهات الناشئة في تطوير البرمجيات وكيف تشكل مستقبل التكنولوجيا وحلول الأعمال. من تكامل الذكاء الاصطناعي إلى منصات البرمجة منخفضة الكود وهندسة الخدمات المصغرة والتطوير السحابي الأصلي والتطبيقات الويب التقدمية - اكتشف الابتكارات الرائدة التي ستحدد العقد القادم من هندسة البرمجيات وتحول كيفية عمل الشركات في المشهد الرقمي.</p>
+                                <span class="news-category" data-translate="news-category-3">Blog</span>
+                                <h3 class="news-title" data-translate="news-3-title">Future of Software Development: Trends to Watch</h3>
+                                <p class="news-excerpt" data-translate="news-3-excerpt">Explore emerging trends in software development and how they're shaping the future of technology and business solutions. From AI integration to low-code platforms, microservices architecture, cloud-native development, and progressive web applications - discover the groundbreaking innovations that will define the next decade of software engineering and transform how businesses operate in the digital landscape.</p>
                             </div>
                         </div>
                         <div class="news-card-back">
-                            <h4>الاتجاهات المستقبلية</h4>
-                            <p>اكتشف أحدث الاتجاهات في تطوير البرمجيات بما في ذلك تكامل الذكاء الاصطناعي والحوسبة السحابية والتقنيات الناشئة التي تحول الصناعة.</p>
-                            <a href="#" class="read-more">اقرأ المزيد</a>
+                            <h4 data-translate="news-3-back-title">Future Trends</h4>
+                            <p data-translate="news-3-back-description">Discover the latest trends in software development including AI integration, cloud computing, and emerging technologies that are transforming the industry.</p>
+                            <a href="#" class="read-more" data-translate="read-more">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -1001,15 +1001,15 @@
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
                             <div class="news-content">
-                                <span class="news-category">أحداث</span>
-                                <h3 class="news-title">قصة نجاح: عرض دراسة حالة العميل</h3>
-                                <p class="news-excerpt">تعلم كيف ساعدنا شركة تجزئة كبرى على زيادة كفاءتها التشغيلية بنسبة 40% من خلال حلولنا البرمجية المخصصة الشاملة. تظهر هذه الدراسة التفصيلية نهج التحول الرقمي المجرب لدينا، بما في ذلك أتمتة العمليات المتقدمة وتحسين إدارة المخزون الذكية وتعزيز تجربة العملاء وتنفيذ التحليلات في الوقت الفعلي واتخاذ القرارات الاستراتيجية القائمة على البيانات التي أدت إلى توفير كبير في التكاليف وتحسين مقاييس الأداء.</p>
+                                <span class="news-category" data-translate="news-category-4">Events</span>
+                                <h3 class="news-title" data-translate="news-4-title">Success Story: Client Case Study Showcase</h3>
+                                <p class="news-excerpt" data-translate="news-4-excerpt">Learn how we helped a major retail company increase their operational efficiency by 40% through our comprehensive custom software solutions. This detailed case study showcases our proven digital transformation approach, including advanced process automation, intelligent inventory management optimization, enhanced customer experience, and real-time analytics implementation with data-driven strategic decision-making that resulted in significant cost savings and improved performance metrics.</p>
                             </div>
                         </div>
                         <div class="news-card-back">
-                            <h4>قصة نجاح</h4>
-                            <p>اكتشف كيف ساعدت حلولنا المبتكرة شركة تجزئة كبرى على تحقيق تحسن في الكفاءة بنسبة 40% وتحويل عملياتها التجارية.</p>
-                            <a href="#" class="read-more">عرض دراسة الحالة</a>
+                            <h4 data-translate="news-4-back-title">Success Story</h4>
+                            <p data-translate="news-4-back-description">Discover how our innovative solutions helped a major retail company achieve 40% efficiency improvement and transform their business operations.</p>
+                            <a href="#" class="read-more" data-translate="view-case-study">View Case Study</a>
                         </div>
                     </div>
                 </div>
@@ -1021,15 +1021,15 @@
                                 <i class="fas fa-award"></i>
                             </div>
                             <div class="news-content">
-                                <span class="news-category">أخبار</span>
-                                <h3 class="news-title">SKYLINE تفوز بجائزة أفضل ابتكار برمجي 2024</h3>
-                                <p class="news-excerpt">نحن فخورون بالإعلان عن أن SKYLINE تم الاعتراف بها للتميز في ابتكار البرمجيات في حفل جوائز التكنولوجيا السنوي المرموق. تعترف هذه الجائزة المميزة بعملنا الرائد في الذكاء الاصطناعي وحلول الحوسبة السحابية المتقدمة وتنفيذات تعلم الآلة والتزامنا الثابت بتقديم برمجيات مبتكرة تحول الشركات عبر مختلف الصناعات وتدفع مبادرات التحول الرقمي.</p>
+                                <span class="news-category" data-translate="news-category-5">News</span>
+                                <h3 class="news-title" data-translate="news-5-title">SKYLINE Wins Best Software Innovation Award 2024</h3>
+                                <p class="news-excerpt" data-translate="news-5-excerpt">We are proud to announce that SKYLINE has been recognized for excellence in software innovation at the prestigious annual Technology Awards ceremony. This distinguished award acknowledges our pioneering work in AI and advanced cloud computing solutions, machine learning implementations, and our unwavering commitment to delivering innovative software that transforms businesses across various industries and drives digital transformation initiatives.</p>
                             </div>
                         </div>
                         <div class="news-card-back">
-                            <h4>اعتراف بالجائزة</h4>
-                            <p>احتفل معنا بينما نتلقى جائزة أفضل ابتكار برمجي المرموقة 2024، معترفين بالتزامنا بالتميز والابتكار.</p>
-                            <a href="#" class="read-more">تعرف على المزيد</a>
+                            <h4 data-translate="news-5-back-title">Award Recognition</h4>
+                            <p data-translate="news-5-back-description">Celebrate with us as we receive the prestigious Best Software Innovation Award 2024, recognizing our commitment to excellence and innovation.</p>
+                            <a href="#" class="read-more" data-translate="learn-more">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -1041,15 +1041,15 @@
                                 <i class="fas fa-rocket"></i>
                             </div>
                             <div class="news-content">
-                                <span class="news-category">تحديثات</span>
-                                <h3 class="news-title">ميزات تطبيق محمول جديدة متاحة الآن</h3>
-                                <p class="news-excerpt">تم تحديث تطبيقنا المحمول بشكل شامل بميزات جديدة مثيرة بما في ذلك قدرات الوضع غير المتصل وبروتوكولات الأمان المحسنة وتصميم واجهة المستخدم المحسن بشكل كبير. يقدم الإصدار الأحدث دعم الوضع المظلم الأنيق ونظام الإشعارات الفورية المتقدم والمصادقة البيومترية المتطورة ومزامنة البيانات في الوقت الفعلي ولوحة تحكم معاد تصميمها بالكامل توفر إمكانية وصول فائقة وتجربة مستخدم استثنائية عبر جميع الأجهزة المحمولة والمنصات.</p>
+                                <span class="news-category" data-translate="news-category-6">Updates</span>
+                                <h3 class="news-title" data-translate="news-6-title">New Mobile App Features Available Now</h3>
+                                <p class="news-excerpt" data-translate="news-6-excerpt">Our mobile app has been comprehensively updated with exciting new features including offline capabilities, enhanced security protocols, and significantly improved user interface design. The latest release offers elegant dark mode support, advanced instant notification system, sophisticated biometric authentication, real-time data synchronization, and a completely redesigned dashboard that provides superior accessibility and exceptional user experience across all mobile devices and platforms.</p>
                             </div>
                         </div>
                         <div class="news-card-back">
-                            <h4>تحديث التطبيق المحمول</h4>
-                            <p>اختبر أحدث ميزات التطبيق المحمول بما في ذلك الوضع غير المتصل والأمان المحسن وواجهة مستخدم معاد تصميمها بالكامل لأداء أفضل.</p>
-                            <a href="#" class="read-more">حمل الآن</a>
+                            <h4 data-translate="news-6-back-title">Mobile App Update</h4>
+                            <p data-translate="news-6-back-description">Experience the latest mobile app features including offline mode, enhanced security, and a completely redesigned user interface for better performance.</p>
+                            <a href="#" class="read-more" data-translate="download-now">Download Now</a>
                         </div>
                     </div>
                 </div>
@@ -1060,11 +1060,11 @@
     <!-- Newsletter Section -->
     <section class="newsletter">
         <div class="container">
-            <h2>ابق محدثاً</h2>
-            <p>اشترك في نشرتنا الإخبارية ولا تفوت آخر الأخبار والتحديثات</p>
+            <h2 data-translate="newsletter-title">Stay Updated</h2>
+            <p data-translate="newsletter-description">Subscribe to our newsletter and don't miss the latest news and updates</p>
             <form class="newsletter-form">
-                <input type="email" placeholder="أدخل عنوان بريدك الإلكتروني" required>
-                <button type="submit">اشترك</button>
+                <input type="email" placeholder="Enter your email address" required data-translate-placeholder="newsletter-placeholder">
+                <button type="submit" data-translate="newsletter-subscribe">Subscribe</button>
             </form>
         </div>
     </section>
@@ -1082,6 +1082,14 @@
     <script src="floating-action-button.js"></script>
 
     <script>
+        // Helper function to get translation from the translation system
+        function getTranslation(key) {
+            if (typeof window.translationSystem !== 'undefined' && window.translationSystem) {
+                return window.translationSystem.getTranslation(key);
+            }
+            return null;
+        }
+
         // Filter functionality
         const filterTabs = document.querySelectorAll('.filter-tab');
         const newsCards = document.querySelectorAll('.news-card');
@@ -1113,7 +1121,7 @@
                 e.preventDefault();
                 const email = this.querySelector('input[type="email"]').value;
                 if (email) {
-                    alert('شكراً لك على الاشتراك في نشرتنا الإخبارية!');
+                    alert(getTranslation('newsletter-success') || 'Thank you for subscribing to our newsletter!');
                     this.reset();
                 }
             });

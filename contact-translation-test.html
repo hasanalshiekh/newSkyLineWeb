@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Translation Test - SKYLINE Innovation Software</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .test-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        .language-toggle:hover {
+            background: #2980b9;
+        }
+        .hero {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.05), rgba(196, 30, 58, 0.05));
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 10px;
+            color: #333;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #C41E3A;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.4);
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.2);
+        }
+        .contact-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-card h3 i {
+            color: #C41E3A;
+            font-size: 1rem;
+        }
+        .contact-card p {
+            color: #666;
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
+        .contact-card a {
+            color: #C41E3A;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-card a:hover {
+            color: #8B0000;
+        }
+        .map-section {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.05), rgba(196, 30, 58, 0.05));
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .map-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .map-section p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .map-placeholder:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3);
+        }
+        .map-placeholder i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="language-toggle" onclick="toggleLanguage()">
+        <span data-translate="toggle-language">Switch to Arabic</span>
+    </button>
+
+    <div class="container">
+        <h1>Contact Us Translation Test</h1>
+        <p>This page tests the contact us translation functionality. The content below should be fully translatable between English and Arabic.</p>
+        
+        <div class="test-section">
+            <h2>Hero Section</h2>
+            <div class="hero">
+                <h1 data-translate="contact-hero-title">Contact Us</h1>
+                <p data-translate="contact-hero-description">Get in touch with our team. We're here to help you transform your business with innovative software solutions.</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Contact Form & Details</h2>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h2 data-translate="contact-form-title">Send us a Message</h2>
+                    <form onsubmit="testContactForm(event)">
+                        <div class="form-group">
+                            <label for="name" data-translate="contact-form-name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name" data-translate-placeholder="contact-form-name-placeholder">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="contact-form-email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address" data-translate-placeholder="contact-form-email-placeholder">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-translate="contact-form-phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" data-translate-placeholder="contact-form-phone-placeholder">
+                        </div>
+                        <div class="form-group">
+                            <label for="company" data-translate="contact-form-company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Enter your company name" data-translate-placeholder="contact-form-company-placeholder">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-translate="contact-form-subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" data-translate="contact-form-subject-select">Select a subject</option>
+                                <option value="general" data-translate="contact-form-subject-general">General Inquiry</option>
+                                <option value="sales" data-translate="contact-form-subject-sales">Sales Question</option>
+                                <option value="support" data-translate="contact-form-subject-support">Technical Support</option>
+                                <option value="partnership" data-translate="contact-form-subject-partnership">Partnership</option>
+                                <option value="demo" data-translate="contact-form-subject-demo">Request Demo</option>
+                                <option value="other" data-translate="contact-form-subject-other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-translate="contact-form-message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us how we can help you..." data-translate-placeholder="contact-form-message-placeholder"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-translate="contact-form-submit">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-details">
+                    <div class="contact-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> <span data-translate="contact-office-title">Our Office</span></h3>
+                        <p><strong>SKYLINE Innovation Software</strong></p>
+                        <p data-translate="contact-office-address-1">3rd floor, Qaisar Complex</p>
+                        <p data-translate="contact-office-address-2">Queen Rania St.</p>
+                        <p data-translate="contact-office-address-3">Amman, Jordan</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3><i class="fas fa-phone"></i> <span data-translate="contact-phone-title">Phone</span></h3>
+                        <p><strong data-translate="contact-phone-main">Main Office:</strong></p>
+                        <p><a href="tel:+962777558888">+962 77 755 8888</a></p>
+                        <p><strong data-translate="contact-phone-sales">Sales:</strong></p>
+                        <p><a href="tel:+962771600663">+962 77 160 0663</a></p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3><i class="fas fa-envelope"></i> <span data-translate="contact-email-title">Email</span></h3>
+                        <p><strong data-translate="contact-email-general">General:</strong></p>
+                        <p><a href="mailto:info@skyline-innovation.com">info@skyline-innovation.com</a></p>
+                        <p><strong data-translate="contact-email-sales">Sales:</strong></p>
+                        <p><a href="mailto:sales@skyline-innovation.com">sales@skyline-innovation.com</a></p>
+                        <p><strong data-translate="contact-email-support">Support:</strong></p>
+                        <p><a href="mailto:support@skyline-innovation.com">support@skyline-innovation.com</a></p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3><i class="fas fa-clock"></i> <span data-translate="contact-hours-title">Business Hours</span></h3>
+                        <p><strong data-translate="contact-hours-weekdays">Sunday - Thursday:</strong></p>
+                        <p data-translate="contact-hours-weekdays-time">9:00 AM - 5:00 PM (EST)</p>
+                        <p><strong data-translate="contact-hours-weekend">Friday - Saturday:</strong></p>
+                        <p data-translate="contact-hours-weekend-time">Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Map Section</h2>
+            <div class="map-section">
+                <h2 data-translate="contact-map-title">Find Us</h2>
+                <p data-translate="contact-map-subtitle">Visit our office or get directions to our location</p>
+                <div class="map-placeholder">
+                    <div>
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p data-translate="contact-map-click">Click to Open in Google Maps</p>
+                        <p data-translate="contact-map-address">3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
+                        <p><i class="fas fa-external-link-alt"></i> <span data-translate="contact-map-directions">Get Directions</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="translation-system.js"></script>
+    <script>
+        // Test language toggle
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            if (currentLang === 'en') {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                document.body.style.direction = 'rtl';
+                document.body.style.textAlign = 'right';
+            } else {
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                document.body.style.direction = 'ltr';
+                document.body.style.textAlign = 'left';
+            }
+        }
+        
+        // Test contact form functionality
+        function testContactForm(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            if (!data.name || !data.email || !data.subject || !data.message) {
+                alert(getTranslation('contact-form-error') || 'Please fill in all required fields');
+                return;
+            }
+            
+            alert(getTranslation('contact-form-success') || 'Thank you for your message! We will get back to you within 24 hours.');
+            event.target.reset();
+        }
+        
+        function getTranslation(key) {
+            if (typeof window.translationSystem !== 'undefined' && window.translationSystem) {
+                return window.translationSystem.getTranslation(key);
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>
