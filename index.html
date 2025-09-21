@@ -6407,7 +6407,7 @@
                 
                 <!-- Diamond Grid Container -->
                 <div class="diamond-grid-container">
-                <a href="iso-consulting.html" class="diamond-item diamond-1">
+                <a href="iso-consulting.html#iso-9001" class="diamond-item diamond-1">
                     <div class="diamond-content">
                         <div class="diamond-icon">
                             <i class="fas fa-certificate"></i>
@@ -6419,7 +6419,7 @@
                     </div>
                 </a>
                     
-                    <a href="iso-consulting.html" class="diamond-item diamond-2">
+                    <a href="iso-consulting.html#iso-27001" class="diamond-item diamond-2">
                         <div class="diamond-content">
                             <div class="diamond-icon">
                                 <i class="fas fa-shield-alt"></i>
@@ -6431,7 +6431,7 @@
                         </div>
                     </a>
                     
-                    <a href="iso-consulting.html" class="diamond-item diamond-3">
+                    <a href="iso-consulting.html#iso-14001" class="diamond-item diamond-3">
                         <div class="diamond-content">
                             <div class="diamond-icon">
                                 <i class="fas fa-leaf"></i>
@@ -6443,7 +6443,7 @@
                         </div>
                     </a>
                     
-                    <a href="iso-consulting.html" class="diamond-item diamond-4">
+                    <a href="iso-consulting.html#iso-45001" class="diamond-item diamond-4">
                         <div class="diamond-content">
                             <div class="diamond-icon">
                                 <i class="fas fa-hard-hat"></i>
@@ -6455,7 +6455,7 @@
                         </div>
                     </a>
                     
-                    <a href="products&solutions.html" class="diamond-item diamond-5">
+                    <a href="products&solutions.html#erp-solutions" class="diamond-item diamond-5">
                         <div class="diamond-content">
                             <div class="diamond-icon">
                                 <i class="fas fa-cogs"></i>
@@ -6467,7 +6467,7 @@
                         </div>
                     </a>
                     
-                    <a href="products&solutions.html" class="diamond-item diamond-6">
+                    <a href="products&solutions.html#cloud-services" class="diamond-item diamond-6">
                         <div class="diamond-content">
                             <div class="diamond-icon">
                                 <i class="fas fa-cloud"></i>
@@ -6479,7 +6479,7 @@
                         </div>
                     </a>
                     
-                    <a href="products&solutions.html" class="diamond-item diamond-7">
+                    <a href="products&solutions.html#mobile-apps" class="diamond-item diamond-7">
                         <div class="diamond-content">
                             <div class="diamond-icon">
                                 <i class="fas fa-mobile-alt"></i>
@@ -6491,7 +6491,7 @@
                         </div>
                     </a>
                     
-                    <a href="products&solutions.html" class="diamond-item diamond-8">
+                    <a href="products&solutions.html#ai-analytics" class="diamond-item diamond-8">
                         <div class="diamond-content">
                             <div class="diamond-icon">
                                 <i class="fas fa-brain"></i>
@@ -6503,7 +6503,7 @@
                         </div>
                     </a>
                     
-                    <a href="products&solutions.html" class="diamond-item diamond-9">
+                    <a href="products&solutions.html#ai-analytics" class="diamond-item diamond-9">
                         <div class="diamond-content">
                             <div class="diamond-icon">
                                 <i class="fas fa-database"></i>
@@ -7920,6 +7920,37 @@
     
     <!-- Page Loader -->
     <script src="page-loader.js"></script>
+
+    <!-- Diamond Navigation Enhancement -->
+    <script>
+        // Enhanced diamond navigation with visual feedback
+        document.addEventListener('DOMContentLoaded', function() {
+            const diamondLinks = document.querySelectorAll('.diamond-item[href*="#"]');
+            
+            diamondLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    const targetPage = href.split('#')[0];
+                    const targetId = href.split('#')[1];
+                    
+                    console.log(`Diamond navigation: ${targetPage}#${targetId}`);
+                    
+                    // Add visual feedback - slight scale down effect
+                    const originalTransform = this.style.transform;
+                    this.style.transform = originalTransform + ' scale(0.95)';
+                    
+                    setTimeout(() => {
+                        this.style.transform = originalTransform;
+                    }, 200);
+                    
+                    // Store the target ID in sessionStorage for the target page to use
+                    if (targetId) {
+                        sessionStorage.setItem('scrollToId', targetId);
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 

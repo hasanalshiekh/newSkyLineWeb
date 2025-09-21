@@ -1163,5 +1163,45 @@
     
     <!-- Page Loader -->
     <script src="page-loader.js"></script>
+
+    <!-- Diamond Navigation Handler -->
+    <script>
+        // Handle direct navigation from diamond grid
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we need to scroll to a specific section
+            const targetId = sessionStorage.getItem('scrollToId');
+            const urlHash = window.location.hash.substring(1);
+            
+            const scrollToSection = targetId || urlHash;
+            
+            if (scrollToSection) {
+                setTimeout(() => {
+                    const targetElement = document.getElementById(scrollToSection);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start',
+                            inline: 'nearest'
+                        });
+                        
+                        // Add highlight effect
+                        targetElement.style.transition = 'all 0.6s ease';
+                        targetElement.style.transform = 'scale(1.02)';
+                        targetElement.style.boxShadow = '0 10px 30px rgba(217, 10, 44, 0.2)';
+                        
+                        setTimeout(() => {
+                            targetElement.style.transform = 'scale(1)';
+                            targetElement.style.boxShadow = '';
+                        }, 1000);
+                        
+                        console.log(`Scrolled to Products section: ${scrollToSection}`);
+                    }
+                    
+                    // Clear the stored target
+                    sessionStorage.removeItem('scrollToId');
+                }, 500);
+            }
+        });
+    </script>
 </body>
 </html>
