@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Grid Test - SKYLINE Innovation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #f1f3f4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .test-header {
+            margin-bottom: 50px;
+        }
+
+        .test-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .test-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Diamond Grid Styles */
+        .diamond-grid-section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .diamond-grid-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diamond-item {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.9));
+            border: 2px solid rgba(217, 10, 44, 0.2);
+            border-radius: 20px;
+            transform: rotate(45deg);
+            transform-origin: center center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .diamond-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(217, 10, 44, 0.1), rgba(217, 10, 44, 0.05));
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .diamond-item:hover::before {
+            opacity: 1;
+        }
+
+        .diamond-item:hover {
+            border-color: rgba(217, 10, 44, 0.6);
+            box-shadow: 0 15px 30px rgba(217, 10, 44, 0.2);
+        }
+
+        .diamond-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+
+        .diamond-icon {
+            font-size: 1.8rem;
+            color: #D90A2C;
+            margin-bottom: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .diamond-item:hover .diamond-icon {
+            color: #B22222;
+        }
+
+        .diamond-text h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 2px 0;
+            line-height: 1.0;
+        }
+
+        .diamond-text span {
+            font-size: 0.6rem;
+            color: #666;
+            font-weight: 500;
+            line-height: 1.1;
+        }
+
+        /* Diamond Positioning - Creating a diamond pattern like in the image */
+        .diamond-1 { top: 0; left: 50%; transform: translateX(-50%) rotate(45deg); transform-origin: center center; }
+        .diamond-2 { top: 25%; left: 75%; transform: translate(-50%, -50%) rotate(45deg); transform-origin: center center; }
+        .diamond-3 { top: 25%; left: 25%; transform: translate(-50%, -50%) rotate(45deg); transform-origin: center center; }
+        .diamond-4 { top: 50%; left: 87.5%; transform: translate(-50%, -50%) rotate(45deg); transform-origin: center center; }
+        .diamond-5 { top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); transform-origin: center center; }
+        .diamond-6 { top: 50%; left: 12.5%; transform: translate(-50%, -50%) rotate(45deg); transform-origin: center center; }
+        .diamond-7 { top: 75%; left: 75%; transform: translate(-50%, -50%) rotate(45deg); transform-origin: center center; }
+        .diamond-8 { top: 75%; left: 25%; transform: translate(-50%, -50%) rotate(45deg); transform-origin: center center; }
+        .diamond-9 { bottom: 0; left: 50%; transform: translateX(-50%) rotate(45deg); transform-origin: center center; }
+
+        /* Hover effects - Zoom in place */
+        .diamond-1:hover { transform: translateX(-50%) rotate(45deg) scale(1.1); }
+        .diamond-2:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+        .diamond-3:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+        .diamond-4:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+        .diamond-5:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+        .diamond-6:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+        .diamond-7:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+        .diamond-8:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+        .diamond-9:hover { transform: translateX(-50%) rotate(45deg) scale(1.1); }
+
+        /* Hover effects for diamond positioning - Removed for cleaner interaction */
+
+        /* Responsive Design for Diamond Grid */
+        @media (max-width: 768px) {
+            .diamond-grid-container {
+                max-width: 300px;
+                height: 400px;
+                transform: scale(0.7);
+            }
+            
+            .diamond-item {
+                width: 100px;
+                height: 100px;
+            }
+            
+            
+            .diamond-icon {
+                font-size: 1.4rem;
+                margin-bottom: 4px;
+            }
+            
+            .diamond-text h4 {
+                font-size: 0.65rem;
+                margin-bottom: 1px;
+            }
+            
+            .diamond-text span {
+                font-size: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .diamond-grid-container {
+                transform: scale(0.6);
+                height: 350px;
+            }
+            
+            .diamond-item {
+                width: 90px;
+                height: 90px;
+            }
+            
+            
+            .diamond-icon {
+                font-size: 1.2rem;
+                margin-bottom: 3px;
+            }
+            
+            .diamond-text h4 {
+                font-size: 0.6rem;
+                margin-bottom: 1px;
+            }
+            
+            .diamond-text span {
+                font-size: 0.45rem;
+            }
+        }
+
+        .test-info {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px solid rgba(217, 10, 44, 0.1);
+        }
+
+        .test-info h3 {
+            color: #D90A2C;
+            margin-bottom: 10px;
+        }
+
+        .test-info ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .test-info li {
+            margin: 8px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1 class="test-title">Diamond Grid Design Test</h1>
+            <p class="test-subtitle">Testing the new diamond-shaped grid layout for ISO standards and products</p>
+        </div>
+
+        <!-- Diamond Grid Solutions -->
+        <div class="diamond-grid-section">
+            <div class="section-header">
+                <h3 class="featured-title">Our Core Solutions</h3>
+                <p class="section-subtitle">Comprehensive ISO standards and innovative products for modern businesses</p>
+            </div>
+            
+            <!-- Diamond Grid Container -->
+            <div class="diamond-grid-container">
+                <a href="iso-consulting.html" class="diamond-item diamond-1">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>ISO 9001</h4>
+                            <span>Quality Management</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <div class="diamond-item diamond-2">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>ISO 27001</h4>
+                            <span>Information Security</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="diamond-item diamond-3">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>ISO 14001</h4>
+                            <span>Environmental Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="diamond-item diamond-4">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>ISO 45001</h4>
+                            <span>Health & Safety</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="diamond-item diamond-5">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>ERP Systems</h4>
+                            <span>Enterprise Solutions</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="diamond-item diamond-6">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>Cloud Solutions</h4>
+                            <span>Scalable Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="diamond-item diamond-7">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>Mobile Apps</h4>
+                            <span>Cross-Platform Development</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="diamond-item diamond-8">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>AI Solutions</h4>
+                            <span>Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="diamond-item diamond-9">
+                    <div class="diamond-content">
+                        <div class="diamond-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="diamond-text">
+                            <h4>Data Analytics</h4>
+                            <span>Business Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-info">
+            <h3>Test Features:</h3>
+            <ul>
+                <li>✅ Diamond-shaped grid layout similar to the provided image</li>
+                <li>✅ 9 clickable items arranged in diamond pattern</li>
+                <li>✅ Mix of ISO standards and product solutions</li>
+                <li>✅ Hover effects with zoom and color changes</li>
+                <li>✅ Responsive design for mobile and tablet</li>
+                <li>✅ Consistent with website color scheme (#D90A2C)</li>
+                <li>✅ FontAwesome icons for visual appeal</li>
+                <li>✅ Smooth animations and transitions</li>
+                <li>✅ Clickable links to relevant pages</li>
+            </ul>
+            
+            <h3>Navigation Links:</h3>
+            <ul>
+                <li>🏆 <strong>ISO Standards</strong> (ISO 9001, 27001, 14001, 45001) → iso-consulting.html</li>
+                <li>⚙️ <strong>Products & Solutions</strong> (ERP, Cloud, Mobile, AI, Analytics) → products&solutions.html</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Add click functionality for demonstration
+        document.querySelectorAll('.diamond-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const title = this.querySelector('h4').textContent;
+                const subtitle = this.querySelector('span').textContent;
+                alert(`Clicked on: ${title}\n${subtitle}`);
+            });
+        });
+
+        // Log screen size for testing
+        console.log('Screen width:', window.innerWidth);
+        console.log('Screen height:', window.innerHeight);
+        
+        // Test responsive breakpoints
+        window.addEventListener('resize', function() {
+            console.log('New screen width:', window.innerWidth);
+        });
+    </script>
+</body>
+</html>
