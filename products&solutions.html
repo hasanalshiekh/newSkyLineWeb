@@ -636,6 +636,464 @@
             transform: translateY(-2px);
         }
 
+        /* Pricing Promo Card */
+        .pricing-promo {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.05) 0%, rgba(139, 0, 0, 0.08) 50%, rgba(196, 30, 58, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-promo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pricingGrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23C41E3A" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23pricingGrid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .pricing-promo-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            border-radius: 30px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 60px rgba(196, 30, 58, 0.15),
+                0 10px 30px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(196, 30, 58, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .pricing-promo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(196, 30, 58, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .pricing-promo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 35px 80px rgba(196, 30, 58, 0.25),
+                0 15px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            border-color: rgba(196, 30, 58, 0.4);
+        }
+
+        .pricing-promo-card:hover::before {
+            left: 100%;
+        }
+
+        .pricing-promo-header {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-promo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 
+                0 15px 35px rgba(196, 30, 58, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-promo-card:hover .pricing-promo-icon {
+            transform: scale(1.1) rotateY(15deg);
+            box-shadow: 
+                0 20px 45px rgba(196, 30, 58, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .pricing-promo-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(196, 30, 58, 0.2);
+        }
+
+        .pricing-promo-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .pricing-promo-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-promo-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.8rem 1rem;
+            background: rgba(196, 30, 58, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(196, 30, 58, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-promo-feature:hover {
+            background: rgba(196, 30, 58, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .pricing-promo-feature i {
+            color: #C41E3A;
+            font-size: 1.2rem;
+            min-width: 20px;
+        }
+
+        .pricing-promo-feature span {
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .pricing-promo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 15px 35px rgba(196, 30, 58, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 2px solid transparent;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-promo-cta:hover {
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 25px 50px rgba(196, 30, 58, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .pricing-promo-cta i {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-promo-cta:hover i {
+            transform: translateX(5px);
+        }
+
+        .pricing-promo-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.4);
+            animation: badgePulse 2s ease-in-out infinite;
+            white-space: nowrap;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(196, 30, 58, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 30px rgba(196, 30, 58, 0.6);
+            }
+        }
+
+        /* Responsive for Pricing Promo */
+        @media (max-width: 768px) {
+            .pricing-promo-card {
+                padding: 2rem 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .pricing-promo-title {
+                font-size: 2rem;
+            }
+
+            .pricing-promo-subtitle {
+                font-size: 1rem;
+            }
+
+            .pricing-promo-features {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .pricing-promo-cta {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .pricing-promo-badge {
+                top: 8px;
+                right: 8px;
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+                min-width: 120px;
+            }
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.03), rgba(196, 30, 58, 0.03));
+            position: relative;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(139, 0, 0, 0.2);
+            border-radius: 25px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pricing-card.featured {
+            border-color: #C41E3A;
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(196, 30, 58, 0.3);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 0 0 15px 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(196, 30, 58, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 0, 0, 0.6);
+            box-shadow: 0 25px 60px rgba(139, 0, 0, 0.25);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .pricing-card:hover::after {
+            left: 100%;
+        }
+
+        .pricing-header {
+            margin-bottom: 2rem;
+        }
+
+        .pricing-plan {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(196, 30, 58, 0.2);
+        }
+
+        .pricing-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-price {
+            margin-bottom: 2rem;
+        }
+
+        .pricing-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #C41E3A;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(196, 30, 58, 0.3);
+        }
+
+        .pricing-period {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            color: #666;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .pricing-features li i {
+            color: #C41E3A;
+            font-size: 1rem;
+            min-width: 16px;
+        }
+
+        .pricing-features li.unavailable {
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .pricing-features li.unavailable i {
+            color: #999;
+        }
+
+        .pricing-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: auto;
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .pricing-cta:hover {
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .pricing-cta.secondary {
+            background: rgba(139, 0, 0, 0.1);
+            color: #8B0000;
+            border: 2px solid rgba(139, 0, 0, 0.3);
+        }
+
+        .pricing-cta.secondary:hover {
+            background: rgba(139, 0, 0, 0.2);
+            color: #8B0000;
+            border-color: #8B0000;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(139, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .pricing-note p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-note strong {
+            color: #C41E3A;
+            font-weight: 600;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             body {
@@ -668,6 +1126,19 @@
 
             .download-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px) scale(1);
             }
         }
     </style>
@@ -1080,6 +1551,58 @@
         </div>
     </section>
 
+    <!-- Pricing Promo Section -->
+    <section class="pricing-promo">
+        <div class="container">
+            <div class="pricing-promo-card" onclick="window.location.href='pricing.html'">
+                <div class="pricing-promo-badge">Special Offer</div>
+                
+                <div class="pricing-promo-header">
+                    <div class="pricing-promo-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h2 class="pricing-promo-title" data-translate="pricing-promo-title">Discover Our Pricing Plans</h2>
+                    <p class="pricing-promo-subtitle" data-translate="pricing-promo-subtitle">Choose the perfect plan for your business needs with flexible pricing options</p>
+                </div>
+                
+                <div class="pricing-promo-features">
+                    <div class="pricing-promo-feature">
+                        <i class="fas fa-rocket"></i>
+                        <span data-translate="pricing-promo-feature-1">Start from $99/month</span>
+                    </div>
+                    <div class="pricing-promo-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span data-translate="pricing-promo-feature-2">30-day free trial</span>
+                    </div>
+                    <div class="pricing-promo-feature">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="pricing-promo-feature-3">Scalable for any team size</span>
+                    </div>
+                    <div class="pricing-promo-feature">
+                        <i class="fas fa-headset"></i>
+                        <span data-translate="pricing-promo-feature-4">24/7 premium support</span>
+                    </div>
+                    <div class="pricing-promo-feature">
+                        <i class="fas fa-cogs"></i>
+                        <span data-translate="pricing-promo-feature-5">All features included</span>
+                    </div>
+                    <div class="pricing-promo-feature">
+                        <i class="fas fa-chart-line"></i>
+                        <span data-translate="pricing-promo-feature-6">Advanced analytics</span>
+                    </div>
+                </div>
+                
+                <a href="pricing.html" class="pricing-promo-cta" data-translate="pricing-promo-cta">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>View All Pricing Plans</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+   
+  
+
     <!-- Navbar Include Script -->
     <script src="navbar-include.js"></script>
     
@@ -1140,6 +1663,97 @@
                 }
             });
         });
+
+        // Pricing card interactions
+        document.querySelectorAll('.pricing-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = this.classList.contains('featured') 
+                    ? 'translateY(-10px) scale(1.05)' 
+                    : 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = this.classList.contains('featured') 
+                    ? 'scale(1.05)' 
+                    : 'translateY(0)';
+            });
+        });
+
+        // Pricing CTA click handling
+        document.querySelectorAll('.pricing-cta').forEach(cta => {
+            cta.addEventListener('click', function(e) {
+                e.preventDefault();
+                const planName = this.closest('.pricing-card').querySelector('.pricing-plan').textContent;
+                
+                if (this.textContent.includes('Contact Sales')) {
+                    alert(`Contact our sales team for Enterprise pricing and custom solutions for ${planName} plan.`);
+                } else {
+                    alert(`Starting your ${planName} plan selection. You will be redirected to the demo booking form.`);
+                    // Scroll to demo section
+                    const demoSection = document.getElementById('demo');
+                    if (demoSection) {
+                        demoSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Pricing Promo Card interactions
+        const pricingPromoCard = document.querySelector('.pricing-promo-card');
+        if (pricingPromoCard) {
+            // Add click effect
+            pricingPromoCard.addEventListener('click', function(e) {
+                // Add ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(196, 30, 58, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                    z-index: 1;
+                `;
+                
+                this.style.position = 'relative';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+                
+                // Navigate to pricing page after animation
+                setTimeout(() => {
+                    window.location.href = 'pricing.html';
+                }, 300);
+            });
+            
+            // Add hover sound effect (visual feedback)
+            pricingPromoCard.addEventListener('mouseenter', function() {
+                this.style.cursor = 'pointer';
+            });
+        }
+
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
     
     <!-- Particle Animation Script -->

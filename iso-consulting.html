@@ -145,26 +145,234 @@
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 80px;
+            padding: 80px 0 40px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.05), rgba(196, 30, 58, 0.05));
+            background: 
+                linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(196, 30, 58, 0.1)),
+                url('img/Gemini_Generated_Image_vn6mpvvn6mpvvn6m.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             position: relative;
+            overflow: hidden;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
+
+
+
+
 
         .hero h1 {
             font-size: 4rem;
             font-weight: 800;
-            color: #333;
+            color: #fff;
             margin-bottom: 1.5rem;
-            text-shadow: 0 0 40px rgba(196, 30, 58, 0.4);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(196, 30, 58, 0.6);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            border-radius: 15px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+
+        /* Responsive Design for Hero Background */
+        /* Large screens (1400px+) */
+        @media (min-width: 1400px) {
+            .hero {
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+                padding: 100px 0 50px;
+            }
+            
+            .hero h1 {
+                font-size: 5rem;
+            }
+            
+            .hero p {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Desktop (1200px - 1399px) */
+        @media (max-width: 1399px) and (min-width: 1200px) {
+            .hero {
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+                padding: 90px 0 45px;
+            }
+            
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Laptop (992px - 1199px) */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .hero {
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+                padding: 80px 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Tablet (768px - 991px) */
+        @media (max-width: 991px) and (min-width: 768px) {
+            .hero {
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+                padding: 70px 0 35px;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Mobile Large (576px - 767px) */
+        @media (max-width: 767px) and (min-width: 576px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 60px 0 30px;
+                background-size: cover;
+                height: 100vh;
+                background-position: center;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+                padding: 15px 25px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+            
+            .hero-cta {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Mobile Medium (480px - 575px) */
+        @media (max-width: 575px) and (min-width: 480px) {
+            .hero {
+                padding: 50px 0 25px;
+                background-size: cover;
+                height: 100vh;
+                background-position: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+                padding: 12px 20px;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+            
+            .hero-cta {
+                padding: 0.9rem 1.8rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile Small (360px - 479px) */
+        @media (max-width: 479px) and (min-width: 360px) {
+            .hero {
+                padding: 40px 0 20px;
+                background-size: cover;
+                height: 100vh;
+                background-position: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                padding: 10px 15px;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+            
+            .hero-cta {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile Extra Small (320px - 359px) */
+        @media (max-width: 359px) {
+            .hero {
+                padding: 30px 0 15px;
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+                padding: 8px 12px;
+            }
+            
+            .hero p {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+            
+            .hero-cta {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
+            }
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #666;
+            color: #fff;
             max-width: 700px;
             margin: 0 auto 2rem;
             line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            word-wrap: break-word;
         }
 
         .hero-cta {
@@ -173,18 +381,21 @@
             gap: 0.5rem;
             background: linear-gradient(135deg, #C41E3A, #8B0000);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.6), 0 6px 25px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
         }
 
         .hero-cta:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.4);
+            box-shadow: 0 25px 50px rgba(196, 30, 58, 0.7), 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* ISO Standards Grid */
@@ -590,11 +801,14 @@
 
     <!-- Hero Section -->
     <section class="hero">
+
         <!-- Particle Animation -->
         <div id="particles-style-01" class="position-absolute h-100 top-0 left-0 w-100" data-particle="true" data-particle-options="{ &quot;particles&quot;: { &quot;number&quot;: { &quot;value&quot;: 80, &quot;density&quot;: { &quot;enable&quot;: true, &quot;value_area&quot;: 800 } }, &quot;color&quot;: { &quot;value&quot;: &quot;#8B0000&quot; }, &quot;shape&quot;: { &quot;type&quot;: &quot;circle&quot;, &quot;stroke&quot;: { &quot;width&quot;: 0, &quot;color&quot;: &quot;#8B0000&quot; }, &quot;polygon&quot;: { &quot;nb_sides&quot;: 5 }, &quot;image&quot;: { &quot;src&quot;: &quot;img/github.svg&quot;, &quot;width&quot;: 100, &quot;height&quot;: 100 } }, &quot;opacity&quot;: { &quot;value&quot;: 0.4, &quot;random&quot;: false, &quot;anim&quot;: { &quot;enable&quot;: false, &quot;speed&quot;: 1, &quot;opacity_min&quot;: 0.1, &quot;sync&quot;: false } }, &quot;size&quot;: { &quot;value&quot;: 4, &quot;random&quot;: true, &quot;anim&quot;: { &quot;enable&quot;: false, &quot;speed&quot;: 40, &quot;size_min&quot;: 0.1, &quot;sync&quot;: false } }, &quot;line_linked&quot;: { &quot;enable&quot;: true, &quot;distance&quot;: 150, &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1, &quot;width&quot;: 1 }, &quot;move&quot;: { &quot;enable&quot;: true, &quot;speed&quot;: 6, &quot;direction&quot;: &quot;none&quot;, &quot;random&quot;: false, &quot;straight&quot;: false, &quot;out_mode&quot;: &quot;out&quot;, &quot;bounce&quot;: false, &quot;attract&quot;: { &quot;enable&quot;: false, &quot;rotateX&quot;: 600, &quot;rotateY&quot;: 1200 } } }, &quot;interactivity&quot;: { &quot;detect_on&quot;: &quot;canvas&quot;, &quot;events&quot;: { &quot;onhover&quot;: { &quot;enable&quot;: true, &quot;mode&quot;: &quot;repulse&quot; }, &quot;onclick&quot;: { &quot;enable&quot;: true, &quot;mode&quot;: &quot;push&quot; }, &quot;resize&quot;: true }, &quot;modes&quot;: { &quot;grab&quot;: { &quot;distance&quot;: 400, &quot;line_linked&quot;: { &quot;opacity&quot;: 1 } }, &quot;bubble&quot;: { &quot;distance&quot;: 400, &quot;size&quot;: 40, &quot;duration&quot;: 2, &quot;opacity&quot;: 8, &quot;speed&quot;: 3 }, &quot;repulse&quot;: { &quot;distance&quot;: 200, &quot;duration&quot;: 0.4 }, &quot;push&quot;: { &quot;particles_nb&quot;: 4 }, &quot;remove&quot;: { &quot;particles_nb&quot;: 2 } } }, &quot;retina_detect&quot;: true}">
             <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
         </div>
-        <div class="container">
+
+
+        <div class="container" style="max-width: 100%; padding: 0 20px; width: 100%;">
             <h1 data-translate="iso-hero-title">ISO Consulting</h1>
             <p data-translate="iso-hero-description">Achieve international standards compliance with our specialized ISO consulting services. We help your organization implement, maintain, and improve quality management systems.</p>
             <a href="#iso-standards" class="hero-cta">
@@ -1007,6 +1221,7 @@
                     sessionStorage.removeItem('scrollToId');
                 }, 500);
             }
+
         });
     </script>
 </body>
