@@ -39,81 +39,7 @@
             text-align: left;
         }
 
-        /* Creative Background Elements */
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
 
-        .shape {
-            position: absolute;
-            opacity: 0.03;
-            animation: float 25s infinite linear;
-        }
-
-        .shape:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #C41E3A, #8B0000);
-            border-radius: 50%;
-            animation-duration: 30s;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(45deg, #000, #333);
-            transform: rotate(45deg);
-            animation-duration: 35s;
-            animation-delay: 5s;
-        }
-
-        .shape:nth-child(3) {
-            top: 40%;
-            left: 80%;
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(45deg, #C41E3A, #000);
-            border-radius: 30%;
-            animation-duration: 40s;
-            animation-delay: 10s;
-        }
-
-        .shape:nth-child(4) {
-            top: 80%;
-            left: 20%;
-            width: 180px;
-            height: 180px;
-            background: linear-gradient(45deg, #8B0000, #C41E3A);
-            border-radius: 50%;
-            animation-duration: 45s;
-            animation-delay: 15s;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            33% {
-                transform: translateY(-30px) rotate(120deg);
-            }
-            66% {
-                transform: translateY(30px) rotate(240deg);
-            }
-            100% {
-                transform: translateY(0px) rotate(360deg);
-            }
-        }
 
         /* Container */
         .container {
@@ -207,40 +133,11 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 3rem;
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 25px;
-            padding: 2.5rem;
-            box-shadow: 
-                0 25px 60px rgba(196, 30, 58, 0.15),
-                0 10px 30px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(196, 30, 58, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .plan-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.02), rgba(139, 0, 0, 0.05));
-            pointer-events: none;
-        }
-
-        .plan-header::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(196, 30, 58, 0.05) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-            pointer-events: none;
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
         }
 
         @keyframes pulse {
@@ -253,23 +150,21 @@
         }
 
         .plan-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #C41E3A, #8B0000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #000000;
             margin-bottom: 0.5rem;
         }
 
         .plan-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #333;
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(139, 0, 0, 0.1));
-            padding: 0.5rem 1rem;
-            border-radius: 15px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ff6b6b;
+            background: #f8f9fa;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
             display: inline-block;
+            border: 1px solid #e0e0e0;
         }
 
         .plan-tabs {
@@ -281,11 +176,12 @@
         .tab-button {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1.2rem 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid rgba(196, 30, 58, 0.1);
-            border-radius: 20px;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50%;
             color: #666;
             font-weight: 600;
             cursor: pointer;
@@ -293,40 +189,22 @@
             font-size: 1rem;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .tab-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(196, 30, 58, 0.1), transparent);
-            transition: left 0.6s ease;
         }
 
         .tab-button:hover {
-            background: rgba(196, 30, 58, 0.08);
-            border-color: rgba(196, 30, 58, 0.4);
-            color: #C41E3A;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.2);
-        }
-
-        .tab-button:hover::before {
-            left: 100%;
+            background: #f8f9fa;
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.2);
         }
 
         .tab-button.active {
-            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            background: #ff6b6b;
             color: white;
-            border-color: #C41E3A;
-            box-shadow: 
-                0 15px 35px rgba(196, 30, 58, 0.4),
-                0 5px 15px rgba(196, 30, 58, 0.2);
-            transform: translateY(-2px);
+            border-color: #ff6b6b;
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
+            transform: translateY(-2px) scale(1.1);
         }
 
         .tab-button.active::before {
@@ -334,11 +212,98 @@
         }
 
         .tab-button i {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
         }
 
         .plan-content {
             margin-top: 2rem;
+        }
+
+        /* Side by side layout for modules and pricing */
+        .modules-pricing-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .modules-section {
+            flex: 1;
+        }
+
+        .pricing-section {
+            flex: 1;
+        }
+
+        .pricing-section .pricing-summary {
+            position: sticky;
+            top: 2rem;
+            max-width: none;
+            margin: 0;
+        }
+
+        /* Proceed to Payment Button */
+        .proceed-payment-btn {
+            background: #ff6b6b;
+            border: none;
+            border-radius: 25px;
+            padding: 1rem 2rem;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        .proceed-payment-btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .proceed-payment-btn:hover .fas.fa-arrow-right {
+            transform: translateX(5px);
+        }
+
+        .proceed-payment-btn .fas {
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .proceed-payment-btn .fas.fa-arrow-right {
+            transition: transform 0.3s ease;
+        }
+
+        .proceed-payment-btn span {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .modules-pricing-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .pricing-section .pricing-summary {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .proceed-payment-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
         }
 
         .tab-content {
@@ -355,38 +320,76 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Modules Card */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Modules Card - Modern Design */
         .modules-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 50px rgba(196, 30, 58, 0.1);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(196, 30, 58, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95));
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 25px 60px rgba(196, 30, 58, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(196, 30, 58, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modules-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #C41E3A, #8B0000, #C41E3A);
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
         }
 
         .modules-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
         }
 
         .modules-header h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .modules-header h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            border-radius: 2px;
         }
 
         .modules-header p {
             color: #666;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
         .modules-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-height: 600px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-height: 700px;
             overflow-y: auto;
             padding-right: 1rem;
         }
@@ -401,24 +404,25 @@
         }
 
         .modules-list::-webkit-scrollbar-thumb {
-            background: rgba(196, 30, 58, 0.3);
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
             border-radius: 4px;
         }
 
         .modules-list::-webkit-scrollbar-thumb:hover {
-            background: rgba(196, 30, 58, 0.5);
+            background: linear-gradient(135deg, #8B0000, #C41E3A);
         }
 
         .module-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.2rem 1.8rem;
+            padding: 1.5rem;
             border-radius: 20px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
         }
 
@@ -429,14 +433,18 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             transition: left 0.6s ease;
         }
 
+        .module-item:hover::before {
+            left: 100%;
+        }
+
+
         .module-item:hover {
-            background: rgba(196, 30, 58, 0.08);
-            transform: translateX(8px) translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .module-item:hover::before {
@@ -444,32 +452,55 @@
         }
 
         .module-item.included {
-            background: rgba(34, 197, 94, 0.08);
-            border: 2px solid rgba(34, 197, 94, 0.3);
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.15), rgba(139, 0, 0, 0.08));
+            border: 3px solid rgba(196, 30, 58, 0.4);
+            box-shadow: 0 12px 35px rgba(196, 30, 58, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-item.included::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #C41E3A, #8B0000, #C41E3A);
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+
+        .module-item.optional {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.08), rgba(139, 0, 0, 0.03));
+            border: 2px solid rgba(196, 30, 58, 0.2);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.1);
         }
 
         .module-item.included:hover {
-            background: rgba(34, 197, 94, 0.15);
-            border-color: rgba(34, 197, 94, 0.5);
-            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
-        }
-
-        .module-item.optional {
-            background: rgba(251, 191, 36, 0.08);
-            border: 2px solid rgba(251, 191, 36, 0.3);
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(139, 0, 0, 0.12));
+            border-color: rgba(196, 30, 58, 0.6);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.35);
+            transform: translateY(-3px) scale(1.02);
         }
 
         .module-item.optional:hover {
-            background: rgba(251, 191, 36, 0.15);
-            border-color: rgba(251, 191, 36, 0.5);
-            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.2);
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.12), rgba(139, 0, 0, 0.06));
+            border-color: rgba(196, 30, 58, 0.4);
+            box-shadow: 0 12px 30px rgba(196, 30, 58, 0.15);
         }
 
         .module-item.selected {
-            background: rgba(196, 30, 58, 0.15) !important;
-            border-color: rgba(196, 30, 58, 0.6) !important;
-            transform: translateX(8px) translateY(-2px);
-            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.3) !important;
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            border-color: #C41E3A;
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(196, 30, 58, 0.4);
+        }
+
+        .module-item.selected::before {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
         }
 
         .module-item.selected::after {
@@ -598,24 +629,123 @@
             }
         }
 
+        /* Custom message styles */
+        .custom-message {
+            position: fixed;
+            top: 140px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.4);
+            z-index: 1000;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .custom-message.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .custom-message .message-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .custom-message .message-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .custom-message .message-text {
+            font-weight: 600;
+            font-size: 1rem;
+            flex: 1;
+        }
+
+        /* Responsive adjustments for custom message */
+        @media (max-width: 768px) {
+            .custom-message {
+                top: 120px;
+                left: 50%;
+                max-width: 280px;
+                padding: 0.8rem 1.2rem;
+            }
+            
+            .custom-message .message-text {
+                font-size: 0.9rem;
+            }
+            
+            .custom-message .message-icon {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .custom-message {
+                top: 110px;
+                max-width: 250px;
+                padding: 0.7rem 1rem;
+            }
+            
+            .custom-message .message-text {
+                font-size: 0.85rem;
+            }
+        }
+
         .module-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             flex-shrink: 0;
+            margin-right: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
         }
 
         .module-item.included .module-icon {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
             color: white;
+            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
         }
 
         .module-item.optional .module-icon {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
             color: white;
+            box-shadow: 0 6px 16px rgba(196, 30, 58, 0.25);
+        }
+
+        .module-item.selected .module-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .module-item:hover .module-icon {
+            transform: scale(1.1);
         }
 
         .module-icon i {
@@ -627,9 +757,43 @@
         }
 
         .module-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .module-item.included .module-name {
+            color: #000000;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-item.optional .module-name {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .module-item.selected .module-name {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .module-item.included:hover .module-name {
+            color: #000000;
+            transform: translateX(2px);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .module-item.optional:hover .module-name {
+            color: #000000;
+            transform: translateX(2px);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .module-item.selected:hover .module-name {
+            color: white;
         }
 
         .module-status {
@@ -637,45 +801,51 @@
         }
 
         .status-badge {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
             font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .status-badge:hover::before {
+            left: 100%;
+        }
+
+        .status-badge:hover {
+            transform: scale(1.05);
         }
 
         .status-badge.included {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
             color: white;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
         }
 
         .status-badge.optional {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            background: linear-gradient(135deg, #C41E3A, #8B0000);
             color: white;
+            box-shadow: 0 3px 12px rgba(196, 30, 58, 0.25);
         }
 
-        /* Features Card */
-        .features-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 50px rgba(196, 30, 58, 0.1);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(196, 30, 58, 0.1);
-        }
 
-        .features-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
 
-        .features-header h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
 
         .features-header p {
             color: #666;
@@ -847,15 +1017,6 @@
             color: white;
         }
 
-        /* Mobile Card */
-        .mobile-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 50px rgba(196, 30, 58, 0.1);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(196, 30, 58, 0.1);
-        }
 
         .mobile-header {
             text-align: center;
@@ -1039,15 +1200,6 @@
             color: white;
         }
 
-        /* SLA Card */
-        .sla-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 50px rgba(196, 30, 58, 0.1);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(196, 30, 58, 0.1);
-        }
 
         .sla-header {
             text-align: center;
@@ -1867,13 +2019,6 @@
     </style>
 </head>
 <body>
-    <!-- Floating Background Shapes -->
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1899,522 +2044,256 @@
                 <div class="plan-tabs">
                     <button class="tab-button active" data-tab="modules">
                         <i class="fas fa-th-large"></i>
-                        Modules
-                    </button>
-                    <button class="tab-button" data-tab="features">
-                        <i class="fas fa-star"></i>
-                        Features
-                    </button>
-                    <button class="tab-button" data-tab="mobile">
-                        <i class="fas fa-mobile-alt"></i>
-                        Mobile Apps
-                    </button>
-                    <button class="tab-button" data-tab="sla">
-                        <i class="fas fa-shield-alt"></i>
-                        SLA
                     </button>
                 </div>
             </div>
             
             <div class="plan-content">
                 <!-- Modules Tab -->
-                <div class="tab-content active" id="modules">
-                    <div class="modules-card">
-                        <div class="modules-header">
-                            <h3>Available Modules</h3>
-                            <p>Select the modules you need for your business</p>
+                
+                <!-- Side by side wrapper -->
+                <div class="modules-pricing-wrapper">
+                    <div class="modules-section">
+                        <div class="modules-card">
+                            <div class="modules-header">
+                                <h3>Available Modules</h3>
+                                <p>Select the modules you need for your business</p>
+                            </div>
+                            
+                            <div class="modules-list">
+                                <!-- Included Modules -->
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Accounting</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Cash and Banks</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Fixed Assets</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Inventory</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Sales</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Purchases</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Manufacturing</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Project Management</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Human Resources</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item included">
+                                    <div class="module-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Quality Management</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge included">Included</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Optional Modules -->
+                                <div class="module-item optional">
+                                    <div class="module-icon">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Advanced Analytics</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge optional">+200 JOD</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item optional">
+                                    <div class="module-icon">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">CRM Integration</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge optional">+200 JOD</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item optional">
+                                    <div class="module-icon">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">API Access</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge optional">+200 JOD</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item optional">
+                                    <div class="module-icon">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">White Label</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge optional">+200 JOD</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="module-item optional">
+                                    <div class="module-icon">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div class="module-info">
+                                        <span class="module-name">Priority Support</span>
+                                    </div>
+                                    <div class="module-status">
+                                        <span class="status-badge optional">+200 JOD</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
                         </div>
-                        
-                        <div class="modules-list">
-                            <!-- Included Modules -->
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
+                    </div>
+                    
+                    <div class="pricing-section">
+                        <!-- Pricing Summary -->
+                        <div class="pricing-summary">
+                            <div class="summary-header">
+                                <h3>Pricing Summary</h3>
+                            </div>
+                            
+                            <div class="summary-content">
+                                <div class="summary-item">
+                                    <span class="summary-label">Selected Plan</span>
+                                    <span class="summary-value" id="selectedPlan">Professional Plan</span>
                                 </div>
-                                <div class="module-info">
-                                    <span class="module-name">Accounting</span>
+                                
+                                <div class="summary-item">
+                                    <span class="summary-label">Monthly Cost</span>
+                                    <span class="summary-value" id="monthlyCost">$1000</span>
                                 </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
+                                
+                                <div class="summary-item">
+                                    <span class="summary-label">Setup Fee</span>
+                                    <span class="summary-value">Free</span>
+                                </div>
+                                
+                                <div class="summary-divider"></div>
+                                
+                                <div class="summary-item total">
+                                    <span class="summary-label">Total Monthly</span>
+                                    <span class="summary-value" id="totalMonthly">$1000</span>
+                                </div>
+                                
+                                <div class="summary-item">
+                                    <span class="summary-label">Total Yearly</span>
+                                    <span class="summary-value" id="totalYearly">$12,000</span>
                                 </div>
                             </div>
                             
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Cash and Banks</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Fixed Assets</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Budgeting</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">HR Management</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Self Service</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Balance Scorecard</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Material Management</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Procurements</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Sales</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Retail - POS</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Projects</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Maintenance</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Manufacturing</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item included">
-                                <div class="module-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Marketing</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Optional Modules -->
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Properties</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Diwan</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">IT</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Gym</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Investment</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Fleet</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+71 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Education</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">LMS</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">Healthcare</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="module-item optional">
-                                <div class="module-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="module-info">
-                                    <span class="module-name">DMS & eCommerce</span>
-                                </div>
-                                <div class="module-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
+                            <div class="summary-actions">
+                                <button class="btn btn-primary proceed-payment-btn" id="proceedToPayment">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Proceed to Payment</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Features Tab -->
-                <div class="tab-content" id="features">
-                    <div class="features-card">
-                        <div class="features-header">
-                            <h3>Available Features</h3>
-                            <p>Select the features you need for your business</p>
-                        </div>
-                        
-                        <div class="features-list">
-                            <!-- Included Features -->
-                            <div class="feature-item included">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="feature-info">
-                                    <span class="feature-name">Workflows</span>
-                                </div>
-                                <div class="feature-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="feature-item included">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="feature-info">
-                                    <span class="feature-name">Dashboards</span>
-                                </div>
-                                <div class="feature-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="feature-item included">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="feature-info">
-                                    <span class="feature-name">Multi Currencies</span>
-                                </div>
-                                <div class="feature-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="feature-item included">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="feature-info">
-                                    <span class="feature-name">Multi Companies</span>
-                                </div>
-                                <div class="feature-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Optional Features -->
-                            <div class="feature-item optional">
-                                <div class="feature-icon">
-                                    <i class="fas fa-plus-circle"></i>
-                                </div>
-                                <div class="feature-info">
-                                    <span class="feature-name">Development Toolkit</span>
-                                </div>
-                                <div class="feature-status">
-                                    <span class="status-badge optional">+177 JOD</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Mobile Apps Tab -->
-                <div class="tab-content" id="mobile">
-                    <div class="mobile-card">
-                        <div class="mobile-header">
-                            <h3>Available Mobile Applications</h3>
-                            <p>Select the mobile apps you need for your business</p>
-                        </div>
-                        
-                        <div class="mobile-list">
-                            <!-- Included Mobile Apps -->
-                            <div class="mobile-item included">
-                                <div class="mobile-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="mobile-info">
-                                    <span class="mobile-name">TrioTracer</span>
-                                </div>
-                                <div class="mobile-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <div class="mobile-item included">
-                                <div class="mobile-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="mobile-info">
-                                    <span class="mobile-name">POS</span>
-                                </div>
-                                <div class="mobile-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Optional Mobile Apps -->
-                            <div class="mobile-item optional">
-                                <div class="mobile-icon">
-                                    <i class="fas fa-plus-circle"></i>
-                                </div>
-                                <div class="mobile-info">
-                                    <span class="mobile-name">TrioLogistics</span>
-                                </div>
-                                <div class="mobile-status">
-                                    <span class="status-badge optional">+71 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="mobile-item optional">
-                                <div class="mobile-icon">
-                                    <i class="fas fa-plus-circle"></i>
-                                </div>
-                                <div class="mobile-info">
-                                    <span class="mobile-name">OTP</span>
-                                </div>
-                                <div class="mobile-status">
-                                    <span class="status-badge optional">+7 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="mobile-item optional">
-                                <div class="mobile-icon">
-                                    <i class="fas fa-plus-circle"></i>
-                                </div>
-                                <div class="mobile-info">
-                                    <span class="mobile-name">Gym</span>
-                                </div>
-                                <div class="mobile-status">
-                                    <span class="status-badge optional">+35 JOD</span>
-                                </div>
-                            </div>
-                            
-                            <div class="mobile-item optional">
-                                <div class="mobile-icon">
-                                    <i class="fas fa-plus-circle"></i>
-                                </div>
-                                <div class="mobile-info">
-                                    <span class="mobile-name">Assets</span>
-                                </div>
-                                <div class="mobile-status">
-                                    <span class="status-badge optional">+21 JOD</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- SLA Tab -->
-                <div class="tab-content" id="sla">
-                    <div class="sla-card">
-                        <div class="sla-header">
-                            <h3>Available SLA Options</h3>
-                            <p>Select the service level agreements you need for your business</p>
-                        </div>
-                        
-                        <div class="sla-list">
-                            <!-- Included SLA Items -->
-                            <div class="sla-item included">
-                                <div class="sla-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="sla-info">
-                                    <span class="sla-name">Support</span>
-                                </div>
-                                <div class="sla-status">
-                                    <span class="status-badge included">Included</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -2525,74 +2404,6 @@
                 </div>
             </div>
             
-            <!-- Pricing Summary -->
-            <div class="pricing-summary">
-                <div class="summary-header">
-                    <h3>Pricing Summary</h3>
-                </div>
-                
-                <div class="summary-content">
-                    <div class="summary-item">
-                        <span class="summary-label">Selected Plan</span>
-                        <span class="summary-value" id="selectedPlan">Professional Plan</span>
-                    </div>
-                    
-                    <div class="summary-item">
-                        <span class="summary-label">Monthly Cost</span>
-                        <span class="summary-value" id="monthlyCost">$299</span>
-                    </div>
-                    
-                    <div class="summary-item">
-                        <span class="summary-label">Setup Fee</span>
-                        <span class="summary-value">Free</span>
-                    </div>
-                    
-                    <div class="summary-divider"></div>
-                    
-                    <div class="summary-total">
-                        <span class="total-label">Total Amount</span>
-                        <span class="total-value" id="totalAmount">$299</span>
-                    </div>
-                </div>
-                
-                <!-- Implementation Services Warning -->
-                <div class="implementation-warning">
-                    <div class="warning-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <div class="warning-content">
-                        <h4>Implementation Services</h4>
-                        <p>The price does not cover implementation services. Typically, each module requires around 20 days for implementation, with a cost of <strong>$3,000</strong> per module. Implementation services include system configuration, data upload, and training. Any special customizations will be quoted separately on a case-by-case basis.</p>
-                    </div>
-                </div>
-                
-                <!-- Terms and Login -->
-                <div class="terms-login">
-                    <div class="login-prompt">
-                        <p>Please <a href="#login">Login</a> to confirm subscription. If you don't have an account, please <a href="#register">Register</a>.</p>
-                    </div>
-                    
-                    <div class="terms-checkbox">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="termsCheckbox">
-                            <span class="checkmark"></span>
-                            I have read and agree to the <a href="#terms">Terms and Conditions</a>
-                        </label>
-                    </div>
-                </div>
-                
-                <!-- Action Buttons -->
-                <div class="action-buttons">
-                    <button class="btn-back">
-                        <i class="fas fa-arrow-left"></i>
-                        <span>Back</span>
-                    </button>
-                    <button class="btn-continue">
-                        <span>Continue</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2677,98 +2488,8 @@
             });
         });
 
-        // Feature selection functionality
-        document.querySelectorAll('.features-list .feature-item.optional').forEach(feature => {
-            feature.addEventListener('click', function() {
-                const featureName = this.querySelector('.feature-name').textContent;
-                const featurePrice = this.querySelector('.status-badge').textContent;
-                
-                // Toggle selected state with animation
-                if (this.classList.contains('selected')) {
-                    this.classList.remove('selected');
-                    setTimeout(() => {
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                        this.style.boxShadow = '';
-                        this.style.transform = '';
-                    }, 300);
-                } else {
-                    this.classList.add('selected');
-                    this.style.animation = 'selectPulse 0.6s ease';
-                    setTimeout(() => {
-                        this.style.animation = '';
-                    }, 600);
-                }
-                
-                // Update pricing summary
-                updatePricingSummary();
-                
-                // Show feedback
-                showSelectionFeedback(featureName, this.classList.contains('selected'));
-            });
-        });
 
-        // Mobile app selection functionality
-        document.querySelectorAll('.mobile-list .mobile-item.optional').forEach(mobile => {
-            mobile.addEventListener('click', function() {
-                const mobileName = this.querySelector('.mobile-name').textContent;
-                const mobilePrice = this.querySelector('.status-badge').textContent;
-                
-                // Toggle selected state with animation
-                if (this.classList.contains('selected')) {
-                    this.classList.remove('selected');
-                    setTimeout(() => {
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                        this.style.boxShadow = '';
-                        this.style.transform = '';
-                    }, 300);
-                } else {
-                    this.classList.add('selected');
-                    this.style.animation = 'selectPulse 0.6s ease';
-                    setTimeout(() => {
-                        this.style.animation = '';
-                    }, 600);
-                }
-                
-                // Update pricing summary
-                updatePricingSummary();
-                
-                // Show feedback
-                showSelectionFeedback(mobileName, this.classList.contains('selected'));
-            });
-        });
 
-        // SLA selection functionality
-        document.querySelectorAll('.sla-list .sla-item.optional').forEach(sla => {
-            sla.addEventListener('click', function() {
-                const slaName = this.querySelector('.sla-name').textContent;
-                const slaPrice = this.querySelector('.status-badge').textContent;
-                
-                // Toggle selected state with animation
-                if (this.classList.contains('selected')) {
-                    this.classList.remove('selected');
-                    setTimeout(() => {
-                        this.style.background = '';
-                        this.style.borderColor = '';
-                        this.style.boxShadow = '';
-                        this.style.transform = '';
-                    }, 300);
-                } else {
-                    this.classList.add('selected');
-                    this.style.animation = 'selectPulse 0.6s ease';
-                    setTimeout(() => {
-                        this.style.animation = '';
-                    }, 600);
-                }
-                
-                // Update pricing summary
-                updatePricingSummary();
-                
-                // Show feedback
-                showSelectionFeedback(slaName, this.classList.contains('selected'));
-            });
-        });
 
         // Selection feedback function
         function showSelectionFeedback(itemName, isSelected) {
@@ -2811,16 +2532,91 @@
             }, 3000);
         }
 
+        // 200 JOD click functionality
+        document.querySelectorAll('.status-badge.optional').forEach(badge => {
+            if (badge.textContent.includes('200 JOD')) {
+                badge.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const moduleItem = this.closest('.module-item');
+                    const moduleName = moduleItem.querySelector('.module-name').textContent;
+                    
+                    // Toggle selected state
+                    if (moduleItem.classList.contains('selected')) {
+                        moduleItem.classList.remove('selected');
+                        // Reset to original state
+                        setTimeout(() => {
+                            moduleItem.style.background = '';
+                            moduleItem.style.borderColor = '';
+                            moduleItem.style.boxShadow = '';
+                            moduleItem.style.transform = '';
+                        }, 300);
+                        
+                        // Show removal message
+                        showCustomMessage(`${moduleName} successfully removed`, 'removed');
+                    } else {
+                        moduleItem.classList.add('selected');
+                        // Add selection animation
+                        moduleItem.style.animation = 'selectPulse 0.6s ease';
+                        setTimeout(() => {
+                            moduleItem.style.animation = '';
+                        }, 600);
+                        
+                        // Show selection message
+                        showCustomMessage(`${moduleName} successfully added`, 'added');
+                    }
+                    
+                    // Update pricing summary
+                    updatePricingSummary();
+                });
+            }
+        });
+
+        // Custom message function
+        function showCustomMessage(message, type) {
+            // Remove existing message if any
+            const existingMessage = document.querySelector('.custom-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            // Create new message element
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'custom-message';
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="message-icon">
+                        ${type === 'added' ? '✓' : '✕'}
+                    </div>
+                    <div class="message-text">
+                        ${message}
+                    </div>
+                </div>
+            `;
+            
+            // Add to page
+            document.body.appendChild(messageDiv);
+            
+            // Show animation
+            setTimeout(() => {
+                messageDiv.classList.add('show');
+            }, 100);
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                messageDiv.classList.remove('show');
+                setTimeout(() => {
+                    if (messageDiv.parentNode) {
+                        messageDiv.remove();
+                    }
+                }, 400);
+            }, 3000);
+        }
+
         function updatePricingSummary() {
             const selectedModules = document.querySelectorAll('.module-item.optional.selected');
-            const selectedFeatures = document.querySelectorAll('.features-list .feature-item.optional.selected');
-            const selectedMobileApps = document.querySelectorAll('.mobile-list .mobile-item.optional.selected');
-            const selectedSLAs = document.querySelectorAll('.sla-list .sla-item.optional.selected');
             let totalAdditionalCost = 0;
             let selectedModuleNames = [];
-            let selectedFeatureNames = [];
-            let selectedMobileAppNames = [];
-            let selectedSLANames = [];
             
             // Calculate modules cost
             selectedModules.forEach(module => {
@@ -2830,34 +2626,10 @@
                 selectedModuleNames.push(module.querySelector('.module-name').textContent);
             });
             
-            // Calculate features cost
-            selectedFeatures.forEach(feature => {
-                const priceText = feature.querySelector('.status-badge').textContent;
-                const price = parseInt(priceText.replace(/[^\d]/g, ''));
-                totalAdditionalCost += price;
-                selectedFeatureNames.push(feature.querySelector('.feature-name').textContent);
-            });
-            
-            // Calculate mobile apps cost
-            selectedMobileApps.forEach(mobile => {
-                const priceText = mobile.querySelector('.status-badge').textContent;
-                const price = parseInt(priceText.replace(/[^\d]/g, ''));
-                totalAdditionalCost += price;
-                selectedMobileAppNames.push(mobile.querySelector('.mobile-name').textContent);
-            });
-            
-            // Calculate SLA cost
-            selectedSLAs.forEach(sla => {
-                const priceText = sla.querySelector('.status-badge').textContent;
-                const price = parseInt(priceText.replace(/[^\d]/g, ''));
-                totalAdditionalCost += price;
-                selectedSLANames.push(sla.querySelector('.sla-name').textContent);
-            });
-            
             // Update summary in payment section if it exists
             const summaryElement = document.getElementById('selectedPlan');
             if (summaryElement) {
-                const totalSelected = selectedModules.length + selectedFeatures.length + selectedMobileApps.length + selectedSLAs.length;
+                const totalSelected = selectedModules.length;
                 summaryElement.textContent = `Industrial Plan + ${totalSelected} items`;
                 
                 // Add animation to summary
@@ -2882,11 +2654,8 @@
             }
             
             // Show selected items info
-            if (selectedModules.length > 0 || selectedFeatures.length > 0 || selectedMobileApps.length > 0 || selectedSLAs.length > 0) {
+            if (selectedModuleNames.length > 0) {
                 console.log(`Selected modules: ${selectedModuleNames.join(', ')}`);
-                console.log(`Selected features: ${selectedFeatureNames.join(', ')}`);
-                console.log(`Selected mobile apps: ${selectedMobileAppNames.join(', ')}`);
-                console.log(`Selected SLAs: ${selectedSLANames.join(', ')}`);
                 console.log(`Additional cost: JOD ${totalAdditionalCost}`);
             }
         }

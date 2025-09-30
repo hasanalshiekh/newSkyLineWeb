@@ -31,7 +31,7 @@ function getFooterStyles() {
         .footer {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
-            padding: 80px 0 40px;
+            padding: 60px 0 30px;
             position: relative;
             overflow: hidden;
             direction: ltr !important;
@@ -62,8 +62,8 @@ function getFooterStyles() {
         .footer-top {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
         .footer-column {
@@ -307,15 +307,6 @@ function getFooterHTML() {
 
                     <div class="footer-column">
                         <div class="footer-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h3 data-translate="footer-office-title">Office Details</h3>
-                        <p data-translate="footer-office-address">3rd floor, Qaisar Complex, Queen Rania St., Amman, Jordan</p>
-                        <a href="https://maps.app.goo.gl/M4Qm5LWraeWs64db8" class="footer-link" target="_blank" data-translate="footer-visit-office">Visit Office</a>
-                    </div>
-
-                    <div class="footer-column">
-                        <div class="footer-icon">
                             <i class="fas fa-paper-plane"></i>
                         </div>
                         <h3 data-translate="footer-newsletter-title">Newsletter Signup</h3>
@@ -338,7 +329,6 @@ function getFooterHTML() {
                         <a href="index.html" data-translate="footer-nav-home">Home</a>
                         <a href="about.html" data-translate="footer-nav-about">About</a>
                         <a href="products&solutions.html" data-translate="footer-nav-products">Products & Solutions</a>
-                        <a href="events-news.html" data-translate="footer-nav-events">Events & News</a>
                         <a href="index.html#contact" data-translate="footer-nav-contact">Contact</a>
                     </div>
 
@@ -454,7 +444,6 @@ function createFallbackFooter() {
                         <a href="index.html" style="color: white; text-decoration: none; margin: 0 1rem;">Home</a>
                         <a href="about.html" style="color: white; text-decoration: none; margin: 0 1rem;">About</a>
                         <a href="products&solutions.html" style="color: white; text-decoration: none; margin: 0 1rem;">Products & Solutions</a>
-                        <a href="events-news.html" style="color: white; text-decoration: none; margin: 0 1rem;">Events & News</a>
                         <a href="index.html#contact" style="color: white; text-decoration: none; margin: 0 1rem;">Contact</a>
                     </div>
                     <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">

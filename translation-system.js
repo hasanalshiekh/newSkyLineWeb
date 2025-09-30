@@ -25,6 +25,9 @@ class TranslationSystem {
                 'nav-download': 'Download Center',
                 'nav-iso': 'ISO Consulting',
                 'nav-saas': 'SaaS Programs',
+                'nav-software-solutions': 'Software Solutions',
+                'nav-demo': 'Book Your Demo',
+                'nav-videos': 'Product Videos',
                 'nav-client-portal': 'Client Portal',
                 
                 // Common Elements
@@ -892,6 +895,9 @@ class TranslationSystem {
                 'nav-download': 'مركز التحميل',
                 'nav-iso': 'استشارات الأيزو',
                 'nav-saas': 'برامج الساس',
+                'nav-software-solutions': 'حلول البرمجيات',
+                'nav-demo': 'احجز عرضك التجريبي',
+                'nav-videos': 'فيديوهات المنتجات',
                 'nav-client-portal': 'بوابة العملاء',
                 
                 // Common Elements

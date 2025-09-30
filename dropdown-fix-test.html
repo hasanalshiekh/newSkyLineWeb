@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Fix Test - SKYLINE Innovation Software</title>
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="navbar-include.js" defer></script>
+    <script src="translation-system.js" defer></script>
+    <script src="page-loader.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .test-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .test-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .test-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e1e8ed;
+        }
+
+        .test-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .test-section h2 i {
+            color: #3498db;
+        }
+
+        .fixes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .fix-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .fix-card:hover {
+            border-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.2);
+        }
+
+        .fix-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .fix-card h3 i {
+            color: #27ae60;
+        }
+
+        .fix-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        .status-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #27ae60;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .test-info {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .test-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .test-info p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 2rem;
+            font-weight: 500;
+        }
+
+        .test-instructions {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .test-instructions h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .test-instructions p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .test-steps {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .test-step {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .test-header h1 {
+                font-size: 2rem;
+            }
+            
+            .fixes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .test-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar will be included here -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="test-header">
+            <h1>🔧 Dropdown Fix Test</h1>
+            <p>Testing dropdown functionality and cursor behavior fixes</p>
+        </div>
+
+        <div class="test-info">
+            <h3>✅ Dropdown Issues Fixed</h3>
+            <p>1. Dropdowns now close properly when clicked<br>
+               2. Cursor behavior improved for better UX<br>
+               3. Added proper event handling and cleanup</p>
+        </div>
+
+        <div class="test-section">
+            <h2><i class="fas fa-bug"></i> Fixed Issues</h2>
+            <div class="fixes-grid">
+                <div class="fix-card">
+                    <div class="status-indicator"></div>
+                    <h3><i class="fas fa-mouse-pointer"></i> Cursor Behavior</h3>
+                    <p>Fixed cursor staying on dropdown elements. Now properly resets and behaves naturally.</p>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="status-indicator"></div>
+                    <h3><i class="fas fa-times-circle"></i> Close on Click</h3>
+                    <p>Dropdowns now close immediately when clicking on the link text, not just the arrow.</p>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="status-indicator"></div>
+                    <h3><i class="fas fa-hand-pointer"></i> Touch Support</h3>
+                    <p>Improved touch handling for mobile devices with proper event prevention and cleanup.</p>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="status-indicator"></div>
+                    <h3><i class="fas fa-external-link-alt"></i> Outside Click</h3>
+                    <p>Dropdowns automatically close when clicking outside of them for better user experience.</p>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="status-indicator"></div>
+                    <h3><i class="fas fa-keyboard"></i> Keyboard Support</h3>
+                    <p>Added Escape key support to close dropdowns and improved keyboard navigation.</p>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="status-indicator"></div>
+                    <h3><i class="fas fa-sync-alt"></i> Event Cleanup</h3>
+                    <p>Proper event listener management prevents memory leaks and improves performance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-instructions">
+            <h3>🧪 Test Instructions</h3>
+            <p>Test the following scenarios to verify the fixes:</p>
+            <div class="test-steps">
+                <div class="test-step">1. Open mobile menu</div>
+                <div class="test-step">2. Click dropdown arrows</div>
+                <div class="test-step">3. Click dropdown links</div>
+                <div class="test-step">4. Click outside dropdowns</div>
+                <div class="test-step">5. Press Escape key</div>
+            </div>
+        </div>
+
+        <div class="success-message">
+            <h3>🎉 Dropdown Issues Resolved!</h3>
+            <p>All dropdown functionality now works smoothly with proper cursor behavior!</p>
+        </div>
+    </div>
+
+    <script>
+        // Test script to verify dropdown fixes
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ Dropdown Fix Test Page Loaded');
+            console.log('✅ Testing dropdown functionality...');
+            
+            // Monitor dropdown events
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.mobile-dropdown')) {
+                    console.log('🖱️ Dropdown interaction detected');
+                }
+            });
+            
+            // Monitor escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    console.log('⌨️ Escape key pressed - dropdowns should close');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

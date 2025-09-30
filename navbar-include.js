@@ -44,6 +44,34 @@ function includeNavbar() {
     // Initialize language switcher
     initializeLanguageSwitcher();
 
+    // Initialize navbar immediately
+    setTimeout(() => {
+        initializeNavbar();
+    }, 50);
+
+    // Fallback initialization
+    setTimeout(() => {
+        initializeNavbar();
+    }, 200);
+
+    // Final fallback
+    setTimeout(() => {
+        initializeNavbar();
+    }, 500);
+
+    // Force navbar to start with black background like index.html
+    setTimeout(() => {
+        const header = document.querySelector('.header');
+        if (header) {
+            header.classList.remove('scrolled');
+            header.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 30%, rgba(20, 20, 20, 0.95) 70%, rgba(0, 0, 0, 0.95) 100%)';
+            header.style.color = 'white';
+            header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2)';
+            header.style.borderBottom = '2px solid rgba(255, 255, 255, 0.1)';
+            console.log('✅ Navbar initialized with black background like index.html');
+        }
+    }, 100);
+
     // Ensure mobile sidenav is hidden on page load
     setTimeout(() => {
         const mobileSidenav = document.querySelector('.mobile-sidenav');
@@ -75,26 +103,118 @@ function includeNavbar() {
     }, 100);
 }
 
+// Comprehensive navbar initialization function
+function initializeNavbar() {
+    console.log('🔧 Initializing navbar...');
+    
+    // Check if navbar container exists
+    const navbarContainer = document.getElementById('navbar-container');
+    if (!navbarContainer) {
+        console.error('❌ Navbar container not found');
+        return;
+    }
+
+    // Check if header exists
+    const initHeader = document.querySelector('.header');
+    if (!initHeader) {
+        console.error('❌ Header not found in navbar container');
+        return;
+    }
+
+    // Ensure navbar is visible and properly positioned
+    initHeader.style.display = 'block';
+    initHeader.style.position = 'fixed';
+    initHeader.style.top = '0';
+    initHeader.style.left = '0';
+    initHeader.style.right = '0';
+    initHeader.style.zIndex = '99999';
+
+    // Force dark background - simple and working
+    initHeader.classList.remove('scrolled');
+    console.log('✅ Navbar: Initialized with dark background');
+
+    // Ensure mobile menu is properly initialized
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.style.display = 'block';
+    }
+
+    // Ensure desktop menu is visible
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
+        navMenu.style.display = 'flex';
+    }
+
+    // Add body padding to account for fixed navbar
+    document.body.style.paddingTop = '80px';
+
+    console.log('✅ Navbar initialized successfully');
+}
+
+// Global function to ensure navbar is loaded
+window.ensureNavbarLoaded = function() {
+    if (!document.querySelector('.header')) {
+        console.log('🔄 Navbar not found, reloading...');
+        if (typeof includeNavbar === 'function') {
+            includeNavbar();
+        }
+    }
+};
+
+// Auto-call navbar loading on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof includeNavbar === 'function') {
+            includeNavbar();
+        }
+    });
+} else {
+    if (typeof includeNavbar === 'function') {
+        includeNavbar();
+    }
+}
+
+// Debug function to check navbar status
+window.debugNavbar = function() {
+    console.log('🔍 Navbar Debug Info:');
+    console.log('Header element:', document.querySelector('.header'));
+    console.log('Navbar container:', document.getElementById('navbar-container'));
+    console.log('Scroll position:', window.scrollY);
+    console.log('Header classes:', document.querySelector('.header')?.classList.toString());
+    console.log('Header background:', document.querySelector('.header')?.style.background);
+};
+
 function getNavbarStyles() {
     return `
-        /* Header - Same as index.html */
-        .header {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 30%, rgba(20, 20, 20, 0.95) 70%, rgba(0, 0, 0, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 99999;
-            transition: all 0.3s ease;
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                0 0 20px rgba(0, 0, 0, 0.2);
-            overflow: visible;
-        }
+        /* Header - Simple and Working */
+         .header {
+             background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 100%) !important;
+             backdrop-filter: blur(20px);
+             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+             color: white !important;
+             padding: 1rem 0;
+             position: fixed !important;
+             width: 100% !important;
+             top: 0 !important;
+             left: 0 !important;
+             right: 0 !important;
+             z-index: 99999 !important;
+             transition: all 0.3s ease;
+             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+             overflow: visible;
+             display: block !important;
+             visibility: visible !important;
+             opacity: 1 !important;
+         }
+
+         /* Scrolled State - White */
+         .header.scrolled {
+             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%) !important;
+             backdrop-filter: blur(20px) saturate(180%) brightness(110%);
+             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+             color: #1a1a1a !important;
+             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+         }
         
         /* Logo Direction Fix - Keep logo always LTR */
         .logo,
@@ -194,24 +314,26 @@ function getNavbarStyles() {
             color: #000 !important;
         }
 
-        .header.scrolled .nav-menu a {
-            color: rgba(0, 0, 0, 0.9) !important;
-            text-shadow: 
-                0 1px 2px rgba(255, 255, 255, 0.8),
-                0 0 8px rgba(255, 255, 255, 0.6) !important;
-            font-weight: 600 !important;
-            opacity: 1;
+        /* Navigation Menu - Simple and Working */
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
             transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .header.scrolled .nav-menu a {
+            color: #1a1a1a !important;
         }
 
         .header.scrolled .nav-menu a:hover {
-            color: #000 !important;
-            text-shadow: 
-                0 0 15px rgba(255, 255, 255, 0.9), 
-                0 1px 3px rgba(255, 255, 255, 0.8),
-                0 0 10px rgba(255, 255, 255, 0.7) !important;
             background: rgba(0, 0, 0, 0.1) !important;
-            transform: translateY(-1px);
         }
 
         .header.scrolled .logo {
@@ -296,22 +418,22 @@ function getNavbarStyles() {
             margin-left: 1rem;
         }
 
-        .portal-btn {
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #FF6B6B, #DC143C);
-            border-radius: 50%;
-            color: white !important;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
+         .portal-btn {
+             display: flex !important;
+             align-items: center;
+             justify-content: center;
+             width: 45px;
+             height: 45px;
+             background: linear-gradient(135deg, #D6A7AD, #FD1D3F);
+             border-radius: 50%;
+             color: white !important;
+             text-decoration: none;
+             font-size: 1.2rem;
+             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+             box-shadow: 0 4px 15px rgba(253, 29, 63, 0.3);
+             position: relative;
+             overflow: hidden;
+         }
 
         .portal-btn::before {
             content: '';
@@ -327,11 +449,11 @@ function getNavbarStyles() {
             transition: all 0.3s ease;
         }
 
-        .portal-btn:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.5);
-            background: linear-gradient(135deg, #FF8E8E, #DC143C);
-        }
+         .portal-btn:hover {
+             transform: translateY(-3px) scale(1.1);
+             box-shadow: 0 8px 25px rgba(253, 29, 63, 0.5);
+             background: linear-gradient(135deg, #D52D43, #FD1D3F);
+         }
 
 
         .portal-btn:hover::before {
@@ -355,42 +477,42 @@ function getNavbarStyles() {
             margin-left: 15px;
         }
 
-        .language-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #D90A2C;
-            padding: 0.6rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+         .language-btn {
+             background: rgba(255, 255, 255, 0.1);
+             border: 1px solid rgba(255, 255, 255, 0.2);
+             color: #FD1D3F;
+             padding: 0.6rem 1rem;
+             border-radius: 20px;
+             cursor: pointer;
+             transition: all 0.3s ease;
+             display: flex;
+             align-items: center;
+             gap: 0.5rem;
+             font-size: 0.9rem;
+             font-weight: 500;
+             text-decoration: none;
+             backdrop-filter: blur(10px);
+             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         }
 
-        .language-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            color: #D90A2C;
-            box-shadow: 0 4px 15px #D90A2C;
-        }
+         .language-btn:hover {
+             background: rgba(255, 255, 255, 0.2);
+             border-color: rgba(255, 255, 255, 0.3);
+             transform: translateY(-2px);
+             color: #FD1D3F;
+             box-shadow: 0 4px 15px rgba(253, 29, 63, 0.4);
+         }
 
-        .language-btn i {
-            color: #D90A2C;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
+         .language-btn i {
+             color: #FD1D3F;
+             font-size: 0.9rem;
+             transition: all 0.3s ease;
+         }
 
-        .language-btn:hover i {
-            color: #D90A2C;
-            transform: rotate(15deg);
-        }
+         .language-btn:hover i {
+             color: #FD1D3F;
+             transform: rotate(15deg);
+         }
 
         /* RTL Support */
         [dir="rtl"] .language-switcher {
@@ -425,26 +547,26 @@ function getNavbarStyles() {
 
         
         /* Portal Mobile Link */
-        .portal-mobile-link {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(139, 0, 0, 0.2)) !important;
-            border: 2px solid rgba(196, 30, 58, 0.3) !important;
-            border-radius: 15px !important;
-            margin: 0.5rem 1rem !important;
-        }
+         .portal-mobile-link {
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.2), rgba(213, 45, 67, 0.2)) !important;
+             border: 2px solid rgba(253, 29, 63, 0.3) !important;
+             border-radius: 15px !important;
+             margin: 0.5rem 1rem !important;
+         }
 
-        .portal-mobile-link:hover {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(139, 0, 0, 0.3)) !important;
-            border-color: rgba(196, 30, 58, 0.6) !important;
-            transform: translateX(12px) scale(1.05) !important;
-        }
+         .portal-mobile-link:hover {
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.3), rgba(213, 45, 67, 0.3)) !important;
+             border-color: rgba(253, 29, 63, 0.6) !important;
+             transform: translateX(12px) scale(1.05) !important;
+         }
 
-        .portal-mobile-link .icon {
-            background: linear-gradient(135deg, #FF6B6B, #DC143C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 2px 4px rgba(196, 30, 58, 0.4));
-        }
+         .portal-mobile-link .icon {
+             background: linear-gradient(135deg, #D6A7AD, #FD1D3F);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             filter: drop-shadow(0 2px 4px rgba(253, 29, 63, 0.4));
+         }
 
         /* Mobile Menu Button - Same as index.html */
         .mobile-menu-btn {
@@ -467,12 +589,12 @@ function getNavbarStyles() {
             -webkit-backdrop-filter: blur(10px);
         }
 
-        .mobile-menu-btn:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, rgba(220, 20, 60, 0.3), rgba(0, 0, 0, 0.3));
-            border-color: rgba(220, 20, 60, 0.5);
-            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
-        }
+         .mobile-menu-btn:hover {
+             transform: scale(1.1);
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.3), rgba(0, 0, 0, 0.3));
+             border-color: rgba(253, 29, 63, 0.5);
+             box-shadow: 0 4px 15px rgba(253, 29, 63, 0.3);
+         }
 
         .mobile-menu-btn span {
             width: 24px;
@@ -485,25 +607,25 @@ function getNavbarStyles() {
         }
 
         /* تأثيرات السكرول للهامبرغر */
-        .mobile-menu-btn.scrolled {
-            background: linear-gradient(135deg, rgba(220, 20, 60, 0.4), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.4));
-            border: 1px solid rgba(220, 20, 60, 0.6);
-            box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-        }
+         .mobile-menu-btn.scrolled {
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.4), rgba(255, 255, 255, 0.2), rgba(15, 14, 14, 0.4));
+             border: 1px solid rgba(253, 29, 63, 0.6);
+             box-shadow: 0 6px 20px rgba(253, 29, 63, 0.4), 0 2px 8px rgba(15, 14, 14, 0.3);
+             backdrop-filter: blur(15px);
+             -webkit-backdrop-filter: blur(15px);
+         }
 
-        .mobile-menu-btn.scrolled:hover {
-            background: linear-gradient(135deg, rgba(220, 20, 60, 0.6), rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.5));
-            border-color: rgba(220, 20, 60, 0.8);
-            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.5), 0 4px 12px rgba(0, 0, 0, 0.4);
-            transform: scale(1.15);
-        }
+         .mobile-menu-btn.scrolled:hover {
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.6), rgba(255, 255, 255, 0.3), rgba(15, 14, 14, 0.5));
+             border-color: rgba(253, 29, 63, 0.8);
+             box-shadow: 0 8px 25px rgba(253, 29, 63, 0.5), 0 4px 12px rgba(15, 14, 14, 0.4);
+             transform: scale(1.15);
+         }
 
-        .mobile-menu-btn.scrolled span {
-            background: linear-gradient(90deg, #DC143C, #FFFFFF, #000000);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
+         .mobile-menu-btn.scrolled span {
+             background: linear-gradient(90deg, #FD1D3F, #FFFFFF, #0F0E0E);
+             box-shadow: 0 2px 4px rgba(15, 14, 14, 0.3);
+         }
 
         .mobile-menu-btn.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
@@ -518,34 +640,34 @@ function getNavbarStyles() {
         }
 
         /* تأثيرات السكرول للهامبرغر النشط */
-        .mobile-menu-btn.active.scrolled span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-            background: linear-gradient(90deg, #DC143C, #FFFFFF, #000000);
-        }
+         .mobile-menu-btn.active.scrolled span:nth-child(1) {
+             transform: rotate(45deg) translate(5px, 5px);
+             background: linear-gradient(90deg, #FD1D3F, #FFFFFF, #0F0E0E);
+         }
 
-        .mobile-menu-btn.active.scrolled span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-            background: linear-gradient(90deg, #DC143C, #FFFFFF, #000000);
-        }
+         .mobile-menu-btn.active.scrolled span:nth-child(3) {
+             transform: rotate(-45deg) translate(7px, -6px);
+             background: linear-gradient(90deg, #FD1D3F, #FFFFFF, #0F0E0E);
+         }
 
         /* Mobile Side Navigation - Same as index.html */
-        .mobile-sidenav {
-            display: none !important;
-            position: fixed;
-            top: 0;
-            left: -320px;
-            width: 320px;
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(220, 20, 60, 0.95) 0%, rgba(139, 0, 0, 0.95) 30%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.98) 100%);
-            backdrop-filter: blur(20px);
-            z-index: 99998;
-            transition: all 0.4s ease;
-            padding-top: 80px;
-            box-shadow: 2px 0 20px rgba(220, 20, 60, 0.3);
-            overflow-y: auto;
-            visibility: hidden !important;
-            opacity: 0 !important;
-        }
+         .mobile-sidenav {
+             display: none !important;
+             position: fixed;
+             top: 0;
+             left: -320px;
+             width: 320px;
+             height: 100vh;
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.95) 0%, rgba(213, 45, 67, 0.95) 30%, rgba(15, 14, 14, 0.95) 70%, rgba(15, 14, 14, 0.98) 100%);
+             backdrop-filter: blur(20px);
+             z-index: 99998;
+             transition: all 0.4s ease;
+             padding-top: 80px;
+             box-shadow: 2px 0 20px rgba(253, 29, 63, 0.3);
+             overflow-y: auto;
+             visibility: hidden !important;
+             opacity: 0 !important;
+         }
 
         .mobile-sidenav.active {
             left: 0 !important;
@@ -569,22 +691,22 @@ function getNavbarStyles() {
             opacity: 1 !important;
         }
 
-        .mobile-sidenav a {
-            display: flex !important;
-            align-items: center;
-            padding: 1.2rem 1.5rem;
-            color: white;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            margin: 0.5rem 1rem;
-            border-radius: 15px;
-            border-left: 3px solid transparent;
-            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(0, 0, 0, 0.2));
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
+         .mobile-sidenav a {
+             display: flex !important;
+             align-items: center;
+             padding: 1.2rem 1.5rem;
+             color: white;
+             text-decoration: none;
+             transition: all 0.4s ease;
+             position: relative;
+             overflow: hidden;
+             margin: 0.5rem 1rem;
+             border-radius: 15px;
+             border-left: 3px solid transparent;
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.1), rgba(15, 14, 14, 0.2));
+             visibility: visible !important;
+             opacity: 1 !important;
+         }
 
         .mobile-sidenav a::before {
             content: '';
@@ -597,12 +719,12 @@ function getNavbarStyles() {
             transition: left 0.5s ease;
         }
 
-        .mobile-sidenav a:hover {
-            background: linear-gradient(135deg, rgba(220, 20, 60, 0.3), rgba(0, 0, 0, 0.4));
-            transform: translateX(8px);
-            border-left-color: #DC143C;
-            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.2);
-        }
+         .mobile-sidenav a:hover {
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.3), rgba(15, 14, 14, 0.4));
+             transform: translateX(8px);
+             border-left-color: #FD1D3F;
+             box-shadow: 0 4px 15px rgba(253, 29, 63, 0.2);
+         }
 
         .mobile-sidenav a:hover::before {
             left: 100%;
@@ -621,10 +743,10 @@ function getNavbarStyles() {
         }
 
         /* تأثيرات hover للأيقونات في الموبايل مثل index.html */
-        .mobile-sidenav a:hover .icon {
-            transform: scale(1.2) rotate(5deg);
-            filter: drop-shadow(0 4px 8px rgba(220, 20, 60, 0.6));
-        }
+         .mobile-sidenav a:hover .icon {
+             transform: scale(1.2) rotate(5deg);
+             filter: drop-shadow(0 4px 8px rgba(253, 29, 63, 0.6));
+         }
 
         .mobile-sidenav .label {
             font-size: 1rem;
@@ -640,11 +762,11 @@ function getNavbarStyles() {
         }
 
         /* تأثيرات hover للنصوص في الموبايل مثل index.html */
-        .mobile-sidenav a:hover .label {
-            color: #fff;
-            transform: translateX(3px);
-            text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
-        }
+         .mobile-sidenav a:hover .label {
+             color: #fff;
+             transform: translateX(3px);
+             text-shadow: 0 0 10px rgba(253, 29, 63, 0.5);
+         }
 
         /* Mobile Overlay - Same as index.html */
         .mobile-overlay {
@@ -679,16 +801,16 @@ function getNavbarStyles() {
             z-index: 3;
         }
 
-        .logo-sky {
-            color: #DC143C;
-            font-weight: 800;
-            font-size: 2.2rem;
-            text-shadow:
-                0 0 10px rgba(220, 20, 60, 0.5),
-                0 0 20px rgba(220, 20, 60, 0.3),
-                0 2px 4px rgba(0, 0, 0, 0.3);
-            animation: logoGlow 2s ease-in-out infinite alternate;
-        }
+         .logo-sky {
+             color: #FD1D3F;
+             font-weight: 800;
+             font-size: 2.2rem;
+             text-shadow:
+                 0 0 10px rgba(253, 29, 63, 0.5),
+                 0 0 20px rgba(253, 29, 63, 0.3),
+                 0 2px 4px rgba(0, 0, 0, 0.3);
+             animation: logoGlow 2s ease-in-out infinite alternate;
+         }
 
         .logo-yline {
             color: #fff;
@@ -701,14 +823,25 @@ function getNavbarStyles() {
             transition: all 0.4s ease;
         }
 
+        /* Logo - Simple and Working */
+        .logo {
+            transition: all 0.3s ease;
+        }
+
+        .logo-sky {
+            color: white;
+        }
+
+        .logo-yline {
+            color: #D90A2C;
+        }
+
+        .header.scrolled .logo-sky {
+            color: #1a1a1a !important;
+        }
+
         .header.scrolled .logo-yline {
-            color: #000 !important;
-            text-shadow:
-                0 1px 3px rgba(255, 255, 255, 0.9),
-                0 0 12px rgba(255, 255, 255, 0.8),
-                0 0 20px rgba(255, 255, 255, 0.6),
-                0 0 6px rgba(255, 255, 255, 0.7) !important;
-            font-weight: 700 !important;
+            color: #D90A2C !important;
         }
 
 
@@ -723,21 +856,21 @@ function getNavbarStyles() {
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
-        @keyframes logoGlow {
-            0% {
-                text-shadow:
-                    0 0 10px rgba(139, 0, 0, 0.5),
-                    0 0 20px rgba(139, 0, 0, 0.3),
-                    0 2px 4px rgba(0, 0, 0, 0.3);
-            }
+         @keyframes logoGlow {
+             0% {
+                 text-shadow:
+                     0 0 10px rgba(253, 29, 63, 0.5),
+                     0 0 20px rgba(253, 29, 63, 0.3),
+                     0 2px 4px rgba(15, 14, 14, 0.3);
+             }
 
-            100% {
-                text-shadow:
-                    0 0 15px rgba(139, 0, 0, 0.8),
-                    0 0 25px rgba(139, 0, 0, 0.5),
-                    0 2px 4px rgba(0, 0, 0, 0.3);
-            }
-        }
+             100% {
+                 text-shadow:
+                     0 0 15px rgba(253, 29, 63, 0.8),
+                     0 0 25px rgba(253, 29, 63, 0.5),
+                     0 2px 4px rgba(15, 14, 14, 0.3);
+             }
+         }
 
         .nav-menu {
             display: flex !important;
@@ -901,28 +1034,28 @@ function getNavbarStyles() {
             transform: rotate(180deg);
         }
 
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            border-radius: 15px;
-            padding: 1rem 0;
-            margin: 0.5rem 0 0 0;
-            min-width: 250px;
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.3),
-                0 0 20px rgba(139, 0, 0, 0.2);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            z-index: 10005;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            pointer-events: none;
-            list-style: none;
-        }
+         .dropdown-menu {
+             position: absolute;
+             top: 100%;
+             left: 0;
+             background: linear-gradient(135deg, rgba(213, 45, 67, 0.95) 0%, rgba(15, 14, 14, 0.95) 100%);
+             backdrop-filter: blur(20px);
+             border-radius: 15px;
+             padding: 1rem 0;
+             margin: 0.5rem 0 0 0;
+             min-width: 250px;
+             box-shadow:
+                 0 10px 30px rgba(15, 14, 14, 0.3),
+                 0 0 20px rgba(253, 29, 63, 0.2);
+             opacity: 0;
+             visibility: hidden;
+             transform: translateY(-10px);
+             transition: all 0.3s ease;
+             z-index: 10005;
+             border: 1px solid rgba(255, 255, 255, 0.1);
+             pointer-events: none;
+             list-style: none;
+         }
 
         .dropdown:hover .dropdown-menu,
         .dropdown.show .dropdown-menu {
@@ -978,15 +1111,15 @@ function getNavbarStyles() {
             color: rgba(255, 255, 255, 0.9) !important;
         }
 
-        .dropdown-menu a:hover::after {
-            content: '→';
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #C41E3A;
-            font-weight: bold;
-        }
+         .dropdown-menu a:hover::after {
+             content: '→';
+             position: absolute;
+             right: 1rem;
+             top: 50%;
+             transform: translateY(-50%);
+             color: #FD1D3F;
+             font-weight: bold;
+         }
 
         /* Additional force for all dropdown menu states */
         .dropdown-menu a,
@@ -1034,10 +1167,10 @@ function getNavbarStyles() {
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .mobile-dropdown.active .mobile-dropdown-toggle {
-            background: rgba(196, 30, 58, 0.1);
-            color: #C41E3A;
-        }
+         .mobile-dropdown.active .mobile-dropdown-toggle {
+             background: rgba(253, 29, 63, 0.1);
+             color: #FD1D3F;
+         }
         
         .mobile-dropdown-toggle a {
             pointer-events: auto;
@@ -1068,38 +1201,38 @@ function getNavbarStyles() {
         }
 
         /* تأثيرات hover للأسهم المنسدلة في الموبايل مثل index.html */
-        .dropdown-arrow:hover {
-            background: rgba(255, 255, 255, 0.25);
-            color: #C41E3A;
-            transform: scale(1.1);
-            border-color: rgba(196, 30, 58, 0.3);
-        }
+         .dropdown-arrow:hover {
+             background: rgba(255, 255, 255, 0.25);
+             color: #FD1D3F;
+             transform: scale(1.1);
+             border-color: rgba(253, 29, 63, 0.3);
+         }
 
-        .dropdown-arrow:active {
-            transform: scale(0.95);
-            background: rgba(196, 30, 58, 0.2);
-        }
+         .dropdown-arrow:active {
+             transform: scale(0.95);
+             background: rgba(253, 29, 63, 0.2);
+         }
 
-        .mobile-dropdown.active .dropdown-arrow {
-            transform: rotate(180deg);
-            color: #C41E3A;
-            background: rgba(196, 30, 58, 0.2);
-            border-color: rgba(196, 30, 58, 0.4);
-        }
+         .mobile-dropdown.active .dropdown-arrow {
+             transform: rotate(180deg);
+             color: #FD1D3F;
+             background: rgba(253, 29, 63, 0.2);
+             border-color: rgba(253, 29, 63, 0.4);
+         }
 
-        .mobile-dropdown-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease;
-            background: rgba(0, 0, 0, 0.25);
-            margin: 0.5rem 1rem 0;
-            border-radius: 10px;
-            border-left: 3px solid #DC143C;
-            opacity: 0;
-            visibility: hidden;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
+         .mobile-dropdown-menu {
+             max-height: 0;
+             overflow: hidden;
+             transition: max-height 0.4s ease, opacity 0.3s ease;
+             background: rgba(15, 14, 14, 0.25);
+             margin: 0.5rem 1rem 0;
+             border-radius: 10px;
+             border-left: 3px solid #FD1D3F;
+             opacity: 0;
+             visibility: hidden;
+             backdrop-filter: blur(15px);
+             box-shadow: 0 8px 32px rgba(15, 14, 14, 0.3);
+         }
 
         .mobile-dropdown.active .mobile-dropdown-menu {
             max-height: 300px;
@@ -1137,44 +1270,44 @@ function getNavbarStyles() {
         }
 
         /* تأثيرات hover للقوائم المنسدلة في الموبايل مثل index.html */
-        .mobile-dropdown-menu a:hover {
-            background: rgba(196, 30, 58, 0.1);
-            border-left-color: #C41E3A;
-            transform: translateX(3px);
-            color: #C41E3A;
-        }
+         .mobile-dropdown-menu a:hover {
+             background: rgba(253, 29, 63, 0.1);
+             border-left-color: #FD1D3F;
+             transform: translateX(3px);
+             color: #FD1D3F;
+         }
 
         /* تحسين رابط Home في الموبايل - Same as index.html */
-        .home-mobile-item .home-mobile-link {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(139, 0, 0, 0.2)) !important;
-            border: 2px solid rgba(196, 30, 58, 0.3) !important;
-            font-weight: 700 !important;
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            color: white !important;
-            text-decoration: none !important;
-            padding: 1.2rem 1.5rem !important;
-            margin: 0.5rem 1rem !important;
-            border-radius: 15px !important;
-            border-left: 3px solid transparent !important;
-            transition: all 0.4s ease !important;
-        }
+         .home-mobile-item .home-mobile-link {
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.2), rgba(213, 45, 67, 0.2)) !important;
+             border: 2px solid rgba(253, 29, 63, 0.3) !important;
+             font-weight: 700 !important;
+             display: flex !important;
+             visibility: visible !important;
+             opacity: 1 !important;
+             color: white !important;
+             text-decoration: none !important;
+             padding: 1.2rem 1.5rem !important;
+             margin: 0.5rem 1rem !important;
+             border-radius: 15px !important;
+             border-left: 3px solid transparent !important;
+             transition: all 0.4s ease !important;
+         }
 
         /* تأثيرات hover لرابط Home في الموبايل مثل index.html */
-        .home-mobile-item .home-mobile-link:hover {
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(139, 0, 0, 0.3)) !important;
-            border-color: rgba(196, 30, 58, 0.6) !important;
-            transform: translateX(8px) scale(1.02) !important;
-        }
+         .home-mobile-item .home-mobile-link:hover {
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.3), rgba(213, 45, 67, 0.3)) !important;
+             border-color: rgba(253, 29, 63, 0.6) !important;
+             transform: translateX(8px) scale(1.02) !important;
+         }
 
-        .home-mobile-item .home-mobile-link .icon {
-            background: linear-gradient(135deg, #FF6B6B, #DC143C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 2px 4px rgba(196, 30, 58, 0.4));
-        }
+         .home-mobile-item .home-mobile-link .icon {
+             background: linear-gradient(135deg, #D6A7AD, #FD1D3F);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             filter: drop-shadow(0 2px 4px rgba(253, 29, 63, 0.4));
+         }
 
         /* Custom Scrollbar for Mobile Dropdown */
         .mobile-dropdown-menu::-webkit-scrollbar {
@@ -1186,14 +1319,14 @@ function getNavbarStyles() {
             border-radius: 3px;
         }
 
-        .mobile-dropdown-menu::-webkit-scrollbar-thumb {
-            background: rgba(139, 0, 0, 0.6);
-            border-radius: 3px;
-        }
+         .mobile-dropdown-menu::-webkit-scrollbar-thumb {
+             background: rgba(253, 29, 63, 0.6);
+             border-radius: 3px;
+         }
 
-        .mobile-dropdown-menu::-webkit-scrollbar-thumb:hover {
-            background: rgba(139, 0, 0, 0.8);
-        }
+         .mobile-dropdown-menu::-webkit-scrollbar-thumb:hover {
+             background: rgba(253, 29, 63, 0.8);
+         }
 
         /* Large Desktop */
         @media (max-width: 1200px) {
@@ -1399,41 +1532,41 @@ function getNavbarStyles() {
                 max-height: calc(100vh - 40px) !important;
             }
             
-            /* تحسين زر Home */
-            .mobile-sidenav .nav-link[href*="index"] {
-                background: linear-gradient(135deg, #DC143C, #B22222) !important;
-                color: white !important;
-                border-radius: 8px !important;
-                margin: 5px 0 !important;
-                padding: 12px 15px !important;
-                font-weight: 600 !important;
-                box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3) !important;
-                transition: all 0.3s ease !important;
-            }
+             /* تحسين زر Home */
+             .mobile-sidenav .nav-link[href*="index"] {
+                 background: linear-gradient(135deg, #FD1D3F, #D52D43) !important;
+                 color: white !important;
+                 border-radius: 8px !important;
+                 margin: 5px 0 !important;
+                 padding: 12px 15px !important;
+                 font-weight: 600 !important;
+                 box-shadow: 0 4px 12px rgba(253, 29, 63, 0.3) !important;
+                 transition: all 0.3s ease !important;
+             }
             
-            .mobile-sidenav .nav-link[href*="index"]:hover {
-                transform: translateY(-2px) !important;
-                box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4) !important;
-            }
+             .mobile-sidenav .nav-link[href*="index"]:hover {
+                 transform: translateY(-2px) !important;
+                 box-shadow: 0 6px 20px rgba(253, 29, 63, 0.4) !important;
+             }
             
-            /* تحسين dropdown toggles */
-            .mobile-sidenav .dropdown-toggle {
-                background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(0, 0, 0, 0.3)) !important;
-                border: 1px solid rgba(220, 20, 60, 0.4) !important;
-                pointer-events: auto !important;
-                box-shadow: 0 2px 8px rgba(220, 20, 60, 0.1) !important;
-            }
+             /* تحسين dropdown toggles */
+             .mobile-sidenav .dropdown-toggle {
+                 background: linear-gradient(135deg, rgba(253, 29, 63, 0.2), rgba(15, 14, 14, 0.3)) !important;
+                 border: 1px solid rgba(253, 29, 63, 0.4) !important;
+                 pointer-events: auto !important;
+                 box-shadow: 0 2px 8px rgba(253, 29, 63, 0.1) !important;
+             }
             
-            /* تحسين dropdown menus */
-            .mobile-sidenav .dropdown-menu {
-                background: linear-gradient(135deg, rgba(220, 20, 60, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%) !important;
-                max-height: 400px !important;
-                overflow-y: auto !important;
-                border-radius: 8px !important;
-                margin-top: 5px !important;
-                border: 1px solid rgba(220, 20, 60, 0.3) !important;
-                box-shadow: 0 4px 15px rgba(220, 20, 60, 0.2) !important;
-            }
+             /* تحسين dropdown menus */
+             .mobile-sidenav .dropdown-menu {
+                 background: linear-gradient(135deg, rgba(253, 29, 63, 0.95) 0%, rgba(15, 14, 14, 0.95) 100%) !important;
+                 max-height: 400px !important;
+                 overflow-y: auto !important;
+                 border-radius: 8px !important;
+                 margin-top: 5px !important;
+                 border: 1px solid rgba(253, 29, 63, 0.3) !important;
+                 box-shadow: 0 4px 15px rgba(253, 29, 63, 0.2) !important;
+             }
             
             /* تحسين أحجام الأيقونات والخطوط */
             .mobile-sidenav .dropdown-menu .nav-link {
@@ -1460,30 +1593,30 @@ function getNavbarStyles() {
             }
             
             /* إزالة الكارد من عناصر النافبار المحمول */
-            .mobile-sidenav .nav-link {
-                box-shadow: none !important;
-                background: linear-gradient(135deg, rgba(220, 20, 60, 0.05), rgba(0, 0, 0, 0.1)) !important;
-                border: 1px solid rgba(220, 20, 60, 0.1) !important;
-                margin: 2px 0 !important;
-                border-radius: 6px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
-            }
+             .mobile-sidenav .nav-link {
+                 box-shadow: none !important;
+                 background: linear-gradient(135deg, rgba(253, 29, 63, 0.05), rgba(15, 14, 14, 0.1)) !important;
+                 border: 1px solid rgba(253, 29, 63, 0.1) !important;
+                 margin: 2px 0 !important;
+                 border-radius: 6px !important;
+                 white-space: nowrap !important;
+                 text-overflow: ellipsis !important;
+                 overflow: hidden !important;
+             }
             
-            .mobile-sidenav .nav-link:hover {
-                background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(0, 0, 0, 0.3)) !important;
-                border-radius: 6px !important;
-                border-color: rgba(220, 20, 60, 0.4) !important;
-                box-shadow: 0 2px 8px rgba(220, 20, 60, 0.1) !important;
-            }
+             .mobile-sidenav .nav-link:hover {
+                 background: linear-gradient(135deg, rgba(253, 29, 63, 0.2), rgba(15, 14, 14, 0.3)) !important;
+                 border-radius: 6px !important;
+                 border-color: rgba(253, 29, 63, 0.4) !important;
+                 box-shadow: 0 2px 8px rgba(253, 29, 63, 0.1) !important;
+             }
             
             /* تحسين التخطيط العام */
-            .mobile-sidenav {
-                overflow-y: auto !important;
-                scrollbar-width: thin !important;
-                scrollbar-color: rgba(255, 255, 255, 0.3) transparent !important;
-            }
+         .mobile-sidenav {
+             overflow-y: auto !important;
+             scrollbar-width: thin !important;
+             scrollbar-color: rgba(253, 29, 63, 0.3) transparent !important;
+         }
             
             .mobile-sidenav::-webkit-scrollbar {
                 width: 6px !important;
@@ -1493,10 +1626,10 @@ function getNavbarStyles() {
                 background: transparent !important;
             }
             
-            .mobile-sidenav::-webkit-scrollbar-thumb {
-                background: linear-gradient(135deg, rgba(220, 20, 60, 0.6), rgba(0, 0, 0, 0.8)) !important;
-                border-radius: 3px !important;
-            }
+         .mobile-sidenav::-webkit-scrollbar-thumb {
+             background: linear-gradient(135deg, rgba(253, 29, 63, 0.6), rgba(15, 14, 14, 0.8)) !important;
+             border-radius: 3px !important;
+         }
             
             .logo-sky, .logo-yline {
                 font-size: 1.4rem !important;
@@ -1582,6 +1715,7 @@ function getNavbarHTML() {
                             <li><a href="products&solutions.html" data-translate="nav-products">Our Products & Solutions</a></li>
                             <li><a href="products&solutions.html#software-solutions" data-translate="nav-products">Software Solutions</a></li>
                             <li><a href="saas-programs.html" data-translate="nav-saas">SaaS Programs</a></li>
+                            <li><a href="pricing.html" data-translate="nav-pricing">Pricing</a></li>
                             <li><a href="products&solutions.html#demo" data-translate="nav-products">Book Your Demo</a></li>
                             <li><a href="products&solutions.html#videos" data-translate="nav-products">Product Videos</a></li>
                             <li><a href="download-center.html" data-translate="nav-download">Download Center</a></li>
@@ -1598,7 +1732,6 @@ function getNavbarHTML() {
                             <li><a href="iso-consulting.html#contact" data-translate="nav-iso-consultation">Get Consultation</a></li>
                         </ul>
                     </li>
-                    <li><a href="events-news.html" data-translate="nav-events">Events & News</a></li>
                     <li><a href="contact-us.html" data-translate="nav-contact">Contact Us</a></li>
                     <li class="portal-access">
                         <a href="client-portal-access.html" class="portal-btn" title="Client Portal Access">
@@ -1666,6 +1799,7 @@ function getNavbarHTML() {
                         <li><a href="products&solutions.html#software-solutions"><span class="icon">💻</span><span
                                     class="label" data-translate="nav-products">Software Solutions</span></a></li>
                         <li><a href="saas-programs.html"><span class="icon">☁️</span><span class="label" data-translate="nav-saas">SaaS Programs</span></a></li>
+                        <li><a href="pricing.html"><span class="icon">💰</span><span class="label" data-translate="nav-pricing">Pricing</span></a></li>
                         <li><a href="products&solutions.html#demo"><span class="icon">🎬</span><span class="label" data-translate="nav-products">Book Your
                                     Demo</span></a></li>
                         <li><a href="products&solutions.html#videos"><span class="icon">🎥</span><span class="label" data-translate="nav-products">Product
@@ -1688,7 +1822,6 @@ function getNavbarHTML() {
                         <li><a href="iso-consulting.html#contact"><span class="icon">💬</span><span class="label" data-translate="nav-iso-consultation">Get Consultation</span></a></li>
                     </ul>
                 </li>
-                <li><a href="events-news.html"><span class="icon">📰</span><span class="label" data-translate="nav-events">Events & News</span></a></li>
                 <li><a href="contact-us.html"><span class="icon">📞</span><span class="label" data-translate="nav-contact">Contact Us</span></a></li>
                 <li><a href="client-portal-access.html" class="portal-mobile-link"><span class="icon">🔐</span><span class="label" data-translate="nav-portal">Client Portal</span></a></li>
             </ul>
@@ -1723,6 +1856,13 @@ function initializeLanguageSwitcher() {
 }
 
 function initializeNavbarFunctionality() {
+    // Ensure navbar starts with dark background
+    const funcHeader = document.querySelector('.header');
+    if (funcHeader) {
+        funcHeader.classList.remove('scrolled');
+        console.log('✅ Navbar functionality: dark background applied');
+    }
+
     // Mobile navigation functionality
     const mobileSidenav = document.getElementById('mobileSidenav');
     const mobileOverlay = document.getElementById('mobileOverlay');
@@ -1940,27 +2080,17 @@ function initializeNavbarFunctionality() {
     });
 
     // Header scroll effect with performance optimization
-    const header = document.querySelector('.header');
-    if (header) {
+    const scrollHeader = document.querySelector('.header');
+    if (scrollHeader) {
         let ticking = false;
 
         function updateHeader() {
             if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-                header.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.15) 100%)';
-                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 20px rgba(0, 0, 0, 0.08)';
-                header.style.backdropFilter = 'blur(20px) saturate(180%) brightness(110%)';
-                header.style.webkitBackdropFilter = 'blur(20px) saturate(180%) brightness(110%)';
-                header.style.border = '1px solid rgba(255, 255, 255, 0.3)';
-                header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.4)';
+                scrollHeader.classList.add('scrolled');
+                console.log('✅ Navbar: Scrolled state applied');
             } else {
-                header.classList.remove('scrolled');
-                header.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 30%, rgba(20, 20, 20, 0.95) 70%, rgba(0, 0, 0, 0.95) 100%)';
-                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2)';
-                header.style.backdropFilter = 'blur(20px)';
-                header.style.webkitBackdropFilter = 'blur(20px)';
-                header.style.border = 'none';
-                header.style.borderBottom = '2px solid rgba(255, 255, 255, 0.1)';
+                scrollHeader.classList.remove('scrolled');
+                console.log('✅ Navbar: Dark state applied');
             }
             ticking = false;
         }

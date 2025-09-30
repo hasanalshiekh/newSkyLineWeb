@@ -146,7 +146,7 @@
         /* Hero Section */
         .hero {
             padding: 80px 0 40px;
-            text-align: center;
+            text-align: left;
             background: 
                 linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(196, 30, 58, 0.1)),
                 url('img/Gemini_Generated_Image_vn6mpvvn6mpvvn6m.png');
@@ -175,14 +175,13 @@
             color: #fff;
             margin-bottom: 1.5rem;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(196, 30, 58, 0.6);
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px 40px;
-            border-radius: 15px;
-            display: inline-block;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
             max-width: 90%;
             word-wrap: break-word;
+            position: absolute;
+            top: 55px;
+            left: 20px;
+            z-index: 10;
         }
 
         /* Responsive Design for Hero Background */
@@ -197,6 +196,8 @@
             
             .hero h1 {
                 font-size: 5rem;
+                top: 55px;
+                left: 20px;
             }
             
             .hero p {
@@ -215,6 +216,8 @@
             
             .hero h1 {
                 font-size: 4.5rem;
+                top: 55px;
+                left: 20px;
             }
             
             .hero p {
@@ -233,6 +236,8 @@
             
             .hero h1 {
                 font-size: 4rem;
+                top: 55px;
+                left: 20px;
             }
             
             .hero p {
@@ -251,6 +256,8 @@
             
             .hero h1 {
                 font-size: 3.5rem;
+                top: 55px;
+                left: 20px;
             }
             
             .hero p {
@@ -271,6 +278,8 @@
             .hero h1 {
                 font-size: 3rem;
                 padding: 15px 25px;
+                top: 55px;
+                left: 20px;
             }
             
             .hero p {
@@ -296,6 +305,8 @@
             .hero h1 {
                 font-size: 2.5rem;
                 padding: 12px 20px;
+                top: 55px;
+                left: 20px;
             }
             
             .hero p {
@@ -321,6 +332,8 @@
             .hero h1 {
                 font-size: 2rem;
                 padding: 10px 15px;
+                top: 55px;
+                left: 20px;
             }
             
             .hero p {
@@ -346,6 +359,8 @@
             .hero h1 {
                 font-size: 1.8rem;
                 padding: 8px 12px;
+                top: 55px;
+                left: 20px;
             }
             
             .hero p {
@@ -802,19 +817,15 @@
     <!-- Hero Section -->
     <section class="hero">
 
-        <!-- Particle Animation -->
-        <div id="particles-style-01" class="position-absolute h-100 top-0 left-0 w-100" data-particle="true" data-particle-options="{ &quot;particles&quot;: { &quot;number&quot;: { &quot;value&quot;: 80, &quot;density&quot;: { &quot;enable&quot;: true, &quot;value_area&quot;: 800 } }, &quot;color&quot;: { &quot;value&quot;: &quot;#8B0000&quot; }, &quot;shape&quot;: { &quot;type&quot;: &quot;circle&quot;, &quot;stroke&quot;: { &quot;width&quot;: 0, &quot;color&quot;: &quot;#8B0000&quot; }, &quot;polygon&quot;: { &quot;nb_sides&quot;: 5 }, &quot;image&quot;: { &quot;src&quot;: &quot;img/github.svg&quot;, &quot;width&quot;: 100, &quot;height&quot;: 100 } }, &quot;opacity&quot;: { &quot;value&quot;: 0.4, &quot;random&quot;: false, &quot;anim&quot;: { &quot;enable&quot;: false, &quot;speed&quot;: 1, &quot;opacity_min&quot;: 0.1, &quot;sync&quot;: false } }, &quot;size&quot;: { &quot;value&quot;: 4, &quot;random&quot;: true, &quot;anim&quot;: { &quot;enable&quot;: false, &quot;speed&quot;: 40, &quot;size_min&quot;: 0.1, &quot;sync&quot;: false } }, &quot;line_linked&quot;: { &quot;enable&quot;: true, &quot;distance&quot;: 150, &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1, &quot;width&quot;: 1 }, &quot;move&quot;: { &quot;enable&quot;: true, &quot;speed&quot;: 6, &quot;direction&quot;: &quot;none&quot;, &quot;random&quot;: false, &quot;straight&quot;: false, &quot;out_mode&quot;: &quot;out&quot;, &quot;bounce&quot;: false, &quot;attract&quot;: { &quot;enable&quot;: false, &quot;rotateX&quot;: 600, &quot;rotateY&quot;: 1200 } } }, &quot;interactivity&quot;: { &quot;detect_on&quot;: &quot;canvas&quot;, &quot;events&quot;: { &quot;onhover&quot;: { &quot;enable&quot;: true, &quot;mode&quot;: &quot;repulse&quot; }, &quot;onclick&quot;: { &quot;enable&quot;: true, &quot;mode&quot;: &quot;push&quot; }, &quot;resize&quot;: true }, &quot;modes&quot;: { &quot;grab&quot;: { &quot;distance&quot;: 400, &quot;line_linked&quot;: { &quot;opacity&quot;: 1 } }, &quot;bubble&quot;: { &quot;distance&quot;: 400, &quot;size&quot;: 40, &quot;duration&quot;: 2, &quot;opacity&quot;: 8, &quot;speed&quot;: 3 }, &quot;repulse&quot;: { &quot;distance&quot;: 200, &quot;duration&quot;: 0.4 }, &quot;push&quot;: { &quot;particles_nb&quot;: 4 }, &quot;remove&quot;: { &quot;particles_nb&quot;: 2 } } }, &quot;retina_detect&quot;: true}">
-            <canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas>
-        </div>
 
 
         <div class="container" style="max-width: 100%; padding: 0 20px; width: 100%;">
             <h1 data-translate="iso-hero-title">ISO Consulting</h1>
-            <p data-translate="iso-hero-description">Achieve international standards compliance with our specialized ISO consulting services. We help your organization implement, maintain, and improve quality management systems.</p>
+            <!-- <p data-translate="iso-hero-description">Achieve international standards compliance with our specialized ISO consulting services. We help your organization implement, maintain, and improve quality management systems.</p>
             <a href="#iso-standards" class="hero-cta">
                 <i class="fas fa-certificate"></i>
                 <span data-translate="iso-hero-cta">Explore ISO Standards</span>
-            </a>
+            </a> -->
         </div>
     </section>
 
