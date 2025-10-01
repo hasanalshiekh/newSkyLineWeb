@@ -1286,6 +1286,139 @@
             border-radius: 15px;
         }
 
+        /* ═══════════════════════════════════════════ */
+        /* أسهم التنقل للـ carousel */
+        /* ═══════════════════════════════════════════ */
+
+        .carousel-arrow {
+            position: absolute;
+            bottom: -80px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(217, 10, 44, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(217, 10, 44, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 100;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .carousel-prev {
+            left: 50%;
+            transform: translateX(-80px);
+        }
+
+        .carousel-next {
+            left: 50%;
+            transform: translateX(80px);
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(217, 10, 44, 0.4);
+            color: white;
+            border-color: rgba(217, 10, 44, 0.6);
+        }
+
+        .carousel-prev:hover {
+            transform: translateX(-80px) scale(1.1);
+        }
+
+        .carousel-next:hover {
+            transform: translateX(80px) scale(1.1);
+        }
+
+        .carousel-arrow:active {
+            background: rgba(217, 10, 44, 0.5);
+        }
+
+        .carousel-prev:active {
+            transform: translateX(-80px) scale(0.95);
+        }
+
+        .carousel-next:active {
+            transform: translateX(80px) scale(0.95);
+        }
+
+        /* للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .carousel-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+                bottom: -70px;
+            }
+
+            .carousel-prev {
+                left: 50%;
+                transform: translateX(-70px);
+            }
+
+            .carousel-next {
+                left: 50%;
+                transform: translateX(70px);
+            }
+
+            .carousel-prev:hover {
+                transform: translateX(-70px) scale(1.1);
+            }
+
+            .carousel-next:hover {
+                transform: translateX(70px) scale(1.1);
+            }
+
+            .carousel-prev:active {
+                transform: translateX(-70px) scale(0.95);
+            }
+
+            .carousel-next:active {
+                transform: translateX(70px) scale(0.95);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: -60px;
+            }
+
+            .carousel-prev {
+                left: 50%;
+                transform: translateX(-60px);
+            }
+
+            .carousel-next {
+                left: 50%;
+                transform: translateX(60px);
+            }
+
+            .carousel-prev:hover {
+                transform: translateX(-60px) scale(1.1);
+            }
+
+            .carousel-next:hover {
+                transform: translateX(60px) scale(1.1);
+            }
+
+            .carousel-prev:active {
+                transform: translateX(-60px) scale(0.95);
+            }
+
+            .carousel-next:active {
+                transform: translateX(60px) scale(0.95);
+            }
+        }
+
+        /* ═══════════════════════════════════════════ */
+
         .carousel-item .item-content {
             position: absolute;
             bottom: 0;
@@ -1395,10 +1528,23 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            /* إزالة الحواشي من الصفحة كاملة */
+            body {
+                padding: 0 !important;
+                margin: 0 !important;
+                overflow-x: hidden !important;
+            }
+            
+            .container {
+                padding: 0 0.5rem !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            
             .carousel-section {
-                margin: 3rem auto;
-                padding: 2rem 1rem;
-                max-width: 400px;
+                margin: 1rem auto;
+                padding: 0.5rem;
+                max-width: 100%;
                 overflow: visible;
             }
             
@@ -1408,6 +1554,102 @@
                 perspective: 800px;
                 perspective-origin: center center;
                 overflow: visible;
+                margin: 0 auto;
+            }
+            
+            /* إزالة الحواشي من جميع العناصر */
+            * {
+                box-sizing: border-box;
+            }
+            
+            .hero {
+                padding: 120px 0.5rem 60px !important;
+                margin: 0 !important;
+            }
+            
+            .products-section {
+                padding: 40px 0.5rem !important;
+                margin: 0 !important;
+            }
+            
+            .demo-section {
+                padding: 40px 0.5rem !important;
+                margin: 0 !important;
+            }
+            
+            .videos-section {
+                padding: 40px 0.5rem !important;
+                margin: 0 !important;
+            }
+            
+            .download-section {
+                padding: 40px 0.5rem !important;
+                margin: 0 !important;
+            }
+            
+            .pricing-section {
+                padding: 40px 0.5rem !important;
+                margin: 0 !important;
+            }
+            
+            /* إزالة الحواشي من النافبار */
+            .header {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .nav-container {
+                padding: 0 0.5rem !important;
+                margin: 0 !important;
+            }
+            
+            /* إزالة الحواشي من الفوتر */
+            footer {
+                padding: 20px 0.5rem !important;
+                margin: 0 !important;
+            }
+            
+            /* إزالة الحواشي من العناصر الداخلية */
+            .section-header {
+                margin-bottom: 2rem !important;
+                padding: 0 0.5rem !important;
+            }
+            
+            .section-title {
+                font-size: 1.8rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .hero p {
+                font-size: 1.1rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            /* إزالة الحواشي من النماذج */
+            .demo-form {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem !important;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.8rem !important;
+                margin: 0 !important;
             }
             
             .carousel-item {
@@ -1670,6 +1912,14 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- أسهم التنقل للموبايل -->
+            <button class="carousel-arrow carousel-prev" aria-label="Previous">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-arrow carousel-next" aria-label="Next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
@@ -2074,6 +2324,63 @@
     
     <!-- Page Loader -->
     <script src="page-loader.js"></script>
+
+    <!-- Carousel Navigation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            
+            if (carousel && prevBtn && nextBtn) {
+                let currentRotation = 0;
+                const angleStep = 60; // 360 / 6 items = 60 degrees per item
+                
+                function rotateCarousel(direction) {
+                    if (direction === 'next') {
+                        currentRotation -= angleStep;
+                    } else {
+                        currentRotation += angleStep;
+                    }
+                    carousel.style.transform = `rotateY(${currentRotation}deg)`;
+                }
+                
+                prevBtn.addEventListener('click', function() {
+                    rotateCarousel('prev');
+                });
+                
+                nextBtn.addEventListener('click', function() {
+                    rotateCarousel('next');
+                });
+                
+                // Touch support for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                carousel.addEventListener('touchstart', function(e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                carousel.addEventListener('touchend', function(e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    if (touchEndX < touchStartX - 50) {
+                        // Swipe left
+                        rotateCarousel('next');
+                    }
+                    if (touchEndX > touchStartX + 50) {
+                        // Swipe right
+                        rotateCarousel('prev');
+                    }
+                }
+                
+                console.log('✅ Carousel navigation initialized successfully!');
+            }
+        });
+    </script>
 
     <!-- Diamond Navigation Handler -->
     <script>
