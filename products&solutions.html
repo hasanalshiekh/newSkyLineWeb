@@ -1346,74 +1346,323 @@
             transform: translateX(80px) scale(0.95);
         }
 
-        /* للشاشات الصغيرة */
+        /* إخفاء الكاروسيل الجديد على الشاشات الكبيرة */
+        .mobile-carousel-section {
+            display: none;
+        }
+
+        /* تحسينات إضافية للكاروسيل الجديد */
+        .mobile-carousel-section * {
+            box-sizing: border-box;
+        }
+
+        /* تصميم كاروسيل جديد للموبايل فقط */
         @media (max-width: 768px) {
-            .carousel-arrow {
-                width: 45px;
-                height: 45px;
+            /* إخفاء الكاروسيل الأصلي في الموبايل */
+            .carousel-container {
+                display: none;
+            }
+            
+            /* إظهار الكاروسيل الجديد للموبايل */
+            .mobile-carousel-section {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            .mobile-carousel-container {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                margin-bottom: 100px;
+            }
+
+            .mobile-carousel {
+                display: flex;
+                transition: transform 0.5s ease;
+                gap: 20px;
+                padding: 10px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .mobile-carousel::-webkit-scrollbar {
+                display: none;
+            }
+
+            .mobile-carousel {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            .mobile-carousel-item {
+                min-width: 85%;
+                height: 400px;
+                perspective: 1000px;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .mobile-card-face {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow: hidden;
+                top: 0;
+                left: 0;
+            }
+
+            .mobile-card-front {
+                background: white;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mobile-card-front img {
+                width: 100%;
+                height: 70%;
+                object-fit: cover;
+                border-radius: 15px 15px 0 0;
+            }
+
+            .mobile-item-content {
+                padding: 20px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                background: white;
+                border-radius: 0 0 15px 15px;
+            }
+
+            .mobile-item-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #2c3e50;
+                margin-bottom: 10px;
+            }
+
+            .mobile-item-description {
+                color: #7f8c8d;
+                font-size: 1rem;
+            }
+
+            .mobile-card-back {
+                background: linear-gradient(135deg, #3498db, #2c3e50);
+                color: white;
+                padding: 25px;
+                transform: rotateY(180deg);
+                overflow-y: auto;
+                border-radius: 15px;
+            }
+
+            .mobile-card-back h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                text-align: center;
+                color: #ecf0f1;
+            }
+
+            .mobile-card-back p {
+                margin-bottom: 20px;
+                line-height: 1.6;
+                text-align: center;
+            }
+
+            .mobile-card-back ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .mobile-card-back li {
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                padding-right: 20px;
+                margin-bottom: 5px;
+            }
+
+            .mobile-card-back li:before {
+                content: "✓";
+                position: absolute;
+                right: 0;
+                color: #2ecc71;
+                font-weight: bold;
+            }
+
+            .mobile-carousel-item.flipped .mobile-card-front {
+                transform: rotateY(180deg);
+            }
+
+            .mobile-carousel-item.flipped .mobile-card-back {
+                transform: rotateY(0);
+            }
+
+            /* تحسين تأثير الـ flip */
+            .mobile-carousel-item {
+                transition: transform 0.3s ease;
+            }
+
+            .mobile-carousel-item.flipped {
+                transform: scale(1.02);
+                z-index: 10;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            }
+
+            /* تحسينات إضافية للعرض */
+            .mobile-carousel-item:active:not(.flipped) {
+                transform: scale(0.98);
+            }
+
+            .mobile-carousel-item.flipped:active {
+                transform: scale(1.0);
+            }
+
+            /* أسهم التنقل للموبايل */
+            .mobile-carousel-arrow {
+                position: absolute;
+                bottom: -80px;
+                background: rgba(255, 255, 255, 0.9);
+                border: none;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                z-index: 10;
+                transition: all 0.3s ease;
+                border: 2px solid rgba(52, 152, 219, 0.3);
+            }
+
+            .mobile-carousel-prev:hover {
+                background: white;
+                transform: translateX(-50%) scale(1.1);
+                border-color: #3498db;
+            }
+
+            .mobile-carousel-next:hover {
+                background: white;
+                transform: translateX(-50%) scale(1.1);
+                border-color: #3498db;
+            }
+
+            .mobile-carousel-prev:active {
+                transform: translateX(-50%) scale(0.95);
+            }
+
+            .mobile-carousel-next:active {
+                transform: translateX(-50%) scale(0.95);
+            }
+
+            .mobile-carousel-prev {
+                left: 50%;
+                transform: translateX(-50%);
+                margin-left: -60px;
+            }
+
+            .mobile-carousel-next {
+                left: 50%;
+                transform: translateX(-50%);
+                margin-left: 60px;
+            }
+
+            .mobile-carousel-arrow i {
                 font-size: 1.2rem;
-                bottom: -70px;
-            }
-
-            .carousel-prev {
-                left: 50%;
-                transform: translateX(-70px);
-            }
-
-            .carousel-next {
-                left: 50%;
-                transform: translateX(70px);
-            }
-
-            .carousel-prev:hover {
-                transform: translateX(-70px) scale(1.1);
-            }
-
-            .carousel-next:hover {
-                transform: translateX(70px) scale(1.1);
-            }
-
-            .carousel-prev:active {
-                transform: translateX(-70px) scale(0.95);
-            }
-
-            .carousel-next:active {
-                transform: translateX(70px) scale(0.95);
+                color: #3498db;
+                font-weight: bold;
             }
         }
 
         @media (max-width: 480px) {
-            .carousel-arrow {
+            .mobile-carousel-item {
+                min-width: 90%;
+                height: 380px;
+            }
+
+            .mobile-item-title {
+                font-size: 1.3rem;
+            }
+
+            .mobile-card-back {
+                padding: 20px;
+            }
+
+            .mobile-card-back h3 {
+                font-size: 1.3rem;
+            }
+
+            .mobile-carousel-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+                bottom: -70px;
+            }
+
+            .mobile-carousel-prev {
+                margin-left: -50px;
+            }
+
+            .mobile-carousel-next {
+                margin-left: 50px;
+            }
+        }
+
+        /* للشاشات الصغيرة جداً */
+        @media (max-width: 360px) {
+            .mobile-carousel-item {
+                min-width: 95%;
+                height: 360px;
+            }
+
+            .mobile-item-title {
+                font-size: 1.2rem;
+            }
+
+            .mobile-card-back {
+                padding: 15px;
+            }
+
+            .mobile-card-back h3 {
+                font-size: 1.2rem;
+            }
+
+            .mobile-card-back p {
+                font-size: 0.9rem;
+            }
+
+            .mobile-card-back ul {
+                font-size: 0.8rem;
+            }
+
+            .mobile-carousel-arrow {
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
                 bottom: -60px;
             }
 
-            .carousel-prev {
-                left: 50%;
-                transform: translateX(-60px);
+            .mobile-carousel-prev {
+                margin-left: -40px;
             }
 
-            .carousel-next {
-                left: 50%;
-                transform: translateX(60px);
-            }
-
-            .carousel-prev:hover {
-                transform: translateX(-60px) scale(1.1);
-            }
-
-            .carousel-next:hover {
-                transform: translateX(60px) scale(1.1);
-            }
-
-            .carousel-prev:active {
-                transform: translateX(-60px) scale(0.95);
-            }
-
-            .carousel-next:active {
-                transform: translateX(60px) scale(0.95);
+            .mobile-carousel-next {
+                margin-left: 40px;
             }
         }
 
@@ -1732,6 +1981,7 @@
                 transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             }
         }
+
     </style>
 </head>
 <body>
@@ -1778,7 +2028,7 @@
         
         <div class="carousel-container">
             <div class="carousel">
-                <div class="carousel-item">
+                <div class="carousel-item ">
                     <div class="card-face card-front">
                         <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="HR Management">
                         <div class="item-content">
@@ -1919,6 +2169,142 @@
             </button>
             <button class="carousel-arrow carousel-next" aria-label="Next">
                 <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Mobile Carousel Section (Hidden on Desktop) -->
+    <section class="mobile-carousel-section">
+        <div class="mobile-carousel-container">
+            <div class="mobile-carousel">
+                <div class="mobile-carousel-item">
+                    <div class="mobile-card-face mobile-card-front">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="HR Management">
+                        <div class="mobile-item-content">
+                            <div class="mobile-item-title">HR Management</div>
+                            <div class="mobile-item-description">Complete HR solutions</div>
+                        </div>
+                    </div>
+                    <div class="mobile-card-face mobile-card-back">
+                        <h3>HR Management</h3>
+                        <p>Complete human resources management platform for modern organizations</p>
+                        <ul>
+                            <li>Employee database management</li>
+                            <li>Payroll processing</li>
+                            <li>Performance tracking</li>
+                            <li>Leave management</li>
+                            <li>Recruitment tools</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mobile-carousel-item">
+                    <div class="mobile-card-face mobile-card-front">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="ERP System">
+                        <div class="mobile-item-content">
+                            <div class="mobile-item-title">ERP</div>
+                            <div class="mobile-item-description">Enterprise resource planning</div>
+                        </div>
+                    </div>
+                    <div class="mobile-card-face mobile-card-back">
+                        <h3>ERP System</h3>
+                        <p>Comprehensive enterprise resource planning for business optimization</p>
+                        <ul>
+                            <li>Advanced financial management and accounting</li>
+                            <li>Real-time inventory control and optimization</li>
+                            <li>Integrated supply chain management</li>
+                            <li>Customer relationship management (CRM)</li>
+                            <li>Business intelligence and analytics dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mobile-carousel-item">
+                    <div class="mobile-card-face mobile-card-front">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fawtara System">
+                        <div class="mobile-item-content">
+                            <div class="mobile-item-title">Fawtara System</div>
+                            <div class="mobile-item-description">Advanced invoicing system</div>
+                        </div>
+                    </div>
+                    <div class="mobile-card-face mobile-card-back">
+                        <h3>Fawtara System</h3>
+                        <p>Next-generation invoicing and financial management platform</p>
+                        <ul>
+                            <li>Automated invoice generation with custom templates</li>
+                            <li>Real-time payment tracking and notifications</li>
+                            <li>Advanced tax calculations and compliance</li>
+                            <li>Multi-channel customer billing system</li>
+                            <li>Comprehensive financial reporting and analytics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mobile-carousel-item">
+                    <div class="mobile-card-face mobile-card-front">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Maintenance">
+                        <div class="mobile-item-content">
+                            <div class="mobile-item-title">Maintenance</div>
+                            <div class="mobile-item-description">Equipment maintenance</div>
+                        </div>
+                    </div>
+                    <div class="mobile-card-face mobile-card-back">
+                        <h3>Maintenance System</h3>
+                        <p>Intelligent equipment maintenance and asset management solution</p>
+                        <ul>
+                            <li>Advanced asset tracking with IoT integration</li>
+                            <li>Predictive maintenance scheduling with AI</li>
+                            <li>Automated work order management system</li>
+                            <li>Real-time inventory tracking and alerts</li>
+                            <li>Performance monitoring and analytics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mobile-carousel-item">
+                    <div class="mobile-card-face mobile-card-front">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cash Link">
+                        <div class="mobile-item-content">
+                            <div class="mobile-item-title">Cash Link</div>
+                            <div class="mobile-item-description">Payment processing</div>
+                        </div>
+                    </div>
+                    <div class="mobile-card-face mobile-card-back">
+                        <h3>Cash Link System</h3>
+                        <p>Advanced payment processing and financial management platform</p>
+                        <ul>
+                            <li>Multi-gateway payment integration and processing</li>
+                            <li>Real-time transaction processing and settlement</li>
+                            <li>Comprehensive financial reporting and analytics</li>
+                            <li>Bank-level security and compliance standards</li>
+                            <li>Multi-currency support with live exchange rates</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mobile-carousel-item">
+                    <div class="mobile-card-face mobile-card-front">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="ISO">
+                        <div class="mobile-item-content">
+                            <div class="mobile-item-title">ISO</div>
+                            <div class="mobile-item-description">Quality management</div>
+                        </div>
+                    </div>
+                    <div class="mobile-card-face mobile-card-back">
+                        <h3>ISO Management</h3>
+                        <p>Quality management and compliance</p>
+                        <ul>
+                            <li>ISO standards compliance and certification</li>
+                            <li>Advanced document management and version control</li>
+                            <li>Automated audit tracking and reporting</li>
+                            <li>Continuous process improvement tools</li>
+                            <li>Certification management and renewal tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- أسهم التنقل للموبايل -->
+            <button class="mobile-carousel-arrow mobile-carousel-prev" aria-label="Previous">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="mobile-carousel-arrow mobile-carousel-next" aria-label="Next">
+                <i class="fas fa-chevron-left"></i>
             </button>
         </div>
     </section>
@@ -2378,6 +2764,100 @@
                 }
                 
                 console.log('✅ Carousel navigation initialized successfully!');
+            }
+        });
+    </script>
+
+    <!-- Mobile Carousel JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileCarousel = document.querySelector('.mobile-carousel');
+            const mobilePrevButton = document.querySelector('.mobile-carousel-prev');
+            const mobileNextButton = document.querySelector('.mobile-carousel-next');
+            const mobileCarouselItems = document.querySelectorAll('.mobile-carousel-item');
+            
+            if (mobileCarousel && mobilePrevButton && mobileNextButton) {
+                let currentIndex = 0;
+                const itemWidth = mobileCarouselItems[0].offsetWidth + 20; // width + gap
+                
+                // دالة لتحريك الكاروسيل
+                function moveMobileCarousel(index) {
+                    mobileCarousel.scrollTo({
+                        left: index * itemWidth,
+                        behavior: 'smooth'
+                    });
+                    currentIndex = index;
+                }
+                
+                // حدث الزر السابق
+                mobilePrevButton.addEventListener('click', function() {
+                    if (currentIndex > 0) {
+                        moveMobileCarousel(currentIndex - 1);
+                    }
+                });
+                
+                // حدث الزر التالي
+                mobileNextButton.addEventListener('click', function() {
+                    if (currentIndex < mobileCarouselItems.length - 1) {
+                        moveMobileCarousel(currentIndex + 1);
+                    }
+                });
+                
+                // كشف التمرير التلقائي
+                mobileCarousel.addEventListener('scroll', function() {
+                    currentIndex = Math.round(mobileCarousel.scrollLeft / itemWidth);
+                });
+                
+                // تأثير اللمس للموبايل
+                let startX;
+                let scrollLeft;
+                
+                mobileCarousel.addEventListener('touchstart', function(e) {
+                    startX = e.touches[0].pageX - mobileCarousel.offsetLeft;
+                    scrollLeft = mobileCarousel.scrollLeft;
+                });
+                
+                mobileCarousel.addEventListener('touchmove', function(e) {
+                    if (!startX) return;
+                    const x = e.touches[0].pageX - mobileCarousel.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    mobileCarousel.scrollLeft = scrollLeft - walk;
+                });
+                
+                // إضافة وظيفة الـ flip عند الضغط على الكروت
+                mobileCarouselItems.forEach((item, index) => {
+                    item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // التحقق من أن الكرت ليس مقلوب بالفعل
+                        if (this.classList.contains('flipped')) {
+                            // إغلاق الكرت إذا كان مقلوب بالفعل
+                            this.classList.remove('flipped');
+                            console.log(`Card ${index + 1} closed!`);
+                        } else {
+                            // إزالة الـ flipped من جميع الكروت
+                            mobileCarouselItems.forEach(card => {
+                                card.classList.remove('flipped');
+                            });
+                            
+                            // إضافة الـ flipped للكرت المضغوط
+                            this.classList.add('flipped');
+                            console.log(`Card ${index + 1} flipped!`);
+                        }
+                    });
+                });
+                
+                // إضافة وظيفة لإغلاق الـ flip عند الضغط خارج الكروت
+                document.addEventListener('click', function(e) {
+                    if (!mobileCarousel.contains(e.target)) {
+                        mobileCarouselItems.forEach(card => {
+                            card.classList.remove('flipped');
+                        });
+                    }
+                });
+                
+                console.log('✅ Mobile carousel navigation initialized successfully!');
             }
         });
     </script>

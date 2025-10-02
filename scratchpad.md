@@ -1,23 +1,60 @@
 # Scratchpad
 
-## Current Task: إضافة صفحة Pricing تحت dropdown الخاص بـ Products
+## Current Task: تطبيق تصميم كاروسيل جديد للموبايل فقط
 
 ### Task Description
-المستخدم يريد إضافة رابط صفحة Pricing تحت dropdown الخاص بـ Products في شريط التنقل.
+المستخدم يريد تطبيق تصميم كاروسيل جديد مع تأثيرات flip وتمرير أفقي للموبايل فقط، مع الحفاظ على التصميم الحالي للشاشات الكبيرة.
 
 ### Plan
-- [x] Read scratchpad and understand current state
-- [x] Find Products dropdown structure in navbar-include.js
-- [x] Add Pricing link to desktop Products dropdown
-- [x] Add Pricing link to mobile Products dropdown
-- [x] Test the changes
-- [x] Create unit test
-- [ ] Commit changes and create PR
+- [x] Analyze the new carousel design requirements
+- [x] Implement new mobile carousel with flip effects and horizontal scrolling
+- [x] Ensure desktop carousel remains unchanged
+- [x] Add JavaScript for mobile carousel navigation
+- [x] Fix mobile carousel display issues
+- [x] Add comprehensive responsive CSS for all screen sizes
+- [x] Enhance card styling and animations
+- [x] Test final implementation
+- [x] Commit changes and create PR
+
+### New Mobile Carousel Implementation
+
+#### 1. Mobile-Only Design
+- **Desktop**: Original 3D carousel remains unchanged
+- **Mobile (≤768px)**: New horizontal scrolling carousel with flip effects
+- **Responsive**: Automatically switches between desktop and mobile versions
+
+#### 2. Mobile Carousel Features
+- **Horizontal Scrolling**: Smooth horizontal scroll with snap-to-center
+- **Flip Effects**: Cards flip on hover to show detailed information
+- **Touch Support**: Full touch gesture support for mobile devices
+- **Navigation Arrows**: Touch-friendly navigation buttons
+
+#### 3. Card Design
+- **Front Cards**: Clean white design with images and titles
+- **Back Cards**: Gradient background with detailed information
+- **Smooth Transitions**: 0.8s ease transitions for flip effects
+- **Responsive Sizing**: 85% width on mobile for optimal viewing
+
+#### 4. JavaScript Functionality
+- **Navigation**: Previous/Next button functionality
+- **Touch Gestures**: Swipe support for mobile devices
+- **Auto-Detection**: Automatic scroll position detection
+- **Smooth Scrolling**: Smooth scroll behavior for better UX
+
+#### 5. Additional Fixes Applied
+- **Display Issues**: Fixed mobile carousel visibility
+- **Responsive Design**: Added comprehensive CSS for all screen sizes
+- **Card Styling**: Enhanced card appearance and animations
+- **Touch Support**: Improved touch interaction and feedback
+- **Visual Polish**: Added borders, shadows, and smooth transitions
 
 ### Progress
 - [x] Created scratchpad
-- [x] Analyzed navbar-include.js mobile menu implementation
-- [x] Found comprehensive mobile menu system with hamburger button, side navigation, and dropdowns
+- [x] Analyzed current carousel structure and identified mobile issues
+- [x] Implemented comprehensive mobile-responsive CSS
+- [x] Added media queries for 768px, 480px, and 360px breakpoints
+- [x] Optimized text sizes and spacing for mobile readability
+- [x] Enhanced navigation arrows for touch interaction
 - [x] Identified potential issues in mobile menu functionality
 
 ### Analysis of Current Mobile Menu Implementation
