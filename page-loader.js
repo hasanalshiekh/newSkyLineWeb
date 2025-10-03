@@ -232,7 +232,7 @@ class PageLoader {
                     height: 60px;
                     bottom: 20%;
                     left: 10%;
-                    animation-delay: 3s;
+                    animation-delay: 2s;
                 }
                 
                 .bg-particle:nth-child(4) {
@@ -315,7 +315,7 @@ class PageLoader {
                     top: 15%;
                     right: 25%;
                     transform: rotate(30deg);
-                    animation-delay: 1s;
+                    animation-delay: 2s;
                 }
                 
                 @keyframes shapeRotate {
@@ -364,7 +364,7 @@ class PageLoader {
                 }
                 
                 .logo-pulse-ring.delay-1 {
-                    animation-delay: 0.3s;
+                    animation-delay: 0.2s;
                     border-color: rgba(196, 30, 58, 0.4);
                 }
                 
@@ -397,7 +397,7 @@ class PageLoader {
                     align-items: center;
                     justify-content: center;
                     box-shadow: 0 0 30px rgba(196, 30, 58, 0.5);
-                    animation: logoSpin 3s ease-in-out infinite;
+                    animation: logoSpin 2s ease-in-out infinite;
                 }
                 
                 .logo-inner {
@@ -441,7 +441,7 @@ class PageLoader {
                     color: rgba(255, 255, 255, 0.7);
                     font-weight: 300;
                     letter-spacing: 2px;
-                    animation: fadeInUp 1s ease-out 0.5s both;
+                    animation: fadeInUp 2s ease-out 0.5s both;
                 }
                 
                 @keyframes textGlow {
@@ -467,7 +467,7 @@ class PageLoader {
                 /* Modern Progress Bar */
                 .progress-container {
                     margin-bottom: 2rem;
-                    animation: fadeInUp 1s ease-out 1s both;
+                    animation: fadeInUp 2s ease-out 1s both;
                 }
                 
                 .progress-track {
@@ -485,7 +485,7 @@ class PageLoader {
                     background: linear-gradient(90deg, #C41E3A, #ff4d6d, #C41E3A);
                     border-radius: 10px;
                     width: 0%;
-                    animation: progressFill 3s ease-out forwards;
+                    animation: progressFill 2s ease-out forwards;
                     position: relative;
                 }
                 
@@ -497,7 +497,7 @@ class PageLoader {
                     width: 0%;
                     background: linear-gradient(90deg, transparent, rgba(196, 30, 58, 0.8), transparent);
                     border-radius: 10px;
-                    animation: progressFill 3s ease-out forwards, glowMove 2s ease-in-out infinite;
+                    animation: progressFill 1s ease-out forwards, glowMove 2s ease-in-out infinite;
                 }
                 
                 @keyframes progressFill {
@@ -518,7 +518,7 @@ class PageLoader {
                     font-size: 1.2rem;
                     font-weight: 600;
                     color: #fff;
-                    animation: countUp 3s ease-out forwards;
+                    animation: countUp 2s ease-out forwards;
                 }
                 
                 @keyframes countUp {
