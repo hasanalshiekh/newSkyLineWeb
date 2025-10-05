@@ -79,10 +79,10 @@ function getNavbarStyles() {
     return `
         /* Header - Same as index.html */
         .header {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.95) 30%, rgba(20, 20, 20, 0.95) 70%, rgba(0, 0, 0, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(25, 25, 25, 0.95) 0%, rgba(26, 26, 26, 0.95) 30%, rgba(26, 26, 26, 0.95) 70%, rgba(27, 27, 26, 0.95) 100%);
             backdrop-filter: blur(20px);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            color: white;
+            border: none;
+            color: #D60A28;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -90,9 +90,7 @@ function getNavbarStyles() {
             left: 0;
             z-index: 99999;
             transition: all 0.3s ease;
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: none;
             overflow: visible;
         }
         
@@ -152,22 +150,22 @@ function getNavbarStyles() {
         
         /* Logo Scroll Effect - Same as yline */
         .logo-tagline {
-            color: #fff;
+            color: #E3616E;
             font-weight: 500;
             font-size: 1rem;
             text-shadow:
-                0 0 10px rgba(255, 255, 255, 0.3),
-                0 0 15px rgba(255, 255, 255, 0.2),
+                0 0 10px rgba(211, 10, 40, 0.3),
+                0 0 15px rgba(227, 97, 110, 0.2),
                 0 2px 4px rgba(0, 0, 0, 0.3);
             transition: all 0.4s ease;
         }
         
         .header.scrolled .logo-tagline {
-            color: #000 !important;
+            color: #D60A28 !important;
             text-shadow:
-                0 1px 3px rgba(255, 255, 255, 0.9),
-                0 0 12px rgba(255, 255, 255, 0.8),
-                0 0 20px rgba(255, 255, 255, 0.6),
+                0 1px 3px rgba(211, 10, 40, 0.3),
+                0 0 12px rgba(211, 10, 40, 0.2),
+                0 0 20px rgba(176, 13, 42, 0.4),
                 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
@@ -177,21 +175,12 @@ function getNavbarStyles() {
         }
 
         .header.scrolled {
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.15) 0%, 
-                rgba(255, 255, 255, 0.08) 25%, 
-                rgba(255, 255, 255, 0.12) 50%, 
-                rgba(255, 255, 255, 0.08) 75%, 
-                rgba(255, 255, 255, 0.15) 100%) !important;
-            backdrop-filter: blur(20px) saturate(180%) brightness(110%) !important;
-            -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(110%) !important;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                0 1px 0 rgba(255, 255, 255, 0.4) inset,
-                0 0 20px rgba(0, 0, 0, 0.08) !important;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-            color: #000 !important;
+            background: linear-gradient(135deg, rgba(25, 25, 25, 0.95) 0%, rgba(26, 26, 26, 0.95) 30%, rgba(26, 26, 26, 0.95) 70%, rgba(27, 27, 26, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: none !important;
+            border: none;
+            color: #D60A28 !important;
         }
 
         .header.scrolled .nav-menu a {
@@ -205,7 +194,7 @@ function getNavbarStyles() {
         }
 
         .header.scrolled .nav-menu a:hover {
-            color: #000 !important;
+            color: #D60A28 !important;
             text-shadow: 
                 0 0 15px rgba(255, 255, 255, 0.9), 
                 0 1px 3px rgba(255, 255, 255, 0.8),
@@ -304,7 +293,7 @@ function getNavbarStyles() {
             height: 45px;
             background: linear-gradient(135deg, #FF6B6B, #DC143C);
             border-radius: 50%;
-            color: white !important;
+            color: #D60A28 !important;
             text-decoration: none;
             font-size: 1.2rem;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -404,23 +393,23 @@ function getNavbarStyles() {
 
         /* Language button color change on scroll - White when navbar is black */
         .navbar.scrolled .language-btn {
-            color: white;
+            color: #D60A28;
             background: rgba(0, 0, 0, 0.1);
             border-color: rgba(0, 0, 0, 0.2);
         }
 
         .navbar.scrolled .language-btn:hover {
-            color: white;
+            color: #D60A28;
             background: rgba(0, 0, 0, 0.2);
             border-color: rgba(0, 0, 0, 0.3);
         }
 
         .navbar.scrolled .language-btn i {
-            color: white;
+            color: #D60A28;
         }
 
         .navbar.scrolled .language-btn:hover i {
-            color: white;
+            color: #D60A28;
         }
 
         
@@ -573,7 +562,7 @@ function getNavbarStyles() {
             display: flex !important;
             align-items: center;
             padding: 1.2rem 1.5rem;
-            color: white;
+            color: #D60A28;
             text-decoration: none;
             transition: all 0.4s ease;
             position: relative;
@@ -634,14 +623,14 @@ function getNavbarStyles() {
             transform: translateX(0);
             transition: all 0.3s ease;
             white-space: nowrap;
-            color: #fff;
+            color: #D60A28;
             display: inline-block !important;
             visibility: visible !important;
         }
 
         /* تأثيرات hover للنصوص في الموبايل مثل index.html */
         .mobile-sidenav a:hover .label {
-            color: #fff;
+            color: #D60A28;
             transform: translateX(3px);
             text-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
         }
@@ -680,12 +669,12 @@ function getNavbarStyles() {
         }
 
         .logo-sky {
-            color: #DC143C;
+            color: #D90A2C;
             font-weight: 800;
             font-size: 2.2rem;
             text-shadow:
-                0 0 10px rgba(220, 20, 60, 0.5),
-                0 0 20px rgba(220, 20, 60, 0.3),
+                0 0 10px rgba(217, 10, 44, 0.5),
+                0 0 20px rgba(217, 10, 44, 0.3),
                 0 2px 4px rgba(0, 0, 0, 0.3);
             animation: logoGlow 2s ease-in-out infinite alternate;
         }
@@ -793,7 +782,7 @@ function getNavbarStyles() {
         }
 
         .nav-menu a:hover {
-            color: #fff;
+            color: #D60A28;
             transform: translateY(-2px);
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
             box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
@@ -876,7 +865,7 @@ function getNavbarStyles() {
         }
 
         .header.scrolled .dropdown:hover .dropdown-toggle {
-            color: #000 !important;
+            color: #D60A28 !important;
             text-shadow: 
                 0 0 15px rgba(255, 255, 255, 0.9), 
                 0 1px 3px rgba(255, 255, 255, 0.8),
@@ -891,7 +880,7 @@ function getNavbarStyles() {
         }
 
         .dropdown:hover .dropdown-toggle {
-            color: #fff;
+            color: #D60A28;
             transform: translateY(-2px);
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
             box-shadow: none;
@@ -953,7 +942,7 @@ function getNavbarStyles() {
 
         .dropdown-menu a:hover {
             background: rgba(255, 255, 255, 0.1);
-            color: #fff !important;
+            color: #D60A28 !important;
             transform: translateX(5px);
             padding-left: 2rem;
             text-decoration: none;
@@ -1152,7 +1141,7 @@ function getNavbarStyles() {
             display: flex !important;
             visibility: visible !important;
             opacity: 1 !important;
-            color: white !important;
+            color: #D60A28 !important;
             text-decoration: none !important;
             padding: 1.2rem 1.5rem !important;
             margin: 0.5rem 1rem !important;
@@ -1402,7 +1391,7 @@ function getNavbarStyles() {
             /* تحسين زر Home */
             .mobile-sidenav .nav-link[href*="index"] {
                 background: linear-gradient(135deg, #DC143C, #B22222) !important;
-                color: white !important;
+                color: #D60A28 !important;
                 border-radius: 8px !important;
                 margin: 5px 0 !important;
                 padding: 12px 15px !important;

@@ -30,23 +30,23 @@
 
         /* Logo Scroll Effect - Same as yline */
         .logo-tagline {
-            color: rgba(255, 255, 255, 0.7);
+            color: #E3616E;
             font-weight: 500;
             font-size: 1rem;
             text-shadow:
-                0 0 10px rgba(255, 255, 255, 0.3),
-                0 0 15px rgba(255, 255, 255, 0.2),
-                0 2px 4px rgba(0, 0, 0, 0.1);
+                0 0 10px rgba(211, 10, 40, 0.3),
+                0 0 15px rgba(227, 97, 110, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.3);
             transition: all 0.4s ease;
         }
 
         .header.scrolled .logo-tagline {
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: #D60A28 !important;
             text-shadow:
-                0 1px 3px rgba(255, 255, 255, 0.3),
-                0 0 12px rgba(255, 255, 255, 0.2),
-                0 0 20px rgba(217, 10, 44, 0.4),
-                0 2px 4px rgba(0, 0, 0, 0.1);
+                0 1px 3px rgba(211, 10, 40, 0.3),
+                0 0 12px rgba(211, 10, 40, 0.2),
+                0 0 20px rgba(176, 13, 42, 0.4),
+                0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -73,7 +73,7 @@
         .mobile-menu-btn span {
             width: 100%;
             height: 3px;
-            background: rgba(255, 255, 255, 0.9);
+            background: #D60A28;
             border-radius: 2px;
             transition: all 0.3s ease;
         }
@@ -98,7 +98,7 @@
             left: -280px;
             width: 280px;
             height: 100vh;
-            background: rgba(248, 249, 250, 0.95);
+            background: rgba(26, 26, 26, 0.95);
             backdrop-filter: blur(20px);
             z-index: 9999;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -131,7 +131,7 @@
             display: flex;
             align-items: center;
             padding: 1.2rem 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #D60A28;
             text-decoration: none;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
@@ -153,12 +153,12 @@
         }
 
         .mobile-sidenav a:hover {
-            background: rgba(233, 236, 239, 0.8);
+            background: rgba(176, 13, 42, 0.8);
             transform: translateX(8px) scale(1.02);
-            border-left-color: #D90A2C;
+            border-left-color: #B00D2A;
             box-shadow:
-                0 5px 20px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                0 5px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(227, 97, 110, 0.3);
         }
 
         .mobile-sidenav a:hover::before {
@@ -187,17 +187,17 @@
             transform: translateX(0);
             transition: all 0.3s ease;
             white-space: nowrap;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            color: #D60A28;
             flex: 1;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .mobile-sidenav a:hover .label {
-            color: #D90A2C;
+            color: #B00D2A;
             transform: translateX(3px);
-            text-shadow: 0 2px 5px #D90A2C;
+            text-shadow: 0 2px 5px #B00D2A;
         }
 
         /* Mobile Overlay - Completely hidden on desktop */
@@ -414,12 +414,50 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333333;
-            background-color: #ffffff;
+            color: #C44048;
+            background: linear-gradient(135deg, #151515 0%, #181818 25%, #1A1A1A 50%, #171717 75%, #161616 100%);
             overflow-x: hidden;
             position: relative;
             padding-top: 80px;
             transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Heading Colors */
+        h1, h2, h3, h4, h5, h6 {
+            color: #FDF5E6 !important;
+        }
+
+        /* Paragraph Colors */
+        p {
+            color: #777 !important;
+        }
+
+        /* Card Colors - Dark Theme */
+        .service-card, .industry-card, .contact-card, .highlight-card {
+            background: #131313 !important;
+            border: 1px solid rgba(224, 10, 44, 0.2) !important;
+            color: #ffffff !important;
+        }
+        
+        .service-card h3, .industry-card h3, .contact-card h3, .highlight-card h4 {
+            color: #ffffff !important;
+        }
+        
+        .service-card p, .industry-card p, .contact-card p, .highlight-card p {
+            color: #ffffff !important;
+        }
+        
+        .service-card .feature-item, .industry-card .feature-item {
+            color: #E00A2C !important;
+        }
+        
+        .contact-card p {
+            color: #E00A2C !important;
+        }
+
+        /* CTA Section - White Text */
+        .cta-title, .cta-description {
+            color: #ffffff !important;
         }
 
         /* Reduce top padding on mobile for better content visibility */
@@ -542,7 +580,7 @@
 
         /* Hero Section with Slider */
         .hero {
-            background: linear-gradient(135deg, #D90A2C 0%, #D90A2C 100%);
+            background: linear-gradient(135deg, #161616 0%, #191919 25%, #1A1A1A 50%, #171717 75%, #151515 100%);
             color: white;
             padding: 0;
             text-align: center;
@@ -839,7 +877,7 @@
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(45deg, #000, #333, #000);
+            background: linear-gradient(45deg, #151515, #171717, #151515);
             color: white;
             padding: 1.2rem 3rem;
             text-decoration: none;
@@ -871,7 +909,7 @@
             box-shadow:
                 0 10px 30px rgba(0, 0, 0, 0.4),
                 0 0 20px rgba(255, 255, 255, 0.1);
-            background: linear-gradient(45deg, #333, #555, #333);
+            background: linear-gradient(45deg, #171717, #191919, #171717);
         }
 
         .cta-button:hover::before {
@@ -881,7 +919,7 @@
         /* Services Section - Modern & Creative */
         .services {
             padding: 120px 0;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+            background: linear-gradient(135deg, #1A1A1A 0%, #181818 25%, #171717 50%, #161616 75%, #151515 100%);
             position: relative;
             overflow: hidden;
         }
@@ -981,6 +1019,7 @@
         .section-title {
             font-size: 3.5rem;
             font-weight: 800;
+            color: #FDF5E6 !important;
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
@@ -1073,8 +1112,8 @@
         }
 
         .service-card.modern {
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid rgba(253, 29, 63, 0.1);
+            background: #131313;
+            border: 2px solid rgba(224, 10, 44, 0.2);
             border-radius: 30px;
             padding: 3rem 2.5rem;
             text-align: left;
@@ -1082,13 +1121,13 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(15, 14, 14, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
         .service-card.modern:hover {
             transform: translateY(-20px) scale(1.03);
-            border-color: rgba(253, 29, 63, 0.3);
-            box-shadow: 0 30px 80px rgba(253, 29, 63, 0.2);
+            border-color: rgba(224, 10, 44, 0.4);
+            box-shadow: 0 30px 80px rgba(224, 10, 44, 0.3);
         }
 
         .card-glow {
@@ -1191,12 +1230,12 @@
         .service-card.modern h3 {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #ffffff;
             margin-bottom: 1rem;
         }
 
         .service-card.modern p {
-            color: #4a4a4a;
+            color: #ffffff;
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
@@ -1263,7 +1302,7 @@
         /* About Section - Modern & Creative */
         .about {
             padding: 120px 0;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background: linear-gradient(135deg, #171717 0%, #191919 25%, #1A1A1A 50%, #181818 75%, #161616 100%);
             position: relative;
             overflow: hidden;
         }
@@ -1324,7 +1363,7 @@
 
         .about-cta-button {
             display: inline-block;
-            background: linear-gradient(45deg, #D90A2C, #D90A2C);
+            background: linear-gradient(45deg, #171717, #191919, #171717);
             color: white;
             padding: 1rem 2rem;
             text-decoration: none;
@@ -1356,7 +1395,7 @@
             box-shadow:
                 0 10px 30px rgba(217, 10, 44, 0.4),
                 0 0 20px rgba(255, 255, 255, 0.1);
-            background: linear-gradient(45deg, #D90A2C, #D90A2C);
+            background: linear-gradient(45deg, #181818, #1A1A1A, #181818);
         }
 
         .about-cta-button:hover::before {
@@ -1389,7 +1428,7 @@
         /* Industries Section - Modern & Creative */
         .industries {
             padding: 120px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #181818 0%, #1A1A1A 25%, #171717 50%, #151515 75%, #161616 100%);
             position: relative;
             overflow: hidden;
         }
@@ -1671,15 +1710,15 @@
 
         /* Modern Industry Cards */
         .industry-card.modern {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(45, 45, 45, 0.95);
             backdrop-filter: blur(25px);
-            border: 1px solid rgba(253, 29, 63, 0.4);
+            border: 1px solid rgba(224, 10, 44, 0.4);
             padding: 2.5rem;
             border-radius: 30px;
             box-shadow:
-                0 15px 50px rgba(0, 0, 0, 0.1),
-                0 0 0 1px rgba(255, 255, 255, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                0 15px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(224, 10, 44, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-align: left;
             position: relative;
@@ -1820,13 +1859,13 @@
         .industry-card.modern h3 {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #ffffff;
             margin-bottom: 1rem;
             transition: color 0.4s ease;
         }
 
         .industry-card.modern p {
-            color: #666666;
+            color: #ffffff;
             line-height: 1.6;
             margin-bottom: 1.5rem;
             font-size: 1rem;
@@ -2224,7 +2263,7 @@
         /* Contact Section */
         .contact {
             padding: 100px 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #151515 0%, #171717 25%, #191919 50%, #1A1A1A 75%, #161616 100%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -2270,9 +2309,9 @@
         }
 
         .contact-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(45, 45, 45, 0.95);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(224, 10, 44, 0.2);
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
@@ -2334,7 +2373,7 @@
         .contact-card p {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #D90A2C;
+            color: #E00A2C;
             margin-bottom: 0.5rem;
         }
 
@@ -2448,12 +2487,12 @@
         }
 
         .form-group select option {
-            background: #1a1a1a;
+            background: #151515;
             color: #fff;
         }
 
         .submit-button {
-            background: linear-gradient(45deg, #D90A2C, #ff6b6b);
+            background: linear-gradient(45deg, #171717, #191919);
             color: white;
             padding: 1.2rem 2.5rem;
             border: none;
@@ -3026,7 +3065,7 @@
         .home-overview {
             position: relative;
             padding: 0;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #f1f3f4 100%);
+            background: linear-gradient(135deg, #161616 0%, #181818 25%, #1A1A1A 50%, #171717 75%, #151515 100%);
             overflow: hidden;
         }
 
@@ -3177,14 +3216,38 @@
         }
 
         .welcome-btn.primary {
-            background: linear-gradient(135deg, #D90A2C, #D90A2C);
+            background: #DA0A2C;
             color: white;
-            box-shadow: 0 10px 30px rgba(217, 10, 44, 0.3);
+            box-shadow: 0 10px 30px rgba(218, 10, 44, 0.3);
         }
 
         .welcome-btn.primary:hover {
+            background: #E00A2C;
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(217, 10, 44, 0.4);
+            box-shadow: 0 20px 40px rgba(218, 10, 44, 0.4);
+        }
+
+        .watch-story-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: #131313;
+            color: white;
+            box-shadow: 0 10px 30px rgba(19, 19, 19, 0.3);
+        }
+
+        .watch-story-btn:hover {
+            background: #1A1A1A;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(19, 19, 19, 0.4);
         }
 
         .welcome-btn.secondary {
@@ -3227,7 +3290,7 @@
             position: relative;
             width: 100%;
             height: 60%;
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            background: linear-gradient(135deg, #151515, #171717);
             border-radius: 15px 15px 0 0;
             border: 2px solid #444;
             box-shadow:
@@ -3243,7 +3306,7 @@
             left: 0;
             right: 0;
             height: 25px;
-            background: linear-gradient(135deg, #333, #555);
+            background: linear-gradient(135deg, #171717, #191919);
             border-radius: 13px 13px 0 0;
             display: flex;
             align-items: center;
@@ -3294,7 +3357,7 @@
         .code-terminal {
             width: 90%;
             height: 80%;
-            background: #0a0a0a;
+            background: #151515;
             border-radius: 8px;
             border: 1px solid #333;
             overflow: hidden;
@@ -3331,7 +3394,7 @@
         .code-terminal {
             width: 90%;
             height: 80%;
-            background: #0a0a0a;
+            background: #151515;
             border-radius: 8px;
             border: 1px solid #333;
             overflow: hidden;
@@ -3343,7 +3406,7 @@
 
         .terminal-header {
             height: 25px;
-            background: linear-gradient(135deg, #333, #555);
+            background: linear-gradient(135deg, #171717, #191919);
             display: flex;
             align-items: center;
             padding: 0 10px;
@@ -4485,7 +4548,7 @@
         }
 
         .stat-item {
-            background: rgba(255, 255, 255, 0.9);
+            background: #131313;
             border: 1px solid rgba(217, 10, 44, 0.1);
             border-radius: 20px;
             padding: 2.5rem 2rem;
@@ -4494,7 +4557,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .stat-item::before {
@@ -4541,7 +4604,7 @@
 
         .stat-label {
             font-size: 1.1rem;
-            color: #666666;
+            color: #ffffff;
             font-weight: 600;
         }
 
@@ -4656,8 +4719,8 @@
         }
 
         .highlight-card.modern {
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid rgba(217, 10, 44, 0.1);
+            background: rgba(45, 45, 45, 0.95);
+            border: 2px solid rgba(224, 10, 44, 0.2);
             border-radius: 25px;
             padding: 3rem 2rem;
             text-align: center;
@@ -4665,13 +4728,13 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         .highlight-card.modern:hover {
             transform: translateY(-15px) scale(1.02);
-            border-color: rgba(217, 10, 44, 0.3);
-            box-shadow: 0 25px 60px rgba(217, 10, 44, 0.2);
+            border-color: rgba(224, 10, 44, 0.4);
+            box-shadow: 0 25px 60px rgba(224, 10, 44, 0.3);
         }
 
         .card-glow {
@@ -4778,12 +4841,12 @@
         .highlight-card.modern h4 {
             font-size: 1.6rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #ffffff;
             margin-bottom: 1rem;
         }
 
         .highlight-card.modern p {
-            color: #4a4a4a;
+            color: #ffffff;
             line-height: 1.6;
             margin-bottom: 2rem;
         }
@@ -5172,7 +5235,7 @@
         .diamond-item {
             width: 180px;
             height: 200px;
-            background: linear-gradient(135deg, #D6A7AD 0%, #ffffff 100%);
+            background: #131313;
             border-radius: 20px;
             display: flex;
             flex-direction: column;
@@ -5198,7 +5261,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, #6c757d, #fd7e14);
+            background: linear-gradient(135deg, #161617, #121212);
             border-radius: 20px;
             opacity: 0;
             transition: all 0.3s ease;
@@ -5227,7 +5290,7 @@
         .diamond-text h4 {
             font-size: 1rem;
             margin-bottom: 6px;
-            color: #0F0E0E;
+            color: #f9f7f8 !important;
             font-weight: 700;
         }
 
@@ -5240,9 +5303,10 @@
         /* Hover Effects */
         .diamond-item:hover {
             transform: translateY(-8px) scale(1.02);
+            background: #1A1A1A;
             box-shadow: 
                 0 20px 40px rgba(15, 14, 14, 0.15),
-                0 8px 25px rgba(253, 29, 63, 0.1);
+                0 8px 25px rgba(253, 29, 63, 0.3);
         }
 
         .diamond-item:hover::before {
@@ -5250,12 +5314,12 @@
         }
 
         .diamond-item:hover .diamond-icon {
-            color: white;
+            color: red;
             transform: scale(1.1) rotate(5deg);
         }
 
         .diamond-item:hover .diamond-text h4 {
-            color: white;
+            color: red;
         }
 
         .diamond-item:hover .diamond-text span {
@@ -5402,7 +5466,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #D6A7AD 0%, #D52D43 25%, #FD1D3F 75%, #0F0E0E 100%);
+            background: linear-gradient(135deg, #B00D2A 0%, #D60A28 50%, #E3616E 100%);
         }
 
         .cta-pattern {
@@ -5432,7 +5496,7 @@
             position: relative;
             z-index: 3;
             text-align: center;
-            color: white;
+            color: #ffffff;
         }
 
         .cta-header {
@@ -5443,6 +5507,7 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            color: #ffffff;
         }
 
         .cta-description {
@@ -5451,6 +5516,7 @@
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.6;
+            color: #ffffff;
         }
 
         .cta-buttons {
@@ -5477,14 +5543,16 @@
         }
 
         .cta-button.primary {
-            background: white;
-            color: #D90A2C;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
+            background: #0a0102;
+    color: #d11d1d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+        
 
         .cta-button.primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            /* background: #D60A28; */
         }
 
         .button-glow {
@@ -5502,29 +5570,29 @@
         }
 
         .cta-button.secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(224, 10, 44, 0.2);
+            color: #ffffff;
+            border-color: rgba(224, 10, 44, 0.4);
             backdrop-filter: blur(10px);
         }
 
         .cta-button.secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(224, 10, 44, 0.4);
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button.outline {
             background: transparent;
-            color: white;
-            border-color: white;
+            color: #ffffff;
+            border-color: #E00A2C;
         }
 
         .cta-button.outline:hover {
-            background: white;
-            color: #D90A2C;
+            background: #E00A2C;
+            color: #ffffff;
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         /* Responsive Design */
@@ -6286,7 +6354,7 @@ From enterprise systems to cloud-powered platforms, we empower organizations to 
                             <i class="fas fa-rocket"></i>
                             <span data-translate="get-started">Start Your Journey</span>
                         </a>
-                        <a href="about.html" class="welcome-btn secondary">
+                        <a href="about.html" class="watch-story-btn">
                             <i class="fas fa-play"></i>
                             <span data-translate="learn-more">Watch Our Story</span>
                         </a>
